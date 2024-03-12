@@ -32,10 +32,18 @@ class MessageLookup extends MessageLookupByLibrary {
             "تم العثور على تعارض , حاول مرة أخرى لاحقًا"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "dontHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+        "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+        "emailCantBeEmpty": MessageLookupByLibrary.simpleMessage(
+            "لا يمكن ترك حقل البريد الإلكتروني فارغًا"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "طلب محظور. حاول مرة أخرى لاحقًا"),
+        "forgotPassword":
+            MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "method_not_allowed_error": MessageLookupByLibrary.simpleMessage(
             "غير مدعوم، يرجى المحاولة مرة أخرى لاحقًا"),
         "moved_permanently":
@@ -47,9 +55,18 @@ class MessageLookup extends MessageLookupByLibrary {
             "يُرجى التحقق من اتصالك بالإنترنت"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url غير موجود , حاول مرة أخرى لاحقًا"),
+        "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "passwordCantBeEmpty": MessageLookupByLibrary.simpleMessage(
+            "لا يمكن ترك حقل كلمة المرور فارغًا"),
+        "passwordIsTooShort":
+            MessageLookupByLibrary.simpleMessage("كلمة المرور قصيرة جدًا"),
         "payment_required": MessageLookupByLibrary.simpleMessage("الدفع مطلوب"),
+        "plzEnterAValidEmail": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال عنوان بريد إلكتروني صالح"),
+        "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("الخادم قيد الصيانة"),
+        "signUp": MessageLookupByLibrary.simpleMessage("سجل الآن"),
         "success": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
         "timeout_error": MessageLookupByLibrary.simpleMessage(
             "انتهت المهلة , حاول مرة أخرى لاحقًا"),

@@ -1,45 +1,60 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 
-import '../../utils/app_text_styles.dart';
 import '../../utils/app_colors.dart';
+import '../../utils/app_text_styles.dart';
 import '../../utils/dimensions.dart';
 
 class CustomBtn extends StatelessWidget {
-  final String label;
-  final VoidCallback onPressed;
+  final String? label;
+  final VoidCallback? onPressed;
   final bool isUpperCase;
-  final double? borderRadius;
-  final Color? bgColor;
-  final Color? fgColor;
+  double borderRadius;
+  Color? bgColor;
+  Color? fgColor;
+  final TextStyle? textStyle;
 
-  const CustomBtn({
+  CustomBtn({
     super.key,
-    required this.label,
-    required this.onPressed,
-    required this.isUpperCase,
-    this.borderRadius = Dimensions.r25,
-    this.bgColor = AppColors.pinkPrimary,
+    this.label,
+    this.onPressed,
+    this.isUpperCase = false,
+    this.borderRadius = Dimensions.r10,
     this.fgColor = AppColors.textWhite,
+    this.bgColor = AppColors.pinkPrimary,
+    this.textStyle,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        padding: const EdgeInsets.all(Dimensions.p16),
-        decoration: BoxDecoration(
-          color: bgColor,
-          borderRadius: BorderRadius.circular(borderRadius!),
+    return Padding(
+      padding: const EdgeInsets.all(Dimensions.p16),
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.symmetric(
+            horizontal: Dimensions.p10.w,
+            vertical: Dimensions.p10.h,
+          ),
+          minimumSize: Size(
+            double.infinity,
+            0.07.sh,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+              Dimensions.r12,
+            ),
+          ),
+          backgroundColor: bgColor,
+          foregroundColor: fgColor,
         ),
         child: Text(
-          isUpperCase
-              ? label.isNullOrEmpty().toUpperCase()
-              : label.isNullOrEmpty(),
-          style: CustomTextStyle.kBtnTextStyle.copyWith(
-            color: fgColor,
-          ),
+          isUpperCase ? label.isNullOrEmpty().toUpperCase() : label.isNullOrEmpty(),
+          style: textStyle ?? CustomTextStyle.kBtnTextStyle,
+          textAlign: TextAlign.center,
         ),
       ),
     );

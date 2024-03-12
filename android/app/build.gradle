@@ -23,7 +23,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.coddiv.hge"
+    namespace "com.coddiv.loveleta"
     compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
@@ -63,5 +63,3 @@ android {
 flutter {
     source '../..'
 }
-
-dependencies {}
