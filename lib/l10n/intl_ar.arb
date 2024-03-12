@@ -18,5 +18,18 @@
   "default_error": "حدث خطأ ما , حاول مرة أخرى لاحقًا",
   "cache_error": "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا",
   "no_internet_error": "يُرجى التحقق من اتصالك بالإنترنت",
-  "method_not_allowed_error": "غير مدعوم، يرجى المحاولة مرة أخرى لاحقًا"
+  "method_not_allowed_error": "غير مدعوم، يرجى المحاولة مرة أخرى لاحقًا",
+
+  "@_Login": {},
+  "login": "تسجيل الدخول",
+  "email": "البريد الإلكتروني",
+  "password": "كلمة المرور",
+  "rememberMe": "تذكرني",
+  "forgotPassword": "نسيت كلمة المرور",
+  "dontHaveAnAccount": "ليس لديك حساب؟",
+  "signUp": "سجل الآن",
+  "emailCantBeEmpty": "لا يمكن ترك حقل البريد الإلكتروني فارغًا",
+  "plzEnterAValidEmail": "الرجاء إدخال عنوان بريد إلكتروني صالح",
+  "passwordCantBeEmpty": "لا يمكن ترك حقل كلمة المرور فارغًا",
+  "passwordIsTooShort": "كلمة المرور قصيرة جدًا"
 }

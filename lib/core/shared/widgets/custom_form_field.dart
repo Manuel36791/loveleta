@@ -62,7 +62,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
             suffix: widget.postIcon,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(
-                Dimensions.r20,
+                Dimensions.r5,
               ),
               borderSide: BorderSide(
                 color: widget.color,

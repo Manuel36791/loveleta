@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loveleta/core/router/router.dart';
 
+import '../../feature/auth/login/presentation/pages/login_view.dart';
 import '../../main_view.dart';
 
 class AppRouters {
@@ -8,7 +9,7 @@ class AppRouters {
     switch (settings.name) {
       case loginPageRoute:
         return MaterialPageRoute(
-          builder: (BuildContext context) => const MainView(),
+          builder: (BuildContext context) => const LoginView(),
         );
 
 

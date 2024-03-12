@@ -32,10 +32,18 @@ class MessageLookup extends MessageLookupByLibrary {
             "conflict found, try again later"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
+        "dontHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("Don’t Have An account"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emailCantBeEmpty":
+            MessageLookupByLibrary.simpleMessage("Email can\'t be empty"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
+        "forgotPassword":
+            MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
         "method_not_allowed_error": MessageLookupByLibrary.simpleMessage(
             "Unsupported, please try Again later"),
         "moved_permanently": MessageLookupByLibrary.simpleMessage(
@@ -48,10 +56,19 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please check your internet connection"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url not found, try again later"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "passwordCantBeEmpty":
+            MessageLookupByLibrary.simpleMessage("Password can\'t be empty"),
+        "passwordIsTooShort":
+            MessageLookupByLibrary.simpleMessage("Password is too short"),
         "payment_required":
             MessageLookupByLibrary.simpleMessage("Payment Required"),
+        "plzEnterAValidEmail":
+            MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
+        "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("Server is under maintenance"),
+        "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
         "timeout_error":
             MessageLookupByLibrary.simpleMessage("time out, try again late"),

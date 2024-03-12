@@ -9,7 +9,7 @@ class AppConstants {
   static const prefsLangKey = "prefsLangKey";
 
   // * Main UI constants
-  static const mainFontFamily = "";
+  static const mainFontFamily = "Open Sans";
   static const subFontFamily = "";
   static const unknownStringValue = "UNKNOWN STRING VALUE";
   static const unknownNumValue = 2077;
