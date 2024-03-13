@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "alreadyHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "bad_gateway": MessageLookupByLibrary.simpleMessage(
             "Invalid data, please try again"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
@@ -37,12 +39,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailCantBeEmpty":
             MessageLookupByLibrary.simpleMessage("Email can\'t be empty"),
+        "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
+        "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "method_not_allowed_error": MessageLookupByLibrary.simpleMessage(
             "Unsupported, please try Again later"),
@@ -59,10 +63,35 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordCantBeEmpty":
             MessageLookupByLibrary.simpleMessage("Password can\'t be empty"),
+        "passwordConfirmation":
+            MessageLookupByLibrary.simpleMessage("Password Confirmation"),
         "passwordIsTooShort":
             MessageLookupByLibrary.simpleMessage("Password is too short"),
+        "passwordsDoNotMatchPleaseTryAgain":
+            MessageLookupByLibrary.simpleMessage(
+                "Passwords do not match. Please try again"),
         "payment_required":
             MessageLookupByLibrary.simpleMessage("Payment Required"),
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "pleaseEnterAPassword":
+            MessageLookupByLibrary.simpleMessage("Please enter a password"),
+        "pleaseEnterAPasswordWithAtLeast8Characters":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter a password with at least 8 characters"),
+        "pleaseEnterAValidEmailAddress": MessageLookupByLibrary.simpleMessage(
+            "Please enter a valid email address"),
+        "pleaseEnterAValidPhoneNumber": MessageLookupByLibrary.simpleMessage(
+            "Please enter a valid phone number"),
+        "pleaseEnterYourEmailAddress": MessageLookupByLibrary.simpleMessage(
+            "Please enter your email address"),
+        "pleaseEnterYourFirstName": MessageLookupByLibrary.simpleMessage(
+            "Please enter your first name"),
+        "pleaseEnterYourLastName":
+            MessageLookupByLibrary.simpleMessage("Please enter your last name"),
+        "pleaseEnterYourPhoneNumber": MessageLookupByLibrary.simpleMessage(
+            "Please enter your phone number"),
+        "pleaseReconfirmYourPassword": MessageLookupByLibrary.simpleMessage(
+            "Please reconfirm your password"),
         "plzEnterAValidEmail":
             MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),

@@ -1,13 +1,14 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:loveleta/core/router/router.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../core/router/router.dart';
 import '../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../core/shared/widgets/custom_form_field.dart';
 import '../../../../../core/utils/app_colors.dart';
@@ -15,24 +16,27 @@ import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
-import '../manager/login_cubit.dart';
+import '../manager/register_cubit.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _RegisterViewState extends State<RegisterView> {
+  
+  
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => di.di<LoginCubit>(),
-      child: BlocConsumer<LoginCubit, LoginStates>(
-        listener: (context, state) {},
+      create: (context) => di.di<RegisterCubit>(),
+      child: BlocConsumer<RegisterCubit, RegisterStates>(
+        listener: (context, state) {
+        },
         builder: (context, state) {
-          LoginCubit loginCubit = LoginCubit.get(context);
+          RegisterCubit registerCubit = RegisterCubit.get(context);
           return Scaffold(
             body: SafeArea(
               child: Padding(
@@ -52,60 +56,95 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       Gap(20.h),
                       Text(
-                        S.of(context).login,
+                        S.of(context).signUp,
                         style: CustomTextStyle.kTextStyleF26.copyWith(
                           fontWeight: FontWeight.w700,
                         ),
                       ),
                       Gap(30.h),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: CustomFormField(
+                              stream: registerCubit.firstNameStream,
+                              onChanged: (firstName) {
+                                registerCubit.validateFirstName(firstName);
+                              },
+                              label: S.of(context).firstName,
+                            ),
+                          ),
+                          Gap(10.w),
+                          Expanded(
+                            child: CustomFormField(
+                              stream: registerCubit.lastNameStream,
+                              onChanged: (lastName) {
+                                registerCubit.validateLastName(lastName);
+                              },
+                              label: S.of(context).lastName,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Gap(10.h),
                       CustomFormField(
-                        stream: loginCubit.emailStream,
+                        stream: registerCubit.emailStream,
                         onChanged: (email) {
-                          loginCubit.validateEmail(email);
+                          registerCubit.validateEmail(email);
                         },
                         label: S.of(context).email,
                       ),
                       Gap(10.h),
+                      Row(
+                        children: [
+                          Flexible(
+                            flex: 1,
+                            child: CountryCodePicker(
+                              initialSelection: 'SA',
+                              favorite: const ['966', 'SA'],
+                              onChanged: (code) {
+                                registerCubit.countryCode = code.code!;
+                              },
+                            ),
+                          ),
+                          Gap(10.w),
+                          Flexible(
+                            flex: 3,
+                            child: CustomFormField(
+                              stream: registerCubit.phoneStream,
+                              onChanged: (phone) {
+                                registerCubit.validatePhone(phone);
+                              },
+                              label: S.of(context).phoneNumber,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Gap(10.h),
                       CustomFormField(
-                        stream: loginCubit.passStream,
+                        stream: registerCubit.passStream,
                         onChanged: (pass) {
-                          loginCubit.validatePass(pass);
+                          registerCubit.validatePass(pass);
                         },
                         label: S.of(context).password,
                       ),
                       Gap(10.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Checkbox(
-                                activeColor: AppColors.pinkPrimary,
-                                value: true,
-                                onChanged: (value) {},
-                              ),
-                              Text(
-                                S.of(context).rememberMe,
-                                style: CustomTextStyle.kTextStyleF13,
-                              ),
-                            ],
-                          ),
-                          Text(
-                            S.of(context).forgotPassword,
-                            style: CustomTextStyle.kTextStyleF13,
-                          ),
-                        ],
+                      CustomFormField(
+                        stream: registerCubit.passConfirmStream,
+                        onChanged: (passConfirm) {
+                          registerCubit.validatePassConfirm(passConfirm);
+                        },
+                        label: S.of(context).passwordConfirmation,
                       ),
-                      Gap(30.h),
+                      Gap(20.h),
                       StreamBuilder(
-                        stream: loginCubit.loginStream,
+                        stream: registerCubit.registerBtnStream,
                         builder: (context, snapshot) {
                           return ConditionalBuilder(
                             condition: true,
                             builder: (ctx) {
                               return CustomBtn(
                                 isUpperCase: false,
-                                label: S.of(context).login,
+                                label: S.of(context).signUp,
                                 onPressed: snapshot.hasError ? null : () {},
                               );
                             },
@@ -125,19 +164,19 @@ class _LoginViewState extends State<LoginView> {
                           );
                         },
                       ),
-                      Gap(20.h),
+                      Gap(30.h),
                       Row(
                         children: [
                           Text(
-                            S.of(context).dontHaveAnAccount,
+                            S.of(context).alreadyHaveAnAccount,
                             style: CustomTextStyle.kTextStyleF16,
                           ),
                           TextButton(
                             onPressed: () {
-                              context.pushNamed(registerPageRoute);
+                              context.pushNamed(loginPageRoute);
                             },
                             child: Text(
-                              S.of(context).signUp,
+                              S.of(context).login,
                               style: CustomTextStyle.kTextStyleF16.copyWith(
                                 fontWeight: FontWeight.w700,
                               ),

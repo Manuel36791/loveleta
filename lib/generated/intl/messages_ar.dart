@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "alreadyHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("هل لديك حساب بالفعل؟"),
         "bad_gateway": MessageLookupByLibrary.simpleMessage(
             "بيانات غير صالحة، يرجى المحاولة مرة أخرى"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
@@ -37,12 +39,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "emailCantBeEmpty": MessageLookupByLibrary.simpleMessage(
             "لا يمكن ترك حقل البريد الإلكتروني فارغًا"),
+        "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "طلب محظور. حاول مرة أخرى لاحقًا"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "lastName": MessageLookupByLibrary.simpleMessage("الاسم الأخير"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "method_not_allowed_error": MessageLookupByLibrary.simpleMessage(
             "غير مدعوم، يرجى المحاولة مرة أخرى لاحقًا"),
@@ -58,9 +62,34 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordCantBeEmpty": MessageLookupByLibrary.simpleMessage(
             "لا يمكن ترك حقل كلمة المرور فارغًا"),
+        "passwordConfirmation":
+            MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "passwordIsTooShort":
             MessageLookupByLibrary.simpleMessage("كلمة المرور قصيرة جدًا"),
+        "passwordsDoNotMatchPleaseTryAgain":
+            MessageLookupByLibrary.simpleMessage(
+                "كلمات المرور غير متطابقة. يرجى المحاولة مرة أخرى"),
         "payment_required": MessageLookupByLibrary.simpleMessage("الدفع مطلوب"),
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+        "pleaseEnterAPassword":
+            MessageLookupByLibrary.simpleMessage("الرجاء إدخال كلمة مرور"),
+        "pleaseEnterAPasswordWithAtLeast8Characters":
+            MessageLookupByLibrary.simpleMessage(
+                "الرجاء إدخال كلمة مرور تتكون من 8 أحرف على الأقل"),
+        "pleaseEnterAValidEmailAddress": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال عنوان بريد إلكتروني صحيح"),
+        "pleaseEnterAValidPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("الرجاء إدخال رقم هاتف صحيح"),
+        "pleaseEnterYourEmailAddress": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال عنوان بريدك الإلكتروني"),
+        "pleaseEnterYourFirstName": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال الاسم الأول الخاص بك"),
+        "pleaseEnterYourLastName": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال الاسم الأخير الخاص بك"),
+        "pleaseEnterYourPhoneNumber":
+            MessageLookupByLibrary.simpleMessage("الرجاء إدخال رقم هاتفك"),
+        "pleaseReconfirmYourPassword": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إعادة تأكيد كلمة المرور"),
         "plzEnterAValidEmail": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال عنوان بريد إلكتروني صالح"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
