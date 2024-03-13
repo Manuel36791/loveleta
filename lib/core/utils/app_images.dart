@@ -12,7 +12,7 @@ class AppImages {
 
   //? SVG Paths
   static String wifiSvg = "$svgPath/wifi.svg";
-  static String loginSvg = "$svgPath/app_logo.svg";
+  static String appLogoSvg = "$svgPath/app_logo.svg";
 
 
 }

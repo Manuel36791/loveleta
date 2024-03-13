@@ -359,6 +359,156 @@ class S {
       args: [],
     );
   }
+
+  /// `First Name`
+  String get firstName {
+    return Intl.message(
+      'First Name',
+      name: 'firstName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last Name`
+  String get lastName {
+    return Intl.message(
+      'Last Name',
+      name: 'lastName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phoneNumber {
+    return Intl.message(
+      'Phone Number',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password Confirmation`
+  String get passwordConfirmation {
+    return Intl.message(
+      'Password Confirmation',
+      name: 'passwordConfirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account?`
+  String get alreadyHaveAnAccount {
+    return Intl.message(
+      'Already have an account?',
+      name: 'alreadyHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your first name`
+  String get pleaseEnterYourFirstName {
+    return Intl.message(
+      'Please enter your first name',
+      name: 'pleaseEnterYourFirstName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your last name`
+  String get pleaseEnterYourLastName {
+    return Intl.message(
+      'Please enter your last name',
+      name: 'pleaseEnterYourLastName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your phone number`
+  String get pleaseEnterYourPhoneNumber {
+    return Intl.message(
+      'Please enter your phone number',
+      name: 'pleaseEnterYourPhoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid phone number`
+  String get pleaseEnterAValidPhoneNumber {
+    return Intl.message(
+      'Please enter a valid phone number',
+      name: 'pleaseEnterAValidPhoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email address`
+  String get pleaseEnterYourEmailAddress {
+    return Intl.message(
+      'Please enter your email address',
+      name: 'pleaseEnterYourEmailAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email address`
+  String get pleaseEnterAValidEmailAddress {
+    return Intl.message(
+      'Please enter a valid email address',
+      name: 'pleaseEnterAValidEmailAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a password`
+  String get pleaseEnterAPassword {
+    return Intl.message(
+      'Please enter a password',
+      name: 'pleaseEnterAPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a password with at least 8 characters`
+  String get pleaseEnterAPasswordWithAtLeast8Characters {
+    return Intl.message(
+      'Please enter a password with at least 8 characters',
+      name: 'pleaseEnterAPasswordWithAtLeast8Characters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please reconfirm your password`
+  String get pleaseReconfirmYourPassword {
+    return Intl.message(
+      'Please reconfirm your password',
+      name: 'pleaseReconfirmYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords do not match. Please try again`
+  String get passwordsDoNotMatchPleaseTryAgain {
+    return Intl.message(
+      'Passwords do not match. Please try again',
+      name: 'passwordsDoNotMatchPleaseTryAgain',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

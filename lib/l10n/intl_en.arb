@@ -32,5 +32,22 @@
   "emailCantBeEmpty": "Email can't be empty",
   "plzEnterAValidEmail": "Please enter a valid email",
   "passwordCantBeEmpty": "Password can't be empty",
-  "passwordIsTooShort": "Password is too short"
+  "passwordIsTooShort": "Password is too short",
+
+  "@_Register": {},
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "phoneNumber": "Phone Number",
+  "passwordConfirmation": "Password Confirmation",
+  "alreadyHaveAnAccount": "Already have an account?",
+  "pleaseEnterYourFirstName": "Please enter your first name",
+  "pleaseEnterYourLastName": "Please enter your last name",
+  "pleaseEnterYourPhoneNumber": "Please enter your phone number",
+  "pleaseEnterAValidPhoneNumber": "Please enter a valid phone number",
+  "pleaseEnterYourEmailAddress": "Please enter your email address",
+  "pleaseEnterAValidEmailAddress": "Please enter a valid email address",
+  "pleaseEnterAPassword": "Please enter a password",
+  "pleaseEnterAPasswordWithAtLeast8Characters": "Please enter a password with at least 8 characters",
+  "pleaseReconfirmYourPassword": "Please reconfirm your password",
+  "passwordsDoNotMatchPleaseTryAgain": "Passwords do not match. Please try again"
 }
