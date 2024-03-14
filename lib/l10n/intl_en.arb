@@ -49,5 +49,12 @@
   "pleaseEnterAPassword": "Please enter a password",
   "pleaseEnterAPasswordWithAtLeast8Characters": "Please enter a password with at least 8 characters",
   "pleaseReconfirmYourPassword": "Please reconfirm your password",
-  "passwordsDoNotMatchPleaseTryAgain": "Passwords do not match. Please try again"
+  "passwordsDoNotMatchPleaseTryAgain": "Passwords do not match. Please try again",
+
+  "@_VerifyAccount" : {},
+  "verifyAccount": "Verify Account",
+  "verify": "Verify",
+  "sendAgain": "Send Again",
+  "pleaseEnterTheActivationCodeSentToYourEmail": "Please enter the activation code sent to your email",
+  "codeCantBeLessThan4Characters": "Code can't be less than 4 characters"
 }

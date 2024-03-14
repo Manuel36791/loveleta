@@ -48,5 +48,12 @@
   "pleaseEnterAPassword": "الرجاء إدخال كلمة مرور",
   "pleaseEnterAPasswordWithAtLeast8Characters": "الرجاء إدخال كلمة مرور تتكون من 8 أحرف على الأقل",
   "pleaseReconfirmYourPassword": "الرجاء إعادة تأكيد كلمة المرور",
-  "passwordsDoNotMatchPleaseTryAgain": "كلمات المرور غير متطابقة. يرجى المحاولة مرة أخرى"
+  "passwordsDoNotMatchPleaseTryAgain": "كلمات المرور غير متطابقة. يرجى المحاولة مرة أخرى",
+
+  "@_VerifyAccount": {},
+  "verifyAccount": "تحقق من الحساب",
+  "verify": "تحقق",
+  "sendAgain": "إرسال مرة أخرى",
+  "pleaseEnterTheActivationCodeSentToYourEmail": "الرجاء إدخال رمز التنشيط المرسل إلى بريدك الإلكتروني",
+  "codeCantBeLessThan4Characters": "الرمز لا يمكن أن يكون أقل من 4 أحرف"
 }

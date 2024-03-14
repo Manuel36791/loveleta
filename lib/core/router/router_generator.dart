@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:loveleta/core/router/router.dart';
 
 import '../../feature/auth/login/presentation/pages/login_view.dart';
 import '../../feature/auth/register/presentation/pages/register_view.dart';
+import '../../feature/auth/verify_account/presentation/pages/verify_account_view.dart';
 import '../../main_view.dart';
+import 'router.dart';
 
 class AppRouters {
   static Route routeGenerator(RouteSettings settings) {
@@ -15,6 +16,10 @@ class AppRouters {
       case registerPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const RegisterView(),
+        );
+        case verifyAccountPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const VerifyAccountView(),
         );
 
 
