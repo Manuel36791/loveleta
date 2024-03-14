@@ -92,9 +92,14 @@ class _LoginViewState extends State<LoginView> {
                               ),
                             ],
                           ),
-                          Text(
-                            S.of(context).forgotPassword,
-                            style: CustomTextStyle.kTextStyleF13,
+                          TextButton(
+                            child: Text(
+                              S.of(context).forgotPassword,
+                              style: CustomTextStyle.kTextStyleF13,
+                            ),
+                            onPressed: () {
+                              context.pushNamed(forgotPassPageRoute);
+                            },
                           ),
                         ],
                       ),

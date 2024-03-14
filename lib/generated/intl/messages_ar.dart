@@ -32,6 +32,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا"),
         "codeCantBeLessThan4Characters": MessageLookupByLibrary.simpleMessage(
             "الرمز لا يمكن أن يكون أقل من 4 أحرف"),
+        "confirmNewPassword":
+            MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور الجديدة"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "تم العثور على تعارض , حاول مرة أخرى لاحقًا"),
         "default_error": MessageLookupByLibrary.simpleMessage(
@@ -44,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "طلب محظور. حاول مرة أخرى لاحقًا"),
+        "forgetPassword":
+            MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
@@ -56,6 +60,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("هذا الرابط لم يعد متاحًا"),
         "multiple_choices":
             MessageLookupByLibrary.simpleMessage("اختر خيارًا للمتابعة"),
+        "newPassword":
+            MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
+        "newPasswordCantBeLessThan8Characters":
+            MessageLookupByLibrary.simpleMessage(
+                "يجب أن تتكون كلمة المرور الجديدة من 8 أحرف على الأقل"),
         "no_content": MessageLookupByLibrary.simpleMessage("نجاح بدون محتوى"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
             "يُرجى التحقق من اتصالك بالإنترنت"),
@@ -98,10 +107,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "plzEnterAValidEmail": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال عنوان بريد إلكتروني صالح"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+        "resetPassword":
+            MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),
         "sendAgain": MessageLookupByLibrary.simpleMessage("إرسال مرة أخرى"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("الخادم قيد الصيانة"),
         "signUp": MessageLookupByLibrary.simpleMessage("سجل الآن"),
+        "submit": MessageLookupByLibrary.simpleMessage("تقديم"),
         "success": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
         "timeout_error": MessageLookupByLibrary.simpleMessage(
             "انتهت المهلة , حاول مرة أخرى لاحقًا"),

@@ -32,6 +32,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "cache error, try again later"),
         "codeCantBeLessThan4Characters": MessageLookupByLibrary.simpleMessage(
             "Code can\'t be less than 4 characters"),
+        "confirmNewPassword":
+            MessageLookupByLibrary.simpleMessage("Confirm New Password"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "conflict found, try again later"),
         "default_error": MessageLookupByLibrary.simpleMessage(
@@ -44,6 +46,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
+        "forgetPassword":
+            MessageLookupByLibrary.simpleMessage("Forget Password"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
@@ -56,6 +60,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "This URL is no longer available"),
         "multiple_choices": MessageLookupByLibrary.simpleMessage(
             "Choose an option to continue"),
+        "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
+        "newPasswordCantBeLessThan8Characters":
+            MessageLookupByLibrary.simpleMessage(
+                "New password can\'t be less than 8 characters"),
         "no_content":
             MessageLookupByLibrary.simpleMessage("success with not content"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
@@ -100,10 +108,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "plzEnterAValidEmail":
             MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
+        "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
         "sendAgain": MessageLookupByLibrary.simpleMessage("Send Again"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("Server is under maintenance"),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
         "timeout_error":
             MessageLookupByLibrary.simpleMessage("time out, try again late"),
