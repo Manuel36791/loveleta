@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loveleta/feature/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 
 import '../../feature/auth/forgot_pass/presentation/pages/forgot_pass_view.dart';
 import '../../feature/auth/login/presentation/pages/login_view.dart';
@@ -25,6 +26,10 @@ class AppRouters {
       case forgotPassPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const ForgotPassView(),
+        );
+        case resetPassPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const ResetPassView(),
         );
 
       default:
