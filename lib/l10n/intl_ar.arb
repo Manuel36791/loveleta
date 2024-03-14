@@ -64,7 +64,11 @@
   "@_ResetPassword": {},
   "resetPassword": "إعادة تعيين كلمة المرور",
   "pleaseEnterVerificationCodeSentToYourEmail": "يرجى إدخال رمز التحقق المرسل إلى بريدك الإلكتروني",
+
+  "@_NewPassword": {},
   "newPassword": "كلمة المرور الجديدة",
   "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
-  "newPasswordCantBeLessThan8Characters": "يجب أن تتكون كلمة المرور الجديدة من 8 أحرف على الأقل"
+  "newPasswordCantBeLessThan8Characters": "لا يمكن أن تكون كلمة المرور الجديدة أقل من 8 أحرف",
+  "changePassword": "تغيير كلمة المرور",
+  "updatePassword": "تحديث كلمة المرور"
 }

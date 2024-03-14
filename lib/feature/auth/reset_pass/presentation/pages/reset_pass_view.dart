@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+import 'package:loveleta/core/router/router.dart';
+import 'package:loveleta/core/utils/extensions.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
@@ -142,7 +144,9 @@ class _ResetPassViewState extends State<ResetPassView> {
                                 label: S
                                     .of(context)
                                     .sendAgain,
-                                onPressed: () {},
+                                onPressed: () {
+                                  context.pushNamed(changePassPageRoute);
+                                },
                                 bgColor: Colors.white,
                                 textStyle:
                                 CustomTextStyle.kBtnTextStyle.copyWith(

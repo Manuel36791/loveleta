@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "طلب غير صالح. حاول مرة أخرى لاحقًا"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا"),
+        "changePassword":
+            MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "codeCantBeLessThan4Characters": MessageLookupByLibrary.simpleMessage(
             "الرمز لا يمكن أن يكون أقل من 4 أحرف"),
         "confirmNewPassword":
@@ -64,7 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
         "newPasswordCantBeLessThan8Characters":
             MessageLookupByLibrary.simpleMessage(
-                "يجب أن تتكون كلمة المرور الجديدة من 8 أحرف على الأقل"),
+                "لا يمكن أن تكون كلمة المرور الجديدة أقل من 8 أحرف"),
         "no_content": MessageLookupByLibrary.simpleMessage("نجاح بدون محتوى"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
             "يُرجى التحقق من اتصالك بالإنترنت"),
@@ -124,6 +126,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "المستخدم غير مصرح له، جرب مرة أخرى في وقت لاحق"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "updatePassword":
+            MessageLookupByLibrary.simpleMessage("تحديث كلمة المرور"),
         "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
         "verifyAccount": MessageLookupByLibrary.simpleMessage("تحقق من الحساب")
       };

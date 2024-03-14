@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../feature/auth/change_password/presentation/manager/change_pass_cubit.dart';
 import '../../feature/auth/forgot_pass/presentation/manager/forgot_pass_cubit.dart';
 import '../../feature/auth/login/presentation/manager/login_cubit.dart';
 import '../../feature/auth/register/presentation/manager/register_cubit.dart';
@@ -24,6 +25,9 @@ Future<void> init() async {
 
   /// Reset Password
   di.registerFactory(() => ResetPassCubit());
+
+  /// Change Password
+  di.registerFactory(() => ChangePassCubit());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();
