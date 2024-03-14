@@ -56,5 +56,13 @@
   "verify": "Verify",
   "sendAgain": "Send Again",
   "pleaseEnterTheActivationCodeSentToYourEmail": "Please enter the activation code sent to your email",
-  "codeCantBeLessThan4Characters": "Code can't be less than 4 characters"
+  "codeCantBeLessThan4Characters": "Code can't be less than 4 characters",
+
+  "@_ForgetPassword": {},
+  "forgetPassword": "Forget Password",
+  "submit": "Submit",
+  "resetPassword": "Reset Password",
+  "newPassword": "New Password",
+  "confirmNewPassword": "Confirm New Password",
+  "newPasswordCantBeLessThan8Characters": "New password can't be less than 8 characters"
 }
