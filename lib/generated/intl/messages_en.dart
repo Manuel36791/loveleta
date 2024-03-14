@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "bad request. try again later"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
+        "changePassword":
+            MessageLookupByLibrary.simpleMessage("Change Password"),
         "codeCantBeLessThan4Characters": MessageLookupByLibrary.simpleMessage(
             "Code can\'t be less than 4 characters"),
         "confirmNewPassword":
@@ -126,6 +128,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "some thing went wrong, try again later"),
         "unprocessable_content_error": MessageLookupByLibrary.simpleMessage(
             "unprocessable data, check it and try again"),
+        "updatePassword":
+            MessageLookupByLibrary.simpleMessage("Update Password"),
         "verify": MessageLookupByLibrary.simpleMessage("Verify"),
         "verifyAccount": MessageLookupByLibrary.simpleMessage("Verify Account")
       };
