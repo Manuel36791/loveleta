@@ -509,6 +509,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Verify Account`
+  String get verifyAccount {
+    return Intl.message(
+      'Verify Account',
+      name: 'verifyAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify`
+  String get verify {
+    return Intl.message(
+      'Verify',
+      name: 'verify',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Again`
+  String get sendAgain {
+    return Intl.message(
+      'Send Again',
+      name: 'sendAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the activation code sent to your email`
+  String get pleaseEnterTheActivationCodeSentToYourEmail {
+    return Intl.message(
+      'Please enter the activation code sent to your email',
+      name: 'pleaseEnterTheActivationCodeSentToYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Code can't be less than 4 characters`
+  String get codeCantBeLessThan4Characters {
+    return Intl.message(
+      'Code can\'t be less than 4 characters',
+      name: 'codeCantBeLessThan4Characters',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

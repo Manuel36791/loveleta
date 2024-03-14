@@ -114,4 +114,11 @@ class CustomTextStyle {
     fontFamily: AppConstants.mainFontFamily,
     color: AppColors.textWhite,
   );
+
+  static TextStyle kPinTextStyle = TextStyle(
+    fontSize: Dimensions.f16,
+    fontWeight: FontWeight.w400, //? Regular
+    fontFamily: AppConstants.mainFontFamily,
+    color: AppColors.textBlack,
+  );
 }

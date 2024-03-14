@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "bad request. try again later"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
+        "codeCantBeLessThan4Characters": MessageLookupByLibrary.simpleMessage(
+            "Code can\'t be less than 4 characters"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "conflict found, try again later"),
         "default_error": MessageLookupByLibrary.simpleMessage(
@@ -82,6 +84,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please enter a valid email address"),
         "pleaseEnterAValidPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Please enter a valid phone number"),
+        "pleaseEnterTheActivationCodeSentToYourEmail":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter the activation code sent to your email"),
         "pleaseEnterYourEmailAddress": MessageLookupByLibrary.simpleMessage(
             "Please enter your email address"),
         "pleaseEnterYourFirstName": MessageLookupByLibrary.simpleMessage(
@@ -95,6 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "plzEnterAValidEmail":
             MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
+        "sendAgain": MessageLookupByLibrary.simpleMessage("Send Again"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("Server is under maintenance"),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
@@ -106,6 +112,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "unknown_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
         "unprocessable_content_error": MessageLookupByLibrary.simpleMessage(
-            "unprocessable data, check it and try again")
+            "unprocessable data, check it and try again"),
+        "verify": MessageLookupByLibrary.simpleMessage("Verify"),
+        "verifyAccount": MessageLookupByLibrary.simpleMessage("Verify Account")
       };
 }

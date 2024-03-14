@@ -64,6 +64,7 @@ class _LoginViewState extends State<LoginView> {
                           loginCubit.validateEmail(email);
                         },
                         label: S.of(context).email,
+                        nextAction: TextInputAction.next,
                       ),
                       Gap(10.h),
                       CustomFormField(
@@ -72,6 +73,7 @@ class _LoginViewState extends State<LoginView> {
                           loginCubit.validatePass(pass);
                         },
                         label: S.of(context).password,
+                        nextAction: TextInputAction.done,
                       ),
                       Gap(10.h),
                       Row(

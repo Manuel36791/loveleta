@@ -71,6 +71,7 @@ class _RegisterViewState extends State<RegisterView> {
                                 registerCubit.validateFirstName(firstName);
                               },
                               label: S.of(context).firstName,
+                              nextAction: TextInputAction.next,
                             ),
                           ),
                           Gap(10.w),
@@ -81,6 +82,7 @@ class _RegisterViewState extends State<RegisterView> {
                                 registerCubit.validateLastName(lastName);
                               },
                               label: S.of(context).lastName,
+                              nextAction: TextInputAction.next,
                             ),
                           ),
                         ],
@@ -92,6 +94,7 @@ class _RegisterViewState extends State<RegisterView> {
                           registerCubit.validateEmail(email);
                         },
                         label: S.of(context).email,
+                        nextAction: TextInputAction.next,
                       ),
                       Gap(10.h),
                       Row(
@@ -115,6 +118,7 @@ class _RegisterViewState extends State<RegisterView> {
                                 registerCubit.validatePhone(phone);
                               },
                               label: S.of(context).phoneNumber,
+                              nextAction: TextInputAction.next,
                             ),
                           ),
                         ],
@@ -126,6 +130,7 @@ class _RegisterViewState extends State<RegisterView> {
                           registerCubit.validatePass(pass);
                         },
                         label: S.of(context).password,
+                        nextAction: TextInputAction.next,
                       ),
                       Gap(10.h),
                       CustomFormField(
@@ -134,6 +139,7 @@ class _RegisterViewState extends State<RegisterView> {
                           registerCubit.validatePassConfirm(passConfirm);
                         },
                         label: S.of(context).passwordConfirmation,
+                        nextAction: TextInputAction.done,
                       ),
                       Gap(20.h),
                       StreamBuilder(
@@ -145,7 +151,9 @@ class _RegisterViewState extends State<RegisterView> {
                               return CustomBtn(
                                 isUpperCase: false,
                                 label: S.of(context).signUp,
-                                onPressed: snapshot.hasError ? null : () {},
+                                onPressed: snapshot.hasError ? null : () {
+                                  context.pushNamed(verifyAccountPageRoute);
+                                },
                               );
                             },
                             fallback: (ctx) {

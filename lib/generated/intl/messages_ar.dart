@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "طلب غير صالح. حاول مرة أخرى لاحقًا"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا"),
+        "codeCantBeLessThan4Characters": MessageLookupByLibrary.simpleMessage(
+            "الرمز لا يمكن أن يكون أقل من 4 أحرف"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "تم العثور على تعارض , حاول مرة أخرى لاحقًا"),
         "default_error": MessageLookupByLibrary.simpleMessage(
@@ -80,6 +82,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "الرجاء إدخال عنوان بريد إلكتروني صحيح"),
         "pleaseEnterAValidPhoneNumber":
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال رقم هاتف صحيح"),
+        "pleaseEnterTheActivationCodeSentToYourEmail":
+            MessageLookupByLibrary.simpleMessage(
+                "الرجاء إدخال رمز التنشيط المرسل إلى بريدك الإلكتروني"),
         "pleaseEnterYourEmailAddress": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال عنوان بريدك الإلكتروني"),
         "pleaseEnterYourFirstName": MessageLookupByLibrary.simpleMessage(
@@ -93,6 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "plzEnterAValidEmail": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال عنوان بريد إلكتروني صالح"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+        "sendAgain": MessageLookupByLibrary.simpleMessage("إرسال مرة أخرى"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("الخادم قيد الصيانة"),
         "signUp": MessageLookupByLibrary.simpleMessage("سجل الآن"),
@@ -102,6 +108,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(
             "المستخدم غير مصرح له، جرب مرة أخرى في وقت لاحق"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(
-            "حدث خطأ ما , حاول مرة أخرى لاحقًا")
+            "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
+        "verifyAccount": MessageLookupByLibrary.simpleMessage("تحقق من الحساب")
       };
 }
