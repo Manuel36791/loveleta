@@ -590,6 +590,16 @@ class S {
     );
   }
 
+  /// `Please enter verification code sent to your email`
+  String get pleaseEnterVerificationCodeSentToYourEmail {
+    return Intl.message(
+      'Please enter verification code sent to your email',
+      name: 'pleaseEnterVerificationCodeSentToYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `New Password`
   String get newPassword {
     return Intl.message(

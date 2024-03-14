@@ -61,7 +61,10 @@
   "@_ForgetPassword": {},
   "forgetPassword": "Forget Password",
   "submit": "Submit",
+
+  "@_ResetPassword": {},
   "resetPassword": "Reset Password",
+  "pleaseEnterVerificationCodeSentToYourEmail": "Please enter verification code sent to your email",
   "newPassword": "New Password",
   "confirmNewPassword": "Confirm New Password",
   "newPasswordCantBeLessThan8Characters": "New password can't be less than 8 characters"

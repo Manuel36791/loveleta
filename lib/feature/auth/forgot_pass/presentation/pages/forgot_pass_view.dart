@@ -71,7 +71,7 @@ class _ForgotPassViewState extends State<ForgotPassView> {
                       builder: (context) => CustomBtn(
                         label: S.of(context).submit,
                         onPressed: () {
-                          context.pushNamed(verifyAccountPageRoute);
+                          context.pushNamed(resetPassPageRoute);
                         },
                       ),
                       fallback: (context) => const Center(

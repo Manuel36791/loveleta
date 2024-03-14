@@ -5,16 +5,14 @@ import 'package:rxdart/rxdart.dart';
 
 import '../../../../../generated/l10n.dart';
 
-part 'verify_account_states.dart';
+part 'reset_pass_states.dart';
+part 'reset_pass_cubit.freezed.dart';
 
-part 'verify_account_cubit.freezed.dart';
-
-class VerifyAccountCubit extends Cubit<VerifyAccountStates> {
-  VerifyAccountCubit() : super(const VerifyAccountStates.initial());
-
-  static VerifyAccountCubit get(BuildContext context) =>
-      BlocProvider.of(context);
-
+class ResetPassCubit extends Cubit<ResetPassStates> {
+  ResetPassCubit() : super(const ResetPassStates.initial());
+  
+  static ResetPassCubit get(BuildContext context) => BlocProvider.of(context);
+  
   final pinCtrl = BehaviorSubject<String>();
 
   Stream<String> get pinStream => pinCtrl.stream;
@@ -22,8 +20,8 @@ class VerifyAccountCubit extends Cubit<VerifyAccountStates> {
   validateCode(String code) {
     if (code.isEmpty) {
       pinCtrl.sink
-          .addError(S.current.pleaseEnterTheActivationCodeSentToYourEmail);
-    } else if (code.length < 4) {
+          .addError(S.current.pleaseEnterVerificationCodeSentToYourEmail, StackTrace.current);
+    } else if (code.length != 4) {
       pinCtrl.sink.addError(S.current.codeCantBeLessThan4Characters);
     } else {
       pinCtrl.sink.add(code);
@@ -31,7 +29,7 @@ class VerifyAccountCubit extends Cubit<VerifyAccountStates> {
   }
 
   Stream<bool> get verifyBtnStream => Rx.combineLatest(
-        [pinStream],
+    [pinStream],
         (values) => true,
-      );
+  );
 }

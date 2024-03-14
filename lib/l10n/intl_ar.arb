@@ -60,7 +60,10 @@
   "@_ForgetPassword": {},
   "forgetPassword": "نسيت كلمة المرور",
   "submit": "تقديم",
+
+  "@_ResetPassword": {},
   "resetPassword": "إعادة تعيين كلمة المرور",
+  "pleaseEnterVerificationCodeSentToYourEmail": "يرجى إدخال رمز التحقق المرسل إلى بريدك الإلكتروني",
   "newPassword": "كلمة المرور الجديدة",
   "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
   "newPasswordCantBeLessThan8Characters": "يجب أن تتكون كلمة المرور الجديدة من 8 أحرف على الأقل"

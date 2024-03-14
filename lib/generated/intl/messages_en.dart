@@ -95,6 +95,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseEnterTheActivationCodeSentToYourEmail":
             MessageLookupByLibrary.simpleMessage(
                 "Please enter the activation code sent to your email"),
+        "pleaseEnterVerificationCodeSentToYourEmail":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter verification code sent to your email"),
         "pleaseEnterYourEmailAddress": MessageLookupByLibrary.simpleMessage(
             "Please enter your email address"),
         "pleaseEnterYourFirstName": MessageLookupByLibrary.simpleMessage(
