@@ -113,7 +113,9 @@ class _LoginViewState extends State<LoginView> {
                               return CustomBtn(
                                 isUpperCase: false,
                                 label: S.of(context).login,
-                                onPressed: snapshot.hasError ? null : () {},
+                                onPressed: snapshot.hasError ? null : () {
+                                  context.pushNamed(homePageRoute);
+                                },
                               );
                             },
                             fallback: (ctx) {

@@ -120,7 +120,7 @@ class _ResetPassViewState extends State<ResetPassView> {
                                   condition: true,
                                   builder: (ctx) {
                                     return CustomBtn(
-                                      label: S.of(context).resetPassword,
+                                      label: S.of(context).resetPasswordBtn,
                                       onPressed:
                                       snapshot.hasError ? null : () {},
                                     );

@@ -64,6 +64,7 @@
 
   "@_ResetPassword": {},
   "resetPassword": "Reset Password",
+  "resetPasswordBtn": "Reset Pass",
   "pleaseEnterVerificationCodeSentToYourEmail": "Please enter verification code sent to your email",
 
   "@_NewPassword": {},

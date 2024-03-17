@@ -590,6 +590,16 @@ class S {
     );
   }
 
+  /// `Reset Pass`
+  String get resetPasswordBtn {
+    return Intl.message(
+      'Reset Pass',
+      name: 'resetPasswordBtn',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Please enter verification code sent to your email`
   String get pleaseEnterVerificationCodeSentToYourEmail {
     return Intl.message(
