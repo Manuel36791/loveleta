@@ -1,3 +1,5 @@
+const String bottomNavBar = '/bottomNavBar';
+
 const String mainView = '/mainView';
 const String loginPageRoute = '/login';
 const String registerPageRoute = '/register';

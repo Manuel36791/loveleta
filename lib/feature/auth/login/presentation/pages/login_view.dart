@@ -114,7 +114,7 @@ class _LoginViewState extends State<LoginView> {
                                 isUpperCase: false,
                                 label: S.of(context).login,
                                 onPressed: snapshot.hasError ? null : () {
-                                  context.pushNamed(homePageRoute);
+                                  context.pushNamed(bottomNavBar);
                                 },
                               );
                             },

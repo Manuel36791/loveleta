@@ -6,6 +6,7 @@ import '../../feature/auth/login/presentation/pages/login_view.dart';
 import '../../feature/auth/register/presentation/pages/register_view.dart';
 import '../../feature/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 import '../../feature/auth/verify_account/presentation/pages/verify_account_view.dart';
+import '../../feature/bottom_nav_bar/bottom_nav_bar.dart';
 import '../../feature/main/categories/presentation/pages/categories_view.dart';
 import '../../feature/main/home/presentation/pages/home_view.dart';
 import '../../feature/main/product_details/presentation/pages/product_details_view.dart';
@@ -15,7 +16,12 @@ import 'router.dart';
 class AppRouters {
   static Route routeGenerator(RouteSettings settings) {
     switch (settings.name) {
-      case loginPageRoute:
+      case bottomNavBar:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const BottomNavBar(),
+        );
+
+        case loginPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const LoginView(),
         );
