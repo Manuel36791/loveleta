@@ -7,6 +7,7 @@ import '../../feature/auth/register/presentation/pages/register_view.dart';
 import '../../feature/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 import '../../feature/auth/verify_account/presentation/pages/verify_account_view.dart';
 import '../../feature/main/home/presentation/pages/home_view.dart';
+import '../../feature/main/product_details/presentation/pages/product_details_view.dart';
 import '../../main_view.dart';
 import 'router.dart';
 
@@ -40,6 +41,10 @@ class AppRouters {
       case homePageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const HomeView(),
+        );
+      case productDetailsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const ProductDetailsView(),
         );
 
       default:
