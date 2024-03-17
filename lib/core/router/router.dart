@@ -11,3 +11,4 @@ const String homePageRoute = '/home';
 const String productDetailsPageRoute = '/productDetails';
 const String categoriesPageRoute = '/categories';
 const String settingsPageRoute = '/settings';
+const String categoryProductsPageRoute = '/categoryProducts';

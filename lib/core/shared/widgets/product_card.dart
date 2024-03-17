@@ -4,10 +4,10 @@ import 'package:gap/gap.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../../../../../core/router/router.dart';
-import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/utils/app_text_styles.dart';
-import '../../../../../core/utils/dimensions.dart';
+import '../../router/router.dart';
+import '../../utils/app_colors.dart';
+import '../../utils/app_text_styles.dart';
+import '../../utils/dimensions.dart';
 
 class ProductCard extends StatelessWidget {
   final String? title;

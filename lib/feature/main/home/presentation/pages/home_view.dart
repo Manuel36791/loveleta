@@ -10,7 +10,7 @@ import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../widgets/category_container.dart';
-import '../widgets/product_card.dart';
+import '../../../../../core/shared/widgets/product_card.dart';
 import '../widgets/section_title.dart';
 
 class HomeView extends StatelessWidget {
