@@ -3,6 +3,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 import '../main/categories/presentation/pages/categories_view.dart';
 import '../main/home/presentation/pages/home_view.dart';
+import '../main/settings/presentation/pages/settings.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -18,7 +19,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     const HomeView(),
     const CategoriesView(),
     const HomeView(),
-    const HomeView(),
+    const SettingsView(),
   ];
 
   _changeTab(int index) {
