@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loveleta/feature/main/category_products/presentation/pages/category_details.dart';
 import 'package:loveleta/feature/main/settings/presentation/pages/settings.dart';
 
 import '../../feature/auth/change_password/presentation/pages/change_pass_view.dart';
@@ -61,6 +62,10 @@ class AppRouters {
       case settingsPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const SettingsView(),
+        );
+        case categoryProductsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const CategoryProductsView(),
         );
 
       default:
