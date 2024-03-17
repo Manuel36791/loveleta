@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
 import 'core/router/router_generator.dart';
 import 'core/shared/widgets/custom_error_widget.dart';
+import 'core/utils/app_images.dart';
 import 'core/utils/app_strings.dart';
 import 'core/utils/cubit_observer.dart';
 import 'generated/l10n.dart';
@@ -18,6 +18,7 @@ void main() async {
   Bloc.observer = AppCubitObserver();
   await ScreenUtil.ensureScreenSize();
   await di.init();
+  await svgPreloader();
 
   ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
     return MaterialApp(

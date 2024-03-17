@@ -114,6 +114,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
         "resetPassword":
             MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),
+        "resetPasswordBtn":
+            MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),
         "sendAgain": MessageLookupByLibrary.simpleMessage("إرسال مرة أخرى"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("الخادم قيد الصيانة"),

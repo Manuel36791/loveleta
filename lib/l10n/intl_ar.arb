@@ -63,6 +63,7 @@
 
   "@_ResetPassword": {},
   "resetPassword": "إعادة تعيين كلمة المرور",
+  "resetPasswordBtn": "إعادة تعيين كلمة المرور",
   "pleaseEnterVerificationCodeSentToYourEmail": "يرجى إدخال رمز التحقق المرسل إلى بريدك الإلكتروني",
 
   "@_NewPassword": {},

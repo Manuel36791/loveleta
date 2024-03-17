@@ -114,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
+        "resetPasswordBtn": MessageLookupByLibrary.simpleMessage("Reset Pass"),
         "sendAgain": MessageLookupByLibrary.simpleMessage("Send Again"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("Server is under maintenance"),

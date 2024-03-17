@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:loveleta/feature/auth/change_password/presentation/pages/change_pass_view.dart';
-import 'package:loveleta/feature/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 
+import '../../feature/auth/change_password/presentation/pages/change_pass_view.dart';
 import '../../feature/auth/forgot_pass/presentation/pages/forgot_pass_view.dart';
 import '../../feature/auth/login/presentation/pages/login_view.dart';
 import '../../feature/auth/register/presentation/pages/register_view.dart';
+import '../../feature/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 import '../../feature/auth/verify_account/presentation/pages/verify_account_view.dart';
+import '../../feature/main/home/presentation/pages/home_view.dart';
 import '../../main_view.dart';
 import 'router.dart';
 
@@ -28,13 +29,17 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const ForgotPassView(),
         );
-        case resetPassPageRoute:
+      case resetPassPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const ResetPassView(),
         );
-        case changePassPageRoute:
+      case changePassPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const ChangePassView(),
+        );
+      case homePageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const HomeView(),
         );
 
       default:
