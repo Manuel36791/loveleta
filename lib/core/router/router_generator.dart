@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loveleta/feature/main/settings/presentation/pages/settings.dart';
 
 import '../../feature/auth/change_password/presentation/pages/change_pass_view.dart';
 import '../../feature/auth/forgot_pass/presentation/pages/forgot_pass_view.dart';
@@ -21,7 +22,7 @@ class AppRouters {
           builder: (BuildContext context) => const BottomNavBar(),
         );
 
-        case loginPageRoute:
+      case loginPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const LoginView(),
         );
@@ -56,6 +57,10 @@ class AppRouters {
       case categoriesPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const CategoriesView(),
+        );
+      case settingsPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const SettingsView(),
         );
 
       default:
