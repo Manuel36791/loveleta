@@ -21,7 +21,7 @@ class StatusIndicator extends StatelessWidget {
       decoration: BoxDecoration(
         color: containerColor,
         borderRadius: BorderRadius.circular(
-          Dimensions.r5,
+          Dimensions.r50,
         ),
       ),
       padding: const EdgeInsets.all(

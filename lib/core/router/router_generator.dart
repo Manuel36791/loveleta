@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:loveleta/feature/main/category_products/presentation/pages/category_details.dart';
-import 'package:loveleta/feature/main/settings/presentation/pages/settings.dart';
 
 import '../../feature/auth/change_password/presentation/pages/change_pass_view.dart';
 import '../../feature/auth/forgot_pass/presentation/pages/forgot_pass_view.dart';
@@ -10,8 +8,11 @@ import '../../feature/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 import '../../feature/auth/verify_account/presentation/pages/verify_account_view.dart';
 import '../../feature/bottom_nav_bar/bottom_nav_bar.dart';
 import '../../feature/main/categories/presentation/pages/categories_view.dart';
+import '../../feature/main/category_products/presentation/pages/category_details.dart';
 import '../../feature/main/home/presentation/pages/home_view.dart';
 import '../../feature/main/product_details/presentation/pages/product_details_view.dart';
+import '../../feature/main/settings/presentation/pages/settings.dart';
+import '../../feature/orders/user_orders/presentation/pages/user_orders_view.dart';
 import '../../main_view.dart';
 import 'router.dart';
 
@@ -66,6 +67,10 @@ class AppRouters {
         case categoryProductsPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const CategoryProductsView(),
+        );
+        case ordersPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const OrdersView(),
         );
 
       default:

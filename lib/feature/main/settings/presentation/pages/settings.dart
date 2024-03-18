@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:loveleta/core/router/router.dart';
+import 'package:loveleta/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../core/shared/widgets/custom_app_bar.dart';
@@ -209,6 +211,29 @@ class _SettingsViewState extends State<SettingsView> {
                   opacity: 0.90,
                   child: Text(
                     "Contact Us",
+                    style: CustomTextStyle.kTextStyleF16
+                        ,
+                  ),
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios_sharp,
+                  // color: AppColors.lightBlue,
+                  size: 16.sp,
+                ),
+              ),
+            ),
+            Gap(10.h),
+            Container(
+              color: Colors.white,
+              padding: EdgeInsets.all(16.0.sp),
+              child: ListTile(
+                onTap: () {
+                  context.pushNamed(ordersPageRoute);
+                },
+                title: Opacity(
+                  opacity: 0.90,
+                  child: Text(
+                    "Orders",
                     style: CustomTextStyle.kTextStyleF16
                         ,
                   ),

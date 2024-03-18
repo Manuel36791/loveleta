@@ -22,7 +22,7 @@ class AppColors {
   static const Color statusOrange = Color(0xFFFB8C00);
   static const Color statusOrangeContainer = Color(0xFFFFD180);
   static const Color statusRed = Color(0xFFE53935);
-  static const Color statusRedContainer = Color(0xFFFF8A80);
+  static const Color statusRedContainer = Color(0xFFEF9A9A);
 
   //? Custom messages colors
   static const successColor = Color(0xFF82DD55);

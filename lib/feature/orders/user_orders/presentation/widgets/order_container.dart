@@ -38,6 +38,16 @@ class OrderContainer extends StatelessWidget {
         padding: const EdgeInsets.all(Dimensions.p20),
         decoration: const BoxDecoration(
           color: Colors.white,
+          borderRadius: BorderRadius.all(
+            Radius.circular(Dimensions.r10),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              offset: Offset(0.0, 1.0),
+              blurRadius: 6.0,
+            ),
+          ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -50,7 +60,7 @@ class OrderContainer extends StatelessWidget {
                   style: CustomTextStyle.kTextStyleF14,
                 ),
                 StatusIndicator(
-                  statusText: statusList[2],
+                  statusText: statusList[1],
                   textColor: AppColors.statusGreen,
                   containerColor: AppColors.statusGreenContainer,
                 )
