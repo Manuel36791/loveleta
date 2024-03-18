@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -38,11 +39,32 @@ class ProductCard extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Image.network(
-                  image!,
+                CachedNetworkImage(
+                  imageUrl: image!,
                   width: 129.w,
                   height: 132.h,
                   fit: BoxFit.cover,
+                  imageBuilder: (context, imageProvider) {
+                    return Container(
+                      width: double.infinity,
+                      height: 132.h,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(
+                              image!),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    );
+                  },
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      Center(
+                        child: CircularProgressIndicator(
+                          color: AppColors.pinkSecondary,
+                          value: downloadProgress.progress,
+                        ),
+                      ),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
                 Positioned(
                   top: 10.h,
