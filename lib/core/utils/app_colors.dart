@@ -16,8 +16,13 @@ class AppColors {
   static const Color textPink = Color(0xFFFF69B4);
   static const Color textGrey = Color(0xFF999999);
 
-  static const Color statusRed = Color(0xFFF42D2D);
-  static const Color statusRedContainer = Color(0xFFFDC0AB);
+
+  static const Color statusGreen = Color(0xFF43A047);
+  static const Color statusGreenContainer = Color(0xFFB9F6CA);
+  static const Color statusOrange = Color(0xFFFB8C00);
+  static const Color statusOrangeContainer = Color(0xFFFFD180);
+  static const Color statusRed = Color(0xFFE53935);
+  static const Color statusRedContainer = Color(0xFFFF8A80);
 
   //? Custom messages colors
   static const successColor = Color(0xFF82DD55);
