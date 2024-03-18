@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loveleta/feature/cart/presentation/pages/cart_view.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../main/categories/presentation/pages/categories_view.dart';
@@ -18,7 +19,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   final List<Widget> _view =[
     const HomeView(),
     const CategoriesView(),
-    const HomeView(),
+    const CartView(),
     const SettingsView(),
   ];
 

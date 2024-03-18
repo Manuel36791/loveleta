@@ -1,0 +1,47 @@
+{
+  "category": "Category",
+  "main_image": "Main Image",
+  "images": [
+    "Images",
+    "Image"
+  ],
+  "name_en": "Product Name",
+  "name_ar": "اسم المنتج",
+  "description_en": "Product Description",
+  "description_ar": "وصف المنتج",
+  "gift_details_en": [
+    "Gift Details",
+    "Gift Detail",
+    "Gift Details",
+    "Gift Detail"
+  ],
+  "gift_details_ar": [
+    "تفاصيل الهدية",
+    "تفاصيل الهدية",
+    "تفاصيل الهدية",
+    "تفاصيل الهدية"
+  ],
+  "in_stock": true, // IF true THEN product is in stock, IF false THEN product is out of stock
+  "SKU": "FLORAL-MIXED",
+  "color": [
+    "Red",
+    "Green",
+    "Blue",
+    "Yellow",
+    "Black",
+    "White",
+    "Orange",
+    "Purple",
+    "Pink",
+    "Brown",
+    "Gray"
+  ],
+  "price": 760,
+  "discount_percent": 20, // Percentage of discount
+  "discounted_price": 608, // Price after discount
+  "in_wishlist": false, // IF true THEN product is in favorite list
+  "is_free_delivery": false // IF true THEN product has free delivery
+  "is_express": true, // IF true THEN product is Loveleta Express
+  "is_new": true,
+  "best_seller": true
+}
