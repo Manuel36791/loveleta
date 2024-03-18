@@ -629,6 +629,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.0"
+  logger:
+    dependency: "direct main"
+    description:
+      name: logger
+      sha256: b3ff55aeb08d9d8901b767650285872cb1bb8f508373b3e348d60268b0c7f770
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.1.0"
   logging:
     dependency: transitive
     description:
@@ -1090,6 +1098,30 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.1.0+1"
+  talker:
+    dependency: transitive
+    description:
+      name: talker
+      sha256: "4e7d69f70579bf12c39206a80b74601b014691e96efd75e4a8a3a075710b859f"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.0.3"
+  talker_dio_logger:
+    dependency: "direct main"
+    description:
+      name: talker_dio_logger
+      sha256: "76e350b4a32ea86417037e746196968693dbb2a0f0c417bbea951c2c873ab908"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.0.3"
+  talker_logger:
+    dependency: transitive
+    description:
+      name: talker_logger
+      sha256: "795f7e434be0449a1b0deb1cc80e7f8ed44ba6083da7050ffcb734f859dddfc6"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "4.0.3"
   term_glyph:
     dependency: transitive
     description:

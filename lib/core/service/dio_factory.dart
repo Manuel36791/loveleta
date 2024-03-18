@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:talker_dio_logger/talker_dio_logger.dart';
 
 import '../utils/app_constants.dart';
 
@@ -61,7 +62,8 @@ class DioFactory {
         ),
       );
 
-      loggerInterceptor();
+      // loggerInterceptor();
+      talkerInterceptor();
 
       return dio!;
     } else {
@@ -84,4 +86,22 @@ class DioFactory {
       );
     }
   }
+
+  static void talkerInterceptor() {
+    if (!kReleaseMode) {
+      dio!.interceptors.add(
+        TalkerDioLogger(
+          settings: const TalkerDioLoggerSettings(
+            printRequestHeaders: true,
+            printRequestData: true,
+            printResponseHeaders: true,
+            printResponseMessage: true,
+            printResponseData: true,
+          ),
+        ),
+      );
+    }
+  }
+
 }
+
