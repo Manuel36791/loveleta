@@ -16,6 +16,9 @@ class AppImages {
   static String appLogoSvg = "$svgPath/app_logo.svg";
   static String settingsSvg = "$svgPath/settings.svg";
   static String bagSvg = "$svgPath/bag.svg";
+  static String pinSvg = "$svgPath/pin.svg";
+  static String personSvg = "$svgPath/person.svg";
+  static String phoneSvg = "$svgPath/phone.svg";
 }
 
 Future<void> svgPreloader() async {
@@ -24,6 +27,9 @@ Future<void> svgPreloader() async {
     AppImages.appLogoSvg,
     AppImages.settingsSvg,
     AppImages.bagSvg,
+    AppImages.pinSvg,
+    AppImages.personSvg,
+    AppImages.phoneSvg,
   ]);
 }
 
