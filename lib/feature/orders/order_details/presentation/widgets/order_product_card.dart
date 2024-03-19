@@ -22,8 +22,8 @@ class OrderProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80.h,
-      width: 80.w,
+      // height: 80.h,
+      // width: 80.w,
       padding: const EdgeInsets.all(Dimensions.p8),
       decoration: const BoxDecoration(color: Colors.white),
       child: Row(
@@ -54,7 +54,7 @@ class OrderProductCard extends StatelessWidget {
                   value: downloadProgress.progress,
                 ),
               ),
-              errorWidget: (context, url, error) => const Icon(Icons.error),
+              errorWidget: (context, url, error) => const Icon(Icons.error, color: AppColors.errorColor),
             ),
             // child: Image.network(
             //   "https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80",

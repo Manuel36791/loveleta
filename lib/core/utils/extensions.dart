@@ -105,6 +105,7 @@ enum DateFormatType {
   hyphenatedDate,
   hyphenatedDateTime,
   dayMonthYear,
+  dayMonthYearTime,
   monthDayYear,
   fullDayMonthYear,
   shortDayMonthYear,
@@ -135,6 +136,10 @@ extension DateExtensions on DateTime {
             .format(this);
       case DateFormatType.dayMonthYear:
         return DateFormat('dd MMM yyyy').format(this);
+        case DateFormatType.dayMonthYearTime:
+        return DateFormat(use24HoursFormat
+            ? 'dd MMM yyyy HH:mm${showSeconds ? ':ss' : ''}'
+            : 'dd MMM yyyy h:mm${showSeconds ? ':ss a' : ' a'}').format(this);
       case DateFormatType.monthDayYear:
         return DateFormat('MM/dd/yyyy').format(this);
       case DateFormatType.fullDayMonthYear:
@@ -183,7 +188,7 @@ enum TimeFormatType {
 }
 
 extension TimeOfDayExtensions on TimeOfDay {
-  String format(
+  String stringFormat(
       {bool use24HoursFormat = false,
       int addedHours = 0,
       int addedMinutes = 0,

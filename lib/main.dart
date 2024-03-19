@@ -10,6 +10,7 @@ import 'core/shared/widgets/custom_error_widget.dart';
 import 'core/utils/app_images.dart';
 import 'core/utils/app_strings.dart';
 import 'core/utils/cubit_observer.dart';
+import 'core/utils/language_manager.dart';
 import 'generated/l10n.dart';
 import 'main_view.dart';
 
@@ -44,22 +45,20 @@ void main() async {
   debugPrint("Email: $email\n Pass: $pass");
 
   runApp(
-    MyApp(
-      currentLang: currentLocale,
-    ),
+    MyApp(),
   );
 }
 
 class MyApp extends StatefulWidget {
-  final String currentLang;
-
-  const MyApp({super.key, required this.currentLang});
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
+  Locale currentLang = Locale(LanguageType.ENGLISH.getValue());
+
   @override
   void initState() {
     super.initState();
@@ -89,7 +88,8 @@ class _MyAppState extends State<MyApp> {
       builder: (ctx, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          locale: Locale(widget.currentLang),
+          // locale: Locale(widget.currentLang),
+          locale: currentLang,
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,
@@ -100,6 +100,7 @@ class _MyAppState extends State<MyApp> {
           title: AppStrings.appName,
           onGenerateRoute: AppRouters.routeGenerator,
           home: child,
+
         );
       },
       child: const MainView(),

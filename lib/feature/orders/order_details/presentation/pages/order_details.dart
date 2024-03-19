@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+import 'package:loveleta/core/router/router.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 
 import '../../../../../../core/utils/app_colors.dart';
@@ -36,113 +38,117 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
               padding: const EdgeInsets.all(
                 Dimensions.p16,
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Gap(25.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Arriving to",
-                        style: CustomTextStyle.kTextStyleF16,
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          // context.pushNamed(
-                          //   trackOrderPageRoute,
-                          //   arguments: OrderDetailsArgs(
-                          //     orderDetails: widget.orderDetails,
-                          //   ),
-                          // );
-                        },
-                        child: Text(
-                          "Track order",
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Gap(25.h),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Arriving to",
                           style: CustomTextStyle.kTextStyleF16,
                         ),
-                      ),
-                    ],
-                  ),
-                  Gap(10.h),
-                  Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
+                        TextButton(
+                          onPressed: () {
+                            // context.pushNamed(
+                            //   trackOrderPageRoute,
+                            //   arguments: OrderDetailsArgs(
+                            //     orderDetails: widget.orderDetails,
+                            //   ),
+                            // );
+                            context.pushNamed(trackOrderPageRoute);
+                          },
+                          child: Text(
+                            "Track order",
+                            style: CustomTextStyle.kTextStyleF16,
+                          ),
+                        ),
+                      ],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(Dimensions.p16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Image.asset(
-                                AppImages.pinSvg,
-                                height: 16.h,
-                                width: 16.w,
-                              ),
-                              Gap(8.w),
-                              Expanded(
-                                child: Text(
-                                  "555 Smith Street, Springfield, IL 62701, United States.",
-                                  style: CustomTextStyle.kTextStyleF12,
-                                  // overflow: TextOverflow.ellipsis,
+                    Gap(10.h),
+                    Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(Dimensions.p16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                  AppImages.pinSvg,
+                                  height: 16.h,
+                                  width: 16.w,
                                 ),
-                              ),
-                            ],
-                          ),
-                          Gap(12.h),
-                          Row(
-                            children: [
-                              Image.asset(
-                                AppImages.personSvg,
-                                height: 16.h,
-                                width: 16.w,
-                              ),
-                              Gap(8.w),
-                              Text(
-                                "John Doe",
-                                style: CustomTextStyle.kTextStyleF12,
-                              ),
-                            ],
-                          ),
-                          Gap(12.h),
-                          Row(
-                            children: [
-                              Image.asset(
-                                AppImages.phoneSvg,
-                                height: 16.h,
-                                width: 16.w,
-                              ),
-                              Gap(8.w),
-                              Text(
-                                "+1 (555) 123-4567",
-                                style: CustomTextStyle.kTextStyleF12,
-                              ),
-                            ],
-                          ),
-                        ],
+                                Gap(8.w),
+                                Expanded(
+                                  child: Text(
+                                    "555 Smith Street, Springfield, IL 62701, United States.",
+                                    style: CustomTextStyle.kTextStyleF12,
+                                    // overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Gap(12.h),
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                  AppImages.personSvg,
+                                  height: 16.h,
+                                  width: 16.w,
+                                ),
+                                Gap(8.w),
+                                Text(
+                                  "John Doe",
+                                  style: CustomTextStyle.kTextStyleF12,
+                                ),
+                              ],
+                            ),
+                            Gap(12.h),
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                  AppImages.phoneSvg,
+                                  height: 16.h,
+                                  width: 16.w,
+                                ),
+                                Gap(8.w),
+                                Text(
+                                  "+1 (555) 123-4567",
+                                  style: CustomTextStyle.kTextStyleF12,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  Gap(20.h),
-                  Text(
-                    "Executed Request",
-                    style: CustomTextStyle.kTextStyleF16,
-                  ),
-                  Gap(15.h),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: 5,
-                    itemBuilder: (ctx, index) {
-                      return const OrderProductCard(
-                          imageUrl: "https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80",
+                    Gap(20.h),
+                    Text(
+                      "Executed Request",
+                      style: CustomTextStyle.kTextStyleF16,
+                    ),
+                    Gap(15.h),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: 5,
+                      itemBuilder: (ctx, index) {
+                        return const OrderProductCard(
+                          imageUrl: "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80",
                           productName: "Product Name",
-                         price: 760,
-                         quantity: 2,
-                      );
-                    },)
-                ],
+                          price: 760,
+                          quantity: 2,
+                        );
+                      },),
+                    Gap(250.h),
+                  ],
+                ),
               ),
             ),
             Align(

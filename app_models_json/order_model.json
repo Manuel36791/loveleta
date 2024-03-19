@@ -1,6 +1,6 @@
 {
   "order_id": "2563389",
-  "order_status": "pending", // In Progress, Delivered, Canceled
+  "order_status": "In Progress", // In Progress, Delivered, Canceled
   "order_items_count": 2,
   "order_total": 1000, // Total amount after adding delivery fee and tax
   "delivery_fee": 100, // Amount of delivery fee
