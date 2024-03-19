@@ -46,3 +46,6 @@ class UserData extends Equatable {
         status,
       ];
 }
+
+
+

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:loveleta/core/router/router.dart';
 
 import '../../../../../../core/shared/widgets/status_indicator.dart';
 import '../../../../../../core/utils/app_colors.dart';
@@ -33,6 +34,8 @@ class OrderContainer extends StatelessWidget {
         //     orderDetails: orderEntity!,
         //   ),
         // );
+
+        context.pushNamed(orderDetailsPageRoute);
       },
       child: Container(
         padding: const EdgeInsets.all(Dimensions.p20),

@@ -14,3 +14,4 @@ const String settingsPageRoute = '/settings';
 const String categoryProductsPageRoute = '/categoryProducts';
 const String ordersPageRoute = '/orders';
 const String orderDetailsPageRoute = '/orderDetails';
+const String trackOrderPageRoute = '/trackOrder';

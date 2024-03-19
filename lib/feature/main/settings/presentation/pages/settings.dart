@@ -51,8 +51,8 @@ class _SettingsViewState extends State<SettingsView> {
                                 "Language",
                                 textAlign: TextAlign.right,
                                 style: CustomTextStyle.kTextStyleF16.copyWith(
-                                  // color: AppColors.textColorSecondary,
-                                ),
+                                    // color: AppColors.textColorSecondary,
+                                    ),
                               ),
                               Gap(30.h),
                               GestureDetector(
@@ -67,16 +67,16 @@ class _SettingsViewState extends State<SettingsView> {
                                 },
                                 child: Row(
                                   children: [
-                                    Text('English - EN',
-                                        style: CustomTextStyle.kTextStyleF14
-                                            ,),
+                                    Text(
+                                      'English - EN',
+                                      style: CustomTextStyle.kTextStyleF14,
+                                    ),
                                     const Spacer(),
                                     Icon(
-                                            Icons.check,
-                                            size: 16.sp,
-                                            // color: AppColors.lightBlue,
-                                          )
-
+                                      Icons.check,
+                                      size: 16.sp,
+                                      // color: AppColors.lightBlue,
+                                    )
                                   ],
                                 ),
                               ),
@@ -92,13 +92,15 @@ class _SettingsViewState extends State<SettingsView> {
                                 },
                                 child: Row(
                                   children: [
-                                    Text('العربية - AR',),
+                                    Text(
+                                      'العربية - AR',
+                                    ),
                                     const Spacer(),
                                     Icon(
-                                            Icons.check,
-                                            size: 16.sp,
-                                            // color: AppColors.lightBlue,
-                                          ),
+                                      Icons.check,
+                                      size: 16.sp,
+                                      // color: AppColors.lightBlue,
+                                    ),
                                     // Icon(Icons.check,size: 16.sp,color: AppColors.lightBlue,)
                                   ],
                                 ),
@@ -112,8 +114,7 @@ class _SettingsViewState extends State<SettingsView> {
                   opacity: 0.90,
                   child: Text(
                     "Language",
-                    style: CustomTextStyle.kTextStyleF16
-                        ,
+                    style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
                 trailing: Icon(
@@ -135,8 +136,7 @@ class _SettingsViewState extends State<SettingsView> {
                   opacity: 0.90,
                   child: Text(
                     "Notifications",
-                    style: CustomTextStyle.kTextStyleF16
-                        ,
+                    style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
                 trailing: Icon(
@@ -211,8 +211,7 @@ class _SettingsViewState extends State<SettingsView> {
                   opacity: 0.90,
                   child: Text(
                     "Contact Us",
-                    style: CustomTextStyle.kTextStyleF16
-                        ,
+                    style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
                 trailing: Icon(
@@ -234,8 +233,7 @@ class _SettingsViewState extends State<SettingsView> {
                   opacity: 0.90,
                   child: Text(
                     "Orders",
-                    style: CustomTextStyle.kTextStyleF16
-                        ,
+                    style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
                 trailing: Icon(
