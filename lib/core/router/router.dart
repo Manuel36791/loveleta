@@ -15,3 +15,6 @@ const String categoryProductsPageRoute = '/categoryProducts';
 const String ordersPageRoute = '/orders';
 const String orderDetailsPageRoute = '/orderDetails';
 const String trackOrderPageRoute = '/trackOrder';
+const String savedAddressesPageRoute = '/savedAddresses';
+const String addNewAddressPageRoute = '/AddAddress';
+const String mapPageRoute = '/mapView';

@@ -20,6 +20,7 @@ class CustomFormField extends StatefulWidget {
   final String? helperText;
   final Color color;
   final bool floatingLabel;
+  final bool readOnly;
 
   const CustomFormField({
     super.key,
@@ -37,6 +38,7 @@ class CustomFormField extends StatefulWidget {
     this.helperText,
     this.color = const Color(0xFF000000),
     this.floatingLabel = false,
+    this.readOnly = false,
   });
 
   @override
@@ -57,6 +59,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
           textInputAction: widget.nextAction,
           maxLength: widget.maxLength,
           maxLines: widget.maxLines,
+          readOnly: widget.readOnly,
           decoration: InputDecoration(
             prefixIcon: widget.preIcon,
             suffix: widget.postIcon,
