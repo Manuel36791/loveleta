@@ -2,7 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
+import 'core/database/address_class.dart';
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
 import 'core/router/router_generator.dart';
@@ -19,6 +21,8 @@ void main() async {
   Bloc.observer = AppCubitObserver();
   await ScreenUtil.ensureScreenSize();
   await di.init();
+  await Hive.initFlutter();
+  Hive.registerAdapter(AddressAdapter());
   await svgPreloader();
 
   ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
@@ -39,7 +43,7 @@ void main() async {
   //   FireBaseResources().ios();
   // }
 
-  var currentLocale = await CacheHelper.getAppLang();
+  // var currentLocale = await CacheHelper.getAppLang();
   var email = await CacheHelper.getData("email");
   var pass = await CacheHelper.getData("pass");
   debugPrint("Email: $email\n Pass: $pass");

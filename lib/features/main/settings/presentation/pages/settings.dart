@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:loveleta/core/router/router.dart';
+import 'package:loveleta/core/shared/arguments.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -51,8 +54,8 @@ class _SettingsViewState extends State<SettingsView> {
                                 "Language",
                                 textAlign: TextAlign.right,
                                 style: CustomTextStyle.kTextStyleF16.copyWith(
-                                    // color: AppColors.textColorSecondary,
-                                    ),
+                                  // color: AppColors.textColorSecondary,
+                                ),
                               ),
                               Gap(30.h),
                               GestureDetector(
@@ -243,6 +246,30 @@ class _SettingsViewState extends State<SettingsView> {
                 ),
               ),
             ),
+            Gap(10.h),
+            Container(
+              color: Colors.white,
+              padding: EdgeInsets.all(16.0.sp),
+              child: ListTile(
+                onTap: () {
+                  context.pushNamed(savedAddressesPageRoute,
+                    arguments: AddressArgs(latLng: LatLng(0, 0), address: Placemark(),),);
+                },
+                title: Opacity(
+                  opacity: 0.90,
+                  child: Text(
+                    "Saved addresses",
+                    style: CustomTextStyle.kTextStyleF16,
+                  ),
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios_sharp,
+                  // color: AppColors.lightBlue,
+                  size: 16.sp,
+                ),
+              ),
+            ),
+
           ],
         ),
       ),

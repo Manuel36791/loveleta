@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:loveleta/feature/cart/presentation/pages/cart_view.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../cart/presentation/pages/cart_view.dart';
 import '../main/categories/presentation/pages/categories_view.dart';
 import '../main/home/presentation/pages/home_view.dart';
 import '../main/settings/presentation/pages/settings.dart';

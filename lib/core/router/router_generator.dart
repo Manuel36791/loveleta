@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:loveleta/feature/orders/order_details/presentation/pages/order_details.dart';
 
-import '../../feature/auth/change_password/presentation/pages/change_pass_view.dart';
-import '../../feature/auth/forgot_pass/presentation/pages/forgot_pass_view.dart';
-import '../../feature/auth/login/presentation/pages/login_view.dart';
-import '../../feature/auth/register/presentation/pages/register_view.dart';
-import '../../feature/auth/reset_pass/presentation/pages/reset_pass_view.dart';
-import '../../feature/auth/verify_account/presentation/pages/verify_account_view.dart';
-import '../../feature/bottom_nav_bar/bottom_nav_bar.dart';
-import '../../feature/main/categories/presentation/pages/categories_view.dart';
-import '../../feature/main/category_products/presentation/pages/category_details.dart';
-import '../../feature/main/home/presentation/pages/home_view.dart';
-import '../../feature/main/product_details/presentation/pages/product_details_view.dart';
-import '../../feature/main/settings/presentation/pages/settings.dart';
-import '../../feature/orders/track_order/presentation/pages/track_order_view.dart';
-import '../../feature/orders/user_orders/presentation/pages/user_orders_view.dart';
+import '../../features/address/add_new_address/presentation/pages/add_new_address_view.dart';
+import '../../features/address/map/presentation/pages/map_view.dart';
+import '../../features/address/saved_addresses/presentation/pages/saved_addresses_view.dart';
+import '../../features/auth/change_password/presentation/pages/change_pass_view.dart';
+import '../../features/auth/forgot_pass/presentation/pages/forgot_pass_view.dart';
+import '../../features/auth/login/presentation/pages/login_view.dart';
+import '../../features/auth/register/presentation/pages/register_view.dart';
+import '../../features/auth/reset_pass/presentation/pages/reset_pass_view.dart';
+import '../../features/auth/verify_account/presentation/pages/verify_account_view.dart';
+import '../../features/bottom_nav_bar/bottom_nav_bar.dart';
+import '../../features/main/categories/presentation/pages/categories_view.dart';
+import '../../features/main/category_products/presentation/pages/category_details.dart';
+import '../../features/main/home/presentation/pages/home_view.dart';
+import '../../features/main/product_details/presentation/pages/product_details_view.dart';
+import '../../features/main/settings/presentation/pages/settings.dart';
+import '../../features/orders/order_details/presentation/pages/order_details.dart';
+import '../../features/orders/track_order/presentation/pages/track_order_view.dart';
+import '../../features/orders/user_orders/presentation/pages/user_orders_view.dart';
 import '../../main_view.dart';
+import '../shared/arguments.dart';
 import 'router.dart';
 
 class AppRouters {
@@ -87,6 +91,24 @@ class AppRouters {
       case trackOrderPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const TrackOrderView(),
+        );
+
+      /// Address Routes
+      case savedAddressesPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const SavedAddressesView(),
+        );
+      case addNewAddressPageRoute:
+        final args = settings.arguments as AddressArgs;
+        return MaterialPageRoute(
+          builder: (BuildContext context) => AddNewAddressView(
+            address: args.address,
+            latLng: args.latLng,
+          ),
+        );
+      case mapPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const MapView(),
         );
 
       default:

@@ -7,7 +7,7 @@ import 'package:gap/gap.dart';
 import 'core/shared/cubits/internet_checker_cubit.dart';
 import 'core/utils/app_text_styles.dart';
 import 'core/utils/app_images.dart';
-import 'feature/auth/login/presentation/pages/login_view.dart';
+import 'features/auth/login/presentation/pages/login_view.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
