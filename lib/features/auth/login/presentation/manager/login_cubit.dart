@@ -5,13 +5,15 @@ import 'package:loveleta/core/utils/extensions.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../../../../generated/l10n.dart';
+import '../../domain/entities/login_entity.dart';
+import '../../domain/use_cases/login_use_case.dart';
 
 part 'login_states.dart';
 
 part 'login_cubit.freezed.dart';
 
 class LoginCubit extends Cubit<LoginStates> {
-  LoginCubit() : super(const LoginStates.initial());
+  LoginCubit({required this.loginUseCase}) : super(const LoginStates.initial());
 
   static LoginCubit get(BuildContext context) => BlocProvider.of(context);
 
@@ -47,4 +49,27 @@ class LoginCubit extends Cubit<LoginStates> {
         passCtrl,
         (a, b) => true,
       );
+
+  final LoginUseCase loginUseCase;
+
+  userLogin(LoginEntity loginEntity) async {
+    emit(const LoginStates.loading());
+    final login = await loginUseCase(loginEntity);
+
+    login.fold(
+          (l) {
+        emit(
+          LoginStates.error(
+            l.code.toString(),
+            l.message,
+          ),
+        );
+      },
+          (r) async {
+        emit(
+          LoginStates.success(r),
+        );
+      },
+    );
+  }
 }

@@ -250,6 +250,16 @@ class S {
     );
   }
 
+  /// `Error: {errCode}, {err}`
+  String error(String errCode, String err) {
+    return Intl.message(
+      'Error: $errCode, $err',
+      name: 'error',
+      desc: '',
+      args: [errCode, err],
+    );
+  }
+
   /// `Login`
   String get login {
     return Intl.message(
@@ -357,6 +367,16 @@ class S {
       name: 'passwordIsTooShort',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `Logged In Successful, welcome again {userName}`
+  String loggedInSuccessful(String userName) {
+    return Intl.message(
+      'Logged In Successful, welcome again $userName',
+      name: 'loggedInSuccessful',
+      desc: '',
+      args: [userName],
     );
   }
 

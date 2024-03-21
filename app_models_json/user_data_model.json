@@ -1,0 +1,25 @@
+{
+  "uuid": "a7e1d6f9-9f7e-4e7f-9f8e-9f8e9f8e9f8e",
+  "_id": "65e4a3b61417dc68a3737f80",
+  "name": "John Smith",
+  "email": "5nQHk@example.com",
+  "password": "password",
+  "password_confirmation": "password",
+  "phone": "555-555-5555",
+  "address": {
+    "street": "123 Main St",
+    "building_number": "123",
+    "flat_number": "Apt 1",
+    "city": "San Francisco",
+    "country": "USA",
+    "zipcode": "94111",
+    "geo": {
+      "lat": "37.7749",
+      "lng": "-122.4194"
+    }
+  },
+  "avatar": "https://via.placeholder.com/150",
+  "otp": 123456,
+  "status": "active",
+  "role": "user"
+}

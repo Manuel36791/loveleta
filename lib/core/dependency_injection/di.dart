@@ -1,8 +1,12 @@
 import 'package:get_it/get_it.dart';
+import 'package:loveleta/features/auth/login/domain/use_cases/login_use_case.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/change_password/presentation/manager/change_pass_cubit.dart';
 import '../../features/auth/forgot_pass/presentation/manager/forgot_pass_cubit.dart';
+import '../../features/auth/login/data/data_sources/login_service.dart';
+import '../../features/auth/login/data/repositories/login_repo_impl.dart';
+import '../../features/auth/login/domain/repositories/login_repo.dart';
 import '../../features/auth/login/presentation/manager/login_cubit.dart';
 import '../../features/auth/register/presentation/manager/register_cubit.dart';
 import '../../features/auth/reset_pass/presentation/manager/reset_pass_cubit.dart';
@@ -12,7 +16,10 @@ final di = GetIt.instance;
 
 Future<void> init() async {
   /// Login
-  di.registerFactory(() => LoginCubit());
+  di.registerFactory(() => LoginCubit(loginUseCase: di()));
+  di.registerLazySingleton(() => LoginUseCase(loginRepo: di()));
+  di.registerLazySingleton<LoginRepo>(() => LoginRepoImpl(loginService:  di()));
+  di.registerLazySingleton<LoginService>(() => LoginServiceImpl());
 
   /// Register
   di.registerFactory(() => RegisterCubit());

@@ -20,6 +20,11 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(errCode, err) => "Error: ${errCode}, ${err}";
+
+  static String m1(userName) =>
+      "Logged In Successful, welcome again ${userName}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alreadyHaveAnAccount":
@@ -45,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailCantBeEmpty":
             MessageLookupByLibrary.simpleMessage("Email can\'t be empty"),
+        "error": m0,
         "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
@@ -55,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
         "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
+        "loggedInSuccessful": m1,
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "method_not_allowed_error": MessageLookupByLibrary.simpleMessage(
             "Unsupported, please try Again later"),

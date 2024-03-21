@@ -16,13 +16,14 @@ class AppConstants {
 
   //! API headers
   static const String applicationJson = "application/json";
-  static const String bearerToken = "";
-  static const apiToken = "Bearer $bearerToken";
+  static String userToken = "";
+  // static const String bearerToken = "";
+  // static const apiToken = "Bearer $bearerToken";
   static const apiTimeOut = 60000;
   static String? fcmToken = "";
 
   // * API URIs
-  static const apiBaseUrl = "https://example.example.com/api/";
+  static const apiBaseUrl = "https://loveleta.coddiv.com/api/";
   static const imageUrl = "https://example.example.com/";
   static const loginUri = "auth/login";
 

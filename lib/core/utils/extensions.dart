@@ -32,10 +32,10 @@ extension MediaQueryValues on BuildContext {
 
 extension ContextExtensions on BuildContext {
   // Example: Show a SnackBar
-  void defaultSnackBar(String content, {Color? color}) {
+  void defaultSnackBar(String content, {Color? color, Color? textColor}) {
     ScaffoldMessenger.of(this).showSnackBar(
       SnackBar(
-        content: Text(content),
+        content: Text(content, style: TextStyle(color: textColor),),
         backgroundColor: color,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(

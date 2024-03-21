@@ -1,4 +1,5 @@
 {
+  "@@locale": "ar",
   "@_ErrorHandler": {},
   "success": "تم بنجاح",
   "bad_request_error": "طلب غير صالح. حاول مرة أخرى لاحقًا",
@@ -20,6 +21,19 @@
   "no_internet_error": "يُرجى التحقق من اتصالك بالإنترنت",
   "method_not_allowed_error": "غير مدعوم، يرجى المحاولة مرة أخرى لاحقًا",
 
+  "@_GeneralMessages": {},
+  "error": "خطأ: {errCode}، {err}",
+  "@error": {
+    "placeholders": {
+      "errCode": {
+        "type": "String"
+      },
+      "err": {
+        "type": "String"
+      }
+    }
+  },
+
   "@_Login": {},
   "login": "تسجيل الدخول",
   "email": "البريد الإلكتروني",
@@ -32,6 +46,14 @@
   "plzEnterAValidEmail": "الرجاء إدخال عنوان بريد إلكتروني صالح",
   "passwordCantBeEmpty": "لا يمكن ترك حقل كلمة المرور فارغًا",
   "passwordIsTooShort": "كلمة المرور قصيرة جدًا",
+  "loggedInSuccessful": "تم تسجيل الدخول بنجاح، مرحبًا مرة أخرى {userName}",
+  "@loggedInSuccessful": {
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      }
+    }
+  },
 
   "@_Register": {},
   "firstName": "الاسم الأول",
@@ -72,4 +94,7 @@
   "newPasswordCantBeLessThan8Characters": "لا يمكن أن تكون كلمة المرور الجديدة أقل من 8 أحرف",
   "changePassword": "تغيير كلمة المرور",
   "updatePassword": "تحديث كلمة المرور"
+
+
+
 }

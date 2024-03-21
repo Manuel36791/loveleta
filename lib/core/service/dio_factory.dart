@@ -54,6 +54,9 @@ class DioFactory {
       dio!.options = BaseOptions(
         baseUrl: AppConstants.apiBaseUrl,
         headers: headers,
+        connectTimeout: const Duration(
+          milliseconds: AppConstants.apiTimeOut,
+        ),
         receiveTimeout: const Duration(
           milliseconds: AppConstants.apiTimeOut,
         ),
@@ -62,7 +65,7 @@ class DioFactory {
         ),
       );
 
-      // loggerInterceptor();
+      loggerInterceptor();
       talkerInterceptor();
 
       return dio!;

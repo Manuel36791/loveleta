@@ -8,6 +8,8 @@ import 'package:loveleta/core/router/router.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../core/helpers/cache_helper.dart';
+import '../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../core/shared/widgets/custom_form_field.dart';
 import '../../../../../core/utils/app_colors.dart';
@@ -15,6 +17,7 @@ import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
+import '../../domain/entities/login_entity.dart';
 import '../manager/login_cubit.dart';
 
 class LoginView extends StatefulWidget {
@@ -30,7 +33,42 @@ class _LoginViewState extends State<LoginView> {
     return BlocProvider(
       create: (context) => di.di<LoginCubit>(),
       child: BlocConsumer<LoginCubit, LoginStates>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          LoginCubit loginCubit = LoginCubit.get(context);
+
+          state.maybeWhen(
+            success: (state) async {
+              if (state.status == 1) {
+                context.defaultSnackBar(S.of(context).loggedInSuccessful(UserData.name!), color: AppColors.successColor, textColor: AppColors.textBlack);
+                var email =
+                CacheHelper.setData("email", loginCubit.emailCtrl.value);
+                var pass =
+                CacheHelper.setData("pass", loginCubit.passCtrl.value);
+                debugPrint("$email, $pass");
+                context.pushNamed(bottomNavBar);
+              }
+              // } else if (state.status == 0) {
+              //   if (state.msg ==
+              //       "Active your account first verification code sent to your email !") {
+              //     // await resendCodeUseCase(email.ifEmpty());
+              //     // loginCubit.resendCode(loginCubit.emailCtrl.text);
+              //     context.pushNamed(
+              //       verifyAccountPageRoute,
+              //       arguments:
+              //       VerifyAccountArgs(email: loginCubit.emailCtrl.text),
+              //     );
+              //   }
+              //   context.defaultSnackBar(state.msg.isNullOrEmpty());
+              // } else {
+              //   context.defaultSnackBar(state.msg.isNullOrEmpty());
+              // }
+            },
+            error: (errCode, err) {
+              context.defaultSnackBar(S.of(context).error(errCode, err), color: AppColors.errorColor, );
+            },
+            orElse: () {},
+          );
+        },
         builder: (context, state) {
           LoginCubit loginCubit = LoginCubit.get(context);
           return Scaffold(
@@ -108,14 +146,22 @@ class _LoginViewState extends State<LoginView> {
                         stream: loginCubit.loginStream,
                         builder: (context, snapshot) {
                           return ConditionalBuilder(
-                            condition: true,
+                            condition: state is! Loading,
                             builder: (ctx) {
                               return CustomBtn(
                                 isUpperCase: false,
                                 label: S.of(context).login,
-                                onPressed: snapshot.hasError ? null : () {
-                                  context.pushNamed(bottomNavBar);
-                                },
+                                onPressed: snapshot.hasError
+                                    ? null
+                                    : () {
+                                        loginCubit.userLogin(
+                                          LoginEntity(
+                                            email:
+                                                loginCubit.emailCtrl.value,
+                                            pass: loginCubit.passCtrl.value,
+                                          ),
+                                        );
+                                      },
                               );
                             },
                             fallback: (ctx) {
