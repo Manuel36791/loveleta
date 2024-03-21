@@ -31,7 +31,7 @@ class AddressAdapter extends TypeAdapter<Address> {
   @override
   void write(BinaryWriter writer, Address obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)

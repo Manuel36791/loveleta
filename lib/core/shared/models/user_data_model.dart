@@ -11,7 +11,7 @@ class UserData extends Equatable {
   static String? passConfirm;
   static String? phone;
   static String? address;
-  static num? otp;
+  static String? otp;
   static num? status;
 
   UserData.fromJson(Map<String, dynamic> json) {
@@ -22,7 +22,7 @@ class UserData extends Equatable {
     pass = json["password"] ?? AppConstants.unknownStringValue;
     passConfirm = json["password_confirmation"] ?? AppConstants.unknownStringValue;
     phone = json["phone"] ?? AppConstants.unknownStringValue;
-    otp = json['otp'] ?? AppConstants.unknownNumValue;
+    otp = json['otp'] ?? AppConstants.unknownStringValue;
     status = json['status'] ?? AppConstants.unknownNumValue;
   }
 

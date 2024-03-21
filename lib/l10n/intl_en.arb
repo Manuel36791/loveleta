@@ -1,4 +1,6 @@
+
 {
+  "@@locale": "en",
   "@_ErrorHandler": {},
   "success": "success",
   "bad_request_error": "bad request. try again later",
@@ -21,6 +23,19 @@
   "no_internet_error": "Please check your internet connection",
   "method_not_allowed_error": "Unsupported, please try Again later",
 
+  "@_GeneralMessages": {},
+  "error": "Error: {errCode}, {err}",
+  "@error": {
+    "placeholders": {
+      "errCode": {
+        "type": "String"
+      },
+      "err": {
+        "type": "String"
+      }
+    }
+  },
+
   "@_Login": {},
   "login": "Login",
   "email": "Email",
@@ -33,6 +48,14 @@
   "plzEnterAValidEmail": "Please enter a valid email",
   "passwordCantBeEmpty": "Password can't be empty",
   "passwordIsTooShort": "Password is too short",
+  "loggedInSuccessful": "Logged In Successful, welcome again {userName}",
+  "@loggedInSuccessful": {
+    "placeholders": {
+      "userName": {
+        "type": "String"
+      }
+    }
+  },
 
   "@_Register": {},
   "firstName": "First Name",

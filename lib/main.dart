@@ -4,7 +4,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'core/database/address_class.dart';
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
 import 'core/router/router_generator.dart';
@@ -12,7 +11,6 @@ import 'core/shared/widgets/custom_error_widget.dart';
 import 'core/utils/app_images.dart';
 import 'core/utils/app_strings.dart';
 import 'core/utils/cubit_observer.dart';
-import 'core/utils/language_manager.dart';
 import 'generated/l10n.dart';
 import 'main_view.dart';
 
@@ -22,7 +20,7 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   await di.init();
   await Hive.initFlutter();
-  Hive.registerAdapter(AddressAdapter());
+  // Hive.registerAdapter(AddressAdapter());
   await svgPreloader();
 
   ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
@@ -61,7 +59,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Locale currentLang = Locale(LanguageType.ENGLISH.getValue());
+  // Locale currentLang = Locale(LanguageType.ENGLISH.getValue());
 
   @override
   void initState() {
@@ -93,7 +91,7 @@ class _MyAppState extends State<MyApp> {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           // locale: Locale(widget.currentLang),
-          locale: currentLang,
+          locale: Locale("en"),
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,
