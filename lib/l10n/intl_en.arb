@@ -76,6 +76,16 @@
   "pleaseEnterAPasswordWithAtLeast8Characters": "Please enter a password with at least 8 characters",
   "pleaseReconfirmYourPassword": "Please reconfirm your password",
   "passwordsDoNotMatchPleaseTryAgain": "Passwords do not match. Please try again",
+  "emailRegisteredSuccessful": "Email: {email} Registered Successfully",
+  "@emailRegisteredSuccessful": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "emailAlreadyExist": "This email address is already registered. Please use a different email address or log in with your existing account.",
+
 
   "@_VerifyAccount" : {},
   "verifyAccount": "Verify Account",
@@ -83,6 +93,8 @@
   "sendAgain": "Send Again",
   "pleaseEnterTheActivationCodeSentToYourEmail": "Please enter the activation code sent to your email",
   "codeCantBeLessThan4Characters": "Code can't be less than 4 characters",
+  "activationSuccess": "Your account has been successfully activated. You can now log in and access your account.",
+
 
   "@_ForgetPassword": {},
   "forgetPassword": "Forget Password",
@@ -98,13 +110,6 @@
   "confirmNewPassword": "Confirm New Password",
   "newPasswordCantBeLessThan8Characters": "New password can't be less than 8 characters",
   "changePassword": "Change Password",
-  "updatePassword": "Update Password",
-  "emailRegisteredSuccessful": "Email: {email} Registered Successfully",
-  "@emailRegisteredSuccessful": {
-    "placeholders": {
-      "email": {
-        "type": "String"
-      }
-    }
-  }
+  "updatePassword": "Update Password"
+
 }

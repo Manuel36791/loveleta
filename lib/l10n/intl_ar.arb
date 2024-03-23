@@ -41,10 +41,10 @@
   "rememberMe": "تذكرني",
   "forgotPassword": "نسيت كلمة المرور",
   "dontHaveAnAccount": "ليس لديك حساب؟",
-  "signUp": "سجل الآن",
-  "emailCantBeEmpty": "لا يمكن ترك حقل البريد الإلكتروني فارغًا",
-  "plzEnterAValidEmail": "الرجاء إدخال عنوان بريد إلكتروني صالح",
-  "passwordCantBeEmpty": "لا يمكن ترك حقل كلمة المرور فارغًا",
+  "signUp": "التسجيل",
+  "emailCantBeEmpty": "لا يمكن أن يكون البريد الإلكتروني فارغًا",
+  "plzEnterAValidEmail": "الرجاء إدخال بريد إلكتروني صالح",
+  "passwordCantBeEmpty": "لا يمكن أن تكون كلمة المرور فارغة",
   "passwordIsTooShort": "كلمة المرور قصيرة جدًا",
   "loggedInSuccessful": "تم تسجيل الدخول بنجاح، مرحبًا مرة أخرى {userName}",
   "@loggedInSuccessful": {
@@ -54,6 +54,8 @@
       }
     }
   },
+  "accountNotActivated": "لم يتم تنشيط حسابك بعد. الرجاء التحقق من بريدك الإلكتروني للحصول على رمز التفعيل أو حاول مرة أخرى لاحقًا.",
+  "invalidCredentials": "بريد إلكتروني أو كلمة مرور غير صالحة. الرجاء التحقق من بيانات الاعتماد الخاصة بك والمحاولة مرة أخرى.",
 
   "@_Register": {},
   "firstName": "الاسم الأول",
@@ -61,23 +63,33 @@
   "phoneNumber": "رقم الهاتف",
   "passwordConfirmation": "تأكيد كلمة المرور",
   "alreadyHaveAnAccount": "هل لديك حساب بالفعل؟",
-  "pleaseEnterYourFirstName": "الرجاء إدخال الاسم الأول الخاص بك",
-  "pleaseEnterYourLastName": "الرجاء إدخال الاسم الأخير الخاص بك",
+  "pleaseEnterYourFirstName": "الرجاء إدخال الاسم الأول",
+  "pleaseEnterYourLastName": "الرجاء إدخال الاسم الأخير",
   "pleaseEnterYourPhoneNumber": "الرجاء إدخال رقم هاتفك",
-  "pleaseEnterAValidPhoneNumber": "الرجاء إدخال رقم هاتف صحيح",
-  "pleaseEnterYourEmailAddress": "الرجاء إدخال عنوان بريدك الإلكتروني",
-  "pleaseEnterAValidEmailAddress": "الرجاء إدخال عنوان بريد إلكتروني صحيح",
-  "pleaseEnterAPassword": "الرجاء إدخال كلمة مرور",
+  "pleaseEnterAValidPhoneNumber": "الرجاء إدخال رقم هاتف صالح",
+  "pleaseEnterYourEmailAddress": "الرجاء إدخال بريدك الإلكتروني",
+  "pleaseEnterAValidEmailAddress": "الرجاء إدخال بريد إلكتروني صالح",
+  "pleaseEnterAPassword": "الرجاء إدخال كلمة المرور",
   "pleaseEnterAPasswordWithAtLeast8Characters": "الرجاء إدخال كلمة مرور تتكون من 8 أحرف على الأقل",
   "pleaseReconfirmYourPassword": "الرجاء إعادة تأكيد كلمة المرور",
-  "passwordsDoNotMatchPleaseTryAgain": "كلمات المرور غير متطابقة. يرجى المحاولة مرة أخرى",
+  "passwordsDoNotMatchPleaseTryAgain": "كلمات المرور غير متطابقة. الرجاء المحاولة مرة أخرى",
+  "emailRegisteredSuccessful": "تم تسجيل البريد الإلكتروني: {email} بنجاح",
+  "@emailRegisteredSuccessful": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "emailAlreadyExist": "عذرًا، هذا البريد الإلكتروني مسجل بالفعل. الرجاء استخدام بريد إلكتروني مختلف أو تسجيل الدخول باستخدام حسابك الحالي.",
 
-  "@_VerifyAccount": {},
-  "verifyAccount": "تحقق من الحساب",
-  "verify": "تحقق",
-  "sendAgain": "إرسال مرة أخرى",
-  "pleaseEnterTheActivationCodeSentToYourEmail": "الرجاء إدخال رمز التنشيط المرسل إلى بريدك الإلكتروني",
-  "codeCantBeLessThan4Characters": "الرمز لا يمكن أن يكون أقل من 4 أحرف",
+  "@_VerifyAccount" : {},
+  "verifyAccount": "تأكيد الحساب",
+  "verify": "تأكيد",
+  "sendAgain": "إعادة الإرسال",
+  "pleaseEnterTheActivationCodeSentToYourEmail": "الرجاء إدخال رمز التفعيل المرسل إلى بريدك الإلكتروني",
+  "codeCantBeLessThan4Characters": "الرمز يجب أن يتكون من 4 أحرف على الأقل",
+  "activationSuccess": "تم تفعيل حسابك بنجاح. يمكنك الآن تسجيل الدخول والوصول إلى حسابك.",
 
   "@_ForgetPassword": {},
   "forgetPassword": "نسيت كلمة المرور",
@@ -94,7 +106,4 @@
   "newPasswordCantBeLessThan8Characters": "لا يمكن أن تكون كلمة المرور الجديدة أقل من 8 أحرف",
   "changePassword": "تغيير كلمة المرور",
   "updatePassword": "تحديث كلمة المرور"
-
-
-
 }

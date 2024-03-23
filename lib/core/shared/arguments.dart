@@ -7,3 +7,9 @@ class AddressArgs {
 
   AddressArgs({required this.latLng, required this.address});
 }
+
+class VerifyAccountArgs {
+  final String email;
+
+  VerifyAccountArgs({required this.email});
+}

@@ -1,9 +1,7 @@
-
-import '../../../../../core/utils/app_constants.dart';
 import '../../domain/entities/register_entity.dart';
 
 class RegisterModel extends RegisterEntity {
-  const RegisterModel ({
+  const RegisterModel({
     super.firstName,
     super.lastName,
     super.email,
@@ -16,8 +14,9 @@ class RegisterModel extends RegisterEntity {
 
   factory RegisterModel.fromJson(Map<String, dynamic> json) {
     return RegisterModel(
-      status: json['status'] ,
-      msg: json['message'] as String? ?? AppConstants.unknownStringValue,
+      status: json['status'],
+      msg: json['message'],
+      email: json["email"] ?? json["user"]["email"],
     );
   }
 

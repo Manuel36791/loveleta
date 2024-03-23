@@ -41,8 +41,11 @@ class AppRouters {
           builder: (BuildContext context) => const RegisterView(),
         );
       case verifyAccountPageRoute:
+        final args = settings.arguments as VerifyAccountArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const VerifyAccountView(),
+          builder: (BuildContext context) => VerifyAccountView(
+            email: args.email,
+          ),
         );
       case forgotPassPageRoute:
         return MaterialPageRoute(
