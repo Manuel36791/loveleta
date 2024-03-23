@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+import 'package:loveleta/core/shared/arguments.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 import 'package:loveleta/features/auth/register/domain/entities/register_entity.dart';
 
@@ -41,7 +42,24 @@ class _RegisterViewState extends State<RegisterView> {
                   color: AppColors.successColor,
                   textColor: AppColors.textBlack,
                 );
-                context.pushNamed(verifyAccountPageRoute);
+                context.pushNamed(
+                  verifyAccountPageRoute,
+                  arguments: VerifyAccountArgs(
+                    email: state.email!,
+                  ),
+                );
+              }
+            },
+            error: (errCode, err) {
+              if (int.parse(errCode) == 400) {
+                context.defaultSnackBar(
+                    S.of(context).emailAlreadyExist,
+                    color: AppColors.errorColor);
+              } else {
+                context.defaultSnackBar(
+                  S.of(context).error(errCode, err),
+                  color: AppColors.errorColor,
+                );
               }
             },
             orElse: () {},
@@ -117,13 +135,17 @@ class _RegisterViewState extends State<RegisterView> {
                               initialSelection: 'SA',
                               favorite: const ['966', 'SA'],
                               onChanged: (code) {
-                                registerCubit.countryCode = code.code!;
+                                registerCubit.countryCode = code.dialCode!;
                               },
+                              onInit: (code) {
+                                registerCubit.countryCode = code!.dialCode!;
+                              },
+
                             ),
                           ),
                           Gap(10.w),
                           Flexible(
-                            flex: 3,
+                            flex: 2,
                             child: CustomFormField(
                               stream: registerCubit.phoneStream,
                               onChanged: (phone) {
@@ -158,7 +180,7 @@ class _RegisterViewState extends State<RegisterView> {
                         stream: registerCubit.registerBtnStream,
                         builder: (context, snapshot) {
                           return ConditionalBuilder(
-                            condition: true,
+                            condition: state is! Loading,
                             builder: (ctx) {
                               return CustomBtn(
                                 isUpperCase: false,
@@ -168,12 +190,17 @@ class _RegisterViewState extends State<RegisterView> {
                                     : () {
                                         registerCubit.userRegister(
                                           RegisterEntity(
-                                            firstName: registerCubit.firstNameCtrl.value,
-                                            lastName: registerCubit.lastNameCtrl.value,
-                                            email: registerCubit.emailCtrl.value,
-                                            phone: registerCubit.phoneCtrl.value,
+                                            firstName: registerCubit
+                                                .firstNameCtrl.value,
+                                            lastName: registerCubit
+                                                .lastNameCtrl.value,
+                                            email:
+                                                registerCubit.emailCtrl.value,
+                                            phone:
+                                                "${registerCubit.countryCode}${registerCubit.phoneCtrl.value}",
                                             pass: registerCubit.passCtrl.value,
-                                            passConf: registerCubit.passConfCtrl.value,
+                                            passConf: registerCubit
+                                                .passConfCtrl.value,
                                           ),
                                         );
                                       },

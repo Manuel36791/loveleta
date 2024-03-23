@@ -66,7 +66,7 @@ class DioFactory {
       );
 
       loggerInterceptor();
-      talkerInterceptor();
+      // talkerInterceptor();
 
       return dio!;
     } else {
@@ -84,7 +84,7 @@ class DioFactory {
           responseHeader: false,
           error: true,
           compact: true,
-          maxWidth: 90,
+          maxWidth: 60,
         ),
       );
     }

@@ -115,7 +115,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
       },
           (r) {
         emit(
-          RegisterStates.success(registerEntity),
+          RegisterStates.success(r),
         );
       },
     );

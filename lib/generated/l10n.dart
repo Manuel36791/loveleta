@@ -550,6 +550,26 @@ class S {
     );
   }
 
+  /// `Email: {email} Registered Successfully`
+  String emailRegisteredSuccessful(String email) {
+    return Intl.message(
+      'Email: $email Registered Successfully',
+      name: 'emailRegisteredSuccessful',
+      desc: '',
+      args: [email],
+    );
+  }
+
+  /// `This email address is already registered. Please use a different email address or log in with your existing account.`
+  String get emailAlreadyExist {
+    return Intl.message(
+      'This email address is already registered. Please use a different email address or log in with your existing account.',
+      name: 'emailAlreadyExist',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Verify Account`
   String get verifyAccount {
     return Intl.message(
@@ -595,6 +615,16 @@ class S {
     return Intl.message(
       'Code can\'t be less than 4 characters',
       name: 'codeCantBeLessThan4Characters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your account has been successfully activated. You can now log in and access your account.`
+  String get activationSuccess {
+    return Intl.message(
+      'Your account has been successfully activated. You can now log in and access your account.',
+      name: 'activationSuccess',
       desc: '',
       args: [],
     );
@@ -697,16 +727,6 @@ class S {
       name: 'updatePassword',
       desc: '',
       args: [],
-    );
-  }
-
-  /// `Email: {email} Registered Successfully`
-  String emailRegisteredSuccessful(String email) {
-    return Intl.message(
-      'Email: $email Registered Successfully',
-      name: 'emailRegisteredSuccessful',
-      desc: '',
-      args: [email],
     );
   }
 }

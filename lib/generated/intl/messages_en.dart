@@ -20,17 +20,19 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m2(email) => "Email: ${email} Registered Successfully";
+  static String m0(email) => "Email: ${email} Registered Successfully";
 
-  static String m0(errCode, err) => "Error: ${errCode}, ${err}";
+  static String m1(errCode, err) => "Error: ${errCode}, ${err}";
 
-  static String m1(userName) =>
+  static String m2(userName) =>
       "Logged In Successfully, welcome again ${userName}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountNotActivated": MessageLookupByLibrary.simpleMessage(
             "Your account is not yet activated. Please check your email for the activation code or try again later."),
+        "activationSuccess": MessageLookupByLibrary.simpleMessage(
+            "Your account has been successfully activated. You can now log in and access your account."),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "bad_gateway": MessageLookupByLibrary.simpleMessage(
@@ -52,10 +54,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "dontHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Don’t Have An account"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emailAlreadyExist": MessageLookupByLibrary.simpleMessage(
+            "This email address is already registered. Please use a different email address or log in with your existing account."),
         "emailCantBeEmpty":
             MessageLookupByLibrary.simpleMessage("Email can\'t be empty"),
-        "emailRegisteredSuccessful": m2,
-        "error": m0,
+        "emailRegisteredSuccessful": m0,
+        "error": m1,
         "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
@@ -68,7 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "invalidCredentials": MessageLookupByLibrary.simpleMessage(
             "Invalid email or password. Please check your credentials and try again."),
         "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
-        "loggedInSuccessful": m1,
+        "loggedInSuccessful": m2,
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "method_not_allowed_error": MessageLookupByLibrary.simpleMessage(
             "Unsupported, please try Again later"),
