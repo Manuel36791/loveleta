@@ -6,7 +6,6 @@ class LoginModel extends LoginEntity {
   const LoginModel({
     super.status,
     super.msg,
-    super.error,
     super.userData,
     super.email,
     super.pass,
@@ -16,7 +15,6 @@ class LoginModel extends LoginEntity {
   factory LoginModel.fromJson(Map<String, dynamic> json) {
     return LoginModel(
       status: json["status"] as num? ?? AppConstants.unknownNumValue,
-      error: json["error"] ?? "",
       msg: json["message"] ?? "",
       userData: json["user"] == null ? null : UserData.fromJson(json["user"]),
       token: AppConstants.userToken = json['token'] ?? '',

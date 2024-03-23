@@ -8,6 +8,10 @@ import '../../features/auth/login/data/data_sources/login_service.dart';
 import '../../features/auth/login/data/repositories/login_repo_impl.dart';
 import '../../features/auth/login/domain/repositories/login_repo.dart';
 import '../../features/auth/login/presentation/manager/login_cubit.dart';
+import '../../features/auth/register/data/data_sources/register_service.dart';
+import '../../features/auth/register/data/repositories/register_repo_impl.dart';
+import '../../features/auth/register/domain/repositories/register_repo.dart';
+import '../../features/auth/register/domain/use_cases/register_usecase.dart';
 import '../../features/auth/register/presentation/manager/register_cubit.dart';
 import '../../features/auth/reset_pass/presentation/manager/reset_pass_cubit.dart';
 import '../../features/auth/verify_account/presentation/manager/verify_account_cubit.dart';
@@ -22,7 +26,10 @@ Future<void> init() async {
   di.registerLazySingleton<LoginService>(() => LoginServiceImpl());
 
   /// Register
-  di.registerFactory(() => RegisterCubit());
+  di.registerFactory(() => RegisterCubit(registerUseCase: di()));
+  di.registerLazySingleton(() => RegisterUseCase(registerRepo: di()));
+  di.registerLazySingleton<RegisterRepo>(() => RegisterRepoImpl(registerService:  di()));
+  di.registerLazySingleton<RegisterService>(() => RegisterServiceImpl());
 
   /// Verify Account
   di.registerFactory(() => VerifyAccountCubit());

@@ -3,9 +3,10 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
- import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:loveleta/core/utils/extensions.dart';
+import 'package:loveleta/features/auth/register/domain/entities/register_entity.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../core/router/router.dart';
@@ -26,14 +27,25 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
-  
-  
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => di.di<RegisterCubit>(),
       child: BlocConsumer<RegisterCubit, RegisterStates>(
         listener: (context, state) {
+          state.maybeWhen(
+            success: (state) {
+              if (state.status == 1) {
+                context.defaultSnackBar(
+                  S.of(context).emailRegisteredSuccessful(state.email!),
+                  color: AppColors.successColor,
+                  textColor: AppColors.textBlack,
+                );
+                context.pushNamed(verifyAccountPageRoute);
+              }
+            },
+            orElse: () {},
+          );
         },
         builder: (context, state) {
           RegisterCubit registerCubit = RegisterCubit.get(context);
@@ -134,7 +146,7 @@ class _RegisterViewState extends State<RegisterView> {
                       ),
                       Gap(10.h),
                       CustomFormField(
-                        stream: registerCubit.passConfirmStream,
+                        stream: registerCubit.passConfStream,
                         onChanged: (passConfirm) {
                           registerCubit.validatePassConfirm(passConfirm);
                         },
@@ -151,9 +163,20 @@ class _RegisterViewState extends State<RegisterView> {
                               return CustomBtn(
                                 isUpperCase: false,
                                 label: S.of(context).signUp,
-                                onPressed: snapshot.hasError ? null : () {
-                                  context.pushNamed(verifyAccountPageRoute);
-                                },
+                                onPressed: snapshot.hasError
+                                    ? null
+                                    : () {
+                                        registerCubit.userRegister(
+                                          RegisterEntity(
+                                            firstName: registerCubit.firstNameCtrl.value,
+                                            lastName: registerCubit.lastNameCtrl.value,
+                                            email: registerCubit.emailCtrl.value,
+                                            phone: registerCubit.phoneCtrl.value,
+                                            pass: registerCubit.passCtrl.value,
+                                            passConf: registerCubit.passConfCtrl.value,
+                                          ),
+                                        );
+                                      },
                               );
                             },
                             fallback: (ctx) {

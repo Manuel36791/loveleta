@@ -26,5 +26,6 @@ class AppConstants {
   static const apiBaseUrl = "https://loveleta.coddiv.com/api/";
   static const imageUrl = "https://example.example.com/";
   static const loginUri = "auth/login";
+  static const registerUri = "auth/register";
 
 }

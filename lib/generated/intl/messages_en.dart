@@ -20,13 +20,17 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m2(email) => "Email: ${email} Registered Successfully";
+
   static String m0(errCode, err) => "Error: ${errCode}, ${err}";
 
   static String m1(userName) =>
-      "Logged In Successful, welcome again ${userName}";
+      "Logged In Successfully, welcome again ${userName}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "accountNotActivated": MessageLookupByLibrary.simpleMessage(
+            "Your account is not yet activated. Please check your email for the activation code or try again later."),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "bad_gateway": MessageLookupByLibrary.simpleMessage(
@@ -50,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailCantBeEmpty":
             MessageLookupByLibrary.simpleMessage("Email can\'t be empty"),
+        "emailRegisteredSuccessful": m2,
         "error": m0,
         "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
@@ -60,6 +65,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
+        "invalidCredentials": MessageLookupByLibrary.simpleMessage(
+            "Invalid email or password. Please check your credentials and try again."),
         "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
         "loggedInSuccessful": m1,
         "login": MessageLookupByLibrary.simpleMessage("Login"),

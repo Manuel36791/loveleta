@@ -370,13 +370,33 @@ class S {
     );
   }
 
-  /// `Logged In Successful, welcome again {userName}`
+  /// `Logged In Successfully, welcome again {userName}`
   String loggedInSuccessful(String userName) {
     return Intl.message(
-      'Logged In Successful, welcome again $userName',
+      'Logged In Successfully, welcome again $userName',
       name: 'loggedInSuccessful',
       desc: '',
       args: [userName],
+    );
+  }
+
+  /// `Your account is not yet activated. Please check your email for the activation code or try again later.`
+  String get accountNotActivated {
+    return Intl.message(
+      'Your account is not yet activated. Please check your email for the activation code or try again later.',
+      name: 'accountNotActivated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email or password. Please check your credentials and try again.`
+  String get invalidCredentials {
+    return Intl.message(
+      'Invalid email or password. Please check your credentials and try again.',
+      name: 'invalidCredentials',
+      desc: '',
+      args: [],
     );
   }
 
@@ -677,6 +697,16 @@ class S {
       name: 'updatePassword',
       desc: '',
       args: [],
+    );
+  }
+
+  /// `Email: {email} Registered Successfully`
+  String emailRegisteredSuccessful(String email) {
+    return Intl.message(
+      'Email: $email Registered Successfully',
+      name: 'emailRegisteredSuccessful',
+      desc: '',
+      args: [email],
     );
   }
 }
