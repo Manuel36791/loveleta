@@ -5,12 +5,14 @@ import 'package:loveleta/core/utils/extensions.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../../../../generated/l10n.dart';
+import '../../domain/entities/register_entity.dart';
+import '../../domain/use_cases/register_usecase.dart';
 
 part 'register_states.dart';
 part 'register_cubit.freezed.dart';
 
 class RegisterCubit extends Cubit<RegisterStates> {
-  RegisterCubit() : super(const RegisterStates.initial());
+  RegisterCubit({required this.registerUseCase}) : super(const RegisterStates.initial());
 
   static RegisterCubit get(BuildContext context) => BlocProvider.of(context);
 
@@ -19,14 +21,14 @@ class RegisterCubit extends Cubit<RegisterStates> {
   final emailCtrl = BehaviorSubject<String>();
   final phoneCtrl = BehaviorSubject<String>();
   final passCtrl = BehaviorSubject<String>();
-  final passConfirmCtrl = BehaviorSubject<String>();
+  final passConfCtrl = BehaviorSubject<String>();
 
   Stream<String> get firstNameStream => firstNameCtrl.stream;
   Stream<String> get lastNameStream => lastNameCtrl.stream;
   Stream<String> get emailStream => emailCtrl.stream;
   Stream<String> get phoneStream => phoneCtrl.stream;
   Stream<String> get passStream => passCtrl.stream;
-  Stream<String> get passConfirmStream => passConfirmCtrl.stream;
+  Stream<String> get passConfStream => passConfCtrl.stream;
 
   validateFirstName(String firstName) async {
     if (firstName.isEmpty) {
@@ -77,11 +79,11 @@ class RegisterCubit extends Cubit<RegisterStates> {
 
   validatePassConfirm(String passConfirm) async {
     if (passConfirm.isEmpty) {
-      passConfirmCtrl.sink.addError(S.current.pleaseReconfirmYourPassword);
+      passConfCtrl.sink.addError(S.current.pleaseReconfirmYourPassword);
     } else if (passConfirm != passCtrl.value) {
-      passConfirmCtrl.sink.addError(S.current.passwordsDoNotMatchPleaseTryAgain);
+      passConfCtrl.sink.addError(S.current.passwordsDoNotMatchPleaseTryAgain);
     } else {
-      passConfirmCtrl.sink.add(passConfirm);
+      passConfCtrl.sink.add(passConfirm);
     }
   }
 
@@ -91,7 +93,31 @@ class RegisterCubit extends Cubit<RegisterStates> {
     emailStream,
     phoneStream,
     passStream,
-    passConfirmStream,
+    passConfStream,
         (a, b, c, d, e, f) => true,
   );
+
+  final RegisterUseCase registerUseCase;
+  // final CheckRegisteredEmailUseCase checkRegisteredEmailUseCase;
+
+  userRegister(RegisterEntity registerEntity) async {
+    emit(const RegisterStates.loading());
+    final register = await registerUseCase(registerEntity);
+
+    register.fold(
+          (l) {
+        emit(
+          RegisterStates.error(
+            l.code.toString(),
+            l.message,
+          ),
+        );
+      },
+          (r) {
+        emit(
+          RegisterStates.success(registerEntity),
+        );
+      },
+    );
+  }
 }

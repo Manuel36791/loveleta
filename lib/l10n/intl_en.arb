@@ -48,7 +48,7 @@
   "plzEnterAValidEmail": "Please enter a valid email",
   "passwordCantBeEmpty": "Password can't be empty",
   "passwordIsTooShort": "Password is too short",
-  "loggedInSuccessful": "Logged In Successful, welcome again {userName}",
+  "loggedInSuccessful": "Logged In Successfully, welcome again {userName}",
   "@loggedInSuccessful": {
     "placeholders": {
       "userName": {
@@ -56,6 +56,9 @@
       }
     }
   },
+  "accountNotActivated": "Your account is not yet activated. Please check your email for the activation code or try again later.",
+  "invalidCredentials": "Invalid email or password. Please check your credentials and try again.",
+
 
   "@_Register": {},
   "firstName": "First Name",
@@ -95,5 +98,13 @@
   "confirmNewPassword": "Confirm New Password",
   "newPasswordCantBeLessThan8Characters": "New password can't be less than 8 characters",
   "changePassword": "Change Password",
-  "updatePassword": "Update Password"
+  "updatePassword": "Update Password",
+  "emailRegisteredSuccessful": "Email: {email} Registered Successfully",
+  "@emailRegisteredSuccessful": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -39,32 +39,38 @@ class _LoginViewState extends State<LoginView> {
           state.maybeWhen(
             success: (state) async {
               if (state.status == 1) {
-                context.defaultSnackBar(S.of(context).loggedInSuccessful(UserData.name!), color: AppColors.successColor, textColor: AppColors.textBlack);
+                context.defaultSnackBar(
+                    S.of(context).loggedInSuccessful(UserData.name!),
+                    color: AppColors.successColor,
+                    textColor: AppColors.textBlack);
                 var email =
-                CacheHelper.setData("email", loginCubit.emailCtrl.value);
+                    CacheHelper.setData("email", loginCubit.emailCtrl.value);
                 var pass =
-                CacheHelper.setData("pass", loginCubit.passCtrl.value);
+                    CacheHelper.setData("pass", loginCubit.passCtrl.value);
                 debugPrint("$email, $pass");
                 context.pushNamed(bottomNavBar);
+              } else if (state.status == 0 && state.msg ==
+                  "Active your account first verification code sent to your email !") {
+                  // await resendCodeUseCase(email.ifEmpty());
+                  // loginCubit.resendCode(loginCubit.emailCtrl.text);
+                  // context.pushNamed(
+                  //   verifyAccountPageRoute,
+                  //   arguments:
+                  //   VerifyAccountArgs(email: loginCubit.emailCtrl.text),
+                  // );
+                  context.defaultSnackBar(S.of(context).accountNotActivated, color: AppColors.warningColor, textColor: AppColors.textBlack);
+              } else {
+                context.defaultSnackBar(
+                  S.of(context).invalidCredentials,
+                  color: AppColors.errorColor,
+                );
               }
-              // } else if (state.status == 0) {
-              //   if (state.msg ==
-              //       "Active your account first verification code sent to your email !") {
-              //     // await resendCodeUseCase(email.ifEmpty());
-              //     // loginCubit.resendCode(loginCubit.emailCtrl.text);
-              //     context.pushNamed(
-              //       verifyAccountPageRoute,
-              //       arguments:
-              //       VerifyAccountArgs(email: loginCubit.emailCtrl.text),
-              //     );
-              //   }
-              //   context.defaultSnackBar(state.msg.isNullOrEmpty());
-              // } else {
-              //   context.defaultSnackBar(state.msg.isNullOrEmpty());
-              // }
             },
             error: (errCode, err) {
-              context.defaultSnackBar(S.of(context).error(errCode, err), color: AppColors.errorColor, );
+              context.defaultSnackBar(
+                S.of(context).error(errCode, err),
+                color: AppColors.errorColor,
+              );
             },
             orElse: () {},
           );
@@ -156,8 +162,7 @@ class _LoginViewState extends State<LoginView> {
                                     : () {
                                         loginCubit.userLogin(
                                           LoginEntity(
-                                            email:
-                                                loginCubit.emailCtrl.value,
+                                            email: loginCubit.emailCtrl.value,
                                             pass: loginCubit.passCtrl.value,
                                           ),
                                         );
