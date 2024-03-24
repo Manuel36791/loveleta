@@ -4,12 +4,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../../../../generated/l10n.dart';
+import '../../domain/entities/reset_entity.dart';
+import '../../domain/use_cases/reset_pass_usecase.dart';
 
 part 'reset_pass_states.dart';
 part 'reset_pass_cubit.freezed.dart';
 
 class ResetPassCubit extends Cubit<ResetPassStates> {
-  ResetPassCubit() : super(const ResetPassStates.initial());
+  ResetPassCubit({required this.resetPassUseCase}) : super(const ResetPassStates.initial());
   
   static ResetPassCubit get(BuildContext context) => BlocProvider.of(context);
   
@@ -32,4 +34,24 @@ class ResetPassCubit extends Cubit<ResetPassStates> {
     [pinStream],
         (values) => true,
   );
+
+  final ResetPassUseCase resetPassUseCase;
+
+  resetUserPassword(ResetPassEntity resetPassEntity) async {
+    emit(const ResetPassStates.loading());
+    final verify = await resetPassUseCase(resetPassEntity);
+
+    verify.fold((l) {
+      emit(
+        ResetPassStates.error(
+          l.code.toString(),
+          l.message,
+        ),
+      );
+    }, (r) {
+      emit(
+        ResetPassStates.success(r),
+      );
+    });
+  }
 }

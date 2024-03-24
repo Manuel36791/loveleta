@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:loveleta/core/router/router.dart';
+import 'package:loveleta/core/shared/arguments.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 import 'package:pinput/pinput.dart';
 
@@ -15,10 +16,12 @@ import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
+import '../../domain/entities/reset_entity.dart';
 import '../manager/reset_pass_cubit.dart';
 
 class ResetPassView extends StatefulWidget {
   final String email;
+
   const ResetPassView({super.key, required this.email});
 
   @override
@@ -32,12 +35,31 @@ class _ResetPassViewState extends State<ResetPassView> {
       create: (context) => di.di<ResetPassCubit>(),
       child: BlocConsumer<ResetPassCubit, ResetPassStates>(
         listener: (context, state) {
+          state.maybeWhen(
+            success: (state) {
+              if (state.status == "0") {
+                context.defaultSnackBar(
+                  S.of(context).wrongOtpEntered,
+                  color: AppColors.errorColor,
+                );
+              } else {
+                context.pushNamed(
+                  changePassPageRoute,
+                  arguments: ChangePassArgs(
+                    email: widget.email,
+                  ),
+                );
+              }
+            },
+            orElse: () {},
+          );
         },
         builder: (context, state) {
           ResetPassCubit resetPassCubit = ResetPassCubit.get(context);
           return Scaffold(
             body: SafeArea(
-              child: Padding(padding: const EdgeInsets.all(Dimensions.p25),
+              child: Padding(
+                padding: const EdgeInsets.all(Dimensions.p25),
                 child: Column(
                   children: [
                     Gap(60.h),
@@ -70,9 +92,9 @@ class _ResetPassViewState extends State<ResetPassView> {
                                   resetPassCubit.validateCode(code);
                                 },
                                 closeKeyboardWhenCompleted: false,
-                                length: 4,
+                                length: 6,
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
+                                    MainAxisAlignment.spaceEvenly,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 focusNode: FocusNode(),
                                 showCursor: true,
@@ -97,14 +119,14 @@ class _ResetPassViewState extends State<ResetPassView> {
                             ),
                             snapshot.hasError
                                 ? Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                snapshot.error.toString(),
-                                style: const TextStyle(
-                                  color: AppColors.errorColor,
-                                ),
-                              ),
-                            )
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      snapshot.error.toString(),
+                                      style: const TextStyle(
+                                        color: AppColors.errorColor,
+                                      ),
+                                    ),
+                                  )
                                 : Gap(5.h),
                           ],
                         );
@@ -122,8 +144,17 @@ class _ResetPassViewState extends State<ResetPassView> {
                                   builder: (ctx) {
                                     return CustomBtn(
                                       label: S.of(context).resetPasswordBtn,
-                                      onPressed:
-                                      snapshot.hasError ? null : () {},
+                                      onPressed: snapshot.hasError
+                                          ? null
+                                          : () {
+                                              resetPassCubit.resetUserPassword(
+                                                ResetPassEntity(
+                                                  email: widget.email,
+                                                  otp: resetPassCubit
+                                                      .pinCtrl.value,
+                                                ),
+                                              );
+                                            },
                                     );
                                   },
                                   fallback: (ctx) {
@@ -139,18 +170,16 @@ class _ResetPassViewState extends State<ResetPassView> {
                         Gap(10.w),
                         Expanded(
                           child: ConditionalBuilder(
-                            condition: true,
+                            condition: state is! Loading,
                             builder: (ctx) {
                               return CustomBtn(
-                                label: S
-                                    .of(context)
-                                    .sendAgain,
+                                label: S.of(context).sendAgain,
                                 onPressed: () {
                                   context.pushNamed(changePassPageRoute);
                                 },
                                 bgColor: Colors.white,
                                 textStyle:
-                                CustomTextStyle.kBtnTextStyle.copyWith(
+                                    CustomTextStyle.kBtnTextStyle.copyWith(
                                   color: AppColors.textBlack,
                                 ),
                               );
@@ -168,7 +197,8 @@ class _ResetPassViewState extends State<ResetPassView> {
                     )
                   ],
                 ),
-              ),),
+              ),
+            ),
           );
         },
       ),

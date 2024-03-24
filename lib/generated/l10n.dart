@@ -630,6 +630,16 @@ class S {
     );
   }
 
+  /// `The OTP entered is incorrect. Please check your email again and enter the correct OTP to verify your account.`
+  String get wrongVerifyOtp {
+    return Intl.message(
+      'The OTP entered is incorrect. Please check your email again and enter the correct OTP to verify your account.',
+      name: 'wrongVerifyOtp',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Forget Password`
   String get forgetPassword {
     return Intl.message(
@@ -675,6 +685,16 @@ class S {
     return Intl.message(
       'Please enter verification code sent to your email',
       name: 'pleaseEnterVerificationCodeSentToYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The OTP entered is incorrect. Please check your email again and enter the correct OTP to reset your password`
+  String get wrongOtpEntered {
+    return Intl.message(
+      'The OTP entered is incorrect. Please check your email again and enter the correct OTP to reset your password',
+      name: 'wrongOtpEntered',
       desc: '',
       args: [],
     );
