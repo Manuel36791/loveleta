@@ -58,6 +58,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "This email address is already registered. Please use a different email address or log in with your existing account."),
         "emailCantBeEmpty":
             MessageLookupByLibrary.simpleMessage("Email can\'t be empty"),
+        "emailNotRegistered": MessageLookupByLibrary.simpleMessage(
+            "The email address provided is not registered. Please ensure you have entered the correct email or proceed with creating a new account"),
         "emailRegisteredSuccessful": m0,
         "error": m1,
         "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
@@ -93,6 +95,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordCantBeEmpty":
             MessageLookupByLibrary.simpleMessage("Password can\'t be empty"),
+        "passwordChangedSuccessful": MessageLookupByLibrary.simpleMessage(
+            "Your password has been successfully changed. You can now log in with your new password."),
         "passwordConfirmation":
             MessageLookupByLibrary.simpleMessage("Password Confirmation"),
         "passwordIsTooShort":

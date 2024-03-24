@@ -99,6 +99,8 @@
   "@_ForgetPassword": {},
   "forgetPassword": "Forget Password",
   "submit": "Submit",
+  "emailNotRegistered": "The email address provided is not registered. Please ensure you have entered the correct email or proceed with creating a new account",
+
 
   "@_ResetPassword": {},
   "resetPassword": "Reset Password",
@@ -111,5 +113,6 @@
   "confirmNewPassword": "Confirm New Password",
   "newPasswordCantBeLessThan8Characters": "New password can't be less than 8 characters",
   "changePassword": "Change Password",
-  "updatePassword": "Update Password"
+  "updatePassword": "Update Password",
+  "passwordChangedSuccessful": "Your password has been successfully changed. You can now log in with your new password."
 }

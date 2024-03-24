@@ -44,7 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "changePassword":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "codeCantBeLessThan4Characters": MessageLookupByLibrary.simpleMessage(
-            "الرمز يجب أن يتكون من 4 أحرف على الأقل"),
+            "لا يمكن أن يكون طول الرمز أقل من 4 أحرف"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور الجديدة"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
@@ -58,6 +58,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "عذرًا، هذا البريد الإلكتروني مسجل بالفعل. الرجاء استخدام بريد إلكتروني مختلف أو تسجيل الدخول باستخدام حسابك الحالي."),
         "emailCantBeEmpty": MessageLookupByLibrary.simpleMessage(
             "لا يمكن أن يكون البريد الإلكتروني فارغًا"),
+        "emailNotRegistered": MessageLookupByLibrary.simpleMessage(
+            "عنوان البريد الإلكتروني المُقدم غير مسجل. يرجى التأكد من أنك قد أدخلت البريد الإلكتروني الصحيح أو تابع بإنشاء حساب جديد"),
         "emailRegisteredSuccessful": m0,
         "error": m1,
         "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
@@ -93,6 +95,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordCantBeEmpty": MessageLookupByLibrary.simpleMessage(
             "لا يمكن أن تكون كلمة المرور فارغة"),
+        "passwordChangedSuccessful": MessageLookupByLibrary.simpleMessage(
+            "تم تغيير كلمة المرور بنجاح. يمكنك الآن تسجيل الدخول باستخدام كلمة المرور الجديدة."),
         "passwordConfirmation":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "passwordIsTooShort":
@@ -116,7 +120,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "الرجاء إدخال رمز التفعيل المرسل إلى بريدك الإلكتروني"),
         "pleaseEnterVerificationCodeSentToYourEmail":
             MessageLookupByLibrary.simpleMessage(
-                "يرجى إدخال رمز التحقق المرسل إلى بريدك الإلكتروني"),
+                "الرجاء إدخال رمز التحقق المرسل إلى بريدك الإلكتروني"),
         "pleaseEnterYourEmailAddress": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال بريدك الإلكتروني"),
         "pleaseEnterYourFirstName":
@@ -132,13 +136,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
         "resetPassword":
             MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),
-        "resetPasswordBtn":
-            MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),
+        "resetPasswordBtn": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
         "sendAgain": MessageLookupByLibrary.simpleMessage("إعادة الإرسال"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("الخادم قيد الصيانة"),
         "signUp": MessageLookupByLibrary.simpleMessage("التسجيل"),
-        "submit": MessageLookupByLibrary.simpleMessage("تقديم"),
+        "submit": MessageLookupByLibrary.simpleMessage("إرسال"),
         "success": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
         "timeout_error": MessageLookupByLibrary.simpleMessage(
             "انتهت المهلة , حاول مرة أخرى لاحقًا"),
@@ -149,6 +152,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "updatePassword":
             MessageLookupByLibrary.simpleMessage("تحديث كلمة المرور"),
         "verify": MessageLookupByLibrary.simpleMessage("تأكيد"),
-        "verifyAccount": MessageLookupByLibrary.simpleMessage("تأكيد الحساب")
+        "verifyAccount": MessageLookupByLibrary.simpleMessage("تأكيد الحساب"),
+        "wrongOtpEntered": MessageLookupByLibrary.simpleMessage(
+            "الرمز الذي تم إدخاله غير صحيح. الرجاء التحقق من بريدك الإلكتروني مرة أخرى وإدخال الرمز الصحيح لإعادة تعيين كلمة المرور."),
+        "wrongVerifyOtp": MessageLookupByLibrary.simpleMessage(
+            "الرمز الذي تم إدخاله غير صحيح. الرجاء التحقق من بريدك الإلكتروني مرة أخرى وإدخال الرمز الصحيح لتأكيد حسابك.")
       };
 }

@@ -660,6 +660,16 @@ class S {
     );
   }
 
+  /// `The email address provided is not registered. Please ensure you have entered the correct email or proceed with creating a new account`
+  String get emailNotRegistered {
+    return Intl.message(
+      'The email address provided is not registered. Please ensure you have entered the correct email or proceed with creating a new account',
+      name: 'emailNotRegistered',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Reset Password`
   String get resetPassword {
     return Intl.message(
@@ -745,6 +755,16 @@ class S {
     return Intl.message(
       'Update Password',
       name: 'updatePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your password has been successfully changed. You can now log in with your new password.`
+  String get passwordChangedSuccessful {
+    return Intl.message(
+      'Your password has been successfully changed. You can now log in with your new password.',
+      name: 'passwordChangedSuccessful',
       desc: '',
       args: [],
     );
