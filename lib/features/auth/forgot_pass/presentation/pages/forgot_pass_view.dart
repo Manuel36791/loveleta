@@ -15,6 +15,7 @@ import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
+import '../../domain/entities/forget_pass_entity.dart';
 import '../manager/forgot_pass_cubit.dart';
 
 class ForgotPassView extends StatefulWidget {
@@ -30,7 +31,23 @@ class _ForgotPassViewState extends State<ForgotPassView> {
     return BlocProvider(
       create: (context) => di.di<ForgotPassCubit>(),
       child: BlocConsumer<ForgotPassCubit, ForgotPassStates>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          ForgotPassCubit forgotPassCubit = ForgotPassCubit.get(context);
+
+          state.maybeWhen(
+            success: (state) {
+              if (state.status == 1) {
+                context.pushNamed(
+                  resetPassPageRoute,
+                  arguments: {
+                    'email': forgotPassCubit.emailCtrl.value,
+                  },
+                );
+              }
+            },
+            orElse: () {},
+          );
+        },
         builder: (context, state) {
           ForgotPassCubit forgotPassCubit = ForgotPassCubit.get(context);
           return Scaffold(
@@ -71,7 +88,11 @@ class _ForgotPassViewState extends State<ForgotPassView> {
                       builder: (context) => CustomBtn(
                         label: S.of(context).submit,
                         onPressed: () {
-                          context.pushNamed(resetPassPageRoute);
+                          forgotPassCubit.userForgotPass(
+                            ForgetPassEntity(
+                              email: forgotPassCubit.emailCtrl.value,
+                            ),
+                          );
                         },
                       ),
                       fallback: (context) => const Center(

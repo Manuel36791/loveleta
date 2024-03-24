@@ -5,6 +5,10 @@ import 'package:loveleta/features/auth/verify_account/domain/use_cases/resend_co
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/change_password/presentation/manager/change_pass_cubit.dart';
+import '../../features/auth/forgot_pass/data/data_sources/forgot_pass_service.dart';
+import '../../features/auth/forgot_pass/data/repositories/forget_pass_repo_impl.dart';
+import '../../features/auth/forgot_pass/domain/repositories/forget_pass_repo.dart';
+import '../../features/auth/forgot_pass/domain/use_cases/forget_pass_usecase.dart';
 import '../../features/auth/forgot_pass/presentation/manager/forgot_pass_cubit.dart';
 import '../../features/auth/login/data/data_sources/login_service.dart';
 import '../../features/auth/login/data/repositories/login_repo_impl.dart';
@@ -28,13 +32,14 @@ Future<void> init() async {
   /// Login
   di.registerFactory(() => LoginCubit(loginUseCase: di()));
   di.registerLazySingleton(() => LoginUseCase(loginRepo: di()));
-  di.registerLazySingleton<LoginRepo>(() => LoginRepoImpl(loginService:  di()));
+  di.registerLazySingleton<LoginRepo>(() => LoginRepoImpl(loginService: di()));
   di.registerLazySingleton<LoginService>(() => LoginServiceImpl());
 
   /// Register
   di.registerFactory(() => RegisterCubit(registerUseCase: di()));
   di.registerLazySingleton(() => RegisterUseCase(registerRepo: di()));
-  di.registerLazySingleton<RegisterRepo>(() => RegisterRepoImpl(registerService:  di()));
+  di.registerLazySingleton<RegisterRepo>(
+      () => RegisterRepoImpl(registerService: di()));
   di.registerLazySingleton<RegisterService>(() => RegisterServiceImpl());
 
   /// Verify Account
@@ -46,7 +51,11 @@ Future<void> init() async {
   di.registerLazySingleton<VerifyResendCodeService>(() => VerifyResendCodeServiceImpl());
 
   /// Forgot Password
-  di.registerFactory(() => ForgotPassCubit());
+  di.registerFactory(() => ForgotPassCubit(forgotPassUseCase: di()));
+  di.registerLazySingleton(() => ForgotPassUseCase(forgotPassRepo: di()));
+  di.registerLazySingleton<ForgotPassRepo>(
+      () => ForgotPassRepoImpl(forgotPassService: di()));
+  di.registerLazySingleton<ForgotPassService>(() => ForgotPassServiceImpl());
 
   /// Reset Password
   di.registerFactory(() => ResetPassCubit());

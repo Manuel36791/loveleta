@@ -18,7 +18,8 @@ import '../../../../../generated/l10n.dart';
 import '../manager/reset_pass_cubit.dart';
 
 class ResetPassView extends StatefulWidget {
-  const ResetPassView({super.key});
+  final String email;
+  const ResetPassView({super.key, required this.email});
 
   @override
   State<ResetPassView> createState() => _ResetPassViewState();

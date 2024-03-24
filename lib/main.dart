@@ -17,11 +17,13 @@ import 'main_view.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = AppCubitObserver();
-  await ScreenUtil.ensureScreenSize();
-  await di.init();
-  await Hive.initFlutter();
   // Hive.registerAdapter(AddressAdapter());
-  await svgPreloader();
+  Future.wait([
+   ScreenUtil.ensureScreenSize(),
+   di.init(),
+   Hive.initFlutter(),
+   svgPreloader(),
+  ],);
 
   ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
     return MaterialApp(
