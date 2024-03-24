@@ -640,6 +640,26 @@ class S {
     );
   }
 
+  /// `An OTP has been resent to your email. Please check your inbox and enter the new OTP to continue.`
+  String get newOtpSent {
+    return Intl.message(
+      'An OTP has been resent to your email. Please check your inbox and enter the new OTP to continue.',
+      name: 'newOtpSent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email address, Please check your email and try again.`
+  String get invalidEmailAddress {
+    return Intl.message(
+      'Invalid email address, Please check your email and try again.',
+      name: 'invalidEmailAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Forget Password`
   String get forgetPassword {
     return Intl.message(

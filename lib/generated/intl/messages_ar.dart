@@ -73,6 +73,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
         "invalidCredentials": MessageLookupByLibrary.simpleMessage(
             "بريد إلكتروني أو كلمة مرور غير صالحة. الرجاء التحقق من بيانات الاعتماد الخاصة بك والمحاولة مرة أخرى."),
+        "invalidEmailAddress": MessageLookupByLibrary.simpleMessage(
+            "عنوان البريد الإلكتروني غير صالح. الرجاء التحقق من بريدك الإلكتروني والمحاولة مرة أخرى."),
         "lastName": MessageLookupByLibrary.simpleMessage("الاسم الأخير"),
         "loggedInSuccessful": m2,
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -82,6 +84,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("هذا الرابط لم يعد متاحًا"),
         "multiple_choices":
             MessageLookupByLibrary.simpleMessage("اختر خيارًا للمتابعة"),
+        "newOtpSent": MessageLookupByLibrary.simpleMessage(
+            "تم إعادة إرسال رمز التحقق إلى بريدك الإلكتروني. الرجاء التحقق من صندوق الوارد الخاص بك وإدخال الرمز الجديد للمتابعة."),
         "newPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
         "newPasswordCantBeLessThan8Characters":

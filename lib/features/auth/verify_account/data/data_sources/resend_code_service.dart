@@ -2,27 +2,28 @@ import 'package:dio/dio.dart';
 
 import '../../../../../core/service/dio_factory.dart';
 import '../../../../../core/utils/app_constants.dart';
+import '../../domain/entities/resend_code_entity.dart';
+import '../models/resend_code_model.dart';
 
 abstract class VerifyResendCodeService {
-  Future resendOtp(String email);
+  Future<ResendCodeModel> resendOtp(ResendCodeEntity resendCodeEntity);
 }
 
 class VerifyResendCodeServiceImpl implements VerifyResendCodeService {
   @override
-  Future resendOtp(String email) async {
+  Future<ResendCodeModel> resendOtp(ResendCodeEntity resendCodeEntity) async {
     Dio dio = await DioFactory.getDio();
+    ResendCodeModel resendCodeEntity = const ResendCodeModel();
 
     final sendOtp = await dio.post(
       AppConstants.resendCodeUri,
-      data: {
-        'email': email,
-      },
+      data: ResendCodeModel.toJson(resendCodeEntity),
     );
 
     if (sendOtp.statusCode == 200) {
-      if (sendOtp.data['status'] == 1) {
-        return "Code sent successfully to email inbox";
-      }  
-    }  
+      resendCodeEntity = ResendCodeModel.fromJson(sendOtp.data);
+    }
+
+    return resendCodeEntity;
   }
 }
