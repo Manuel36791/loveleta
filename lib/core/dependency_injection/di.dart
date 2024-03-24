@@ -34,6 +34,11 @@ import '../../features/auth/verify_account/data/repositories/verify_account_repo
 import '../../features/auth/verify_account/domain/repositories/verify_account_repo.dart';
 import '../../features/auth/verify_account/domain/use_cases/verify_account_usecase.dart';
 import '../../features/auth/verify_account/presentation/manager/verify_account_cubit.dart';
+import '../../features/main/categories/data/data_sources/category_service.dart';
+import '../../features/main/categories/data/repository/category_repo_impl.dart';
+import '../../features/main/categories/domain/repository/category_repo.dart';
+import '../../features/main/categories/domain/usecases/category_use_case.dart';
+import '../../features/main/categories/presentation/manager/category_cubit.dart';
 
 final di = GetIt.instance;
 
@@ -87,6 +92,14 @@ Future<void> init() async {
         changePassService: di(),
       ));
   di.registerLazySingleton<ChangePassService>(() => ChangePassServiceImpl());
+
+  /// Categories
+  di.registerFactory(() => CategoryCubit(categoryUseCase: di()));
+  di.registerLazySingleton(() => CategoryUseCase(categoryRepo: di()));
+  di.registerLazySingleton<CategoryRepo>(() => CategoryRepoImpl(
+        categoryService: di(),
+      ));
+  di.registerLazySingleton<CategoryService>(() => CategoryServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();
