@@ -39,7 +39,7 @@
   "price": 760,
   "discount_percent": 20, // Percentage of discount
   "discounted_price": 608, // Price after discount
-  "in_wishlist": false, // IF true THEN product is in favorite list
+  "is_favourite": false, // IF true THEN product is in favorite list
   "is_free_delivery": false // IF true THEN product has free delivery
   "is_express": true, // IF true THEN product is Loveleta Express
   "is_new": true,

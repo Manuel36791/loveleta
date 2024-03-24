@@ -23,8 +23,8 @@ class ResetPassCubit extends Cubit<ResetPassStates> {
     if (code.isEmpty) {
       pinCtrl.sink
           .addError(S.current.pleaseEnterVerificationCodeSentToYourEmail, StackTrace.current);
-    } else if (code.length != 4) {
-      pinCtrl.sink.addError(S.current.codeCantBeLessThan4Characters);
+    } else if (code.length != 6) {
+      pinCtrl.sink.addError(S.current.codeCantBeLessThan6Characters);
     } else {
       pinCtrl.sink.add(code);
     }

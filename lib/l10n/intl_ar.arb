@@ -88,7 +88,7 @@
   "verify": "تأكيد",
   "sendAgain": "إعادة الإرسال",
   "pleaseEnterTheActivationCodeSentToYourEmail": "الرجاء إدخال رمز التفعيل المرسل إلى بريدك الإلكتروني",
-  "codeCantBeLessThan4Characters": "لا يمكن أن يكون طول الرمز أقل من 4 أحرف",
+  "codeCantBeLessThan6Characters": "لا يمكن أن يكون طول الرمز أقل من 6 أحرف",
   "activationSuccess": "تم تفعيل حسابك بنجاح. يمكنك الآن تسجيل الدخول والوصول إلى حسابك.",
   "wrongVerifyOtp": "الرمز الذي تم إدخاله غير صحيح. الرجاء التحقق من بريدك الإلكتروني مرة أخرى وإدخال الرمز الصحيح لتأكيد حسابك.",
 

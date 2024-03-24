@@ -370,10 +370,10 @@ class S {
     );
   }
 
-  /// `Logged In Successfully, welcome again {userName}`
+  /// `Logged In Successfully. Welcome again {userName}`
   String loggedInSuccessful(String userName) {
     return Intl.message(
-      'Logged In Successfully, welcome again $userName',
+      'Logged In Successfully. Welcome again $userName',
       name: 'loggedInSuccessful',
       desc: '',
       args: [userName],
@@ -610,11 +610,11 @@ class S {
     );
   }
 
-  /// `Code can't be less than 4 characters`
-  String get codeCantBeLessThan4Characters {
+  /// `Code can't be less than 6 characters`
+  String get codeCantBeLessThan6Characters {
     return Intl.message(
-      'Code can\'t be less than 4 characters',
-      name: 'codeCantBeLessThan4Characters',
+      'Code can\'t be less than 6 characters',
+      name: 'codeCantBeLessThan6Characters',
       desc: '',
       args: [],
     );

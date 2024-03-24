@@ -14,9 +14,8 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-
   int _currentIndex = 0;
-  final List<Widget> _view =[
+  final List<Widget> _view = [
     const HomeView(),
     const CategoriesView(),
     const CartView(),

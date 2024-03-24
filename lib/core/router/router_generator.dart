@@ -52,7 +52,7 @@ class AppRouters {
           builder: (BuildContext context) => const ForgotPassView(),
         );
       case resetPassPageRoute:
-        final args = settings.arguments as ChangePassArgs;
+        final args = settings.arguments as ResetPassArgs;
         return MaterialPageRoute(
           builder: (BuildContext context) => ResetPassView(
             email: args.email,

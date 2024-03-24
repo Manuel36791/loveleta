@@ -23,6 +23,7 @@ import '../../features/auth/register/data/repositories/register_repo_impl.dart';
 import '../../features/auth/register/domain/repositories/register_repo.dart';
 import '../../features/auth/register/domain/use_cases/register_usecase.dart';
 import '../../features/auth/register/presentation/manager/register_cubit.dart';
+import '../../features/auth/reset_pass/data/data_sources/resend_code_service.dart';
 import '../../features/auth/reset_pass/data/data_sources/reset_pass_service.dart';
 import '../../features/auth/reset_pass/data/repositories/reset_pass_repo_impl.dart';
 import '../../features/auth/reset_pass/domain/repositories/reset_pass_repo.dart';
@@ -33,6 +34,11 @@ import '../../features/auth/verify_account/data/repositories/verify_account_repo
 import '../../features/auth/verify_account/domain/repositories/verify_account_repo.dart';
 import '../../features/auth/verify_account/domain/use_cases/verify_account_usecase.dart';
 import '../../features/auth/verify_account/presentation/manager/verify_account_cubit.dart';
+import '../../features/main/categories/data/data_sources/category_service.dart';
+import '../../features/main/categories/data/repository/category_repo_impl.dart';
+import '../../features/main/categories/domain/repository/category_repo.dart';
+import '../../features/main/categories/domain/usecases/category_use_case.dart';
+import '../../features/main/categories/presentation/manager/category_cubit.dart';
 
 final di = GetIt.instance;
 
@@ -77,6 +83,7 @@ Future<void> init() async {
   di.registerLazySingleton<ResetPassRepo>(
       () => ResetPassRepoImpl(resetPassService: di(), resendCodeService: di()));
   di.registerLazySingleton<ResetPassService>(() => ResetPassServiceImpl());
+  di.registerLazySingleton<ResendCodeService>(() => ResendCodeServiceImpl());
 
   /// Change Password
   di.registerFactory(() => ChangePassCubit(changePassUseCase: di()));
@@ -85,6 +92,14 @@ Future<void> init() async {
         changePassService: di(),
       ));
   di.registerLazySingleton<ChangePassService>(() => ChangePassServiceImpl());
+
+  /// Categories
+  di.registerFactory(() => CategoryCubit(categoryUseCase: di()));
+  di.registerLazySingleton(() => CategoryUseCase(categoryRepo: di()));
+  di.registerLazySingleton<CategoryRepo>(() => CategoryRepoImpl(
+        categoryService: di(),
+      ));
+  di.registerLazySingleton<CategoryService>(() => CategoryServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();

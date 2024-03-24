@@ -48,7 +48,7 @@
   "plzEnterAValidEmail": "Please enter a valid email",
   "passwordCantBeEmpty": "Password can't be empty",
   "passwordIsTooShort": "Password is too short",
-  "loggedInSuccessful": "Logged In Successfully, welcome again {userName}",
+  "loggedInSuccessful": "Logged In Successfully. Welcome again {userName}",
   "@loggedInSuccessful": {
     "placeholders": {
       "userName": {
@@ -92,7 +92,7 @@
   "verify": "Verify",
   "sendAgain": "Send Again",
   "pleaseEnterTheActivationCodeSentToYourEmail": "Please enter the activation code sent to your email",
-  "codeCantBeLessThan4Characters": "Code can't be less than 4 characters",
+  "codeCantBeLessThan6Characters": "Code can't be less than 6 characters",
   "activationSuccess": "Your account has been successfully activated. You can now log in and access your account.",
   "wrongVerifyOtp": "The OTP entered is incorrect. Please check your email again and enter the correct OTP to verify your account.",
 

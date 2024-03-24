@@ -25,7 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m1(errCode, err) => "Error: ${errCode}, ${err}";
 
   static String m2(userName) =>
-      "Logged In Successfully, welcome again ${userName}";
+      "Logged In Successfully. Welcome again ${userName}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -43,8 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "cache error, try again later"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
-        "codeCantBeLessThan4Characters": MessageLookupByLibrary.simpleMessage(
-            "Code can\'t be less than 4 characters"),
+        "codeCantBeLessThan6Characters": MessageLookupByLibrary.simpleMessage(
+            "Code can\'t be less than 6 characters"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("Confirm New Password"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(

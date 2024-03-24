@@ -24,7 +24,7 @@ class AppConstants {
 
   // * API URIs
   static const apiBaseUrl = "https://loveleta.coddiv.com/api/";
-  static const imageUrl = "https://example.example.com/";
+  static const imageUrl = "https://loveleta.coddiv.com/";
   static const loginUri = "auth/login";
   static const registerUri = "auth/register";
   static const verifyAccountUri = "auth/account_verification";
@@ -32,4 +32,5 @@ class AppConstants {
   static const forgotPassUri = "auth/forget-password";
   static const resetPassUri = "auth/reset-password";
   static const changePassUri = "auth/change-password";
+  static const getCategoriesUri = "v1/categories";
 }

@@ -43,8 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
-        "codeCantBeLessThan4Characters": MessageLookupByLibrary.simpleMessage(
-            "لا يمكن أن يكون طول الرمز أقل من 4 أحرف"),
+        "codeCantBeLessThan6Characters": MessageLookupByLibrary.simpleMessage(
+            "لا يمكن أن يكون طول الرمز أقل من 6 أحرف"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور الجديدة"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(

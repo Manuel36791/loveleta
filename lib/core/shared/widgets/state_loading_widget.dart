@@ -5,7 +5,9 @@ import 'package:gap/gap.dart';
 import '../../utils/app_colors.dart';
 
 class StateLoadingWidget extends StatelessWidget {
-  const StateLoadingWidget({super.key});
+  final double? height;
+  final double? width;
+  const StateLoadingWidget({super.key, this.height,  this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +18,8 @@ class StateLoadingWidget extends StatelessWidget {
         Gap(30.h),
         Center(
           child: SizedBox(
-            height: 100.h,
-            width: 100.w,
+            height: height ?? 100.h,
+            width: width ?? 100.w,
             child: const CircularProgressIndicator(
               color: AppColors.pinkPrimary,
             ),
