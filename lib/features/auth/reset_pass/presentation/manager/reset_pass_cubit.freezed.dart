@@ -22,6 +22,7 @@ mixin _$ResetPassStates {
     required TResult Function() loading,
     required TResult Function(ResetPassEntity resetPassEntity) success,
     required TResult Function(String errCode, String err) error,
+    required TResult Function(ResetResendCodeEntity resendCode) resendCode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$ResetPassStates {
     TResult? Function()? loading,
     TResult? Function(ResetPassEntity resetPassEntity)? success,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function(ResetResendCodeEntity resendCode)? resendCode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$ResetPassStates {
     TResult Function()? loading,
     TResult Function(ResetPassEntity resetPassEntity)? success,
     TResult Function(String errCode, String err)? error,
+    TResult Function(ResetResendCodeEntity resendCode)? resendCode,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$ResetPassStates {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
+    required TResult Function(ResendCode value) resendCode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$ResetPassStates {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
+    TResult? Function(ResendCode value)? resendCode,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$ResetPassStates {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
+    TResult Function(ResendCode value)? resendCode,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +134,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function(ResetPassEntity resetPassEntity) success,
     required TResult Function(String errCode, String err) error,
+    required TResult Function(ResetResendCodeEntity resendCode) resendCode,
   }) {
     return initial();
   }
@@ -139,6 +146,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function(ResetPassEntity resetPassEntity)? success,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function(ResetResendCodeEntity resendCode)? resendCode,
   }) {
     return initial?.call();
   }
@@ -150,6 +158,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function(ResetPassEntity resetPassEntity)? success,
     TResult Function(String errCode, String err)? error,
+    TResult Function(ResetResendCodeEntity resendCode)? resendCode,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -165,6 +174,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
+    required TResult Function(ResendCode value) resendCode,
   }) {
     return initial(this);
   }
@@ -176,6 +186,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
+    TResult? Function(ResendCode value)? resendCode,
   }) {
     return initial?.call(this);
   }
@@ -187,6 +198,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
+    TResult Function(ResendCode value)? resendCode,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -242,6 +254,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function() loading,
     required TResult Function(ResetPassEntity resetPassEntity) success,
     required TResult Function(String errCode, String err) error,
+    required TResult Function(ResetResendCodeEntity resendCode) resendCode,
   }) {
     return loading();
   }
@@ -253,6 +266,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function()? loading,
     TResult? Function(ResetPassEntity resetPassEntity)? success,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function(ResetResendCodeEntity resendCode)? resendCode,
   }) {
     return loading?.call();
   }
@@ -264,6 +278,7 @@ class _$LoadingImpl implements Loading {
     TResult Function()? loading,
     TResult Function(ResetPassEntity resetPassEntity)? success,
     TResult Function(String errCode, String err)? error,
+    TResult Function(ResetResendCodeEntity resendCode)? resendCode,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -279,6 +294,7 @@ class _$LoadingImpl implements Loading {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
+    required TResult Function(ResendCode value) resendCode,
   }) {
     return loading(this);
   }
@@ -290,6 +306,7 @@ class _$LoadingImpl implements Loading {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
+    TResult? Function(ResendCode value)? resendCode,
   }) {
     return loading?.call(this);
   }
@@ -301,6 +318,7 @@ class _$LoadingImpl implements Loading {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
+    TResult Function(ResendCode value)? resendCode,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -383,6 +401,7 @@ class _$SuccessImpl implements Success {
     required TResult Function() loading,
     required TResult Function(ResetPassEntity resetPassEntity) success,
     required TResult Function(String errCode, String err) error,
+    required TResult Function(ResetResendCodeEntity resendCode) resendCode,
   }) {
     return success(resetPassEntity);
   }
@@ -394,6 +413,7 @@ class _$SuccessImpl implements Success {
     TResult? Function()? loading,
     TResult? Function(ResetPassEntity resetPassEntity)? success,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function(ResetResendCodeEntity resendCode)? resendCode,
   }) {
     return success?.call(resetPassEntity);
   }
@@ -405,6 +425,7 @@ class _$SuccessImpl implements Success {
     TResult Function()? loading,
     TResult Function(ResetPassEntity resetPassEntity)? success,
     TResult Function(String errCode, String err)? error,
+    TResult Function(ResetResendCodeEntity resendCode)? resendCode,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -420,6 +441,7 @@ class _$SuccessImpl implements Success {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
+    required TResult Function(ResendCode value) resendCode,
   }) {
     return success(this);
   }
@@ -431,6 +453,7 @@ class _$SuccessImpl implements Success {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
+    TResult? Function(ResendCode value)? resendCode,
   }) {
     return success?.call(this);
   }
@@ -442,6 +465,7 @@ class _$SuccessImpl implements Success {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
+    TResult Function(ResendCode value)? resendCode,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -536,6 +560,7 @@ class _$ErrorImpl implements Error {
     required TResult Function() loading,
     required TResult Function(ResetPassEntity resetPassEntity) success,
     required TResult Function(String errCode, String err) error,
+    required TResult Function(ResetResendCodeEntity resendCode) resendCode,
   }) {
     return error(errCode, err);
   }
@@ -547,6 +572,7 @@ class _$ErrorImpl implements Error {
     TResult? Function()? loading,
     TResult? Function(ResetPassEntity resetPassEntity)? success,
     TResult? Function(String errCode, String err)? error,
+    TResult? Function(ResetResendCodeEntity resendCode)? resendCode,
   }) {
     return error?.call(errCode, err);
   }
@@ -558,6 +584,7 @@ class _$ErrorImpl implements Error {
     TResult Function()? loading,
     TResult Function(ResetPassEntity resetPassEntity)? success,
     TResult Function(String errCode, String err)? error,
+    TResult Function(ResetResendCodeEntity resendCode)? resendCode,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -573,6 +600,7 @@ class _$ErrorImpl implements Error {
     required TResult Function(Loading value) loading,
     required TResult Function(Success value) success,
     required TResult Function(Error value) error,
+    required TResult Function(ResendCode value) resendCode,
   }) {
     return error(this);
   }
@@ -584,6 +612,7 @@ class _$ErrorImpl implements Error {
     TResult? Function(Loading value)? loading,
     TResult? Function(Success value)? success,
     TResult? Function(Error value)? error,
+    TResult? Function(ResendCode value)? resendCode,
   }) {
     return error?.call(this);
   }
@@ -595,6 +624,7 @@ class _$ErrorImpl implements Error {
     TResult Function(Loading value)? loading,
     TResult Function(Success value)? success,
     TResult Function(Error value)? error,
+    TResult Function(ResendCode value)? resendCode,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -611,5 +641,158 @@ abstract class Error implements ResetPassStates {
   String get err;
   @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ResendCodeImplCopyWith<$Res> {
+  factory _$$ResendCodeImplCopyWith(
+          _$ResendCodeImpl value, $Res Function(_$ResendCodeImpl) then) =
+      __$$ResendCodeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ResetResendCodeEntity resendCode});
+}
+
+/// @nodoc
+class __$$ResendCodeImplCopyWithImpl<$Res>
+    extends _$ResetPassStatesCopyWithImpl<$Res, _$ResendCodeImpl>
+    implements _$$ResendCodeImplCopyWith<$Res> {
+  __$$ResendCodeImplCopyWithImpl(
+      _$ResendCodeImpl _value, $Res Function(_$ResendCodeImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? resendCode = null,
+  }) {
+    return _then(_$ResendCodeImpl(
+      null == resendCode
+          ? _value.resendCode
+          : resendCode // ignore: cast_nullable_to_non_nullable
+              as ResetResendCodeEntity,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ResendCodeImpl implements ResendCode {
+  const _$ResendCodeImpl(this.resendCode);
+
+  @override
+  final ResetResendCodeEntity resendCode;
+
+  @override
+  String toString() {
+    return 'ResetPassStates.resendCode(resendCode: $resendCode)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ResendCodeImpl &&
+            (identical(other.resendCode, resendCode) ||
+                other.resendCode == resendCode));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, resendCode);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ResendCodeImplCopyWith<_$ResendCodeImpl> get copyWith =>
+      __$$ResendCodeImplCopyWithImpl<_$ResendCodeImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(ResetPassEntity resetPassEntity) success,
+    required TResult Function(String errCode, String err) error,
+    required TResult Function(ResetResendCodeEntity resendCode) resendCode,
+  }) {
+    return resendCode(this.resendCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(ResetPassEntity resetPassEntity)? success,
+    TResult? Function(String errCode, String err)? error,
+    TResult? Function(ResetResendCodeEntity resendCode)? resendCode,
+  }) {
+    return resendCode?.call(this.resendCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(ResetPassEntity resetPassEntity)? success,
+    TResult Function(String errCode, String err)? error,
+    TResult Function(ResetResendCodeEntity resendCode)? resendCode,
+    required TResult orElse(),
+  }) {
+    if (resendCode != null) {
+      return resendCode(this.resendCode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Success value) success,
+    required TResult Function(Error value) error,
+    required TResult Function(ResendCode value) resendCode,
+  }) {
+    return resendCode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Success value)? success,
+    TResult? Function(Error value)? error,
+    TResult? Function(ResendCode value)? resendCode,
+  }) {
+    return resendCode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Success value)? success,
+    TResult Function(Error value)? error,
+    TResult Function(ResendCode value)? resendCode,
+    required TResult orElse(),
+  }) {
+    if (resendCode != null) {
+      return resendCode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ResendCode implements ResetPassStates {
+  const factory ResendCode(final ResetResendCodeEntity resendCode) =
+      _$ResendCodeImpl;
+
+  ResetResendCodeEntity get resendCode;
+  @JsonKey(ignore: true)
+  _$$ResendCodeImplCopyWith<_$ResendCodeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

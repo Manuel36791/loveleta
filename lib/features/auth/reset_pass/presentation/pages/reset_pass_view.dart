@@ -4,12 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
-import 'package:loveleta/core/router/router.dart';
-import 'package:loveleta/core/shared/arguments.dart';
 import 'package:loveleta/core/utils/extensions.dart';
+import 'package:loveleta/features/auth/reset_pass/domain/entities/resend_code_entity.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../core/router/router.dart';
+import '../../../../../core/shared/arguments.dart';
 import '../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
@@ -56,6 +57,20 @@ class _ResetPassViewState extends State<ResetPassView> {
                 S.of(context).error(errCode, err),
                 color: AppColors.errorColor,
               );
+            },
+            resendCode: (state) {
+              if (state.status == 1) {
+                context.defaultSnackBar(
+                  S.of(context).newOtpSent,
+                  color: AppColors.warningColor,
+                  textColor: AppColors.textBlack,
+                );
+              } else {
+                context.defaultSnackBar(
+                  S.of(context).invalidEmailAddress,
+                  color: AppColors.errorColor,
+                );
+              }
             },
             orElse: () {},
           );
@@ -177,12 +192,16 @@ class _ResetPassViewState extends State<ResetPassView> {
                           Gap(10.w),
                           Expanded(
                             child: ConditionalBuilder(
-                              condition: true,
+                              condition: state is! Loading,
                               builder: (ctx) {
                                 return CustomBtn(
                                   label: S.of(context).sendAgain,
                                   onPressed: () {
-                                    context.pushNamed(changePassPageRoute);
+                                    resetPassCubit.resendCode(
+                                      ResetResendCodeEntity(
+                                        email: widget.email,
+                                      )
+                                    );
                                   },
                                   bgColor: Colors.white,
                                   textStyle:

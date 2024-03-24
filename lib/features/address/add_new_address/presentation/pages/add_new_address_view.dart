@@ -58,7 +58,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
           // AddAddressCubit addAddressCubit = AddAddressCubit.get(context);
           return Scaffold(
             appBar: AppBar(
-              title: Text(
+              title: const Text(
                "Add new address",
               ),
             ),
@@ -76,13 +76,13 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                               CustomFormField(
                                 label: "Address",
                                 readOnly: true,
-                                stream: Stream.empty(),
+                                stream: const Stream.empty(),
                                 onChanged: (value) {},
                               ),
                               Gap(10.h),
                               CustomFormField(
                                 label: "Building No.",
-                                stream: Stream.empty(),
+                                stream: const Stream.empty(),
                                 onChanged: (value) {},
                                 // validator: (value) {
                                 //   if (buildingCtrl.text.isEmpty) {
@@ -96,7 +96,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                               Gap(10.h),
                               CustomFormField(
                                 label: "Flat No.",
-                                stream: Stream.empty(),
+                                stream: const Stream.empty(),
                                 onChanged: (value) {},
                                 // validator: (value) {
                                 //   if (flatCtrl.text.isEmpty) {
@@ -111,21 +111,21 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                               CustomFormField(
                                 label: "State",
                                 readOnly: true,
-                                stream: Stream.empty(),
+                                stream: const Stream.empty(),
                                 onChanged: (value) {},
                               ),
                               Gap(10.h),
                               CustomFormField(
                                 label: "City",
                                 readOnly: true,
-                                stream: Stream.empty(),
+                                stream: const Stream.empty(),
                                 onChanged: (value) {},
                               ),
                               Gap(10.h),
                               CustomFormField(
                                 label: "Zip Code",
                                 readOnly: true,
-                                stream: Stream.empty(),
+                                stream: const Stream.empty(),
                                 onChanged: (value) {},
                               ),
                             ],
@@ -175,13 +175,13 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                               CustomFormField(
                                 label: "Address",
                                 readOnly: true,
-                                stream: Stream.empty(),
+                                stream: const Stream.empty(),
                                 onChanged: (value) {},
                               ),
                               Gap(10.h),
                               CustomFormField(
                                 label: "Building No.",
-                                stream: Stream.empty(),
+                                stream: const Stream.empty(),
                                 onChanged: (value) {},
                                 // validator: (value) {
                                 //   if (buildingCtrl.text.isEmpty) {
@@ -195,7 +195,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                               Gap(10.h),
                               CustomFormField(
                                 label: "Flat No.",
-                                stream: Stream.empty(),
+                                stream: const Stream.empty(),
                                 onChanged: (value) {},
                                 // validator: (value) {
                                 //   if (flatCtrl.text.isEmpty) {
@@ -210,21 +210,21 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                               CustomFormField(
                                 label: "State",
                                 readOnly: true,
-                                stream: Stream.empty(),
+                                stream: const Stream.empty(),
                                 onChanged: (value) {},
                               ),
                               Gap(10.h),
                               CustomFormField(
                                 label: "City",
                                 readOnly: true,
-                                stream: Stream.empty(),
+                                stream: const Stream.empty(),
                                 onChanged: (value) {},
                               ),
                               Gap(10.h),
                               CustomFormField(
                                 label: "Zip Code",
                                 readOnly: true,
-                                stream: Stream.empty(),
+                                stream: const Stream.empty(),
                                 onChanged: (value) {},
                               ),
                             ],

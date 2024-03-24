@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 import '../../../../../core/resources/api/data_sources.dart';
 import '../../../../../core/resources/api/error_handler.dart';
 import '../../../../../core/resources/api/failure_class.dart';
+import '../../domain/entities/resend_code_entity.dart';
 import '../../domain/entities/reset_entity.dart';
 import '../../domain/repositories/reset_pass_repo.dart';
 import '../data_sources/resend_code_service.dart';
@@ -38,13 +39,13 @@ class ResetPassRepoImpl implements ResetPassRepo {
   }
 
   @override
-  Future<Either<Failure, dynamic>> resendCode(String email) async {
+  Future<Either<Failure, ResetResendCodeEntity>> resendCode(ResetResendCodeEntity resendCodeEntity) async {
     final result = await (Connectivity().checkConnectivity());
 
     if (result == ConnectivityResult.mobile ||
         result == ConnectivityResult.wifi) {
       try {
-        final resendCode = await resendCodeService.resendOtp(email);
+        final resendCode = await resendCodeService.resendOtp(resendCodeEntity);
         return right(resendCode);
       } catch (error) {
         return left(ErrorHandler.handle(error).failure);

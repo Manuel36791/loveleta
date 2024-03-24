@@ -38,7 +38,7 @@ class _SavedAddressesViewState extends State<SavedAddressesView> {
               context.pushNamed(bottomNavBar);
             },
             child: Scaffold(
-              appBar: AppBar(title: Text("Saved Addresses")),
+              appBar: AppBar(title: const Text("Saved Addresses")),
               body: SafeArea(
                 child: state.maybeWhen(
                   loading: () {
