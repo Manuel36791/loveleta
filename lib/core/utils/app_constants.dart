@@ -31,4 +31,5 @@ class AppConstants {
   static const resendCodeUri = "";
   static const forgotPassUri = "auth/forget-password";
   static const resetPassUri = "auth/reset-password";
+  static const changePassUri = "auth/change-password";
 }

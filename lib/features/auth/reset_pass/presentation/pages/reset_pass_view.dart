@@ -51,6 +51,12 @@ class _ResetPassViewState extends State<ResetPassView> {
                 );
               }
             },
+            error: (errCode, err) {
+              context.defaultSnackBar(
+                S.of(context).error(errCode, err),
+                color: AppColors.errorColor,
+              );
+            },
             orElse: () {},
           );
         },

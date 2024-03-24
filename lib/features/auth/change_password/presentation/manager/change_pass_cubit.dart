@@ -4,21 +4,23 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../../../../generated/l10n.dart';
+import '../../domain/entities/change_pass_entity.dart';
+import '../../domain/use_cases/change_pass_usecase.dart';
 
 part 'change_pass_states.dart';
 part 'change_pass_cubit.freezed.dart';
 
 class ChangePassCubit extends Cubit<ChangePassStates> {
-  ChangePassCubit() : super(const ChangePassStates.initial());
+  ChangePassCubit({required this.changePassUseCase}) : super(const ChangePassStates.initial());
 
   static ChangePassCubit get(BuildContext context) => BlocProvider.of(context);
 
   var newPassCtrl = BehaviorSubject<String>();
-  var newPassConfirmCtrl = BehaviorSubject<String>();
+  var newPassConfCtrl = BehaviorSubject<String>();
 
   Stream<String> get newPassStream => newPassCtrl.stream;
 
-  Stream<String> get newPassConfStream => newPassConfirmCtrl.stream;
+  Stream<String> get newPassConfStream => newPassConfCtrl.stream;
 
   validateNewPass(String pass) async {
     if (pass.isEmpty) {
@@ -32,11 +34,11 @@ class ChangePassCubit extends Cubit<ChangePassStates> {
 
   validateNewPassConf(String passConfirm) async {
     if (passConfirm.isEmpty) {
-      newPassConfirmCtrl.sink.addError(S.current.pleaseReconfirmYourPassword);
+      newPassConfCtrl.sink.addError(S.current.pleaseReconfirmYourPassword);
     } else if (passConfirm != newPassCtrl.value) {
-      newPassConfirmCtrl.sink.addError(S.current.passwordsDoNotMatchPleaseTryAgain);
+      newPassConfCtrl.sink.addError(S.current.passwordsDoNotMatchPleaseTryAgain);
     } else {
-      newPassConfirmCtrl.sink.add(passConfirm);
+      newPassConfCtrl.sink.add(passConfirm);
     }
   }
 
@@ -47,4 +49,29 @@ class ChangePassCubit extends Cubit<ChangePassStates> {
     ],
         (values) => true,
   );
+
+  final ChangePassUseCase changePassUseCase;
+
+  userChangePass(ChangePassEntity changePassEntity) async {
+    emit(const ChangePassStates.loading());
+
+    final changePass = await changePassUseCase(changePassEntity);
+
+    changePass.fold(
+          (l) => {
+        emit(
+          ChangePassStates.error(
+            l.code.toString(),
+            l.message,
+          ),
+        ),
+      },
+          (r) => {
+        emit(
+          ChangePassStates.success(r),
+        ),
+      },
+    );
+  }
+
 }

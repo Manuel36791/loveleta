@@ -44,7 +44,18 @@ class _ForgotPassViewState extends State<ForgotPassView> {
                     email: forgotPassCubit.emailCtrl.value,
                   ),
                 );
+              } else {
+                context.defaultSnackBar(
+                  S.of(context).emailNotRegistered,
+                  color: AppColors.errorColor,
+                );
               }
+            },
+            error: (errCode, err) {
+              context.defaultSnackBar(
+                S.of(context).error(errCode, err),
+                color: AppColors.errorColor,
+              );
             },
             orElse: () {},
           );

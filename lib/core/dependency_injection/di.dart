@@ -4,6 +4,10 @@ import 'package:loveleta/features/auth/verify_account/data/data_sources/resend_c
 import 'package:loveleta/features/auth/verify_account/domain/use_cases/resend_code_usecase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../features/auth/change_password/data/data_sources/change_pass_service.dart';
+import '../../features/auth/change_password/data/repositories/change_pass_repo_impl.dart';
+import '../../features/auth/change_password/domain/repositories/change_pass_repo.dart';
+import '../../features/auth/change_password/domain/use_cases/change_pass_usecase.dart';
 import '../../features/auth/change_password/presentation/manager/change_pass_cubit.dart';
 import '../../features/auth/forgot_pass/data/data_sources/forgot_pass_service.dart';
 import '../../features/auth/forgot_pass/data/repositories/forget_pass_repo_impl.dart';
@@ -70,11 +74,17 @@ Future<void> init() async {
   /// Reset Password
   di.registerFactory(() => ResetPassCubit(resetPassUseCase: di()));
   di.registerLazySingleton(() => ResetPassUseCase(resetPassRepo: di()));
-  di.registerLazySingleton<ResetPassRepo>(() => ResetPassRepoImpl(resetPassService: di(), resendCodeService: di()));
+  di.registerLazySingleton<ResetPassRepo>(
+      () => ResetPassRepoImpl(resetPassService: di(), resendCodeService: di()));
   di.registerLazySingleton<ResetPassService>(() => ResetPassServiceImpl());
 
   /// Change Password
-  di.registerFactory(() => ChangePassCubit());
+  di.registerFactory(() => ChangePassCubit(changePassUseCase: di()));
+  di.registerLazySingleton(() => ChangePassUseCase(changePassRepo: di()));
+  di.registerLazySingleton<ChangePassRepo>(() => ChangePassRepoImpl(
+        changePassService: di(),
+      ));
+  di.registerLazySingleton<ChangePassService>(() => ChangePassServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();

@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:loveleta/core/utils/extensions.dart';
+import 'package:loveleta/features/auth/change_password/domain/entities/change_pass_entity.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../core/router/router.dart';
@@ -19,6 +20,7 @@ import '../manager/change_pass_cubit.dart';
 
 class ChangePassView extends StatefulWidget {
   final String email;
+
   const ChangePassView({super.key, required this.email});
 
   @override
@@ -32,6 +34,25 @@ class _ChangePassViewState extends State<ChangePassView> {
       create: (context) => di.di<ChangePassCubit>(),
       child: BlocConsumer<ChangePassCubit, ChangePassStates>(
         listener: (context, state) {
+          state.maybeWhen(
+            success: (state) {
+              if (state.status == 1) {
+                context.defaultSnackBar(
+                  S.of(context).passwordChangedSuccessful,
+                  color: AppColors.successColor,
+                  textColor: AppColors.textBlack,
+                );
+                context.pushNamed(loginPageRoute);
+              }
+            },
+            error: (errCode, err) {
+              context.defaultSnackBar(
+                S.of(context).error(errCode, err),
+                color: AppColors.errorColor,
+              );
+            },
+            orElse: () {},
+          );
         },
         builder: (context, state) {
           ChangePassCubit changePassCubit = ChangePassCubit.get(context);
@@ -78,16 +99,20 @@ class _ChangePassViewState extends State<ChangePassView> {
                     ),
                     Gap(30.h),
                     ConditionalBuilder(
-                      condition: true,
-                      builder: (context) =>
-                          CustomBtn(
-                            label: S.of(context).updatePassword,
-                            onPressed: () {
-                              context.pushNamed(loginPageRoute);
-                            },
-                          ),
-                      fallback: (context) =>
-                      const Center(
+                      condition: state is! Loading,
+                      builder: (context) => CustomBtn(
+                        label: S.of(context).updatePassword,
+                        onPressed: () {
+                          changePassCubit.userChangePass(
+                            ChangePassEntity(
+                              email: widget.email,
+                              pass: changePassCubit.newPassCtrl.value,
+                              passConf: changePassCubit.newPassConfCtrl.value,
+                            ),
+                          );
+                        },
+                      ),
+                      fallback: (context) => const Center(
                         child: CircularProgressIndicator(
                           color: AppColors.pinkPrimary,
                         ),
