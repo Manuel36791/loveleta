@@ -41,7 +41,7 @@ class AppRouters {
           builder: (BuildContext context) => const RegisterView(),
         );
       case verifyAccountPageRoute:
-        final args = settings.arguments as ResetPassArgs;
+        final args = settings.arguments as ChangePassArgs;
         return MaterialPageRoute(
           builder: (BuildContext context) => VerifyAccountView(
             email: args.email,
@@ -52,15 +52,18 @@ class AppRouters {
           builder: (BuildContext context) => const ForgotPassView(),
         );
       case resetPassPageRoute:
-        final args = settings.arguments as ResetPassArgs;
+        final args = settings.arguments as ChangePassArgs;
         return MaterialPageRoute(
           builder: (BuildContext context) => ResetPassView(
             email: args.email,
           ),
         );
       case changePassPageRoute:
+        final args = settings.arguments as ChangePassArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const ChangePassView(),
+          builder: (BuildContext context) => ChangePassView(
+            email: args.email,
+          ),
         );
 
       /// Main Routes

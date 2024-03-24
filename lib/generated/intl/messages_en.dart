@@ -150,6 +150,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "updatePassword":
             MessageLookupByLibrary.simpleMessage("Update Password"),
         "verify": MessageLookupByLibrary.simpleMessage("Verify"),
-        "verifyAccount": MessageLookupByLibrary.simpleMessage("Verify Account")
+        "verifyAccount": MessageLookupByLibrary.simpleMessage("Verify Account"),
+        "wrongOtpEntered": MessageLookupByLibrary.simpleMessage(
+            "The OTP entered is incorrect. Please check your email again and enter the correct OTP to reset your password"),
+        "wrongVerifyOtp": MessageLookupByLibrary.simpleMessage(
+            "The OTP entered is incorrect. Please check your email again and enter the correct OTP to verify your account.")
       };
 }

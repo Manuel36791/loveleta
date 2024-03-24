@@ -94,7 +94,7 @@
   "pleaseEnterTheActivationCodeSentToYourEmail": "Please enter the activation code sent to your email",
   "codeCantBeLessThan4Characters": "Code can't be less than 4 characters",
   "activationSuccess": "Your account has been successfully activated. You can now log in and access your account.",
-
+  "wrongVerifyOtp": "The OTP entered is incorrect. Please check your email again and enter the correct OTP to verify your account.",
 
   "@_ForgetPassword": {},
   "forgetPassword": "Forget Password",
@@ -104,6 +104,7 @@
   "resetPassword": "Reset Password",
   "resetPasswordBtn": "Reset Pass",
   "pleaseEnterVerificationCodeSentToYourEmail": "Please enter verification code sent to your email",
+  "wrongOtpEntered": "The OTP entered is incorrect. Please check your email again and enter the correct OTP to reset your password",
 
   "@_NewPassword": {},
   "newPassword": "New Password",
@@ -111,5 +112,4 @@
   "newPasswordCantBeLessThan8Characters": "New password can't be less than 8 characters",
   "changePassword": "Change Password",
   "updatePassword": "Update Password"
-
 }

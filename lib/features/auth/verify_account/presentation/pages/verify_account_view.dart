@@ -43,6 +43,11 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                   textColor: AppColors.textBlack,
                 );
                 context.pushNamed(loginPageRoute);
+              } else {
+                context.defaultSnackBar(
+                  S.of(context).wrongVerifyOtp,
+                  color: AppColors.errorColor,
+                );
               }
             },
             error: (errCode, err) {

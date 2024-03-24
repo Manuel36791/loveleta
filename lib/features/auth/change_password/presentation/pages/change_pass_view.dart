@@ -18,7 +18,8 @@ import '../../../../../generated/l10n.dart';
 import '../manager/change_pass_cubit.dart';
 
 class ChangePassView extends StatefulWidget {
-  const ChangePassView({super.key});
+  final String email;
+  const ChangePassView({super.key, required this.email});
 
   @override
   State<ChangePassView> createState() => _ChangePassViewState();

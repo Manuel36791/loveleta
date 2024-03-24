@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+import 'package:loveleta/core/shared/arguments.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
@@ -39,9 +40,9 @@ class _ForgotPassViewState extends State<ForgotPassView> {
               if (state.status == 1) {
                 context.pushNamed(
                   resetPassPageRoute,
-                  arguments: {
-                    'email': forgotPassCubit.emailCtrl.value,
-                  },
+                  arguments: ResetPassArgs(
+                    email: forgotPassCubit.emailCtrl.value,
+                  ),
                 );
               }
             },
@@ -84,7 +85,7 @@ class _ForgotPassViewState extends State<ForgotPassView> {
                     ),
                     Gap(30.h),
                     ConditionalBuilder(
-                      condition: true,
+                      condition: state is! Loading,
                       builder: (context) => CustomBtn(
                         label: S.of(context).submit,
                         onPressed: () {

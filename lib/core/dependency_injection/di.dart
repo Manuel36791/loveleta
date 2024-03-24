@@ -19,6 +19,10 @@ import '../../features/auth/register/data/repositories/register_repo_impl.dart';
 import '../../features/auth/register/domain/repositories/register_repo.dart';
 import '../../features/auth/register/domain/use_cases/register_usecase.dart';
 import '../../features/auth/register/presentation/manager/register_cubit.dart';
+import '../../features/auth/reset_pass/data/data_sources/reset_pass_service.dart';
+import '../../features/auth/reset_pass/data/repositories/reset_pass_repo_impl.dart';
+import '../../features/auth/reset_pass/domain/repositories/reset_pass_repo.dart';
+import '../../features/auth/reset_pass/domain/use_cases/reset_pass_usecase.dart';
 import '../../features/auth/reset_pass/presentation/manager/reset_pass_cubit.dart';
 import '../../features/auth/verify_account/data/data_sources/verify_account_service.dart';
 import '../../features/auth/verify_account/data/repositories/verify_account_repo_impl.dart';
@@ -45,10 +49,16 @@ Future<void> init() async {
   /// Verify Account
   di.registerFactory(() => VerifyAccountCubit(verifyAccountUseCase: di()));
   di.registerLazySingleton(() => VerifyAccountUseCase(verifyAccountRepo: di()));
-  di.registerLazySingleton(() => VerifyResendCodeUseCase(verifyAccountRepo: di()));
-  di.registerLazySingleton<VerifyAccountRepo>(() => VerifyAccountRepoImpl(verifyAccountService: di(), resendCodeService: di(),));
-  di.registerLazySingleton<VerifyAccountService>(() => VerifyAccountServiceImpl());
-  di.registerLazySingleton<VerifyResendCodeService>(() => VerifyResendCodeServiceImpl());
+  di.registerLazySingleton(
+      () => VerifyResendCodeUseCase(verifyAccountRepo: di()));
+  di.registerLazySingleton<VerifyAccountRepo>(() => VerifyAccountRepoImpl(
+        verifyAccountService: di(),
+        resendCodeService: di(),
+      ));
+  di.registerLazySingleton<VerifyAccountService>(
+      () => VerifyAccountServiceImpl());
+  di.registerLazySingleton<VerifyResendCodeService>(
+      () => VerifyResendCodeServiceImpl());
 
   /// Forgot Password
   di.registerFactory(() => ForgotPassCubit(forgotPassUseCase: di()));
@@ -58,7 +68,10 @@ Future<void> init() async {
   di.registerLazySingleton<ForgotPassService>(() => ForgotPassServiceImpl());
 
   /// Reset Password
-  di.registerFactory(() => ResetPassCubit());
+  di.registerFactory(() => ResetPassCubit(resetPassUseCase: di()));
+  di.registerLazySingleton(() => ResetPassUseCase(resetPassRepo: di()));
+  di.registerLazySingleton<ResetPassRepo>(() => ResetPassRepoImpl(resetPassService: di(), resendCodeService: di()));
+  di.registerLazySingleton<ResetPassService>(() => ResetPassServiceImpl());
 
   /// Change Password
   di.registerFactory(() => ChangePassCubit());
