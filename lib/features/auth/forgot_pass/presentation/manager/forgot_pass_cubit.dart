@@ -24,7 +24,7 @@ class ForgotPassCubit extends Cubit<ForgotPassStates> {
   validateEmail(String email) async {
     if (email.isEmpty) {
       emailCtrl.sink.addError(S.current.emailCantBeEmpty);
-    } else if (email.isEmail()) {
+    } else if (!email.isEmail()) {
       emailCtrl.sink.addError(S.current.plzEnterAValidEmail);
     } else {
       emailCtrl.sink.add(email);

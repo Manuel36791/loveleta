@@ -66,142 +66,144 @@ class _ResetPassViewState extends State<ResetPassView> {
             body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(Dimensions.p25),
-                child: Column(
-                  children: [
-                    Gap(60.h),
-                    Align(
-                      alignment: Alignment.center,
-                      child: SvgPicture.asset(
-                        AppImages.appLogoSvg,
-                        height: 100.h,
-                        width: 85.w,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Gap(60.h),
+                      Align(
+                        alignment: Alignment.center,
+                        child: SvgPicture.asset(
+                          AppImages.appLogoSvg,
+                          height: 100.h,
+                          width: 85.w,
+                        ),
                       ),
-                    ),
-                    Gap(20.h),
-                    Text(
-                      S.of(context).resetPassword,
-                      style: CustomTextStyle.kTextStyleF26.copyWith(
-                        fontWeight: FontWeight.w700,
+                      Gap(20.h),
+                      Text(
+                        S.of(context).resetPassword,
+                        style: CustomTextStyle.kTextStyleF26.copyWith(
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
-                    ),
-                    Gap(30.h),
-                    StreamBuilder(
-                      stream: resetPassCubit.pinStream,
-                      builder: (context, snapshot) {
-                        return Column(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: Dimensions.p30.h),
-                              child: Pinput(
-                                onChanged: (code) {
-                                  resetPassCubit.validateCode(code);
-                                },
-                                closeKeyboardWhenCompleted: false,
-                                length: 6,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                focusNode: FocusNode(),
-                                showCursor: true,
-                                defaultPinTheme: PinTheme(
-                                  height: 45.h,
-                                  width: 66.w,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    color: Colors.white,
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 1,
-                                      style: BorderStyle.solid,
+                      Gap(30.h),
+                      StreamBuilder(
+                        stream: resetPassCubit.pinStream,
+                        builder: (context, snapshot) {
+                          return Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                    vertical: Dimensions.p30.h),
+                                child: Pinput(
+                                  onChanged: (code) {
+                                    resetPassCubit.validateCode(code);
+                                  },
+                                  closeKeyboardWhenCompleted: false,
+                                  length: 6,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  focusNode: FocusNode(),
+                                  showCursor: true,
+                                  defaultPinTheme: PinTheme(
+                                    height: 45.h,
+                                    width: 66.w,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      color: Colors.white,
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1,
+                                        style: BorderStyle.solid,
+                                      ),
+                                      borderRadius: BorderRadius.circular(
+                                        Dimensions.r5,
+                                      ),
                                     ),
-                                    borderRadius: BorderRadius.circular(
-                                      Dimensions.r5,
-                                    ),
+                                    textStyle: CustomTextStyle.kPinTextStyle,
                                   ),
-                                  textStyle: CustomTextStyle.kPinTextStyle,
                                 ),
                               ),
-                            ),
-                            snapshot.hasError
-                                ? Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      snapshot.error.toString(),
-                                      style: const TextStyle(
-                                        color: AppColors.errorColor,
+                              snapshot.hasError
+                                  ? Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        snapshot.error.toString(),
+                                        style: const TextStyle(
+                                          color: AppColors.errorColor,
+                                        ),
                                       ),
-                                    ),
-                                  )
-                                : Gap(5.h),
-                          ],
-                        );
-                      },
-                    ),
-                    Gap(20.h),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: StreamBuilder(
-                              stream: resetPassCubit.verifyBtnStream,
-                              builder: (context, snapshot) {
-                                return ConditionalBuilder(
-                                  condition: true,
-                                  builder: (ctx) {
-                                    return CustomBtn(
-                                      label: S.of(context).resetPasswordBtn,
-                                      onPressed: snapshot.hasError
-                                          ? null
-                                          : () {
-                                              resetPassCubit.resetUserPassword(
-                                                ResetPassEntity(
-                                                  email: widget.email,
-                                                  otp: resetPassCubit
-                                                      .pinCtrl.value,
-                                                ),
-                                              );
-                                            },
-                                    );
-                                  },
-                                  fallback: (ctx) {
-                                    return const Center(
-                                      child: CircularProgressIndicator(
-                                        color: AppColors.pinkPrimary,
-                                      ),
-                                    );
-                                  },
-                                );
-                              }),
-                        ),
-                        Gap(10.w),
-                        Expanded(
-                          child: ConditionalBuilder(
-                            condition: state is! Loading,
-                            builder: (ctx) {
-                              return CustomBtn(
-                                label: S.of(context).sendAgain,
-                                onPressed: () {
-                                  context.pushNamed(changePassPageRoute);
-                                },
-                                bgColor: Colors.white,
-                                textStyle:
-                                    CustomTextStyle.kBtnTextStyle.copyWith(
-                                  color: AppColors.textBlack,
-                                ),
-                              );
-                            },
-                            fallback: (ctx) {
-                              return const Center(
-                                child: CircularProgressIndicator(
-                                  color: AppColors.pinkPrimary,
-                                ),
-                              );
-                            },
+                                    )
+                                  : Gap(5.h),
+                            ],
+                          );
+                        },
+                      ),
+                      Gap(20.h),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: StreamBuilder(
+                                stream: resetPassCubit.verifyBtnStream,
+                                builder: (context, snapshot) {
+                                  return ConditionalBuilder(
+                                    condition: state is! Loading,
+                                    builder: (ctx) {
+                                      return CustomBtn(
+                                        label: S.of(context).resetPasswordBtn,
+                                        onPressed: snapshot.hasError
+                                            ? null
+                                            : () {
+                                                resetPassCubit.resetUserPassword(
+                                                  ResetPassEntity(
+                                                    email: widget.email,
+                                                    otp: resetPassCubit
+                                                        .pinCtrl.value,
+                                                  ),
+                                                );
+                                              },
+                                      );
+                                    },
+                                    fallback: (ctx) {
+                                      return const Center(
+                                        child: CircularProgressIndicator(
+                                          color: AppColors.pinkPrimary,
+                                        ),
+                                      );
+                                    },
+                                  );
+                                }),
                           ),
-                        ),
-                      ],
-                    )
-                  ],
+                          Gap(10.w),
+                          Expanded(
+                            child: ConditionalBuilder(
+                              condition: true,
+                              builder: (ctx) {
+                                return CustomBtn(
+                                  label: S.of(context).sendAgain,
+                                  onPressed: () {
+                                    context.pushNamed(changePassPageRoute);
+                                  },
+                                  bgColor: Colors.white,
+                                  textStyle:
+                                      CustomTextStyle.kBtnTextStyle.copyWith(
+                                    color: AppColors.textBlack,
+                                  ),
+                                );
+                              },
+                              fallback: (ctx) {
+                                return const Center(
+                                  child: CircularProgressIndicator(
+                                    color: AppColors.pinkPrimary,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

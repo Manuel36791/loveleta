@@ -60,65 +60,67 @@ class _ChangePassViewState extends State<ChangePassView> {
             body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(Dimensions.p25),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Gap(60.h),
-                    Align(
-                      alignment: Alignment.center,
-                      child: SvgPicture.asset(
-                        AppImages.appLogoSvg,
-                        height: 100.h,
-                        width: 85.w,
-                      ),
-                    ),
-                    Gap(20.h),
-                    Text(
-                      S.of(context).changePassword,
-                      style: CustomTextStyle.kTextStyleF26.copyWith(
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    Gap(30.h),
-                    CustomFormField(
-                      stream: changePassCubit.newPassStream,
-                      onChanged: (newPass) {
-                        changePassCubit.validateNewPass(newPass);
-                      },
-                      label: S.of(context).newPassword,
-                      nextAction: TextInputAction.next,
-                    ),
-                    Gap(10.h),
-                    CustomFormField(
-                      stream: changePassCubit.newPassConfStream,
-                      onChanged: (newPassConf) {
-                        changePassCubit.validateNewPassConf(newPassConf);
-                      },
-                      label: S.of(context).confirmNewPassword,
-                      nextAction: TextInputAction.next,
-                    ),
-                    Gap(30.h),
-                    ConditionalBuilder(
-                      condition: state is! Loading,
-                      builder: (context) => CustomBtn(
-                        label: S.of(context).updatePassword,
-                        onPressed: () {
-                          changePassCubit.userChangePass(
-                            ChangePassEntity(
-                              email: widget.email,
-                              pass: changePassCubit.newPassCtrl.value,
-                              passConf: changePassCubit.newPassConfCtrl.value,
-                            ),
-                          );
-                        },
-                      ),
-                      fallback: (context) => const Center(
-                        child: CircularProgressIndicator(
-                          color: AppColors.pinkPrimary,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Gap(60.h),
+                      Align(
+                        alignment: Alignment.center,
+                        child: SvgPicture.asset(
+                          AppImages.appLogoSvg,
+                          height: 100.h,
+                          width: 85.w,
                         ),
                       ),
-                    ),
-                  ],
+                      Gap(20.h),
+                      Text(
+                        S.of(context).changePassword,
+                        style: CustomTextStyle.kTextStyleF26.copyWith(
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      Gap(30.h),
+                      CustomFormField(
+                        stream: changePassCubit.newPassStream,
+                        onChanged: (newPass) {
+                          changePassCubit.validateNewPass(newPass);
+                        },
+                        label: S.of(context).newPassword,
+                        nextAction: TextInputAction.next,
+                      ),
+                      Gap(10.h),
+                      CustomFormField(
+                        stream: changePassCubit.newPassConfStream,
+                        onChanged: (newPassConf) {
+                          changePassCubit.validateNewPassConf(newPassConf);
+                        },
+                        label: S.of(context).confirmNewPassword,
+                        nextAction: TextInputAction.done,
+                      ),
+                      Gap(30.h),
+                      ConditionalBuilder(
+                        condition: state is! Loading,
+                        builder: (context) => CustomBtn(
+                          label: S.of(context).updatePassword,
+                          onPressed: () {
+                            changePassCubit.userChangePass(
+                              ChangePassEntity(
+                                email: widget.email,
+                                pass: changePassCubit.newPassCtrl.value,
+                                passConf: changePassCubit.newPassConfCtrl.value,
+                              ),
+                            );
+                          },
+                        ),
+                        fallback: (context) => const Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.pinkPrimary,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

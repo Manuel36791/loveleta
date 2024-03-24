@@ -40,7 +40,7 @@ class _LoginViewState extends State<LoginView> {
             success: (state) async {
               if (state.status == 1) {
                 context.defaultSnackBar(
-                    S.of(context).loggedInSuccessful(UserData.name!),
+                    S.of(context).loggedInSuccessful(UserData.firstName!),
                     color: AppColors.successColor,
                     textColor: AppColors.textBlack);
                 var email =

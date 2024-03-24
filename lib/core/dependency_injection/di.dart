@@ -23,6 +23,7 @@ import '../../features/auth/register/data/repositories/register_repo_impl.dart';
 import '../../features/auth/register/domain/repositories/register_repo.dart';
 import '../../features/auth/register/domain/use_cases/register_usecase.dart';
 import '../../features/auth/register/presentation/manager/register_cubit.dart';
+import '../../features/auth/reset_pass/data/data_sources/resend_code_service.dart';
 import '../../features/auth/reset_pass/data/data_sources/reset_pass_service.dart';
 import '../../features/auth/reset_pass/data/repositories/reset_pass_repo_impl.dart';
 import '../../features/auth/reset_pass/domain/repositories/reset_pass_repo.dart';
@@ -77,6 +78,7 @@ Future<void> init() async {
   di.registerLazySingleton<ResetPassRepo>(
       () => ResetPassRepoImpl(resetPassService: di(), resendCodeService: di()));
   di.registerLazySingleton<ResetPassService>(() => ResetPassServiceImpl());
+  di.registerLazySingleton<ResendCodeService>(() => ResendCodeServiceImpl());
 
   /// Change Password
   di.registerFactory(() => ChangePassCubit(changePassUseCase: di()));

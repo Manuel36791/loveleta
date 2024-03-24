@@ -66,54 +66,56 @@ class _ForgotPassViewState extends State<ForgotPassView> {
             body: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(Dimensions.p25),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Gap(60.h),
-                    Align(
-                      alignment: Alignment.center,
-                      child: SvgPicture.asset(
-                        AppImages.appLogoSvg,
-                        height: 100.h,
-                        width: 85.w,
-                      ),
-                    ),
-                    Gap(20.h),
-                    Text(
-                      S.of(context).forgotPassword,
-                      style: CustomTextStyle.kTextStyleF26.copyWith(
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    Gap(30.h),
-                    CustomFormField(
-                      stream: forgotPassCubit.emailStream,
-                      onChanged: (email) {
-                        forgotPassCubit.validateEmail(email);
-                      },
-                      label: S.of(context).email,
-                      nextAction: TextInputAction.next,
-                    ),
-                    Gap(30.h),
-                    ConditionalBuilder(
-                      condition: state is! Loading,
-                      builder: (context) => CustomBtn(
-                        label: S.of(context).submit,
-                        onPressed: () {
-                          forgotPassCubit.userForgotPass(
-                            ForgetPassEntity(
-                              email: forgotPassCubit.emailCtrl.value,
-                            ),
-                          );
-                        },
-                      ),
-                      fallback: (context) => const Center(
-                        child: CircularProgressIndicator(
-                          color: AppColors.pinkPrimary,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Gap(60.h),
+                      Align(
+                        alignment: Alignment.center,
+                        child: SvgPicture.asset(
+                          AppImages.appLogoSvg,
+                          height: 100.h,
+                          width: 85.w,
                         ),
                       ),
-                    ),
-                  ],
+                      Gap(20.h),
+                      Text(
+                        S.of(context).forgotPassword,
+                        style: CustomTextStyle.kTextStyleF26.copyWith(
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      Gap(30.h),
+                      CustomFormField(
+                        stream: forgotPassCubit.emailStream,
+                        onChanged: (email) {
+                          forgotPassCubit.validateEmail(email);
+                        },
+                        label: S.of(context).email,
+                        nextAction: TextInputAction.done,
+                      ),
+                      Gap(30.h),
+                      ConditionalBuilder(
+                        condition: state is! Loading,
+                        builder: (context) => CustomBtn(
+                          label: S.of(context).submit,
+                          onPressed: () {
+                            forgotPassCubit.userForgotPass(
+                              ForgetPassEntity(
+                                email: forgotPassCubit.emailCtrl.value,
+                              ),
+                            );
+                          },
+                        ),
+                        fallback: (context) => const Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.pinkPrimary,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

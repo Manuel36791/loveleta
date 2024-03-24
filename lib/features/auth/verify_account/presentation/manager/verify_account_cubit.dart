@@ -26,7 +26,7 @@ class VerifyAccountCubit extends Cubit<VerifyAccountStates> {
       pinCtrl.sink
           .addError(S.current.pleaseEnterTheActivationCodeSentToYourEmail);
     } else if (code.length < 4) {
-      pinCtrl.sink.addError(S.current.codeCantBeLessThan4Characters);
+      pinCtrl.sink.addError(S.current.codeCantBeLessThan6Characters);
     } else {
       pinCtrl.sink.add(code);
     }
