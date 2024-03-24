@@ -44,7 +44,7 @@ class _RegisterViewState extends State<RegisterView> {
                 );
                 context.pushNamed(
                   verifyAccountPageRoute,
-                  arguments: VerifyAccountArgs(
+                  arguments: ResetPassArgs(
                     email: state.email!,
                   ),
                 );
