@@ -57,7 +57,7 @@ Future<void> init() async {
   di.registerLazySingleton<RegisterService>(() => RegisterServiceImpl());
 
   /// Verify Account
-  di.registerFactory(() => VerifyAccountCubit(verifyAccountUseCase: di()));
+  di.registerFactory(() => VerifyAccountCubit(verifyAccountUseCase: di(), resendCodeUseCase: di()));
   di.registerLazySingleton(() => VerifyAccountUseCase(verifyAccountRepo: di()));
   di.registerLazySingleton(
       () => VerifyResendCodeUseCase(verifyAccountRepo: di()));
@@ -78,7 +78,7 @@ Future<void> init() async {
   di.registerLazySingleton<ForgotPassService>(() => ForgotPassServiceImpl());
 
   /// Reset Password
-  di.registerFactory(() => ResetPassCubit(resetPassUseCase: di()));
+  di.registerFactory(() => ResetPassCubit(resetPassUseCase: di(), resendCodeUseCase: di()));
   di.registerLazySingleton(() => ResetPassUseCase(resetPassRepo: di()));
   di.registerLazySingleton<ResetPassRepo>(
       () => ResetPassRepoImpl(resetPassService: di(), resendCodeService: di()));

@@ -6,4 +6,5 @@ class VerifyAccountStates with _$VerifyAccountStates {
   const factory VerifyAccountStates.loading() = Loading;
   const factory VerifyAccountStates.success(final VerifyAccountEntity verifyAccount) = Success;
   const factory VerifyAccountStates.error(final String errCode, final String err) = Error;
+  const factory VerifyAccountStates.resendCode(final ResendCodeEntity resendCode) = ResendCode;
 }

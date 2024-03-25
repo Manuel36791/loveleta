@@ -4,18 +4,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:loveleta/core/router/router.dart';
-import 'package:loveleta/core/shared/widgets/custom_button.dart';
 import 'package:loveleta/core/utils/extensions.dart';
-import 'package:loveleta/features/auth/verify_account/domain/entities/verify_account_entity.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../core/router/router.dart';
+import '../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
+import '../../domain/entities/resend_code_entity.dart';
+import '../../domain/entities/verify_account_entity.dart';
 import '../manager/verify_account_cubit.dart';
 
 class VerifyAccountView extends StatefulWidget {
@@ -51,10 +52,24 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
               }
             },
             error: (errCode, err) {
+              context.defaultSnackBar(
+                S.of(context).error(errCode, err),
+                color: AppColors.errorColor,
+              );
+            },
+            resendCode: (state) {
+              if (state.status == 1) {
                 context.defaultSnackBar(
-                  S.of(context).error(errCode, err),
+                  S.of(context).newOtpSent,
+                  color: AppColors.warningColor,
+                  textColor: AppColors.textBlack,
+                );
+              } else {
+                context.defaultSnackBar(
+                  S.of(context).invalidEmailAddress,
                   color: AppColors.errorColor,
                 );
+              }
             },
             orElse: () {},
           );
@@ -179,11 +194,17 @@ class _VerifyAccountViewState extends State<VerifyAccountView> {
                           Gap(10.w),
                           Expanded(
                             child: ConditionalBuilder(
-                              condition: true,
+                              condition: state is! Loading,
                               builder: (ctx) {
                                 return CustomBtn(
                                   label: S.of(context).sendAgain,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    verifyAccountCubit.resendCode(
+                                      ResendCodeEntity(
+                                        email: widget.email,
+                                      ),
+                                    );
+                                  },
                                   bgColor: Colors.white,
                                   textStyle:
                                       CustomTextStyle.kBtnTextStyle.copyWith(

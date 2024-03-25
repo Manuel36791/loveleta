@@ -28,7 +28,7 @@ class AppConstants {
   static const loginUri = "auth/login";
   static const registerUri = "auth/register";
   static const verifyAccountUri = "auth/account_verification";
-  static const resendCodeUri = "";
+  static const resendCodeUri = "auth/resend-code";
   static const forgotPassUri = "auth/forget-password";
   static const resetPassUri = "auth/reset-password";
   static const changePassUri = "auth/change-password";

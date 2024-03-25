@@ -73,6 +73,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "some thing went wrong, try again later"),
         "invalidCredentials": MessageLookupByLibrary.simpleMessage(
             "Invalid email or password. Please check your credentials and try again."),
+        "invalidEmailAddress": MessageLookupByLibrary.simpleMessage(
+            "Invalid email address, Please check your email and try again."),
         "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
         "loggedInSuccessful": m2,
         "login": MessageLookupByLibrary.simpleMessage("Login"),
@@ -82,6 +84,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "This URL is no longer available"),
         "multiple_choices": MessageLookupByLibrary.simpleMessage(
             "Choose an option to continue"),
+        "newOtpSent": MessageLookupByLibrary.simpleMessage(
+            "An OTP has been resent to your email. Please check your inbox and enter the new OTP to continue."),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "newPasswordCantBeLessThan8Characters":
             MessageLookupByLibrary.simpleMessage(
