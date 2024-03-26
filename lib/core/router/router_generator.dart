@@ -72,8 +72,11 @@ class AppRouters {
           builder: (BuildContext context) => const HomeView(),
         );
       case productDetailsPageRoute:
+        final args = settings.arguments as ProductDetailsArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const ProductDetailsView(),
+          builder: (BuildContext context) => ProductDetailsView(
+            product: args.product,
+          ),
         );
       case categoriesPageRoute:
         return MaterialPageRoute(

@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:loveleta/core/shared/entities/product_entity.dart';
 import 'package:loveleta/core/shared/widgets/state_error_widget.dart';
 import 'package:loveleta/core/shared/widgets/state_loading_widget.dart';
 import 'package:loveleta/core/utils/extensions.dart';
@@ -13,6 +14,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import '../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../../../categories/presentation/manager/category_cubit.dart';
@@ -147,13 +149,44 @@ class HomeView extends StatelessWidget {
                           ...List.generate(
                             10,
                                 (index) {
-                              return const Padding(
-                                padding: EdgeInsets.all(Dimensions.p10),
+                              return Padding(
+                                padding: const EdgeInsets.all(Dimensions.p10),
                                 child: ProductCard(
-                                  image: "https://picsum.photos/id/106/132/129",
-                                  title: "Triple Red Flower Arrangement",
-                                  price: "SAR 760",
-                                  isExpress: true,
+                                  product: ProductEntity(
+                                    id: 1,
+                                    category: "category",
+                                    nameEn: "Product",
+                                    nameAr: "منتج",
+                                    descriptionEn: "description",
+                                    descriptionAr: "وصف",
+                                    mainImage: "https://picsum.photos/id/106/132/129",
+                                    images: [
+                                      "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80",
+                                      "https://images.unsplash.com/photo-1461988320302-91bde64fc8e4?ixid=2yJhcHBfaWQiOjEyMDd9&fm=jpg&fit=crop&w=1080&q=80&fit=max",
+                                      "https://images.pexels.com/photos/19483715/pexels-photo-19483715/free-photo-of-street-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                                    ],
+                                    giftDetailsEn: const [
+                                      "Gift Detail 1",
+                                      "Gift Detail 2",
+                                      "Gift Detail 3",
+                                      "Gift Detail 4",
+                                    ],
+                                    giftDetailsAr: const [
+                                      "تفاصيل الهدية 1",
+                                      "تفاصيل الهدية 2",
+                                      "تفاصيل الهدية 3",
+                                      "تفاصيل الهدية 4",
+                                    ],
+                                    color: const [
+                                      "Red",
+                                      "Green",
+                                      "Blue",
+                                    ],
+                                    isExpress: false,
+                                    inStock: false,
+                                    sku: "SKU",
+                                    price: 100,
+                                  ),
                                 ),
                               );
                             },
@@ -173,13 +206,45 @@ class HomeView extends StatelessWidget {
                           ...List.generate(
                             10,
                                 (index) {
-                              return const Padding(
+                              return Padding(
                                 padding: EdgeInsets.all(Dimensions.p10),
                                 child: ProductCard(
-                                  image: "https://picsum.photos/id/106/132/129",
-                                  title: "Triple Red Flower Arrangement",
-                                  price: "SAR 760",
-                                  isExpress: false,
+                                  product: ProductEntity(
+                                    id: 1,
+                                    category: "category",
+                                    nameEn: "Product",
+                                    nameAr: "منتج",
+                                    descriptionEn: "description",
+                                    descriptionAr: "وصف",
+                                    mainImage: "https://picsum.photos/id/106/132/129",
+                                    images: [
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                    ],
+                                    giftDetailsEn: const [
+                                      "Gift Detail 1",
+                                      "Gift Detail 2",
+                                      "Gift Detail 3",
+                                      "Gift Detail 4",
+                                    ],
+                                    giftDetailsAr: const [
+                                      "تفاصيل الهدية 1",
+                                      "تفاصيل الهدية 2",
+                                      "تفاصيل الهدية 3",
+                                      "تفاصيل الهدية 4",
+                                    ],
+                                    color: const [
+                                      "Red",
+                                      "Green",
+                                      "Blue",
+                                    ],
+                                    isExpress: false,
+                                    inStock: false,
+                                    sku: "SKU",
+                                    price: 100,
+                                  ),
                                 ),
                               );
                             },
@@ -199,13 +264,45 @@ class HomeView extends StatelessWidget {
                           ...List.generate(
                             10,
                                 (index) {
-                              return const Padding(
+                              return Padding(
                                 padding: EdgeInsets.all(Dimensions.p10),
                                 child: ProductCard(
-                                  image: "https://picsum.photos/id/106/132/129",
-                                  title: "Triple Red Flower Arrangement",
-                                  price: "SAR 760",
-                                  isExpress: true,
+                                  product: ProductEntity(
+                                    id: 1,
+                                    category: "category",
+                                    nameEn: "Product",
+                                    nameAr: "منتج",
+                                    descriptionEn: "description",
+                                    descriptionAr: "وصف",
+                                    mainImage: "https://picsum.photos/id/106/132/129",
+                                    images: [
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                    ],
+                                    giftDetailsEn: const [
+                                      "Gift Detail 1",
+                                      "Gift Detail 2",
+                                      "Gift Detail 3",
+                                      "Gift Detail 4",
+                                    ],
+                                    giftDetailsAr: const [
+                                      "تفاصيل الهدية 1",
+                                      "تفاصيل الهدية 2",
+                                      "تفاصيل الهدية 3",
+                                      "تفاصيل الهدية 4",
+                                    ],
+                                    color: const [
+                                      "Red",
+                                      "Green",
+                                      "Blue",
+                                    ],
+                                    isExpress: false,
+                                    inStock: false,
+                                    sku: "SKU",
+                                    price: 100,
+                                  ),
                                 ),
                               );
                             },
@@ -225,13 +322,45 @@ class HomeView extends StatelessWidget {
                           ...List.generate(
                             10,
                                 (index) {
-                              return const Padding(
+                              return  Padding(
                                 padding: EdgeInsets.all(Dimensions.p10),
                                 child: ProductCard(
-                                  image: "https://picsum.photos/id/106/132/129",
-                                  title: "Triple Red Flower Arrangement",
-                                  price: "SAR 760",
-                                  isExpress: false,
+                                  product: ProductEntity(
+                                    id: 1,
+                                    category: "category",
+                                    nameEn: "Product",
+                                    nameAr: "منتج",
+                                    descriptionEn: "description",
+                                    descriptionAr: "وصف",
+                                    mainImage: "https://picsum.photos/id/106/132/129",
+                                    images: [
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                    ],
+                                    giftDetailsEn: const [
+                                      "Gift Detail 1",
+                                      "Gift Detail 2",
+                                      "Gift Detail 3",
+                                      "Gift Detail 4",
+                                    ],
+                                    giftDetailsAr: const [
+                                      "تفاصيل الهدية 1",
+                                      "تفاصيل الهدية 2",
+                                      "تفاصيل الهدية 3",
+                                      "تفاصيل الهدية 4",
+                                    ],
+                                    color: const [
+                                      "Red",
+                                      "Green",
+                                      "Blue",
+                                    ],
+                                    isExpress: false,
+                                    inStock: false,
+                                    sku: "SKU",
+                                    price: 100,
+                                  ),
                                 ),
                               );
                             },
@@ -251,13 +380,45 @@ class HomeView extends StatelessWidget {
                           ...List.generate(
                             10,
                                 (index) {
-                              return const Padding(
+                              return  Padding(
                                 padding: EdgeInsets.all(Dimensions.p10),
                                 child: ProductCard(
-                                  image: "https://picsum.photos/id/106/132/129",
-                                  title: "Triple Red Flower Arrangement",
-                                  price: "SAR 760",
-                                  isExpress: true,
+                                  product: ProductEntity(
+                                    id: 1,
+                                    category: "category",
+                                    nameEn: "Product",
+                                    nameAr: "منتج",
+                                    descriptionEn: "description",
+                                    descriptionAr: "وصف",
+                                    mainImage: "https://picsum.photos/id/106/132/129",
+                                    images: [
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                    ],
+                                    giftDetailsEn: const [
+                                      "Gift Detail 1",
+                                      "Gift Detail 2",
+                                      "Gift Detail 3",
+                                      "Gift Detail 4",
+                                    ],
+                                    giftDetailsAr: const [
+                                      "تفاصيل الهدية 1",
+                                      "تفاصيل الهدية 2",
+                                      "تفاصيل الهدية 3",
+                                      "تفاصيل الهدية 4",
+                                    ],
+                                    color: const [
+                                      "Red",
+                                      "Green",
+                                      "Blue",
+                                    ],
+                                    isExpress: false,
+                                    inStock: false,
+                                    sku: "SKU",
+                                    price: 100,
+                                  ),
                                 ),
                               );
                             },
@@ -277,13 +438,45 @@ class HomeView extends StatelessWidget {
                           ...List.generate(
                             10,
                                 (index) {
-                              return const Padding(
+                              return  Padding(
                                 padding: EdgeInsets.all(Dimensions.p10),
                                 child: ProductCard(
-                                  image: "https://picsum.photos/id/106/132/129",
-                                  title: "Triple Red Flower Arrangement",
-                                  price: "SAR 760",
-                                  isExpress: false,
+                                  product: ProductEntity(
+                                    id: 1,
+                                    category: "category",
+                                    nameEn: "Product",
+                                    nameAr: "منتج",
+                                    descriptionEn: "description",
+                                    descriptionAr: "وصف",
+                                    mainImage: "https://picsum.photos/id/106/132/129",
+                                    images: [
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                    ],
+                                    giftDetailsEn: const [
+                                      "Gift Detail 1",
+                                      "Gift Detail 2",
+                                      "Gift Detail 3",
+                                      "Gift Detail 4",
+                                    ],
+                                    giftDetailsAr: const [
+                                      "تفاصيل الهدية 1",
+                                      "تفاصيل الهدية 2",
+                                      "تفاصيل الهدية 3",
+                                      "تفاصيل الهدية 4",
+                                    ],
+                                    color: const [
+                                      "Red",
+                                      "Green",
+                                      "Blue",
+                                    ],
+                                    isExpress: false,
+                                    inStock: false,
+                                    sku: "SKU",
+                                    price: 100,
+                                  ),
                                 ),
                               );
                             },
@@ -303,13 +496,45 @@ class HomeView extends StatelessWidget {
                           ...List.generate(
                             10,
                                 (index) {
-                              return const Padding(
+                              return  Padding(
                                 padding: EdgeInsets.all(Dimensions.p10),
                                 child: ProductCard(
-                                  image: "https://picsum.photos/id/106/132/129",
-                                  title: "Triple Red Flower Arrangement",
-                                  price: "SAR 760",
-                                  isExpress: true,
+                                  product: ProductEntity(
+                                    id: 1,
+                                    category: "category",
+                                    nameEn: "Product",
+                                    nameAr: "منتج",
+                                    descriptionEn: "description",
+                                    descriptionAr: "وصف",
+                                    mainImage: "https://picsum.photos/id/106/132/129",
+                                    images: [
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                      AppImages.placeholderImg,
+                                    ],
+                                    giftDetailsEn: const [
+                                      "Gift Detail 1",
+                                      "Gift Detail 2",
+                                      "Gift Detail 3",
+                                      "Gift Detail 4",
+                                    ],
+                                    giftDetailsAr: const [
+                                      "تفاصيل الهدية 1",
+                                      "تفاصيل الهدية 2",
+                                      "تفاصيل الهدية 3",
+                                      "تفاصيل الهدية 4",
+                                    ],
+                                    color: const [
+                                      "Red",
+                                      "Green",
+                                      "Blue",
+                                    ],
+                                    isExpress: false,
+                                    inStock: false,
+                                    sku: "SKU",
+                                    price: 100,
+                                  ),
                                 ),
                               );
                             },

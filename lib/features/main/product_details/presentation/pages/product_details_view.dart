@@ -2,18 +2,25 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:intl/intl.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../../../core/shared/entities/product_entity.dart';
 import '../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/dimensions.dart';
+import '../../../../../generated/l10n.dart';
 
 class ProductDetailsView extends StatefulWidget {
-  const ProductDetailsView({super.key});
+  final ProductEntity product;
+
+  const ProductDetailsView({
+    super.key,
+    required this.product,
+  });
 
   @override
   State<ProductDetailsView> createState() => _ProductDetailsViewState();
@@ -21,9 +28,12 @@ class ProductDetailsView extends StatefulWidget {
 
 class _ProductDetailsViewState extends State<ProductDetailsView> {
   int qty = 1;
+  int imageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    String selectedColor = widget.product.color![1];
+    int selectedIndex = widget.product.color!.indexOf(selectedColor);
     return Scaffold(
       appBar: CustomAppBar(context: context),
       body: SafeArea(
@@ -38,7 +48,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   child: Stack(
                     children: [
                       CachedNetworkImage(
-                        imageUrl: AppImages.placeholderImg,
+                        imageUrl: widget.product.images![imageIndex],
                         width: 312.w,
                         height: 312.h,
                         fit: BoxFit.cover,
@@ -49,20 +59,23 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: NetworkImage(
-                                    AppImages.placeholderImg),
+                                    widget.product.images![imageIndex]),
                                 fit: BoxFit.cover,
                               ),
                             ),
                           );
                         },
-                        progressIndicatorBuilder: (context, url, downloadProgress) =>
-                            Center(
-                              child: CircularProgressIndicator(
-                                color: AppColors.pinkSecondary,
-                                value: downloadProgress.progress,
-                              ),
-                            ),
-                        errorWidget: (context, url, error) => const Icon(Icons.error),
+                        progressIndicatorBuilder:
+                            (context, url, downloadProgress) => Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.pinkSecondary,
+                            value: downloadProgress.progress,
+                          ),
+                        ),
+                        errorWidget: (context, url, error) => const Icon(
+                          Icons.error,
+                          color: AppColors.errorColor,
+                        ),
                       ),
                       Positioned(
                         top: 10.h,
@@ -86,12 +99,50 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   child: Row(
                     children: [
                       ...List.generate(
-                        10,
+                        widget.product.images!.length,
                         (index) {
-                          return Image.network(
-                            AppImages.placeholderImg,
-                            height: 60.h,
-                            width: 66.w,
+                          return Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: Dimensions.p5.w),
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  imageIndex = index;
+                                  print(imageIndex);
+                                });
+                              },
+                              child: CachedNetworkImage(
+                                imageUrl: widget.product.images![index],
+                                width: 60.w,
+                                height: 60.h,
+                                fit: BoxFit.cover,
+                                imageBuilder: (context, imageProvider) {
+                                  return Container(
+                                    width: double.infinity,
+                                    height: 132.h,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: NetworkImage(
+                                            widget.product.images![index]),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                progressIndicatorBuilder:
+                                    (context, url, downloadProgress) => Center(
+                                  child: CircularProgressIndicator(
+                                    color: AppColors.pinkSecondary,
+                                    value: downloadProgress.progress,
+                                  ),
+                                ),
+                                errorWidget: (context, url, error) =>
+                                    const Icon(
+                                  Icons.error,
+                                  color: AppColors.errorColor,
+                                ),
+                              ),
+                            ),
                           );
                         },
                       ),
@@ -100,65 +151,93 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                 ),
                 Gap(15.h),
                 Text(
-                  "Triple Red Flower Arrangement ",
+                  Intl.getCurrentLocale() == "en"
+                      ? widget.product.nameEn!
+                      : widget.product.nameAr!,
                   style: CustomTextStyle.kTextStyleF16.copyWith(
                     fontWeight: FontWeight.w500,
                   ),
                 ),
                 Gap(10.h),
                 Text(
-                  "Roses: Red roses, in particular, are classic symbols of love and desire. They have been used for centuries to convey romantic sentiments and are often exchanged on special occasions like anniversaries, weddings, and Valentine's Day.",
+                  Intl.getCurrentLocale() == "en"
+                      ? widget.product.descriptionEn!
+                      : widget.product.descriptionAr!,
                   style: CustomTextStyle.kTextStyleF12,
                 ),
                 Gap(15.h),
                 Text(
-                  "Gift Details",
+                  S.of(context).giftDetails,
                   style: CustomTextStyle.kTextStyleF16.copyWith(
                     fontWeight: FontWeight.w500,
                   ),
                 ),
                 Gap(10.h),
-                Text(
-                  "• Numbers: 40 Fresh Roses",
-                  style: CustomTextStyle.kTextStyleF12,
-                ),
-                Text(
-                  "• Presented as a hand bouquet",
-                  style: CustomTextStyle.kTextStyleF12,
-                ),
-                Text(
-                  "• Available colors: Pink, red, white or Yellow",
-                  style: CustomTextStyle.kTextStyleF12,
-                ),
-                Text(
-                  "• Height 50, width 25 cm",
-                  style: CustomTextStyle.kTextStyleF12,
-                ),
+                Intl.getCurrentLocale() == "en"
+                    ? SizedBox(
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: widget.product.giftDetailsEn!.length,
+                          itemBuilder: (ctx, index) {
+                            return Text(
+                              "• ${widget.product.giftDetailsEn![index]}",
+                              style: CustomTextStyle.kTextStyleF12,
+                            );
+                          },
+                        ),
+                      )
+                    : ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: widget.product.giftDetailsAr!.length,
+                        itemBuilder: (ctx, index) {
+                          return Text(
+                            "• ${widget.product.giftDetailsAr![index]}",
+                            style: CustomTextStyle.kTextStyleF12,
+                          );
+                        },
+                      ),
                 Gap(15.h),
                 Text(
-                  "Availability: In Stock",
+                  widget.product.inStock!
+                      ? S.of(context).availability(S.of(context).inStock)
+                      : S.of(context).availability(S.of(context).outOfStock),
                   style: CustomTextStyle.kTextStyleF16,
                 ),
                 Text(
-                  "SKU: Lovelita56235",
+                  S.of(context).sku(widget.product.sku!),
                   style: CustomTextStyle.kTextStyleF16,
                 ),
                 Gap(15.h),
                 DropdownMenu(
-                  width: context.queryWidth.w,
-                  label: const Text("Color"),
-                  dropdownMenuEntries: const [
-                    DropdownMenuEntry(value: 0, label: "Red"),
-                    DropdownMenuEntry(value: 1, label: "Green"),
-                    DropdownMenuEntry(value: 2, label: "Blue"),
-                  ],
+                  width: context.queryWidth.w * 0.8,
+                  initialSelection: selectedIndex,
+                  label: Text(S.of(context).color),
+                  dropdownMenuEntries: widget.product.color!
+                      .asMap()
+                      .entries
+                      .map(
+                        (entry) => DropdownMenuEntry(
+                          label: entry.value,
+                          value: entry.key,
+                        ),
+                      )
+                      .toList(),
+                  onSelected: (int? newValue) {
+                    if (newValue != null) {
+                      setState(() {
+                        selectedIndex = newValue;
+                      });
+                    }
+                  },
                 ),
                 Gap(15.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "SAR 760",
+                      S.of(context).sar(widget.product.price!),
                       style: CustomTextStyle.kTextStyleF16.copyWith(
                         fontWeight: FontWeight.w700,
                       ),
@@ -182,7 +261,8 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                           ),
                         ),
                         Gap(5.w),
-                        Text("$qty",
+                        Text(
+                          "$qty",
                           style: CustomTextStyle.kTextStyleF16,
                         ),
                         Gap(5.w),
@@ -204,7 +284,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                 ),
                 Gap(15.h),
                 CustomBtn(
-                  label: "Add to cart",
+                  label: S.of(context).addToCart,
                   onPressed: () {},
                 )
               ],
