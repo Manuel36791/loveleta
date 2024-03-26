@@ -2,35 +2,36 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:intl/intl.dart';
+import 'package:loveleta/core/shared/arguments.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../generated/l10n.dart';
 import '../../router/router.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_text_styles.dart';
 import '../../utils/dimensions.dart';
+import '../entities/product_entity.dart';
 
 class ProductCard extends StatelessWidget {
-  final String? title;
-  final String? price;
-  final String? image;
-  final bool? isFavourite;
-  final bool? isExpress;
+  final ProductEntity product;
 
   const ProductCard({
     super.key,
-    this.title,
-    this.price,
-    this.image,
-    this.isFavourite,
-    this.isExpress,
+    required this.product,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(productDetailsPageRoute);
+        context.pushNamed(
+          productDetailsPageRoute,
+          arguments: ProductDetailsArgs(
+            product: product,
+          ),
+        );
       },
       child: SizedBox(
         width: 129.w,
@@ -40,7 +41,7 @@ class ProductCard extends StatelessWidget {
             Stack(
               children: [
                 CachedNetworkImage(
-                  imageUrl: image!,
+                  imageUrl: product.mainImage!,
                   width: 129.w,
                   height: 132.h,
                   fit: BoxFit.cover,
@@ -50,8 +51,7 @@ class ProductCard extends StatelessWidget {
                       height: 132.h,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: NetworkImage(
-                              image!),
+                          image: NetworkImage(product.mainImage!),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -59,11 +59,11 @@ class ProductCard extends StatelessWidget {
                   },
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       Center(
-                        child: CircularProgressIndicator(
-                          color: AppColors.pinkSecondary,
-                          value: downloadProgress.progress,
-                        ),
-                      ),
+                    child: CircularProgressIndicator(
+                      color: AppColors.pinkSecondary,
+                      value: downloadProgress.progress,
+                    ),
+                  ),
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
                 Positioned(
@@ -86,11 +86,13 @@ class ProductCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  title!,
+                  Intl.getCurrentLocale() == "en"
+                      ? product.nameEn!
+                      : product.nameAr!,
                   style: CustomTextStyle.kTextStyleF12,
                 ),
                 Text(
-                  price!,
+                  product.price!.toString(),
                   style: CustomTextStyle.kTextStyleF14.copyWith(
                     fontWeight: FontWeight.w700,
                   ),
@@ -98,42 +100,44 @@ class ProductCard extends StatelessWidget {
                 Gap(20.h),
                 Align(
                   alignment: Alignment.center,
-                  child: isExpress == true ? Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: Dimensions.p8.w,
-                      vertical: 2.h,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.yellowSecondary,
-                      borderRadius: BorderRadius.circular(
-                        Dimensions.r50,
-                      ),
-                    ),
-                    child: Text(
-                      "Loveleta Express",
-                      style: CustomTextStyle.kTextStyleF12.copyWith(
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ) :  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: Dimensions.p8.w,
-                      vertical: 2.h,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.greenSecondary,
-                      borderRadius: BorderRadius.circular(
-                        Dimensions.r50,
-                      ),
-                    ),
-                    child: Text(
-                      "Free Delivery",
-                      style: CustomTextStyle.kTextStyleF12.copyWith(
-                        color: AppColors.textWhite,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
+                  child: product.isExpress == true
+                      ? Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: Dimensions.p8.w,
+                            vertical: 2.h,
+                          ),
+                          decoration: BoxDecoration(
+                            color: AppColors.yellowSecondary,
+                            borderRadius: BorderRadius.circular(
+                              Dimensions.r50,
+                            ),
+                          ),
+                          child: Text(
+                            S.of(context).loveletaExpress,
+                            style: CustomTextStyle.kTextStyleF12.copyWith(
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        )
+                      : Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: Dimensions.p8.w,
+                            vertical: 2.h,
+                          ),
+                          decoration: BoxDecoration(
+                            color: AppColors.greenSecondary,
+                            borderRadius: BorderRadius.circular(
+                              Dimensions.r50,
+                            ),
+                          ),
+                          child: Text(
+                            S.of(context).freeDelivery,
+                            style: CustomTextStyle.kTextStyleF12.copyWith(
+                              color: AppColors.textWhite,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
                 ),
               ],
             ),

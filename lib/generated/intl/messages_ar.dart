@@ -20,12 +20,18 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
-  static String m0(email) => "تم تسجيل البريد الإلكتروني: ${email} بنجاح";
+  static String m0(availability) => "التوفر: ${availability}";
 
-  static String m1(errCode, err) => "خطأ: ${errCode}، ${err}";
+  static String m1(email) => "تم تسجيل البريد الإلكتروني: ${email} بنجاح";
 
-  static String m2(userName) =>
+  static String m2(errCode, err) => "خطأ: ${errCode}، ${err}";
+
+  static String m3(userName) =>
       "تم تسجيل الدخول بنجاح، مرحبًا مرة أخرى ${userName}";
+
+  static String m4(price) => "ريال سعودي ${price}";
+
+  static String m5(SKU) => "SKU: ${SKU}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -33,8 +39,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "لم يتم تنشيط حسابك بعد. الرجاء التحقق من بريدك الإلكتروني للحصول على رمز التفعيل أو حاول مرة أخرى لاحقًا."),
         "activationSuccess": MessageLookupByLibrary.simpleMessage(
             "تم تفعيل حسابك بنجاح. يمكنك الآن تسجيل الدخول والوصول إلى حسابك."),
+        "addToCart": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("هل لديك حساب بالفعل؟"),
+        "availability": m0,
         "bad_gateway": MessageLookupByLibrary.simpleMessage(
             "بيانات غير صالحة، يرجى المحاولة مرة أخرى"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
@@ -45,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "codeCantBeLessThan6Characters": MessageLookupByLibrary.simpleMessage(
             "لا يمكن أن يكون طول الرمز أقل من 6 أحرف"),
+        "color": MessageLookupByLibrary.simpleMessage("اللون"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور الجديدة"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
@@ -60,8 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "لا يمكن أن يكون البريد الإلكتروني فارغًا"),
         "emailNotRegistered": MessageLookupByLibrary.simpleMessage(
             "عنوان البريد الإلكتروني المُقدم غير مسجل. يرجى التأكد من أنك قد أدخلت البريد الإلكتروني الصحيح أو تابع بإنشاء حساب جديد"),
-        "emailRegisteredSuccessful": m0,
-        "error": m1,
+        "emailRegisteredSuccessful": m1,
+        "error": m2,
         "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "طلب محظور. حاول مرة أخرى لاحقًا"),
@@ -69,6 +78,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
+        "freeDelivery": MessageLookupByLibrary.simpleMessage("توصيل مجاني"),
+        "giftDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الهدية"),
+        "inStock": MessageLookupByLibrary.simpleMessage("متوفر"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
         "invalidCredentials": MessageLookupByLibrary.simpleMessage(
@@ -76,8 +88,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "invalidEmailAddress": MessageLookupByLibrary.simpleMessage(
             "عنوان البريد الإلكتروني غير صالح. الرجاء التحقق من بريدك الإلكتروني والمحاولة مرة أخرى."),
         "lastName": MessageLookupByLibrary.simpleMessage("الاسم الأخير"),
-        "loggedInSuccessful": m2,
+        "loggedInSuccessful": m3,
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "loveletaExpress":
+            MessageLookupByLibrary.simpleMessage("لوفليتا إكسبريس"),
         "method_not_allowed_error": MessageLookupByLibrary.simpleMessage(
             "غير مدعوم، يرجى المحاولة مرة أخرى لاحقًا"),
         "moved_permanently":
@@ -96,6 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "يُرجى التحقق من اتصالك بالإنترنت"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url غير موجود , حاول مرة أخرى لاحقًا"),
+        "outOfStock": MessageLookupByLibrary.simpleMessage("غير متوفر"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordCantBeEmpty": MessageLookupByLibrary.simpleMessage(
             "لا يمكن أن تكون كلمة المرور فارغة"),
@@ -141,10 +156,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "resetPassword":
             MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),
         "resetPasswordBtn": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
+        "sar": m4,
         "sendAgain": MessageLookupByLibrary.simpleMessage("إعادة الإرسال"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("الخادم قيد الصيانة"),
         "signUp": MessageLookupByLibrary.simpleMessage("التسجيل"),
+        "sku": m5,
         "submit": MessageLookupByLibrary.simpleMessage("إرسال"),
         "success": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
         "timeout_error": MessageLookupByLibrary.simpleMessage(

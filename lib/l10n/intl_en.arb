@@ -116,5 +116,38 @@
   "newPasswordCantBeLessThan8Characters": "New password can't be less than 8 characters",
   "changePassword": "Change Password",
   "updatePassword": "Update Password",
-  "passwordChangedSuccessful": "Your password has been successfully changed. You can now log in with your new password."
+  "passwordChangedSuccessful": "Your password has been successfully changed. You can now log in with your new password.",
+
+  "@_ProductDetails": {},
+  "loveletaExpress": "Loveleta Express",
+  "freeDelivery": "Free Delivery",
+  "giftDetails": "Gift Details",
+  "availability": "Availability: {availability}",
+  "@availability":{
+    "placeholders": {
+      "availability": {
+        "type": "String"
+      }
+    }
+  },
+  "inStock": "In Stock",
+  "outOfStock": "Out of Stock",
+  "sku": "SKU: {SKU}",
+  "@sku": {
+    "placeholders": {
+      "SKU": {
+        "type": "String"
+      }
+    }
+  },
+  "color": "Color",
+  "sar": "SAR {price}",
+  "@sar": {
+    "placeholders": {
+      "price": {
+        "type": "num"
+      }
+    }
+  },
+  "addToCart": "Add to cart"
 }

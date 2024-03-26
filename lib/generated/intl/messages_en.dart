@@ -20,12 +20,18 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(email) => "Email: ${email} Registered Successfully";
+  static String m0(availability) => "Availability: ${availability}";
 
-  static String m1(errCode, err) => "Error: ${errCode}, ${err}";
+  static String m1(email) => "Email: ${email} Registered Successfully";
 
-  static String m2(userName) =>
+  static String m2(errCode, err) => "Error: ${errCode}, ${err}";
+
+  static String m3(userName) =>
       "Logged In Successfully. Welcome again ${userName}";
+
+  static String m4(price) => "SAR ${price}";
+
+  static String m5(SKU) => "SKU: ${SKU}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -33,8 +39,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your account is not yet activated. Please check your email for the activation code or try again later."),
         "activationSuccess": MessageLookupByLibrary.simpleMessage(
             "Your account has been successfully activated. You can now log in and access your account."),
+        "addToCart": MessageLookupByLibrary.simpleMessage("Add to cart"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "availability": m0,
         "bad_gateway": MessageLookupByLibrary.simpleMessage(
             "Invalid data, please try again"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
@@ -45,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Change Password"),
         "codeCantBeLessThan6Characters": MessageLookupByLibrary.simpleMessage(
             "Code can\'t be less than 6 characters"),
+        "color": MessageLookupByLibrary.simpleMessage("Color"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("Confirm New Password"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
@@ -60,8 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Email can\'t be empty"),
         "emailNotRegistered": MessageLookupByLibrary.simpleMessage(
             "The email address provided is not registered. Please ensure you have entered the correct email or proceed with creating a new account"),
-        "emailRegisteredSuccessful": m0,
-        "error": m1,
+        "emailRegisteredSuccessful": m1,
+        "error": m2,
         "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
@@ -69,6 +78,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forget Password"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
+        "freeDelivery": MessageLookupByLibrary.simpleMessage("Free Delivery"),
+        "giftDetails": MessageLookupByLibrary.simpleMessage("Gift Details"),
+        "inStock": MessageLookupByLibrary.simpleMessage("In Stock"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
         "invalidCredentials": MessageLookupByLibrary.simpleMessage(
@@ -76,8 +88,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "invalidEmailAddress": MessageLookupByLibrary.simpleMessage(
             "Invalid email address, Please check your email and try again."),
         "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
-        "loggedInSuccessful": m2,
+        "loggedInSuccessful": m3,
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "loveletaExpress":
+            MessageLookupByLibrary.simpleMessage("Loveleta Express"),
         "method_not_allowed_error": MessageLookupByLibrary.simpleMessage(
             "Unsupported, please try Again later"),
         "moved_permanently": MessageLookupByLibrary.simpleMessage(
@@ -96,6 +110,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please check your internet connection"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url not found, try again later"),
+        "outOfStock": MessageLookupByLibrary.simpleMessage("Out of Stock"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordCantBeEmpty":
             MessageLookupByLibrary.simpleMessage("Password can\'t be empty"),
@@ -141,10 +156,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
         "resetPasswordBtn": MessageLookupByLibrary.simpleMessage("Reset Pass"),
+        "sar": m4,
         "sendAgain": MessageLookupByLibrary.simpleMessage("Send Again"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("Server is under maintenance"),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "sku": m5,
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
         "timeout_error":

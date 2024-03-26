@@ -1,6 +1,8 @@
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import 'entities/product_entity.dart';
+
 class AddressArgs {
   final Placemark address;
   final LatLng latLng;
@@ -24,4 +26,10 @@ class ChangePassArgs {
   final String email;
 
   ChangePassArgs({required this.email});
+}
+
+class ProductDetailsArgs {
+  final ProductEntity product;
+
+  ProductDetailsArgs({required this.product});
 }

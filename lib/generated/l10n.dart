@@ -789,6 +789,106 @@ class S {
       args: [],
     );
   }
+
+  /// `Loveleta Express`
+  String get loveletaExpress {
+    return Intl.message(
+      'Loveleta Express',
+      name: 'loveletaExpress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Free Delivery`
+  String get freeDelivery {
+    return Intl.message(
+      'Free Delivery',
+      name: 'freeDelivery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gift Details`
+  String get giftDetails {
+    return Intl.message(
+      'Gift Details',
+      name: 'giftDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Availability: {availability}`
+  String availability(String availability) {
+    return Intl.message(
+      'Availability: $availability',
+      name: 'availability',
+      desc: '',
+      args: [availability],
+    );
+  }
+
+  /// `In Stock`
+  String get inStock {
+    return Intl.message(
+      'In Stock',
+      name: 'inStock',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Out of Stock`
+  String get outOfStock {
+    return Intl.message(
+      'Out of Stock',
+      name: 'outOfStock',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SKU: {SKU}`
+  String sku(String SKU) {
+    return Intl.message(
+      'SKU: $SKU',
+      name: 'sku',
+      desc: '',
+      args: [SKU],
+    );
+  }
+
+  /// `Color`
+  String get color {
+    return Intl.message(
+      'Color',
+      name: 'color',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SAR {price}`
+  String sar(num price) {
+    return Intl.message(
+      'SAR $price',
+      name: 'sar',
+      desc: '',
+      args: [price],
+    );
+  }
+
+  /// `Add to cart`
+  String get addToCart {
+    return Intl.message(
+      'Add to cart',
+      name: 'addToCart',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
