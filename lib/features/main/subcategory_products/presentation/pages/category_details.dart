@@ -11,19 +11,19 @@ import '../../../../../core/utils/dimensions.dart';
 import '../../domain/entities/subcategory_products_entity.dart';
 import '../manager/subcategory_products_cubit.dart';
 
-class CategoryProductsView extends StatefulWidget {
+class SubCategoryProductsView extends StatefulWidget {
   final num id;
 
-  const CategoryProductsView({
+  const SubCategoryProductsView({
     super.key,
     required this.id,
   });
 
   @override
-  State<CategoryProductsView> createState() => _CategoryProductsViewState();
+  State<SubCategoryProductsView> createState() => _SubCategoryProductsViewState();
 }
 
-class _CategoryProductsViewState extends State<CategoryProductsView> {
+class _SubCategoryProductsViewState extends State<SubCategoryProductsView> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

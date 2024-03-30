@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:loveleta/features/main/categories/domain/entities/category_entity.dart';
+import 'package:loveleta/features/main/home/presentation/manager/products_by_category/products_by_category_cubit.dart';
 
 import '../../features/address/add_new_address/presentation/pages/add_new_address_view.dart';
 import '../../features/address/map/presentation/pages/map_view.dart';
@@ -85,10 +87,22 @@ class AppRouters {
             child: const NewProductsSeeMoreView(),
           ),
         );
-        case bestSellerPageRoute:
+      case bestSellerPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => BlocProvider(
             create: (context) => di.di<BestSellerCubit>()..getBestSellers(1),
+            child: const BestSellerSeeMoreView(),
+          ),
+        );
+      case seeMorePageRoute:
+        final args = settings.arguments as SeeMoreArgs;
+        return MaterialPageRoute(
+          builder: (BuildContext context) => BlocProvider(
+            create: (context) => di.di<ProductsByCategoryCubit>()
+              ..getProductsByCategory(CategoryEntity(
+                id: args.id,
+                nextPage: 1,
+              )),
             child: const BestSellerSeeMoreView(),
           ),
         );
@@ -110,7 +124,7 @@ class AppRouters {
       case categoryProductsPageRoute:
         final args = settings.arguments as CategoryProductsArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => CategoryProductsView(
+          builder: (BuildContext context) => SubCategoryProductsView(
             id: args.id,
           ),
         );

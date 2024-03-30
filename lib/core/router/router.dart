@@ -10,6 +10,7 @@ const String changePassPageRoute = '/changePass';
 const String homePageRoute = '/home';
 const String newProductsPageRoute = '/newProducts';
 const String bestSellerPageRoute = '/bestSellers';
+const String seeMorePageRoute = '/seeMore';
 const String productDetailsPageRoute = '/productDetails';
 const String settingsPageRoute = '/settings';
 const String categoriesPageRoute = '/categories';
