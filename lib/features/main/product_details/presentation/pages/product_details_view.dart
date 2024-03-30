@@ -55,7 +55,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
 
   @override
   Widget build(BuildContext context) {
-    String selectedColor = widget.product.color![1];
+    String selectedColor = widget.product.color![0];
     int selectedIndex = widget.product.color!.indexOf(selectedColor);
     return Scaffold(
       appBar: CustomAppBar(context: context),
@@ -71,7 +71,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   child: Stack(
                     children: [
                       CachedNetworkImage(
-                        imageUrl: widget.product.images![imageIndex],
+                        imageUrl: widget.product.images![imageIndex].image!,
                         width: 312.w,
                         height: 312.h,
                         fit: BoxFit.cover,
@@ -82,7 +82,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: NetworkImage(
-                                    widget.product.images![imageIndex]),
+                                    widget.product.images![imageIndex].image!),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -135,7 +135,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                 });
                               },
                               child: CachedNetworkImage(
-                                imageUrl: widget.product.images![index],
+                                imageUrl: widget.product.images![index].image!,
                                 width: 60.w,
                                 height: 60.h,
                                 fit: BoxFit.cover,
@@ -146,7 +146,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         image: NetworkImage(
-                                            widget.product.images![index]),
+                                            widget.product.images![index].image!),
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -230,7 +230,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                       ),
                 Gap(15.h),
                 Text(
-                  widget.product.inStock!
+                  widget.product.qty !=0
                       ? S.of(context).availability(S.of(context).inStock)
                       : S.of(context).availability(S.of(context).outOfStock),
                   style: CustomTextStyle.kTextStyleF16,

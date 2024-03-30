@@ -24,9 +24,7 @@ class ProductModel extends ProductEntity {
     super.isNew,
     super.bestSeller,
     super.images,
-    super.inStock,
   });
-
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
@@ -51,7 +49,8 @@ class ProductModel extends ProductEntity {
       isExpress: json['is_express'],
       isNew: json['is_new'],
       bestSeller: json["best_seller"],
-      images: json['product_images']['image']
+      images: List<ProductImagesModel>.from(json["product_images"]!
+          .map((x) => ProductImagesModel.fromJson(x))),
     );
   }
 
@@ -67,7 +66,6 @@ class ProductModel extends ProductEntity {
       'descriptionAr': productEntity.descriptionAr,
       'giftDetailsEn': productEntity.giftDetailsEn,
       'giftDetailsAr': productEntity.giftDetailsAr,
-      'inStock': productEntity.inStock,
       'sku': productEntity.sku,
       'color': productEntity.color,
       'price': productEntity.price,
@@ -79,5 +77,21 @@ class ProductModel extends ProductEntity {
       'isNew': productEntity.isNew,
       'bestSeller': productEntity.bestSeller,
     };
+  }
+}
+
+class ProductImagesModel extends ProductImagesEntity {
+  const ProductImagesModel({
+    super.id,
+    super.productId,
+    super.image,
+  });
+
+  factory ProductImagesModel.fromJson(Map<String, dynamic> json) {
+    return ProductImagesModel(
+      id: json['id'],
+      productId: json['product_id'],
+      image: json['image'],
+    );
   }
 }
