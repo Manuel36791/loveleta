@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/dimensions.dart';
+import '../../../../../generated/l10n.dart';
 
 class SectionTitle extends StatelessWidget {
   final String? sectionTitle;
@@ -35,7 +36,7 @@ class SectionTitle extends StatelessWidget {
               ),
             ),
             child: Text(
-              "See All",
+              S.of(context).seeAll,
               style: CustomTextStyle.kTextStyleF14.copyWith(
                 color: AppColors.textWhite,
                 fontWeight: FontWeight.w700,

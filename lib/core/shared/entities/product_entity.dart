@@ -10,20 +10,19 @@ class ProductEntity extends Equatable {
   final String? mainImage;
   final String? giftDetailsEn;
   final String? giftDetailsAr;
-  final List<String>? color;
+  final List<dynamic>? color;
   final num? status;
   final num? discount;
   final num? discountedPrice;
   final String? descriptionEn;
   final String? descriptionAr;
   final num? categoryId;
-  final bool? isFavorite;
-  final bool? isFreeDelivery;
-  final bool? isExpress;
-  final bool? isNew;
-  final bool? bestSeller;
-  final List<String>? images;
-  final bool? inStock;
+  final num? isFavorite;
+  final num? isFreeDelivery;
+  final num? isExpress;
+  final num? isNew;
+  final num? bestSeller;
+  final List<ProductImagesEntity>? images;
 
   const ProductEntity({
     this.id,
@@ -48,12 +47,10 @@ class ProductEntity extends Equatable {
     this.isNew,
     this.bestSeller,
     this.images,
-    this.inStock,
   });
 
   @override
-  List<Object?> get props =>
-      [
+  List<Object?> get props => [
         id,
         nameEn,
         nameAr,
@@ -76,7 +73,24 @@ class ProductEntity extends Equatable {
         isNew,
         bestSeller,
         images,
-        inStock,
       ];
+}
 
+class ProductImagesEntity extends Equatable {
+  final num? id;
+  final num? productId;
+  final String? image;
+
+  const ProductImagesEntity({
+    this.id,
+    this.productId,
+    this.image,
+  });
+
+  @override
+  List<Object?> get props => [
+        id,
+        productId,
+        image,
+      ];
 }

@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:intl/intl.dart';
 import 'package:loveleta/core/router/router.dart';
 import 'package:loveleta/core/shared/arguments.dart';
 import 'package:loveleta/core/utils/extensions.dart';
@@ -19,6 +20,7 @@ import '../../../../../core/shared/widgets/state_loading_widget.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/dimensions.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../categories/domain/entities/category_entity.dart';
 import '../../../categories/presentation/manager/category_cubit.dart';
 import '../manager/new_products_cubit/new_products_cubit.dart';
@@ -105,7 +107,7 @@ class HomeView extends StatelessWidget {
                               ),
                               Gap(10.w),
                               Text(
-                                "Search For gifts, flowers Cakes...",
+                                S.of(context).search,
                                 style: CustomTextStyle.kTextStyleF14.copyWith(
                                   color: AppColors.textGrey,
                                 ),
@@ -115,7 +117,7 @@ class HomeView extends StatelessWidget {
                         ),
                         Gap(20.h),
                         SectionTitle(
-                          sectionTitle: "New Arrivals",
+                          sectionTitle: S.of(context).newArrivals,
                           onTap: () {
                             context.pushNamed(newProductsPageRoute);
                           },
@@ -161,7 +163,7 @@ class HomeView extends StatelessWidget {
                         ),
                         Gap(20.h),
                         SectionTitle(
-                          sectionTitle: "Best Sellers",
+                          sectionTitle: S.of(context).bestSellers,
                           onTap: () {
                             context.pushNamed(bestSellerPageRoute);
                           },
@@ -239,7 +241,10 @@ class HomeView extends StatelessWidget {
                                       (index) => Column(
                                         children: [
                                           SectionTitle(
-                                            sectionTitle: state[index].nameEn,
+                                            sectionTitle:
+                                                Intl.getCurrentLocale() == "en"
+                                                    ? state[index].nameEn
+                                                    : state[index].nameAr,
                                             onTap: () {
                                               context.pushNamed(
                                                 seeMorePageRoute,

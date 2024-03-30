@@ -3,14 +3,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:loveleta/core/router/router.dart';
-import 'package:loveleta/core/shared/arguments.dart';
+import 'package:intl/intl.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../../../core/router/router.dart';
+import '../../../../../core/shared/arguments.dart';
 import '../../../../../core/shared/widgets/custom_app_bar.dart';
+import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/dimensions.dart';
+import '../../../../../generated/l10n.dart';
+import '../../../../../main.dart';
 
 class SettingsView extends StatefulWidget {
   const SettingsView({super.key});
@@ -51,59 +55,72 @@ class _SettingsViewState extends State<SettingsView> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                                "Language",
+                                S.of(context).language,
                                 textAlign: TextAlign.right,
                                 style: CustomTextStyle.kTextStyleF16.copyWith(
-                                  // color: AppColors.textColorSecondary,
-                                ),
+                                    // color: AppColors.textColorSecondary,
+                                    ),
                               ),
                               Gap(30.h),
                               GestureDetector(
                                 onTap: () {
-                                  // setState(() {
-                                  //   MyApp.setLocale(
-                                  //       context, const Locale("en"));
-                                  // });
-                                  //
-                                  // CacheHelper.setAppLanguage('en');
-                                  // context.pushNamed(bottomNavBarPageRoute);
+                                  setState(() {
+                                    MyApp.setLocale(
+                                        context, const Locale("en"));
+                                  });
+                                  context.pop();
                                 },
                                 child: Row(
                                   children: [
+                                    Icon(
+                                      MdiIcons.alphaE,
+                                      size: 16.sp,
+                                    ),
+                                    Gap(10.w),
                                     Text(
                                       'English - EN',
                                       style: CustomTextStyle.kTextStyleF14,
                                     ),
                                     const Spacer(),
-                                    Icon(
-                                      Icons.check,
-                                      size: 16.sp,
-                                      // color: AppColors.lightBlue,
-                                    )
+                                    Intl.getCurrentLocale() == "en"
+                                        ? Icon(
+                                            Icons.check,
+                                            color: AppColors.successColor,
+                                            size: 16.sp,
+                                            // color: AppColors.lightBlue,
+                                          )
+                                        : const SizedBox.shrink(),
                                   ],
                                 ),
                               ),
                               Gap(20.h),
                               GestureDetector(
                                 onTap: () {
-                                  // setState(() {
-                                  //   MyApp.setLocale(
-                                  //       context, const Locale("ar"));
-                                  // });
-                                  // CacheHelper.setAppLanguage('ar');
-                                  // context.pushNamed(bottomNavBarPageRoute);
+                                  setState(() {
+                                    MyApp.setLocale(
+                                        context, const Locale("ar"));
+                                  });
+                                  context.pop();
                                 },
                                 child: Row(
                                   children: [
-                                    Text(
+                                    Icon(
+                                      MdiIcons.abjadArabic,
+                                      size: 16.sp,
+                                    ),
+                                    Gap(10.w),
+                                    const Text(
                                       'العربية - AR',
                                     ),
                                     const Spacer(),
-                                    Icon(
-                                      Icons.check,
-                                      size: 16.sp,
-                                      // color: AppColors.lightBlue,
-                                    ),
+                                    Intl.getCurrentLocale() == "ar"
+                                        ? Icon(
+                                            Icons.check,
+                                            color: AppColors.successColor,
+                                            size: 16.sp,
+                                            // color: AppColors.lightBlue,
+                                          )
+                                        : const SizedBox.shrink(),
                                     // Icon(Icons.check,size: 16.sp,color: AppColors.lightBlue,)
                                   ],
                                 ),
@@ -116,29 +133,7 @@ class _SettingsViewState extends State<SettingsView> {
                 title: Opacity(
                   opacity: 0.90,
                   child: Text(
-                    "Language",
-                    style: CustomTextStyle.kTextStyleF16,
-                  ),
-                ),
-                trailing: Icon(
-                  Icons.arrow_forward_ios_sharp,
-                  // color: AppColors.lightBlue,
-                  size: 16.sp,
-                ),
-              ),
-            ),
-            Gap(10.h),
-            Container(
-              color: Colors.white,
-              padding: EdgeInsets.all(16.0.sp),
-              child: ListTile(
-                onTap: () {
-                  // context.pushNamed(notificationsPageRoute);
-                },
-                title: Opacity(
-                  opacity: 0.90,
-                  child: Text(
-                    "Notifications",
+                    S.of(context).language,
                     style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
@@ -169,7 +164,7 @@ class _SettingsViewState extends State<SettingsView> {
                               MdiIcons.chevronRight,
                             ),
                             Text(
-                              "Privacy Policy",
+                              S.of(context).privacyPolicy,
                               style: CustomTextStyle.kTextStyleF20,
                             )
                           ],
@@ -178,7 +173,7 @@ class _SettingsViewState extends State<SettingsView> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Our privacy policy describes how we collect and process your personal information, such as the information you provide through our application. The policy also outlines your rights regarding your personal information, how it is retained, and secured. Communication: Various communication channels are provided in case of any questions or inquiries about the privacy policy. You can speak to the team through the application, call the specified number, or contact them via email.Updates: In the event of any changes in the way personal information is processed or in the policy itself, you will be promptly notified via email and the application will be updated.",
+                              S.of(context).privacyDes,
                               style: CustomTextStyle.kTextStyleF16,
                             ),
                           ],
@@ -191,7 +186,7 @@ class _SettingsViewState extends State<SettingsView> {
                 title: Opacity(
                   opacity: 0.90,
                   child: Text(
-                    "Privacy Policy",
+                    S.of(context).privacyPolicy,
                     style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
@@ -213,7 +208,7 @@ class _SettingsViewState extends State<SettingsView> {
                 title: Opacity(
                   opacity: 0.90,
                   child: Text(
-                    "Contact Us",
+                    S.of(context).contactUs,
                     style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
@@ -235,7 +230,7 @@ class _SettingsViewState extends State<SettingsView> {
                 title: Opacity(
                   opacity: 0.90,
                   child: Text(
-                    "Orders",
+                    S.of(context).orders,
                     style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
@@ -252,13 +247,18 @@ class _SettingsViewState extends State<SettingsView> {
               padding: EdgeInsets.all(16.0.sp),
               child: ListTile(
                 onTap: () {
-                  context.pushNamed(savedAddressesPageRoute,
-                    arguments: AddressArgs(latLng: LatLng(0, 0), address: Placemark(),),);
+                  context.pushNamed(
+                    savedAddressesPageRoute,
+                    arguments: AddressArgs(
+                      latLng: const LatLng(0, 0),
+                      address: const Placemark(),
+                    ),
+                  );
                 },
                 title: Opacity(
                   opacity: 0.90,
                   child: Text(
-                    "Saved addresses",
+                    S.of(context).savedAddresses,
                     style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
@@ -269,7 +269,6 @@ class _SettingsViewState extends State<SettingsView> {
                 ),
               ),
             ),
-
           ],
         ),
       ),
