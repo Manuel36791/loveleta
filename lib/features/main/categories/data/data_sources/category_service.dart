@@ -20,7 +20,7 @@ class CategoryServiceImpl implements CategoryService {
 
     if (categories.statusCode == 200) {
       Map<String, dynamic> responseData = categories.data; // Assuming response.data is a Map<String, dynamic>
-      List<dynamic> data = responseData['categories']; // Extract the list from the map using the key 'posts'
+      List<dynamic> data = responseData['categories']; // Extract the list from the map using the key 'categories'
       categoriesList = data.map((item) => CategoryModel.fromJson(item)).toList();
     }
 

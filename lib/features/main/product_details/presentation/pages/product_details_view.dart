@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
@@ -29,6 +30,28 @@ class ProductDetailsView extends StatefulWidget {
 class _ProductDetailsViewState extends State<ProductDetailsView> {
   int qty = 1;
   int imageIndex = 0;
+
+  String htmlEnContent = "";
+  String htmlArContent = "";
+  String cleanedHtmlArContent = "";
+  String cleanedHtmlEnContent = "";
+
+  formatDescription() {
+    setState(
+      (() {
+        htmlEnContent = widget.product.descriptionEn!;
+        cleanedHtmlEnContent = htmlEnContent.replaceAll(RegExp(r'<[^>]*>'), '');
+        htmlArContent = widget.product.descriptionAr!;
+        cleanedHtmlArContent = htmlArContent.replaceAll(RegExp(r'<[^>]*>'), '');
+      }),
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    formatDescription();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -159,11 +182,18 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   ),
                 ),
                 Gap(10.h),
-                Text(
-                  Intl.getCurrentLocale() == "en"
-                      ? widget.product.descriptionEn!
-                      : widget.product.descriptionAr!,
-                  style: CustomTextStyle.kTextStyleF12,
+                Html(
+                  data: Intl.getCurrentLocale() == "en"
+                      ? cleanedHtmlEnContent
+                      : cleanedHtmlArContent,
+                  style: {
+                    "p": Style.fromTextStyle(
+                      CustomTextStyle.kTextStyleF12,
+                    ),
+                    "div": Style.fromTextStyle(
+                      CustomTextStyle.kTextStyleF12,
+                    ),
+                  },
                 ),
                 Gap(15.h),
                 Text(

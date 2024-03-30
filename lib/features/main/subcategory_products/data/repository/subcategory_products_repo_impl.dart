@@ -5,25 +5,23 @@ import 'package:dio/dio.dart';
 import '../../../../../core/resources/api/data_sources.dart';
 import '../../../../../core/resources/api/error_handler.dart';
 import '../../../../../core/resources/api/failure_class.dart';
-import '../../domain/entities/category_entity.dart';
-import '../../domain/repository/category_repo.dart';
-import '../data_sources/category_service.dart';
+import '../../../../../core/shared/entities/product_entity.dart';
+import '../../domain/entities/subcategory_products_entity.dart';
+import '../../domain/repository/subcategory_products_repo.dart';
+import '../data_sources/subcategory_products_service.dart';
 
-class CategoryRepoImpl implements CategoryRepo {
-  final CategoryService categoryService;
+class SubCategoryProductsRepoImpl implements SubCategoryProductsRepo {
+  final SubCategoryProductsService categoryService;
 
-
-  CategoryRepoImpl({
-    required this.categoryService,
-  });
+  SubCategoryProductsRepoImpl({required this.categoryService});
 
   @override
-  Future<Either<Failure, List<CategoryEntity>>> getCategories() async {
+  Future<Either<Failure, SubCategoryProductsEntity>> getSubCategoryProducts(SubCategoryProductsEntity subcategoryProductsEntity) async {
     final result = await Connectivity().checkConnectivity();
     if (result == ConnectivityResult.mobile ||
         result == ConnectivityResult.wifi) {
       try {
-        final getCategories = await categoryService.getCategories();
+        final getCategories = await categoryService.getSubCategoryProducts(subcategoryProductsEntity);
         return right(getCategories);
       } on DioException catch (error) {
         return Left(ErrorHandler.handle(error).failure);

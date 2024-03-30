@@ -33,4 +33,6 @@ class AppConstants {
   static const resetPassUri = "auth/reset-password";
   static const changePassUri = "auth/change-password";
   static const getCategoriesUri = "v1/categories";
+  static const getProductsByCatUri = "v1/categories/products";
+  static const getProductsBySubCatUri = "v1/subcategories/products";
 }

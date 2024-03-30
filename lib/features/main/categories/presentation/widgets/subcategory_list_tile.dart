@@ -10,20 +10,20 @@ import '../../../../../core/router/router.dart';
 import '../../../../../core/shared/arguments.dart';
 import '../../../../../core/utils/app_constants.dart';
 import '../../../../../core/utils/app_text_styles.dart';
-import '../../domain/entities/category_entity.dart';
+import '../../domain/entities/subcategory_entity.dart';
 
-class CategoryListTile extends StatelessWidget {
-  final CategoryEntity category;
+class SubCategoryListTile extends StatelessWidget {
+  final SubCategoryEntity subCategory;
 
-  const CategoryListTile({super.key, required this.category});
+  const SubCategoryListTile({super.key, required this.subCategory,});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         context.pushNamed(
-          subCategoriesPageRoute,
-          arguments: SubCategoryArgs(subCategories: category.subCategories!),
+          categoryProductsPageRoute,
+          arguments: CategoryProductsArgs(id: subCategory.id!),
         );
       },
       child: Column(
@@ -34,17 +34,17 @@ class CategoryListTile extends StatelessWidget {
               Row(
                 children: [
                   CachedNetworkImage(
-                    imageUrl: "${AppConstants.imageUrl}${category.image}",
+                    imageUrl: "${AppConstants.imageUrl}${subCategory.image}",
                     height: 26.h,
                     width: 26.w,
                     errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
+                    const Icon(Icons.error),
                   ),
                   Gap(10.w),
                   Text(
                     Intl.getCurrentLocale() == "en"
-                        ? category.nameEn!.isNullOrEmpty()
-                        : category.nameAr!.isNullOrEmpty(),
+                        ? subCategory.nameEn!.isNullOrEmpty()
+                        : subCategory.nameAr!.isNullOrEmpty(),
                     style: CustomTextStyle.kTextStyleF16,
                   ),
                 ],
