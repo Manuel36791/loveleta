@@ -19,6 +19,7 @@ import '../../../../../core/utils/dimensions.dart';
 import '../../../categories/domain/entities/category_entity.dart';
 import '../../../categories/presentation/manager/category_cubit.dart';
 import '../manager/category_products_cubit/products_by_category_cubit.dart';
+import '../manager/new_products_cubit/new_products_cubit.dart';
 import '../widgets/category_container.dart';
 import '../widgets/section_title.dart';
 
@@ -47,6 +48,9 @@ class HomeView extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => di.di<ProductsByCategoryCubit>(),
+          ),
+          BlocProvider(
+            create: (context) => di.di<NewProductsCubit>()..getNewProducts(1),
           ),
         ],
         child: BlocConsumer<CategoryCubit, CategoryStates>(
@@ -102,6 +106,49 @@ class HomeView extends StatelessWidget {
                               ),
                             ],
                           ),
+                        ),
+                        Gap(20.h),
+                        const SectionTitle(
+                          sectionTitle: "New Arrivals",
+                        ),
+                        Gap(20.h),
+                        BlocConsumer<NewProductsCubit, NewProductsStates>(
+                          listener: (context, state) {},
+                          builder: (context, state) {
+                            return state.maybeWhen(
+                              loading: () {
+                                return const StateLoadingWidget();
+                              },
+                              success: (state) {
+                                return SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    children: [
+                                      ...List.generate(
+                                        state.length,
+                                            (index) {
+                                          return Padding(
+                                            padding: const EdgeInsets.all(
+                                                Dimensions.p10),
+                                            child: ProductCard(
+                                              product: state[index],
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                              error: (errCode, err) {
+                                return StateErrorWidget(
+                                  errCode: errCode,
+                                  err: err,
+                                );
+                              },
+                              orElse: () => const SizedBox.shrink(),
+                            );
+                          },
                         ),
                         Gap(20.h),
                         state.maybeWhen(
@@ -204,7 +251,7 @@ class HomeView extends StatelessWidget {
                             return const SizedBox.shrink();
                           },
                         ),
-                        Gap(20.h),
+
                       ],
                     ),
                   ),

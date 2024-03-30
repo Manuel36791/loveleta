@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loveleta/features/main/categories/presentation/pages/subcategories_view.dart';
+import 'package:loveleta/features/main/home/presentation/manager/new_products_cubit/new_products_cubit.dart';
+import 'package:loveleta/features/main/home/presentation/pages/new_products_see_more.dart';
 
 import '../../features/address/add_new_address/presentation/pages/add_new_address_view.dart';
 import '../../features/address/map/presentation/pages/map_view.dart';
@@ -14,12 +17,12 @@ import '../../features/bottom_nav_bar/bottom_nav_bar.dart';
 import '../../features/main/categories/presentation/pages/categories_view.dart';
 import '../../features/main/subcategory_products/presentation/pages/category_details.dart';
 import '../../features/main/home/presentation/pages/home_view.dart';
-import '../../features/main/product_details/presentation/pages/product_details_view.dart';
 import '../../features/main/settings/presentation/pages/settings.dart';
 import '../../features/orders/order_details/presentation/pages/order_details.dart';
 import '../../features/orders/track_order/presentation/pages/track_order_view.dart';
 import '../../features/orders/user_orders/presentation/pages/user_orders_view.dart';
 import '../../main_view.dart';
+import '../dependency_injection/di.dart' as di;
 import '../shared/arguments.dart';
 import 'router.dart';
 
@@ -72,11 +75,12 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const HomeView(),
         );
-      case productDetailsPageRoute:
-        final args = settings.arguments as ProductDetailsArgs;
+
+      case newProductsPageRoute:
         return MaterialPageRoute(
-          builder: (BuildContext context) => ProductDetailsView(
-            product: args.product,
+          builder: (BuildContext context) => BlocProvider(
+            create: (context) => di.di<NewProductsCubit>()..getNewProducts(1),
+            child: const NewProductsSeeMore(),
           ),
         );
       case categoriesPageRoute:
