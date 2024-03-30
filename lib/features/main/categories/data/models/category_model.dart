@@ -4,6 +4,7 @@ import 'subcategory_model.dart';
 class CategoryModel extends CategoryEntity {
   const CategoryModel({
     super.id,
+    super.nextPage,
     super.nameEn,
     super.nameAr,
     super.image,
@@ -25,6 +26,7 @@ class CategoryModel extends CategoryEntity {
   static Map<String, dynamic> toJson(CategoryEntity categoryEntity) {
     return {
       'category_id': categoryEntity.id,
+      'page': categoryEntity.nextPage,
     };
   }
 }

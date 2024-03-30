@@ -37,12 +37,17 @@ class ProductDetailsArgs {
 class CategoryProductsArgs {
   final num id;
 
-  CategoryProductsArgs({required this.id});}
+  CategoryProductsArgs({required this.id});
+}
 
 class SubCategoryArgs {
   final List<dynamic> subCategories;
 
   SubCategoryArgs({required this.subCategories});
+}
 
+class SeeMoreArgs {
+  final num? id;
 
+  SeeMoreArgs({required this.id});
 }

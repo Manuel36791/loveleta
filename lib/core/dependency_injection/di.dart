@@ -37,13 +37,23 @@ import '../../features/auth/verify_account/presentation/manager/verify_account_c
 import '../../features/main/categories/data/data_sources/category_service.dart';
 import '../../features/main/categories/data/repository/category_repo_impl.dart';
 import '../../features/main/categories/domain/repository/category_repo.dart';
+import '../../features/main/home/data/data_sources/best_seller_service.dart';
+import '../../features/main/home/data/data_sources/new_products_service.dart';
 import '../../features/main/home/data/data_sources/products_by_category_service.dart';
+import '../../features/main/home/data/repository/best_seller_repo_impl.dart';
+import '../../features/main/home/data/repository/new_products_repo_impl.dart';
 import '../../features/main/home/data/repository/products_by_category_repo_impl.dart';
+import '../../features/main/home/domain/repository/best_seller_repo.dart';
+import '../../features/main/home/domain/repository/new_products_repo.dart';
 import '../../features/main/home/domain/repository/products_by_category.dart';
+import '../../features/main/home/domain/usecases/best_seller_ucse_case.dart';
+import '../../features/main/home/domain/usecases/new_products_use_case.dart';
 import '../../features/main/home/domain/usecases/products_by_category_use_case.dart';
 import '../../features/main/categories/domain/usecases/category_use_case.dart';
 import '../../features/main/categories/presentation/manager/category_cubit.dart';
-import '../../features/main/home/presentation/manager/category_products_cubit/products_by_category_cubit.dart';
+import '../../features/main/home/presentation/manager/best_seller_cubit/best_seller_cubit.dart';
+import '../../features/main/home/presentation/manager/new_products_cubit/new_products_cubit.dart';
+import '../../features/main/home/presentation/manager/products_by_category/products_by_category_cubit.dart';
 import '../../features/main/subcategory_products/data/data_sources/subcategory_products_service.dart';
 import '../../features/main/subcategory_products/data/repository/subcategory_products_repo_impl.dart';
 import '../../features/main/subcategory_products/domain/repository/subcategory_products_repo.dart';
@@ -130,6 +140,20 @@ Future<void> init() async {
       () => ProductsByCategoryRepoImpl(productsService: di()));
   di.registerLazySingleton<ProductsByCategoryService>(
       () => ProductsByCategoryServiceImpl());
+
+  /// New Arrivals
+  di.registerFactory(() => NewProductsCubit(newProductsUseCase: di()));
+  di.registerLazySingleton(() => NewProductsUseCase(newProductsRepo: di()));
+  di.registerLazySingleton<NewProductsRepo>(
+      () => NewProductsRepoImpl(productsService: di()));
+  di.registerLazySingleton<NewProductsService>(() => NewProductsServiceImpl());
+
+  /// Best Sellers
+  di.registerFactory(() => BestSellerCubit(bestSellerRepo: di()));
+  di.registerLazySingleton(() => BestSellerUseCase(bestSellerRepo: di()));
+  di.registerLazySingleton<BestSellerRepo>(
+      () => BestSellerRepoImpl(productsService: di()));
+  di.registerLazySingleton<BestSellerService>(() => BestSellerServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();

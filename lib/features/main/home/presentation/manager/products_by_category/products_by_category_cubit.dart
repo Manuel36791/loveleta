@@ -6,21 +6,31 @@ import '../../../../../../core/shared/entities/product_entity.dart';
 import '../../../../categories/domain/entities/category_entity.dart';
 
 part 'products_by_category_states.dart';
+
 part 'products_by_category_cubit.freezed.dart';
 
 class ProductsByCategoryCubit extends Cubit<ProductsByCategoryStates> {
-  ProductsByCategoryCubit({required this.productsUseCase}) : super(const ProductsByCategoryStates.initial());
+  ProductsByCategoryCubit({required this.productsUseCase})
+      : super(const ProductsByCategoryStates.initial());
 
   static ProductsByCategoryCubit get(context) => BlocProvider.of(context);
 
   final ProductsByCategoryUseCase productsUseCase;
 
   getProductsByCategory(CategoryEntity categoryEntity) async {
-    emit(const ProductsByCategoryStates.loading());
+    categoryEntity.nextPage == 1
+        ? emit(const ProductsByCategoryStates.paginationLoading())
+        : emit(const ProductsByCategoryStates.loading());
     final product = await productsUseCase(categoryEntity);
 
     product.fold(
-      (failure) => emit(ProductsByCategoryStates.error(failure.code.toString(), failure.message,)),
+      (failure) => categoryEntity.nextPage == 1
+          ? emit(
+              ProductsByCategoryStates.paginationError(failure.code.toString(), failure.message),
+            )
+          : emit(
+              ProductsByCategoryStates.error(failure.code.toString(), failure.message),
+            ),
       (products) => emit(ProductsByCategoryStates.loaded(products)),
     );
   }

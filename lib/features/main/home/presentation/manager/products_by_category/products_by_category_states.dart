@@ -6,4 +6,7 @@ class ProductsByCategoryStates with _$ProductsByCategoryStates {
   const factory ProductsByCategoryStates.loading() = Loading;
   const factory ProductsByCategoryStates.loaded(final List<ProductEntity> products) = Loaded;
   const factory ProductsByCategoryStates.error(final String errCode, final String err) = Error;
+  const factory ProductsByCategoryStates.paginationLoading() = paginationLoading;
+  const factory ProductsByCategoryStates.paginationError(final String errCode, final String err) = PaginationError;
+
 }
