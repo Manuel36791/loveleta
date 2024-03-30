@@ -9,18 +9,26 @@ part 'new_products_states.dart';
 part 'new_products_cubit.freezed.dart';
 
 class NewProductsCubit extends Cubit<NewProductsStates> {
-  NewProductsCubit({required this.newProductsUseCase}) : super(const NewProductsStates.initial());
+  NewProductsCubit({required this.newProductsUseCase})
+      : super(const NewProductsStates.initial());
 
   static NewProductsCubit get(context) => BlocProvider.of(context);
 
   final NewProductsUseCase newProductsUseCase;
 
   getNewProducts(int nextPage) async {
-    emit(const NewProductsStates.loading());
+    nextPage == 1
+        ? emit(const NewProductsStates.paginationLoading())
+        : emit(const NewProductsStates.loading());
     final result = await newProductsUseCase.call(nextPage);
 
     result.fold((failure) {
-      emit(
+      nextPage == 1 ? emit(
+        NewProductsStates.paginationError(
+          failure.code.toString(),
+          failure.message,
+        ),
+      ) : emit(
         NewProductsStates.error(
           failure.code.toString(),
           failure.message,

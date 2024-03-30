@@ -8,16 +8,16 @@ import '../../../../../core/shared/widgets/product_card.dart';
 import '../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../core/shared/widgets/state_loading_widget.dart';
 import '../../../../../core/utils/dimensions.dart';
-import '../manager/new_products_cubit/new_products_cubit.dart';
+import '../manager/best_seller_cubit/best_seller_cubit.dart';
 
-class NewProductsSeeMore extends StatefulWidget {
-  const NewProductsSeeMore({super.key});
+class BestSellerSeeMoreView extends StatefulWidget {
+  const BestSellerSeeMoreView({super.key});
 
   @override
-  State<NewProductsSeeMore> createState() => _NewProductsSeeMoreState();
+  State<BestSellerSeeMoreView> createState() => _BestSellerSeeMoreViewState();
 }
 
-class _NewProductsSeeMoreState extends State<NewProductsSeeMore> {
+class _BestSellerSeeMoreViewState extends State<BestSellerSeeMoreView> {
   ScrollController scrollController = ScrollController();
   int nextPage = 1;
   bool isLoading = false;
@@ -29,8 +29,8 @@ class _NewProductsSeeMoreState extends State<NewProductsSeeMore> {
     if (currentPositions >= 0.7 * maxScrollLength) {
       if (!isLoading) {
         isLoading = true;
-        await BlocProvider.of<NewProductsCubit>(context)
-            .getNewProducts(++nextPage);
+        await BlocProvider.of<BestSellerCubit>(context)
+            .getBestSellers(++nextPage);
         isLoading = false;
       }
     }
@@ -38,7 +38,7 @@ class _NewProductsSeeMoreState extends State<NewProductsSeeMore> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<NewProductsCubit, NewProductsStates>(
+    return BlocConsumer<BestSellerCubit, BestSellerStates>(
       listener: (context, state) {
         state.maybeWhen(
           success: (state) {
@@ -84,7 +84,7 @@ class _NewProductsSeeMoreState extends State<NewProductsSeeMore> {
                   ),
                 );
               },
-              paginationLoading: (state) {
+              paginationLoading: () {
                 return Padding(
                   padding: const EdgeInsets.all(Dimensions.p16),
                   child: GridView.builder(

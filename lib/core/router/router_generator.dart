@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:loveleta/features/main/categories/presentation/pages/subcategories_view.dart';
-import 'package:loveleta/features/main/home/presentation/manager/new_products_cubit/new_products_cubit.dart';
-import 'package:loveleta/features/main/home/presentation/pages/new_products_see_more.dart';
 
 import '../../features/address/add_new_address/presentation/pages/add_new_address_view.dart';
 import '../../features/address/map/presentation/pages/map_view.dart';
@@ -15,6 +12,11 @@ import '../../features/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 import '../../features/auth/verify_account/presentation/pages/verify_account_view.dart';
 import '../../features/bottom_nav_bar/bottom_nav_bar.dart';
 import '../../features/main/categories/presentation/pages/categories_view.dart';
+import '../../features/main/categories/presentation/pages/subcategories_view.dart';
+import '../../features/main/home/presentation/manager/best_seller_cubit/best_seller_cubit.dart';
+import '../../features/main/home/presentation/manager/new_products_cubit/new_products_cubit.dart';
+import '../../features/main/home/presentation/pages/best_seller_see_more_view.dart';
+import '../../features/main/home/presentation/pages/new_products_see_more_view.dart';
 import '../../features/main/subcategory_products/presentation/pages/category_details.dart';
 import '../../features/main/home/presentation/pages/home_view.dart';
 import '../../features/main/settings/presentation/pages/settings.dart';
@@ -80,7 +82,14 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => BlocProvider(
             create: (context) => di.di<NewProductsCubit>()..getNewProducts(1),
-            child: const NewProductsSeeMore(),
+            child: const NewProductsSeeMoreView(),
+          ),
+        );
+        case bestSellerPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => BlocProvider(
+            create: (context) => di.di<BestSellerCubit>()..getBestSellers(1),
+            child: const BestSellerSeeMoreView(),
           ),
         );
       case categoriesPageRoute:

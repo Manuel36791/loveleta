@@ -6,6 +6,6 @@ class NewProductsStates with _$NewProductsStates {
   const factory NewProductsStates.loading() = Loading;
   const factory NewProductsStates.success(final List<ProductEntity> products) = Success;
   const factory NewProductsStates.error(final String errCode, final String err) = Error;
-  const factory NewProductsStates.paginationLoading(final List<ProductEntity> products) = PaginationLoading;
+  const factory NewProductsStates.paginationLoading() = PaginationLoading;
   const factory NewProductsStates.paginationError(final String errCode, final String err) = PaginationError;
 }
