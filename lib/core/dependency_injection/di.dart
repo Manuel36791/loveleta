@@ -1,7 +1,4 @@
 import 'package:get_it/get_it.dart';
-import 'package:loveleta/features/auth/login/domain/use_cases/login_use_case.dart';
-import 'package:loveleta/features/auth/verify_account/data/data_sources/resend_code_service.dart';
-import 'package:loveleta/features/auth/verify_account/domain/use_cases/resend_code_usecase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/change_password/data/data_sources/change_pass_service.dart';
@@ -17,6 +14,7 @@ import '../../features/auth/forgot_pass/presentation/manager/forgot_pass_cubit.d
 import '../../features/auth/login/data/data_sources/login_service.dart';
 import '../../features/auth/login/data/repositories/login_repo_impl.dart';
 import '../../features/auth/login/domain/repositories/login_repo.dart';
+import '../../features/auth/login/domain/use_cases/login_use_case.dart';
 import '../../features/auth/login/presentation/manager/login_cubit.dart';
 import '../../features/auth/register/data/data_sources/register_service.dart';
 import '../../features/auth/register/data/repositories/register_repo_impl.dart';
@@ -29,16 +27,28 @@ import '../../features/auth/reset_pass/data/repositories/reset_pass_repo_impl.da
 import '../../features/auth/reset_pass/domain/repositories/reset_pass_repo.dart';
 import '../../features/auth/reset_pass/domain/use_cases/reset_pass_usecase.dart';
 import '../../features/auth/reset_pass/presentation/manager/reset_pass_cubit.dart';
+import '../../features/auth/verify_account/data/data_sources/resend_code_service.dart';
 import '../../features/auth/verify_account/data/data_sources/verify_account_service.dart';
 import '../../features/auth/verify_account/data/repositories/verify_account_repo_impl.dart';
 import '../../features/auth/verify_account/domain/repositories/verify_account_repo.dart';
+import '../../features/auth/verify_account/domain/use_cases/resend_code_usecase.dart';
 import '../../features/auth/verify_account/domain/use_cases/verify_account_usecase.dart';
 import '../../features/auth/verify_account/presentation/manager/verify_account_cubit.dart';
 import '../../features/main/categories/data/data_sources/category_service.dart';
 import '../../features/main/categories/data/repository/category_repo_impl.dart';
 import '../../features/main/categories/domain/repository/category_repo.dart';
+import '../../features/main/home/data/data_sources/products_by_category_service.dart';
+import '../../features/main/home/data/repository/products_by_category_repo_impl.dart';
+import '../../features/main/home/domain/repository/products_by_category.dart';
+import '../../features/main/home/domain/usecases/products_by_category_use_case.dart';
 import '../../features/main/categories/domain/usecases/category_use_case.dart';
 import '../../features/main/categories/presentation/manager/category_cubit.dart';
+import '../../features/main/home/presentation/manager/category_products_cubit/products_by_category_cubit.dart';
+import '../../features/main/subcategory_products/data/data_sources/subcategory_products_service.dart';
+import '../../features/main/subcategory_products/data/repository/subcategory_products_repo_impl.dart';
+import '../../features/main/subcategory_products/domain/repository/subcategory_products_repo.dart';
+import '../../features/main/subcategory_products/domain/usecases/subcategory_products_usecase.dart';
+import '../../features/main/subcategory_products/presentation/manager/subcategory_products_cubit.dart';
 
 final di = GetIt.instance;
 
@@ -57,7 +67,8 @@ Future<void> init() async {
   di.registerLazySingleton<RegisterService>(() => RegisterServiceImpl());
 
   /// Verify Account
-  di.registerFactory(() => VerifyAccountCubit(verifyAccountUseCase: di(), resendCodeUseCase: di()));
+  di.registerFactory(() =>
+      VerifyAccountCubit(verifyAccountUseCase: di(), resendCodeUseCase: di()));
   di.registerLazySingleton(() => VerifyAccountUseCase(verifyAccountRepo: di()));
   di.registerLazySingleton(
       () => VerifyResendCodeUseCase(verifyAccountRepo: di()));
@@ -78,7 +89,8 @@ Future<void> init() async {
   di.registerLazySingleton<ForgotPassService>(() => ForgotPassServiceImpl());
 
   /// Reset Password
-  di.registerFactory(() => ResetPassCubit(resetPassUseCase: di(), resendCodeUseCase: di()));
+  di.registerFactory(
+      () => ResetPassCubit(resetPassUseCase: di(), resendCodeUseCase: di()));
   di.registerLazySingleton(() => ResetPassUseCase(resetPassRepo: di()));
   di.registerLazySingleton<ResetPassRepo>(
       () => ResetPassRepoImpl(resetPassService: di(), resendCodeService: di()));
@@ -96,10 +108,28 @@ Future<void> init() async {
   /// Categories
   di.registerFactory(() => CategoryCubit(categoryUseCase: di()));
   di.registerLazySingleton(() => CategoryUseCase(categoryRepo: di()));
-  di.registerLazySingleton<CategoryRepo>(() => CategoryRepoImpl(
-        categoryService: di(),
-      ));
+  di.registerLazySingleton<CategoryRepo>(
+      () => CategoryRepoImpl(categoryService: di()));
   di.registerLazySingleton<CategoryService>(() => CategoryServiceImpl());
+
+  /// Products by SubCategory
+  di.registerFactory(
+      () => SubCategoryProductsCubit(categoryProductsUseCase: di()));
+  di.registerLazySingleton(
+      () => SubCategoryProductsUseCase(categoryProductsRepo: di()));
+  di.registerLazySingleton<SubCategoryProductsRepo>(
+      () => SubCategoryProductsRepoImpl(categoryService: di()));
+  di.registerLazySingleton<SubCategoryProductsService>(
+      () => SubCategoryProductsServiceImpl());
+
+  /// Products by Category
+  di.registerFactory(() => ProductsByCategoryCubit(productsUseCase: di()));
+  di.registerLazySingleton(
+      () => ProductsByCategoryUseCase(productsByCategoryRepo: di()));
+  di.registerLazySingleton<ProductsByCategoryRepo>(
+      () => ProductsByCategoryRepoImpl(productsService: di()));
+  di.registerLazySingleton<ProductsByCategoryService>(
+      () => ProductsByCategoryServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();

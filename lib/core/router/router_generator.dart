@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loveleta/features/main/categories/presentation/pages/subcategories_view.dart';
 
 import '../../features/address/add_new_address/presentation/pages/add_new_address_view.dart';
 import '../../features/address/map/presentation/pages/map_view.dart';
@@ -11,7 +12,7 @@ import '../../features/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 import '../../features/auth/verify_account/presentation/pages/verify_account_view.dart';
 import '../../features/bottom_nav_bar/bottom_nav_bar.dart';
 import '../../features/main/categories/presentation/pages/categories_view.dart';
-import '../../features/main/category_products/presentation/pages/category_details.dart';
+import '../../features/main/subcategory_products/presentation/pages/category_details.dart';
 import '../../features/main/home/presentation/pages/home_view.dart';
 import '../../features/main/product_details/presentation/pages/product_details_view.dart';
 import '../../features/main/settings/presentation/pages/settings.dart';
@@ -82,13 +83,23 @@ class AppRouters {
         return MaterialPageRoute(
           builder: (BuildContext context) => const CategoriesView(),
         );
+      case subCategoriesPageRoute:
+        final args = settings.arguments as SubCategoryArgs;
+        return MaterialPageRoute(
+          builder: (BuildContext context) => SubCategoriesView(
+            subcategories: args.subCategories,
+          ),
+        );
       case settingsPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const SettingsView(),
         );
       case categoryProductsPageRoute:
+        final args = settings.arguments as CategoryProductsArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const CategoryProductsView(),
+          builder: (BuildContext context) => CategoryProductsView(
+            id: args.id,
+          ),
         );
 
       /// Orders Routes

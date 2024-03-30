@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:loveleta/core/shared/widgets/state_loading_widget.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../core/shared/widgets/state_error_widget.dart';
+import '../../../../../core/shared/widgets/state_loading_widget.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../manager/category_cubit.dart';
 import '../widgets/category_list_tile.dart';

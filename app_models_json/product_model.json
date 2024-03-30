@@ -1,47 +1,114 @@
 {
-  "category": "Category",
-  "main_image": "Main Image",
-  "images": [
-    "Images",
-    "Image"
-  ],
-  "name_en": "Product Name",
-  "name_ar": "اسم المنتج",
-  "description_en": "Product Description",
-  "description_ar": "وصف المنتج",
-  "gift_details_en": [
-    "Gift Details",
-    "Gift Detail",
-    "Gift Details",
-    "Gift Detail"
-  ],
-  "gift_details_ar": [
-    "تفاصيل الهدية",
-    "تفاصيل الهدية",
-    "تفاصيل الهدية",
-    "تفاصيل الهدية"
-  ],
-  "in_stock": true, // IF true THEN product is in stock, IF false THEN product is out of stock
-  "SKU": "FLORAL-MIXED",
+  "id": 1,
+  "name_ar": "الستريميريا | مزهرية زجاج",
+  "name_en": "Alstroemeria | Glass Vase",
+  "price": 2399,
+  "quantity": 55,
+  "SKU": "77023728",
+  "main_image": "uploads/products/pLlAp3SVyq2gmAb09W7TeITt9Wo6BedBY1xyefD3.jpg",
+  "gift_details_ar": "الستريميريا الوردية: 10\r\nالستريميريا الأرجوانية: 10\r\nمزهرية زجاج",
+  "gift_details_en": "Pink Alstroemeria: 10\r\nPurple Alstroemeria: 10\r\nGlass Vase",
   "color": [
-    "Red",
-    "Green",
-    "Blue",
-    "Yellow",
-    "Black",
-    "White",
-    "Orange",
-    "Purple",
-    "Pink",
-    "Brown",
-    "Gray"
+    "Red"
   ],
-  "price": 760,
-  "discount_percent": 20, // Percentage of discount
-  "discounted_price": 608, // Price after discount
-  "is_favourite": false, // IF true THEN product is in favorite list
-  "is_free_delivery": false // IF true THEN product has free delivery
-  "is_express": true, // IF true THEN product is Loveleta Express
-  "is_new": true,
-  "best_seller": true
+  "status": 1,
+  "discount": 0,
+  "price_after_discount": "2399",
+  "description_ar": "<p>باقة من زهور الستريميريا الوردية والبنفسجية تأتي في مزهرية زجاجية مستديرة تضيف روعة للمشهد. ترمز زهور الستريميريا إلى الرحمة والحب والرعاية والصفاء والنقاء. تتميز هذه الهدية بالأناقة والبساطة، لذلك ستكون خيارك الأمثل إذا كنت تبحث عن هدية رقيقة تقدمها لأنثى قريبة منك، سواء كانت أمك، أختك، أو زوجتك.<br></p>",
+  "description_en": "<p><span style=\"color: rgb(0, 0, 0); font-family: Gilroy, sans-serif; font-size: medium;\">A bouquet of pink and violet alstroemeria flowers comes in a round glass vase that adds splendor to the scene. Alstroemeria flowers symbolize compassion, love, caring, serenity and purity. This gift is characterized by elegance and simplicity, so it will be your perfect choice if you are looking for a delicate gift to give to a female close to you, whether your mother, sister, or wife.</span><br></p>",
+  "category_id": 1,
+  "is_favourite": "false",
+  "is_free_delivery": "true",
+  "is_express": "false",
+  "is_new": "true",
+  "best_seller": "false",
+  "is_popular": 0,
+  "created_at": "2024-03-26T13:31:26.000000Z",
+  "updated_at": "2024-03-26T13:49:17.000000Z",
+  "product_images": [
+    {
+      "id": 1,
+      "product_id": 1,
+      "image": "uploads/products/multi_images/X2uysDcQBcojkjF3rxSP3ygL7qEt3PpsIoAP1W2a.png",
+      "created_at": "2024-03-26T13:31:26.000000Z",
+      "updated_at": "2024-03-26T13:31:26.000000Z"
+    },
+    {
+      "id": 2,
+      "product_id": 1,
+      "image": "uploads/products/multi_images/XfKumiBhf0IsX7rK2xFWsGULQuRgPP30BovQH1sd.png",
+      "created_at": "2024-03-26T13:31:26.000000Z",
+      "updated_at": "2024-03-26T13:31:26.000000Z"
+    },
+    {
+      "id": 3,
+      "product_id": 1,
+      "image": "uploads/products/multi_images/jBreGMOCaC4YBh7Cn9F6gf10o62MVH276iaYTGey.png",
+      "created_at": "2024-03-26T13:31:26.000000Z",
+      "updated_at": "2024-03-26T13:31:26.000000Z"
+    },
+    {
+      "id": 4,
+      "product_id": 1,
+      "image": "uploads/products/multi_images/4ZQ6bLrrbolZPahC3NIwrMEcIJ5eemvE8P3UrJdW.png",
+      "created_at": "2024-03-26T13:31:26.000000Z",
+      "updated_at": "2024-03-26T13:31:26.000000Z"
+    },
+    {
+      "id": 5,
+      "product_id": 1,
+      "image": "uploads/products/multi_images/Q2v04zM2JA3uaw02NSlqCCyhcLcMbDZ6kLrS95EA.jpg",
+      "created_at": "2024-03-26T13:47:00.000000Z",
+      "updated_at": "2024-03-26T13:47:00.000000Z"
+    },
+    {
+      "id": 6,
+      "product_id": 1,
+      "image": "uploads/products/multi_images/nM4h98hcvTNLGX7fRvG9WSEFsDkBv473q8BL3ht2.jpg",
+      "created_at": "2024-03-26T13:47:00.000000Z",
+      "updated_at": "2024-03-26T13:47:00.000000Z"
+    },
+    {
+      "id": 7,
+      "product_id": 1,
+      "image": "uploads/products/multi_images/fcyY7S5GO0ujYEmEENk6AG306Az6fdiw5uLuytDH.jpg",
+      "created_at": "2024-03-26T13:47:00.000000Z",
+      "updated_at": "2024-03-26T13:47:00.000000Z"
+    },
+    {
+      "id": 8,
+      "product_id": 1,
+      "image": "uploads/products/multi_images/VsZg1zK4gpWPv1ZcZj3C5n55FyznOMqS147AtazO.jpg",
+      "created_at": "2024-03-26T13:47:00.000000Z",
+      "updated_at": "2024-03-26T13:47:00.000000Z"
+    },
+    {
+      "id": 9,
+      "product_id": 1,
+      "image": "uploads/products/multi_images/jroUG3sGyGJmmbwItdPPoUr4J2sQxoynLFDqGjic.jpg",
+      "created_at": "2024-03-26T13:49:17.000000Z",
+      "updated_at": "2024-03-26T13:49:17.000000Z"
+    },
+    {
+      "id": 10,
+      "product_id": 1,
+      "image": "uploads/products/multi_images/1CcQah2O3vEd0Rn9rPF3u3uT84eyYlAwDB6Uk2xE.jpg",
+      "created_at": "2024-03-26T13:49:17.000000Z",
+      "updated_at": "2024-03-26T13:49:17.000000Z"
+    },
+    {
+      "id": 11,
+      "product_id": 1,
+      "image": "uploads/products/multi_images/BDtkIeqRtQZT3oIDQjIzIACacKuhFNp9xkcRWo3U.jpg",
+      "created_at": "2024-03-26T13:49:17.000000Z",
+      "updated_at": "2024-03-26T13:49:17.000000Z"
+    },
+    {
+      "id": 12,
+      "product_id": 1,
+      "image": "uploads/products/multi_images/sdQP0gaKgDxYOfHvURoGgOqQY7BtB3Asm59WRByJ.jpg",
+      "created_at": "2024-03-26T13:49:17.000000Z",
+      "updated_at": "2024-03-26T13:49:17.000000Z"
+    }
+  ]
 }

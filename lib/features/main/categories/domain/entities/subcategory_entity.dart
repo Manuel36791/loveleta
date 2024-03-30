@@ -1,19 +1,22 @@
 import 'package:equatable/equatable.dart';
 
-
-class CategoryEntity extends Equatable {
+class SubCategoryEntity extends Equatable {
   final num? id;
   final String? nameEn;
   final String? nameAr;
   final String? image;
-  final List<dynamic>? subCategories;
+  final String? descriptionEn;
+  final String? descriptionAr;
+  final dynamic categoryId;
 
-  const CategoryEntity({
+  const SubCategoryEntity({
     this.id,
     this.nameEn,
     this.nameAr,
     this.image,
-    this.subCategories,
+    this.descriptionEn,
+    this.descriptionAr,
+    this.categoryId,
   });
 
   @override
@@ -22,6 +25,8 @@ class CategoryEntity extends Equatable {
         nameEn,
         nameAr,
         image,
-    subCategories,
+        descriptionEn,
+        descriptionAr,
+        categoryId,
       ];
 }
