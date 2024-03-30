@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../generated/l10n.dart';
 import '../cart/presentation/pages/cart_view.dart';
 import '../main/categories/presentation/pages/categories_view.dart';
 import '../main/home/presentation/pages/home_view.dart';
@@ -46,22 +47,22 @@ class _BottomNavBarState extends State<BottomNavBar> {
             BottomNavigationBarItem(
               icon: Icon(MdiIcons.homeOutline),
               activeIcon: Icon(MdiIcons.home),
-              label: 'Home',
+              label: S.of(context).home,
             ),
             BottomNavigationBarItem(
               icon: Icon(MdiIcons.giftOutline),
               activeIcon: Icon(MdiIcons.gift),
-              label: 'Categories',
+              label: S.of(context).categories,
             ),
             BottomNavigationBarItem(
               icon: Icon(MdiIcons.shoppingOutline),
               activeIcon: Icon(MdiIcons.shopping),
-              label: 'Bag',
+              label: S.of(context).bag,
             ),
             BottomNavigationBarItem(
               icon: Icon(MdiIcons.accountOutline),
               activeIcon: Icon(MdiIcons.account),
-              label: 'Profile',
+              label: S.of(context).profile,
             ),
           ],
         ),

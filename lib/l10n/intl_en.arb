@@ -118,6 +118,26 @@
   "updatePassword": "Update Password",
   "passwordChangedSuccessful": "Your password has been successfully changed. You can now log in with your new password.",
 
+  "@_Home": {},
+  "search": "Search For gifts, flowers Cakes...",
+  "newArrivals": "New Arrivals",
+  "bestSellers": "Best Sellers",
+  "seeAll": "See All",
+
+  "@_Settings": {},
+  "language": "Language",
+  "privacyPolicy": "Privacy Policy",
+  "privacyDes": "Our privacy policy describes how we collect and process your personal information, such as the information you provide through our application. The policy also outlines your rights regarding your personal information, how it is retained, and secured. Communication: Various communication channels are provided in case of any questions or inquiries about the privacy policy. You can speak to the team through the application, call the specified number, or contact them via email.Updates: In the event of any changes in the way personal information is processed or in the policy itself, you will be promptly notified via email and the application will be updated.",
+  "contactUs": "Contact Us",
+  "orders": "Orders",
+  "savedAddresses": "Saved addresses",
+
+  "@_BottomNavBar": {},
+  "home": "Home",
+  "categories": "Categories",
+  "bag": "Bag",
+  "profile": "Profile",
+
   "@_ProductDetails": {},
   "loveletaExpress": "Loveleta Express",
   "freeDelivery": "Free Delivery",
@@ -150,4 +170,7 @@
     }
   },
   "addToCart": "Add to cart"
+
+
+
 }

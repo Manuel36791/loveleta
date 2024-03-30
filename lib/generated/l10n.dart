@@ -790,6 +790,146 @@ class S {
     );
   }
 
+  /// `Search For gifts, flowers Cakes...`
+  String get search {
+    return Intl.message(
+      'Search For gifts, flowers Cakes...',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Arrivals`
+  String get newArrivals {
+    return Intl.message(
+      'New Arrivals',
+      name: 'newArrivals',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Best Sellers`
+  String get bestSellers {
+    return Intl.message(
+      'Best Sellers',
+      name: 'bestSellers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See All`
+  String get seeAll {
+    return Intl.message(
+      'See All',
+      name: 'seeAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy Policy`
+  String get privacyPolicy {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'privacyPolicy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Our privacy policy describes how we collect and process your personal information, such as the information you provide through our application. The policy also outlines your rights regarding your personal information, how it is retained, and secured. Communication: Various communication channels are provided in case of any questions or inquiries about the privacy policy. You can speak to the team through the application, call the specified number, or contact them via email.Updates: In the event of any changes in the way personal information is processed or in the policy itself, you will be promptly notified via email and the application will be updated.`
+  String get privacyDes {
+    return Intl.message(
+      'Our privacy policy describes how we collect and process your personal information, such as the information you provide through our application. The policy also outlines your rights regarding your personal information, how it is retained, and secured. Communication: Various communication channels are provided in case of any questions or inquiries about the privacy policy. You can speak to the team through the application, call the specified number, or contact them via email.Updates: In the event of any changes in the way personal information is processed or in the policy itself, you will be promptly notified via email and the application will be updated.',
+      name: 'privacyDes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact Us`
+  String get contactUs {
+    return Intl.message(
+      'Contact Us',
+      name: 'contactUs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Orders`
+  String get orders {
+    return Intl.message(
+      'Orders',
+      name: 'orders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Saved addresses`
+  String get savedAddresses {
+    return Intl.message(
+      'Saved addresses',
+      name: 'savedAddresses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message(
+      'Home',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Categories`
+  String get categories {
+    return Intl.message(
+      'Categories',
+      name: 'categories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bag`
+  String get bag {
+    return Intl.message(
+      'Bag',
+      name: 'bag',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message(
+      'Profile',
+      name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Loveleta Express`
   String get loveletaExpress {
     return Intl.message(

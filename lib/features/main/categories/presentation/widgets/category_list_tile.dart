@@ -50,7 +50,9 @@ class CategoryListTile extends StatelessWidget {
                 ],
               ),
               Icon(
-                MdiIcons.chevronRight,
+                Intl.getCurrentLocale() == "en"
+                    ? MdiIcons.chevronRight
+                    : MdiIcons.chevronLeft,
                 size: 26.sp,
               )
             ],

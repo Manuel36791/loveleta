@@ -43,29 +43,44 @@ void main() async {
   //   FireBaseResources().ios();
   // }
 
-  // var currentLocale = await CacheHelper.getAppLang();
+  var currentLocale = await CacheHelper.getAppLang();
   var email = await CacheHelper.getData("email");
   var pass = await CacheHelper.getData("pass");
   debugPrint("Email: $email\n Pass: $pass");
 
   runApp(
-    MyApp(),
+    MyApp(
+      currentLang: Locale(currentLocale),
+    ),
   );
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  final Locale currentLang;
+  const MyApp({super.key, required this.currentLang,});
+
+  static void setLocale(BuildContext context, Locale newLocale) async {
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state!.changeLanguage(newLocale);
+  }
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  // Locale currentLang = Locale(LanguageType.ENGLISH.getValue());
+  Locale locale = const Locale("en");
+
+  changeLanguage(Locale newLocale) {
+    setState(() {
+      locale = newLocale;
+    });
+  }
 
   @override
   void initState() {
     super.initState();
+    locale = widget.currentLang;
 
     // FirebaseMessaging.onMessage.listen(
     //       (RemoteMessage message) {
@@ -93,7 +108,7 @@ class _MyAppState extends State<MyApp> {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           // locale: Locale(widget.currentLang),
-          locale: Locale("en"),
+          locale: locale,
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,

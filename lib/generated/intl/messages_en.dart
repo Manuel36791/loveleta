@@ -47,8 +47,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Invalid data, please try again"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "bad request. try again later"),
+        "bag": MessageLookupByLibrary.simpleMessage("Bag"),
+        "bestSellers": MessageLookupByLibrary.simpleMessage("Best Sellers"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
+        "categories": MessageLookupByLibrary.simpleMessage("Categories"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
         "codeCantBeLessThan6Characters": MessageLookupByLibrary.simpleMessage(
@@ -58,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm New Password"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "conflict found, try again later"),
+        "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
         "dontHaveAnAccount":
@@ -80,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password"),
         "freeDelivery": MessageLookupByLibrary.simpleMessage("Free Delivery"),
         "giftDetails": MessageLookupByLibrary.simpleMessage("Gift Details"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
         "inStock": MessageLookupByLibrary.simpleMessage("In Stock"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
@@ -87,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Invalid email or password. Please check your credentials and try again."),
         "invalidEmailAddress": MessageLookupByLibrary.simpleMessage(
             "Invalid email address, Please check your email and try again."),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
         "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
         "loggedInSuccessful": m3,
         "login": MessageLookupByLibrary.simpleMessage("Login"),
@@ -98,6 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "This URL is no longer available"),
         "multiple_choices": MessageLookupByLibrary.simpleMessage(
             "Choose an option to continue"),
+        "newArrivals": MessageLookupByLibrary.simpleMessage("New Arrivals"),
         "newOtpSent": MessageLookupByLibrary.simpleMessage(
             "An OTP has been resent to your email. Please check your inbox and enter the new OTP to continue."),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
@@ -110,6 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please check your internet connection"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url not found, try again later"),
+        "orders": MessageLookupByLibrary.simpleMessage("Orders"),
         "outOfStock": MessageLookupByLibrary.simpleMessage("Out of Stock"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordCantBeEmpty":
@@ -153,10 +161,19 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please reconfirm your password"),
         "plzEnterAValidEmail":
             MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
+        "privacyDes": MessageLookupByLibrary.simpleMessage(
+            "Our privacy policy describes how we collect and process your personal information, such as the information you provide through our application. The policy also outlines your rights regarding your personal information, how it is retained, and secured. Communication: Various communication channels are provided in case of any questions or inquiries about the privacy policy. You can speak to the team through the application, call the specified number, or contact them via email.Updates: In the event of any changes in the way personal information is processed or in the policy itself, you will be promptly notified via email and the application will be updated."),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+        "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
         "resetPasswordBtn": MessageLookupByLibrary.simpleMessage("Reset Pass"),
         "sar": m4,
+        "savedAddresses":
+            MessageLookupByLibrary.simpleMessage("Saved addresses"),
+        "search": MessageLookupByLibrary.simpleMessage(
+            "Search For gifts, flowers Cakes..."),
+        "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
         "sendAgain": MessageLookupByLibrary.simpleMessage("Send Again"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("Server is under maintenance"),

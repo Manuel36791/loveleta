@@ -47,8 +47,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "بيانات غير صالحة، يرجى المحاولة مرة أخرى"),
         "bad_request_error": MessageLookupByLibrary.simpleMessage(
             "طلب غير صالح. حاول مرة أخرى لاحقًا"),
+        "bag": MessageLookupByLibrary.simpleMessage("الحقيبة"),
+        "bestSellers": MessageLookupByLibrary.simpleMessage("الأكثر مبيعًا"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا"),
+        "categories": MessageLookupByLibrary.simpleMessage("الفئات"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "codeCantBeLessThan6Characters": MessageLookupByLibrary.simpleMessage(
@@ -58,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور الجديدة"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "تم العثور على تعارض , حاول مرة أخرى لاحقًا"),
+        "contactUs": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
         "dontHaveAnAccount":
@@ -80,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
         "freeDelivery": MessageLookupByLibrary.simpleMessage("توصيل مجاني"),
         "giftDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الهدية"),
+        "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "inStock": MessageLookupByLibrary.simpleMessage("متوفر"),
         "internal_server_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
@@ -87,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "بريد إلكتروني أو كلمة مرور غير صالحة. الرجاء التحقق من بيانات الاعتماد الخاصة بك والمحاولة مرة أخرى."),
         "invalidEmailAddress": MessageLookupByLibrary.simpleMessage(
             "عنوان البريد الإلكتروني غير صالح. الرجاء التحقق من بريدك الإلكتروني والمحاولة مرة أخرى."),
+        "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "lastName": MessageLookupByLibrary.simpleMessage("الاسم الأخير"),
         "loggedInSuccessful": m3,
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
@@ -98,6 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("هذا الرابط لم يعد متاحًا"),
         "multiple_choices":
             MessageLookupByLibrary.simpleMessage("اختر خيارًا للمتابعة"),
+        "newArrivals": MessageLookupByLibrary.simpleMessage("الوصولات الجديدة"),
         "newOtpSent": MessageLookupByLibrary.simpleMessage(
             "تم إعادة إرسال رمز التحقق إلى بريدك الإلكتروني. الرجاء التحقق من صندوق الوارد الخاص بك وإدخال الرمز الجديد للمتابعة."),
         "newPassword":
@@ -110,6 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "يُرجى التحقق من اتصالك بالإنترنت"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url غير موجود , حاول مرة أخرى لاحقًا"),
+        "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
         "outOfStock": MessageLookupByLibrary.simpleMessage("غير متوفر"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordCantBeEmpty": MessageLookupByLibrary.simpleMessage(
@@ -152,11 +160,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "الرجاء إعادة تأكيد كلمة المرور"),
         "plzEnterAValidEmail": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال بريد إلكتروني صالح"),
+        "privacyDes": MessageLookupByLibrary.simpleMessage(
+            "تصف سياسة الخصوصية لدينا كيفية جمعنا ومعالجة معلوماتك الشخصية، مثل المعلومات التي تقدمها من خلال تطبيقنا. توضح السياسة أيضًا حقوقك فيما يتعلق بمعلوماتك الشخصية، وكيفية الاحتفاظ بها، وتأمينها. التواصل: يتم توفير قنوات تواصل مختلفة في حالة وجود أي أسئلة أو استفسارات حول سياسة الخصوصية. يمكنك التحدث مع الفريق من خلال التطبيق، أو الاتصال بالرقم المحدد، أو الاتصال بهم عبر البريد الإلكتروني. التحديثات: في حالة وجود أي تغييرات في طريقة معالجة المعلومات الشخصية أو في السياسة نفسها، ستتلقى إشعارًا عاجلاً عبر البريد الإلكتروني وسيتم تحديث التطبيق."),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
+        "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
         "resetPassword":
             MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),
         "resetPasswordBtn": MessageLookupByLibrary.simpleMessage("إعادة تعيين"),
         "sar": m4,
+        "savedAddresses":
+            MessageLookupByLibrary.simpleMessage("العناوين المحفوظة"),
+        "search": MessageLookupByLibrary.simpleMessage(
+            "ابحث عن الهدايا، الزهور، الكعك..."),
+        "seeAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
         "sendAgain": MessageLookupByLibrary.simpleMessage("إعادة الإرسال"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("الخادم قيد الصيانة"),

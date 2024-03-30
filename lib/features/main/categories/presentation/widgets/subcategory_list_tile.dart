@@ -15,7 +15,10 @@ import '../../domain/entities/subcategory_entity.dart';
 class SubCategoryListTile extends StatelessWidget {
   final SubCategoryEntity subCategory;
 
-  const SubCategoryListTile({super.key, required this.subCategory,});
+  const SubCategoryListTile({
+    super.key,
+    required this.subCategory,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +41,7 @@ class SubCategoryListTile extends StatelessWidget {
                     height: 26.h,
                     width: 26.w,
                     errorWidget: (context, url, error) =>
-                    const Icon(Icons.error),
+                        const Icon(Icons.error),
                   ),
                   Gap(10.w),
                   Text(
@@ -50,7 +53,9 @@ class SubCategoryListTile extends StatelessWidget {
                 ],
               ),
               Icon(
-                MdiIcons.chevronRight,
+                Intl.getCurrentLocale() == "en"
+                    ? MdiIcons.chevronRight
+                    : MdiIcons.chevronLeft,
                 size: 26.sp,
               )
             ],
