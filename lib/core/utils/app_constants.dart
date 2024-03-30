@@ -36,4 +36,5 @@ class AppConstants {
   static const getProductsByCatUri = "v1/categories/products";
   static const getProductsBySubCatUri = "v1/subcategories/products";
   static const getNewProductsUri = "v1/products/new";
+  static const getBestProductsUri = "v1/products/best-seller";
 }

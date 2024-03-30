@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'new_products_cubit.dart';
+part of 'best_seller_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$NewProductsStates {
+mixin _$BestSellerStates {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -81,16 +81,16 @@ mixin _$NewProductsStates {
 }
 
 /// @nodoc
-abstract class $NewProductsStatesCopyWith<$Res> {
-  factory $NewProductsStatesCopyWith(
-          NewProductsStates value, $Res Function(NewProductsStates) then) =
-      _$NewProductsStatesCopyWithImpl<$Res, NewProductsStates>;
+abstract class $BestSellerStatesCopyWith<$Res> {
+  factory $BestSellerStatesCopyWith(
+          BestSellerStates value, $Res Function(BestSellerStates) then) =
+      _$BestSellerStatesCopyWithImpl<$Res, BestSellerStates>;
 }
 
 /// @nodoc
-class _$NewProductsStatesCopyWithImpl<$Res, $Val extends NewProductsStates>
-    implements $NewProductsStatesCopyWith<$Res> {
-  _$NewProductsStatesCopyWithImpl(this._value, this._then);
+class _$BestSellerStatesCopyWithImpl<$Res, $Val extends BestSellerStates>
+    implements $BestSellerStatesCopyWith<$Res> {
+  _$BestSellerStatesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -107,7 +107,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$NewProductsStatesCopyWithImpl<$Res, _$InitialImpl>
+    extends _$BestSellerStatesCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -121,7 +121,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'NewProductsStates.initial()';
+    return 'BestSellerStates.initial()';
   }
 
   @override
@@ -220,7 +220,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements NewProductsStates {
+abstract class _Initial implements BestSellerStates {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -233,7 +233,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$NewProductsStatesCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$BestSellerStatesCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -247,7 +247,7 @@ class _$LoadingImpl implements Loading {
 
   @override
   String toString() {
-    return 'NewProductsStates.loading()';
+    return 'BestSellerStates.loading()';
   }
 
   @override
@@ -346,7 +346,7 @@ class _$LoadingImpl implements Loading {
   }
 }
 
-abstract class Loading implements NewProductsStates {
+abstract class Loading implements BestSellerStates {
   const factory Loading() = _$LoadingImpl;
 }
 
@@ -361,7 +361,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$NewProductsStatesCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$BestSellerStatesCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -397,7 +397,7 @@ class _$SuccessImpl implements Success {
 
   @override
   String toString() {
-    return 'NewProductsStates.success(products: $products)';
+    return 'BestSellerStates.success(products: $products)';
   }
 
   @override
@@ -505,7 +505,7 @@ class _$SuccessImpl implements Success {
   }
 }
 
-abstract class Success implements NewProductsStates {
+abstract class Success implements BestSellerStates {
   const factory Success(final List<ProductEntity> products) = _$SuccessImpl;
 
   List<ProductEntity> get products;
@@ -525,7 +525,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$NewProductsStatesCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$BestSellerStatesCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -562,7 +562,7 @@ class _$ErrorImpl implements Error {
 
   @override
   String toString() {
-    return 'NewProductsStates.error(errCode: $errCode, err: $err)';
+    return 'BestSellerStates.error(errCode: $errCode, err: $err)';
   }
 
   @override
@@ -670,7 +670,7 @@ class _$ErrorImpl implements Error {
   }
 }
 
-abstract class Error implements NewProductsStates {
+abstract class Error implements BestSellerStates {
   const factory Error(final String errCode, final String err) = _$ErrorImpl;
 
   String get errCode;
@@ -689,7 +689,7 @@ abstract class _$$PaginationLoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$PaginationLoadingImplCopyWithImpl<$Res>
-    extends _$NewProductsStatesCopyWithImpl<$Res, _$PaginationLoadingImpl>
+    extends _$BestSellerStatesCopyWithImpl<$Res, _$PaginationLoadingImpl>
     implements _$$PaginationLoadingImplCopyWith<$Res> {
   __$$PaginationLoadingImplCopyWithImpl(_$PaginationLoadingImpl _value,
       $Res Function(_$PaginationLoadingImpl) _then)
@@ -703,7 +703,7 @@ class _$PaginationLoadingImpl implements PaginationLoading {
 
   @override
   String toString() {
-    return 'NewProductsStates.paginationLoading()';
+    return 'BestSellerStates.paginationLoading()';
   }
 
   @override
@@ -802,7 +802,7 @@ class _$PaginationLoadingImpl implements PaginationLoading {
   }
 }
 
-abstract class PaginationLoading implements NewProductsStates {
+abstract class PaginationLoading implements BestSellerStates {
   const factory PaginationLoading() = _$PaginationLoadingImpl;
 }
 
@@ -817,7 +817,7 @@ abstract class _$$PaginationErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$PaginationErrorImplCopyWithImpl<$Res>
-    extends _$NewProductsStatesCopyWithImpl<$Res, _$PaginationErrorImpl>
+    extends _$BestSellerStatesCopyWithImpl<$Res, _$PaginationErrorImpl>
     implements _$$PaginationErrorImplCopyWith<$Res> {
   __$$PaginationErrorImplCopyWithImpl(
       _$PaginationErrorImpl _value, $Res Function(_$PaginationErrorImpl) _then)
@@ -854,7 +854,7 @@ class _$PaginationErrorImpl implements PaginationError {
 
   @override
   String toString() {
-    return 'NewProductsStates.paginationError(errCode: $errCode, err: $err)';
+    return 'BestSellerStates.paginationError(errCode: $errCode, err: $err)';
   }
 
   @override
@@ -963,7 +963,7 @@ class _$PaginationErrorImpl implements PaginationError {
   }
 }
 
-abstract class PaginationError implements NewProductsStates {
+abstract class PaginationError implements BestSellerStates {
   const factory PaginationError(final String errCode, final String err) =
       _$PaginationErrorImpl;
 
