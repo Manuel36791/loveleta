@@ -8,6 +8,8 @@ import '../../utils/dimensions.dart';
 class CustomFormField extends StatefulWidget {
   final Stream stream;
   final Function(String) onChanged;
+  final TextEditingController? ctrl;
+  final String? initValue;
   final bool isPassword;
   final TextInputType? keyboardType;
   final TextInputAction? nextAction;
@@ -26,6 +28,8 @@ class CustomFormField extends StatefulWidget {
     super.key,
     required this.stream,
     required this.onChanged,
+    this.ctrl,
+    this.initValue,
     this.isPassword = false,
     this.keyboardType,
     this.nextAction,
@@ -53,6 +57,8 @@ class _CustomFormFieldState extends State<CustomFormField> {
       builder: (ctx, snapShot) {
         return TextFormField(
           onChanged: widget.onChanged,
+          initialValue: widget.initValue,
+          controller: widget.ctrl,
           obscureText: widget.isPassword,
           obscuringCharacter:  "*",
           keyboardType: widget.keyboardType,

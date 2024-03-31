@@ -20,6 +20,7 @@ import '../../features/main/home/presentation/manager/best_seller_cubit/best_sel
 import '../../features/main/home/presentation/manager/new_products_cubit/new_products_cubit.dart';
 import '../../features/main/home/presentation/pages/best_seller_see_more_view.dart';
 import '../../features/main/home/presentation/pages/new_products_see_more_view.dart';
+import '../../features/main/see_more/presentation/pages/see_more_view.dart';
 import '../../features/main/subcategory_products/presentation/pages/category_details.dart';
 import '../../features/main/home/presentation/pages/home_view.dart';
 import '../../features/main/settings/presentation/pages/settings.dart';
@@ -104,7 +105,9 @@ class AppRouters {
                 id: args.id,
                 nextPage: 1,
               )),
-            child: const BestSellerSeeMoreView(),
+            child: SeeMoreView(
+              id: args.id!,
+            ),
           ),
         );
       case categoriesPageRoute:

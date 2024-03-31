@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:label="loveleta"
         android:name="${applicationName}"
@@ -29,5 +30,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAJMWXQtEi_qqDoRfV3YsXE-N0aMiw-t4g"/>
     </application>
 </manifest>

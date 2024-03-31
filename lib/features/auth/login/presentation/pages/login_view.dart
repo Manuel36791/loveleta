@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:loveleta/core/router/router.dart';
 import 'package:loveleta/core/utils/extensions.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../core/helpers/cache_helper.dart';
@@ -28,6 +29,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  bool isPass = true;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -49,16 +51,19 @@ class _LoginViewState extends State<LoginView> {
                     CacheHelper.setData("pass", loginCubit.passCtrl.value);
                 debugPrint("$email, $pass");
                 context.pushNamed(bottomNavBar);
-              } else if (state.status == 0 && state.msg ==
-                  "Active your account first verification code sent to your email !") {
-                  // await resendCodeUseCase(email.ifEmpty());
-                  // loginCubit.resendCode(loginCubit.emailCtrl.text);
-                  // context.pushNamed(
-                  //   verifyAccountPageRoute,
-                  //   arguments:
-                  //   VerifyAccountArgs(email: loginCubit.emailCtrl.text),
-                  // );
-                  context.defaultSnackBar(S.of(context).accountNotActivated, color: AppColors.warningColor, textColor: AppColors.textBlack);
+              } else if (state.status == 0 &&
+                  state.msg ==
+                      "Active your account first verification code sent to your email !") {
+                // await resendCodeUseCase(email.ifEmpty());
+                // loginCubit.resendCode(loginCubit.emailCtrl.text);
+                // context.pushNamed(
+                //   verifyAccountPageRoute,
+                //   arguments:
+                //   VerifyAccountArgs(email: loginCubit.emailCtrl.text),
+                // );
+                context.defaultSnackBar(S.of(context).accountNotActivated,
+                    color: AppColors.warningColor,
+                    textColor: AppColors.textBlack);
               } else {
                 context.defaultSnackBar(
                   S.of(context).invalidCredentials,
@@ -118,6 +123,17 @@ class _LoginViewState extends State<LoginView> {
                         },
                         label: S.of(context).password,
                         nextAction: TextInputAction.done,
+                        isPassword: isPass,
+                        postIcon: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              isPass = !isPass;
+                            });
+                          },
+                          child: isPass
+                              ? Icon(MdiIcons.eye)
+                              : Icon(MdiIcons.eyeOff),
+                        ),
                       ),
                       Gap(10.h),
                       Row(

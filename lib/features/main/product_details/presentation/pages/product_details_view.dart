@@ -4,6 +4,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
+import 'package:loveleta/core/utils/app_constants.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -71,7 +72,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   child: Stack(
                     children: [
                       CachedNetworkImage(
-                        imageUrl: widget.product.images![imageIndex].image!,
+                        imageUrl: "${AppConstants.imageUrl}${widget.product.images![imageIndex].image!}",
                         width: 312.w,
                         height: 312.h,
                         fit: BoxFit.cover,
@@ -82,7 +83,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: NetworkImage(
-                                    widget.product.images![imageIndex].image!),
+                                    "${AppConstants.imageUrl}${widget.product.images![imageIndex].image!}"),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -135,7 +136,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                 });
                               },
                               child: CachedNetworkImage(
-                                imageUrl: widget.product.images![index].image!,
+                                imageUrl: "${AppConstants.imageUrl}${widget.product.images![index].image!}",
                                 width: 60.w,
                                 height: 60.h,
                                 fit: BoxFit.cover,
@@ -146,7 +147,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         image: NetworkImage(
-                                            widget.product.images![index].image!),
+                                            "${AppConstants.imageUrl}${widget.product.images![index].image!}"),
                                         fit: BoxFit.cover,
                                       ),
                                     ),

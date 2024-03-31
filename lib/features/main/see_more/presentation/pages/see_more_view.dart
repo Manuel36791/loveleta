@@ -48,111 +48,111 @@ class _SeeMoreViewState extends State<SeeMoreView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => di.di<ProductsByCategoryCubit>()
-        ..getProductsByCategory(CategoryEntity(
-          id: widget.id,
-          nextPage: 1,
-        )),
-      child: BlocConsumer<ProductsByCategoryCubit, ProductsByCategoryStates>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          return Scaffold(
-            appBar: CustomAppBar(context: context),
-            body: SafeArea(
-              child: state.maybeWhen(
-                loading: () {
-                  return const Align(
-                    alignment: Alignment.center,
-                    child: StateLoadingWidget(),
-                  );
-                },
-                loaded: (state) {
-                  return Padding(
-                    padding: const EdgeInsets.all(Dimensions.p16),
-                    child: GridView.builder(
-                      padding: EdgeInsets.zero,
-                      scrollDirection: Axis.vertical,
-                      shrinkWrap: true,
-                      physics: const BouncingScrollPhysics(),
-                      itemCount: productsList.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: Dimensions.p16,
-                        crossAxisSpacing: Dimensions.p16,
-                        mainAxisExtent: 250.h,
-                      ),
-                      itemBuilder: (_, index) => Align(
-                        alignment: Alignment.center,
-                        child: ProductCard(
-                          product: productsList[index],
-                        ),
+    return BlocConsumer<ProductsByCategoryCubit, ProductsByCategoryStates>(
+      listener: (context, state) {
+        state.maybeWhen(
+          loaded: (state) {
+            productsList.addAll(state);
+          },
+          orElse: () {},
+        );
+      },
+      builder: (context, state) {
+        return Scaffold(
+          appBar: CustomAppBar(context: context),
+          body: SafeArea(
+            child: state.maybeWhen(
+              loading: () {
+                return const Align(
+                  alignment: Alignment.center,
+                  child: StateLoadingWidget(),
+                );
+              },
+              loaded: (state) {
+                return Padding(
+                  padding: const EdgeInsets.all(Dimensions.p16),
+                  child: GridView.builder(
+                    padding: EdgeInsets.zero,
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: productsList.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: Dimensions.p16,
+                      crossAxisSpacing: Dimensions.p16,
+                      mainAxisExtent: 250.h,
+                    ),
+                    itemBuilder: (_, index) => Align(
+                      alignment: Alignment.center,
+                      child: ProductCard(
+                        product: productsList[index],
                       ),
                     ),
-                  );
-                },
-                paginationLoading: () {
-                  return Padding(
-                    padding: const EdgeInsets.all(Dimensions.p16),
-                    child: GridView.builder(
-                      padding: EdgeInsets.zero,
-                      scrollDirection: Axis.vertical,
-                      shrinkWrap: true,
-                      physics: const BouncingScrollPhysics(),
-                      itemCount: productsList.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: Dimensions.p16,
-                        crossAxisSpacing: Dimensions.p16,
-                        mainAxisExtent: 250.h,
-                      ),
-                      itemBuilder: (_, index) => Align(
-                        alignment: Alignment.center,
-                        child: ProductCard(
-                          product: productsList[index],
-                        ),
+                  ),
+                );
+              },
+              paginationLoading: () {
+                return Padding(
+                  padding: const EdgeInsets.all(Dimensions.p16),
+                  child: GridView.builder(
+                    padding: EdgeInsets.zero,
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: productsList.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: Dimensions.p16,
+                      crossAxisSpacing: Dimensions.p16,
+                      mainAxisExtent: 250.h,
+                    ),
+                    itemBuilder: (_, index) => Align(
+                      alignment: Alignment.center,
+                      child: ProductCard(
+                        product: productsList[index],
                       ),
                     ),
-                  );
-                },
-                paginationError: (errCode, err) {
-                  return Padding(
-                    padding: const EdgeInsets.all(Dimensions.p16),
-                    child: GridView.builder(
-                      padding: EdgeInsets.zero,
-                      scrollDirection: Axis.vertical,
-                      shrinkWrap: true,
-                      physics: const BouncingScrollPhysics(),
-                      itemCount: productsList.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: Dimensions.p16,
-                        crossAxisSpacing: Dimensions.p16,
-                        mainAxisExtent: 250.h,
-                      ),
-                      itemBuilder: (_, index) => Align(
-                        alignment: Alignment.center,
-                        child: ProductCard(
-                          product: productsList[index],
-                        ),
+                  ),
+                );
+              },
+              paginationError: (errCode, err) {
+                return Padding(
+                  padding: const EdgeInsets.all(Dimensions.p16),
+                  child: GridView.builder(
+                    padding: EdgeInsets.zero,
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: productsList.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: Dimensions.p16,
+                      crossAxisSpacing: Dimensions.p16,
+                      mainAxisExtent: 250.h,
+                    ),
+                    itemBuilder: (_, index) => Align(
+                      alignment: Alignment.center,
+                      child: ProductCard(
+                        product: productsList[index],
                       ),
                     ),
-                  );
-                },
-                error: (errCode, err) {
-                  return StateErrorWidget(
-                    errCode: errCode,
-                    err: err,
-                  );
-                },
-                orElse: () {
-                  return const SizedBox.shrink();
-                },
-              ),
+                  ),
+                );
+              },
+              error: (errCode, err) {
+                return StateErrorWidget(
+                  errCode: errCode,
+                  err: err,
+                );
+              },
+              orElse: () {
+                return const SizedBox.shrink();
+              },
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
