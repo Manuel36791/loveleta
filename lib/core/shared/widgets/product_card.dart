@@ -10,6 +10,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import '../../../generated/l10n.dart';
 import '../../router/router.dart';
 import '../../utils/app_colors.dart';
+import '../../utils/app_constants.dart';
 import '../../utils/app_text_styles.dart';
 import '../../utils/dimensions.dart';
 import '../entities/product_entity.dart';
@@ -41,7 +42,7 @@ class ProductCard extends StatelessWidget {
             Stack(
               children: [
                 CachedNetworkImage(
-                  imageUrl: product.mainImage!,
+                  imageUrl: "${AppConstants.imageUrl}${product.mainImage}",
                   width: 129.w,
                   height: 132.h,
                   fit: BoxFit.cover,
@@ -51,7 +52,7 @@ class ProductCard extends StatelessWidget {
                       height: 132.h,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: NetworkImage(product.mainImage!),
+                          image: NetworkImage("${AppConstants.imageUrl}${product.mainImage}"),
                           fit: BoxFit.cover,
                         ),
                       ),

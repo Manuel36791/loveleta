@@ -198,28 +198,28 @@ class _SettingsViewState extends State<SettingsView> {
               ),
             ),
             Gap(10.h),
-            Container(
-              color: Colors.white,
-              padding: EdgeInsets.all(16.0.sp),
-              child: ListTile(
-                onTap: () {
-                  // context.pushNamed(contactUsPageRoute);
-                },
-                title: Opacity(
-                  opacity: 0.90,
-                  child: Text(
-                    S.of(context).contactUs,
-                    style: CustomTextStyle.kTextStyleF16,
-                  ),
-                ),
-                trailing: Icon(
-                  Icons.arrow_forward_ios_sharp,
-                  // color: AppColors.lightBlue,
-                  size: 16.sp,
-                ),
-              ),
-            ),
-            Gap(10.h),
+            // Container(
+            //   color: Colors.white,
+            //   padding: EdgeInsets.all(16.0.sp),
+            //   child: ListTile(
+            //     onTap: () {
+            //       // context.pushNamed(contactUsPageRoute);
+            //     },
+            //     title: Opacity(
+            //       opacity: 0.90,
+            //       child: Text(
+            //         S.of(context).contactUs,
+            //         style: CustomTextStyle.kTextStyleF16,
+            //       ),
+            //     ),
+            //     trailing: Icon(
+            //       Icons.arrow_forward_ios_sharp,
+            //       // color: AppColors.lightBlue,
+            //       size: 16.sp,
+            //     ),
+            //   ),
+            // ),
+            // Gap(10.h),
             Container(
               color: Colors.white,
               padding: EdgeInsets.all(16.0.sp),

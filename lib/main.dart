@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import 'core/database/address_class.dart';
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
 import 'core/router/router_generator.dart';
@@ -17,13 +18,12 @@ import 'main_view.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = AppCubitObserver();
-  // Hive.registerAdapter(AddressAdapter());
-  Future.wait([
-   ScreenUtil.ensureScreenSize(),
-   di.init(),
-   Hive.initFlutter(),
-   svgPreloader(),
-  ],);
+  Hive.registerAdapter(AddressAdapter());
+  await ScreenUtil.ensureScreenSize();
+  await di.init();
+  await Hive.initFlutter();
+  await svgPreloader();
+
 
   ErrorWidget.builder = (FlutterErrorDetails errorDetails) {
     return MaterialApp(

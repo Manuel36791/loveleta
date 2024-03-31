@@ -21,8 +21,7 @@
     "postal_code": "12345"
   },
   "customer": {
-      "uuid": "a7e1d6f9-9f7e-4e7f-9f8e-9f8e9f8e9f8e",
-      "_id": "65e4a3b61417dc68a3737f80",
+      "id": "1",
       "name": "John Smith",
       "email": "5nQHk@example.com",
       "password": "password",

@@ -8,6 +8,7 @@ import 'package:gap/gap.dart';
 import 'package:loveleta/core/shared/arguments.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 import 'package:loveleta/features/auth/register/domain/entities/register_entity.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../core/router/router.dart';
@@ -28,6 +29,8 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
+  bool isPass = true;
+  bool isPassConf = true;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -165,6 +168,17 @@ class _RegisterViewState extends State<RegisterView> {
                         },
                         label: S.of(context).password,
                         nextAction: TextInputAction.next,
+                        isPassword: isPass,
+                        postIcon: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              isPass = !isPass;
+                            });
+                          },
+                          child: isPass
+                              ? Icon(MdiIcons.eye)
+                              : Icon(MdiIcons.eyeOff),
+                        ),
                       ),
                       Gap(10.h),
                       CustomFormField(
@@ -174,6 +188,17 @@ class _RegisterViewState extends State<RegisterView> {
                         },
                         label: S.of(context).passwordConfirmation,
                         nextAction: TextInputAction.done,
+                        isPassword: isPassConf,
+                        postIcon: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              isPassConf = !isPassConf;
+                            });
+                          },
+                          child: isPassConf
+                              ? Icon(MdiIcons.eye)
+                              : Icon(MdiIcons.eyeOff),
+                        ),
                       ),
                       Gap(20.h),
                       StreamBuilder(
