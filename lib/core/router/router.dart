@@ -24,3 +24,4 @@ const String addNewAddressPageRoute = '/AddAddress';
 const String mapPageRoute = '/mapView';
 
 const String cartViewPageRoute = '/cartView';
+const String paymentSummaryPageRoute = '/paymentSummary';

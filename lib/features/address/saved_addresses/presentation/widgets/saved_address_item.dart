@@ -3,6 +3,8 @@ import 'package:loveleta/core/utils/extensions.dart';
 
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../core/database/address_class.dart';
+import '../../../../../core/router/router.dart';
+import '../../../../../core/shared/arguments.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 
 class SavedAddressItem extends StatelessWidget {
@@ -17,13 +19,10 @@ class SavedAddressItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // context.pushNamed(
-        //   paymentDetailsPageRoute,
-        //   arguments: AddresAedgs(
-        //     "",
-        //     address: address,
-        //   ),
-        // );
+        context.pushNamed(
+          paymentSummaryPageRoute,
+          arguments: PaymentSummaryArgs(address: address),
+        );
       },
       child: Container(
         padding: const EdgeInsets.all(Dimensions.p16),

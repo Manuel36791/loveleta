@@ -1,6 +1,7 @@
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../database/address_class.dart';
 import 'entities/product_entity.dart';
 
 class AddressArgs {
@@ -50,4 +51,10 @@ class SeeMoreArgs {
   final num? id;
 
   SeeMoreArgs({required this.id});
+}
+
+class PaymentSummaryArgs {
+  final Address address;
+
+  PaymentSummaryArgs({required this.address});
 }

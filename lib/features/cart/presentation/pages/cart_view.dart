@@ -8,7 +8,9 @@ import '../../../../../../core/router/router.dart';
 import '../../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../../core/utils/dimensions.dart';
+import '../../../../core/shared/arguments.dart';
 import '../../../../core/shared/cubits/cart_cubit/cart_cubit.dart';
+import '../../../../core/shared/models/user_data_model.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../widgets/cart_item.dart';
 
@@ -170,7 +172,9 @@ class _CartViewState extends State<CartView> {
                       alignment: Alignment.bottomCenter,
                       child: CustomBtn(
                         label: "Complete payment",
-                        onPressed: () {},
+                        onPressed: () {
+                          context.pushNamed(savedAddressesPageRoute);
+                        },
                       ),
                     ),
                   ),
