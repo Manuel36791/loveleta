@@ -14,6 +14,7 @@ import '../../features/auth/register/presentation/pages/register_view.dart';
 import '../../features/auth/reset_pass/presentation/pages/reset_pass_view.dart';
 import '../../features/auth/verify_account/presentation/pages/verify_account_view.dart';
 import '../../features/bottom_nav_bar/bottom_nav_bar.dart';
+import '../../features/cart/presentation/pages/cart_view.dart';
 import '../../features/main/categories/presentation/pages/categories_view.dart';
 import '../../features/main/categories/presentation/pages/subcategories_view.dart';
 import '../../features/main/home/presentation/manager/best_seller_cubit/best_seller_cubit.dart';
@@ -132,13 +133,18 @@ class AppRouters {
             id: args.id,
           ),
         );
-
         case productDetailsPageRoute:
         final args = settings.arguments as ProductDetailsArgs;
         return MaterialPageRoute(
           builder: (BuildContext context) => ProductDetailsView(
             product: args.product,
           ),
+        );
+
+      /// Cart Routes
+      case cartViewPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const CartView(),
         );
 
       /// Orders Routes

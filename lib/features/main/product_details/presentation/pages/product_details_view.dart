@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
@@ -8,6 +9,8 @@ import 'package:loveleta/core/utils/app_constants.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../../../core/router/router.dart';
+import '../../../../../core/shared/cubits/cart_cubit/cart_cubit.dart';
 import '../../../../../core/shared/entities/product_entity.dart';
 import '../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../core/shared/widgets/custom_button.dart';
@@ -72,7 +75,8 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   child: Stack(
                     children: [
                       CachedNetworkImage(
-                        imageUrl: "${AppConstants.imageUrl}${widget.product.images![imageIndex].image!}",
+                        imageUrl:
+                            "${AppConstants.imageUrl}${widget.product.images![imageIndex].image!}",
                         width: 312.w,
                         height: 312.h,
                         fit: BoxFit.cover,
@@ -136,7 +140,8 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                 });
                               },
                               child: CachedNetworkImage(
-                                imageUrl: "${AppConstants.imageUrl}${widget.product.images![index].image!}",
+                                imageUrl:
+                                    "${AppConstants.imageUrl}${widget.product.images![index].image!}",
                                 width: 60.w,
                                 height: 60.h,
                                 fit: BoxFit.cover,
@@ -231,7 +236,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                       ),
                 Gap(15.h),
                 Text(
-                  widget.product.qty !=0
+                  widget.product.qty != 0
                       ? S.of(context).availability(S.of(context).inStock)
                       : S.of(context).availability(S.of(context).outOfStock),
                   style: CustomTextStyle.kTextStyleF16,
@@ -314,9 +319,16 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   ],
                 ),
                 Gap(15.h),
-                CustomBtn(
-                  label: S.of(context).addToCart,
-                  onPressed: () {},
+                BlocBuilder<CartCubit, CartStates>(
+                  builder: (context, state) {
+                    return CustomBtn(
+                      label: S.of(context).addToCart,
+                      onPressed: () {
+                        context.read<CartCubit>().addToCart(widget.product);
+                        context.pushNamed(cartViewPageRoute);
+                      },
+                    );
+                  },
                 )
               ],
             ),

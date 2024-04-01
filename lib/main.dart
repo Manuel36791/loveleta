@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -8,6 +9,7 @@ import 'core/database/address_class.dart';
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
 import 'core/router/router_generator.dart';
+import 'core/shared/cubits/cart_cubit/cart_cubit.dart';
 import 'core/shared/widgets/custom_error_widget.dart';
 import 'core/utils/app_images.dart';
 import 'core/utils/app_strings.dart';
@@ -57,6 +59,7 @@ void main() async {
 
 class MyApp extends StatefulWidget {
   final Locale currentLang;
+
   const MyApp({super.key, required this.currentLang,});
 
   static void setLocale(BuildContext context, Locale newLocale) async {
@@ -105,21 +108,24 @@ class _MyAppState extends State<MyApp> {
       splitScreenMode: true,
       // Use builder only if you need to use library outside ScreenUtilInit context
       builder: (ctx, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          // locale: Locale(widget.currentLang),
-          locale: locale,
-          localizationsDelegates: const [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: S.delegate.supportedLocales,
-          title: AppStrings.appName,
-          onGenerateRoute: AppRouters.routeGenerator,
-          home: child,
+        return BlocProvider(
+          create: (context) => CartCubit(),
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            // locale: Locale(widget.currentLang),
+            locale: locale,
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            title: AppStrings.appName,
+            onGenerateRoute: AppRouters.routeGenerator,
+            home: child,
 
+          ),
         );
       },
       child: const MainView(),
