@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 import 'package:rxdart/rxdart.dart';
 
+import '../../../../../core/helpers/cache_helper.dart';
 import '../../../../../generated/l10n.dart';
 import '../../domain/entities/login_entity.dart';
 import '../../domain/use_cases/login_use_case.dart';
@@ -57,7 +58,7 @@ class LoginCubit extends Cubit<LoginStates> {
     final login = await loginUseCase(loginEntity);
 
     login.fold(
-          (l) {
+      (l) {
         emit(
           LoginStates.error(
             l.code.toString(),
@@ -65,11 +66,42 @@ class LoginCubit extends Cubit<LoginStates> {
           ),
         );
       },
-          (r) async {
+      (r) async {
         emit(
           LoginStates.success(r),
         );
       },
     );
+  }
+
+  rememberMe() async {
+    var email = await CacheHelper.getData("email");
+    var pass = await CacheHelper.getData("pass");
+
+    emit(const LoginStates.loading());
+
+    if (email != null && pass != null) {
+      final login = await loginUseCase(
+        LoginEntity(
+          email: email,
+          pass: pass,
+        ),
+      );
+
+      login.fold(
+        (l) {
+          emit(
+            LoginStates.error(l.code.toString(), l.message),
+          );
+        },
+        (r) async {
+          emit(
+            LoginStates.success(r),
+          );
+        },
+      );
+    } else {
+
+    }
   }
 }

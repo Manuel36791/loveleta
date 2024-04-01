@@ -4,12 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+import 'package:loveleta/core/helpers/cache_helper.dart';
 import 'package:loveleta/core/router/router.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
-import '../../../../../core/helpers/cache_helper.dart';
 import '../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../core/shared/widgets/custom_form_field.dart';
@@ -30,14 +30,13 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   bool isPass = true;
+  bool rememberMe = false;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => di.di<LoginCubit>(),
       child: BlocConsumer<LoginCubit, LoginStates>(
         listener: (context, state) {
-          LoginCubit loginCubit = LoginCubit.get(context);
-
           state.maybeWhen(
             success: (state) async {
               if (state.status == 1) {
@@ -45,11 +44,6 @@ class _LoginViewState extends State<LoginView> {
                     S.of(context).loggedInSuccessful(UserData.firstName!),
                     color: AppColors.successColor,
                     textColor: AppColors.textBlack);
-                var email =
-                    CacheHelper.setData("email", loginCubit.emailCtrl.value);
-                var pass =
-                    CacheHelper.setData("pass", loginCubit.passCtrl.value);
-                debugPrint("$email, $pass");
                 context.pushNamed(bottomNavBar);
               } else if (state.status == 0 &&
                   state.msg ==
@@ -143,8 +137,17 @@ class _LoginViewState extends State<LoginView> {
                             children: [
                               Checkbox(
                                 activeColor: AppColors.pinkPrimary,
-                                value: true,
-                                onChanged: (value) {},
+                                value: rememberMe,
+                                onChanged: (value) {
+                                  setState(() {
+                                    rememberMe = value!;
+                                  });
+
+                                  if (rememberMe == true) {
+                                    CacheHelper.setData("email", loginCubit.emailCtrl.value);
+                                    CacheHelper.setData("pass", loginCubit.passCtrl.value);
+                                  }
+                                },
                               ),
                               Text(
                                 S.of(context).rememberMe,
