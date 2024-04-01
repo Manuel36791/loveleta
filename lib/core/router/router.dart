@@ -22,3 +22,5 @@ const String trackOrderPageRoute = '/trackOrder';
 const String savedAddressesPageRoute = '/savedAddresses';
 const String addNewAddressPageRoute = '/AddAddress';
 const String mapPageRoute = '/mapView';
+
+const String cartViewPageRoute = '/cartView';

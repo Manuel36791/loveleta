@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../core/shared/cubits/cart_cubit/cart_cubit.dart';
 import '../../generated/l10n.dart';
 import '../cart/presentation/pages/cart_view.dart';
 import '../main/categories/presentation/pages/categories_view.dart';
@@ -19,7 +21,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
   final List<Widget> _view = [
     const HomeView(),
     const CategoriesView(),
-    const CartView(),
+    BlocProvider(
+      create: (context) => CartCubit(),
+      child: const CartView(),
+    ),
     const SettingsView(),
   ];
 

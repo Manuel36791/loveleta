@@ -1,32 +1,26 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:intl/intl.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../../core/shared/cubits/cart_cubit/cart_cubit.dart';
+import '../../../../core/shared/entities/product_entity.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../../../../core/utils/dimensions.dart';
 
 class CartItem extends StatefulWidget {
-  final int itemIndex;
-  final String productName;
-  final String productPrice;
-  final String productImage;
-  final String categoryName;
-  final int quantity;
+  final ProductEntity product;
+  final num? quantity;
 
   const CartItem({
     super.key,
-    required this.itemIndex,
-    required this.productImage,
-    required this.productName,
-    required this.categoryName,
-    required this.productPrice,
-    required this.quantity,
-
+    required this.product,
+    this.quantity = 1,
   });
 
   @override
@@ -37,8 +31,10 @@ class _CartItemState extends State<CartItem> {
   @override
   Widget build(BuildContext context) {
     return Dismissible(
-      key: ValueKey<int>(widget.itemIndex),
-      onDismissed: (value) {},
+      key: ValueKey<int>(widget.product.id!.toInt()),
+      onDismissed: (value) {
+        context.read<CartCubit>().removeFromCart(widget.product);
+      },
       direction: DismissDirection.endToStart,
       background: Container(
         padding: const EdgeInsets.all(Dimensions.p16),
@@ -66,26 +62,29 @@ class _CartItemState extends State<CartItem> {
           size: 60.sp,
           shape: GFAvatarShape.standard,
           backgroundImage: CachedNetworkImageProvider(
-            widget.productImage,
+            widget.product.mainImage!,
           ),
         ),
         title: Text(
-          widget.productName,
+          Intl.getCurrentLocale() == "en"
+              ? widget.product.nameEn!
+              : widget.product.nameAr!,
           style: CustomTextStyle.kTextStyleF12,
         ),
-        subTitle: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              widget.categoryName,
-              style: CustomTextStyle.kTextStyleF12
-                  .copyWith(color: AppColors.textGrey),
-            ),
-          ],
-        ),
+        // subTitle: Column(
+        //   crossAxisAlignment: CrossAxisAlignment.start,
+        //   children: [
+        //     Text(
+        //       widget.product.categoryId!.nameEn!,
+        //       style: CustomTextStyle.kTextStyleF12
+        //           .copyWith(color: AppColors.textGrey),
+        //     ),
+        //   ],
+        // ),
         description: Row(
           children: [
-            Text(widget.productPrice, style: CustomTextStyle.kTextStyleF14),
+            Text(widget.product.price.toString(),
+                style: CustomTextStyle.kTextStyleF14),
             const Spacer(),
             GestureDetector(
               onTap: () {
