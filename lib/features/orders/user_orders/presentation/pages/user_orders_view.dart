@@ -11,6 +11,7 @@ import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../core/shared/widgets/state_loading_widget.dart';
 import '../../../../../core/utils/app_text_styles.dart';
+import '../../../../../generated/l10n.dart';
 import '../../domain/entities/order_entity.dart';
 import '../manager/user_orders_cubit.dart';
 import '../widgets/order_container.dart';
@@ -25,11 +26,11 @@ class OrdersView extends StatefulWidget {
 class _OrdersViewState extends State<OrdersView> {
   int status = 0;
   List<String> statusList = [
-    "Pending",
-    "Processing",
-    "Shipped",
-    "Delivered",
-    "Cancelled",
+    S.current.pending,
+    S.current.processing,
+    S.current.shipped,
+    S.current.delivered,
+    S.current.cancelled,
   ];
 
   @override
@@ -138,7 +139,7 @@ class _OrdersViewState extends State<OrdersView> {
                             : Expanded(
                                 child: Center(
                                   child: Text(
-                                    "You Have no orders yet",
+                                    S.of(context).youHaveNoOrdersYet,
                                     style: CustomTextStyle.kTextStyleF18,
                                     textAlign: TextAlign.center,
                                   ),

@@ -166,5 +166,54 @@
       }
     }
   },
-  "addToCart": "أضف إلى السلة"
+  "addToCart": "أضف إلى السلة",
+
+  "@_Orders": {},
+  "pending": "قيد الانتظار",
+  "processing": "قيد المعالجة",
+  "shipped": "تم الشحن",
+  "delivered": "تم التوصيل",
+  "cancelled": "تم الإلغاء",
+  "youHaveNoOrdersYet": "ليس لديك أي طلبات حاليًا",
+  "orderNumber": "رقم الطلب #{orderNo}",
+  "@orderNumber": {
+    "placeholders": {
+      "orderNo": {
+        "type": "String"
+      }
+    }
+  },
+  "qty": "الكمية: {quantity}",
+
+  "@_OrderDetails": {},
+  "arrivingTo": "الوصول إلى",
+  "executedRequest": "الطلب المنفذ",
+  "subtotal": "المجموع الفرعي",
+  "deliveryFee": "رسوم التوصيل",
+  "tax": "الضريبة",
+
+  "@_TrackOrder": {},
+  "eta": "الوقت المقدر للوصول (ETA)",
+  "updatedAt": "تم التحديث في {date}",
+  "@updatedAt": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "cancelOrder": "إلغاء الطلب",
+  "yesCancel": "نعم، إلغاء",
+  "noClose": "لا، إغلاق",
+  "trackOrder": "تتبع الطلب",
+  "amount": "المبلغ",
+  "total": "المجموع",
+  "price": "{amount} ريال سعودي",
+  "@price": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  }
 }

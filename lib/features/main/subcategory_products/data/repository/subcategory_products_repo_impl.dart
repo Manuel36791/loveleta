@@ -5,7 +5,6 @@ import 'package:dio/dio.dart';
 import '../../../../../core/resources/api/data_sources.dart';
 import '../../../../../core/resources/api/error_handler.dart';
 import '../../../../../core/resources/api/failure_class.dart';
-import '../../../../../core/shared/entities/product_entity.dart';
 import '../../domain/entities/subcategory_products_entity.dart';
 import '../../domain/repository/subcategory_products_repo.dart';
 import '../data_sources/subcategory_products_service.dart';

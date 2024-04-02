@@ -1029,6 +1029,226 @@ class S {
       args: [],
     );
   }
+
+  /// `Pending`
+  String get pending {
+    return Intl.message(
+      'Pending',
+      name: 'pending',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Processing`
+  String get processing {
+    return Intl.message(
+      'Processing',
+      name: 'processing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shipped`
+  String get shipped {
+    return Intl.message(
+      'Shipped',
+      name: 'shipped',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivered`
+  String get delivered {
+    return Intl.message(
+      'Delivered',
+      name: 'delivered',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancelled`
+  String get cancelled {
+    return Intl.message(
+      'Cancelled',
+      name: 'cancelled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You Have no orders yet`
+  String get youHaveNoOrdersYet {
+    return Intl.message(
+      'You Have no orders yet',
+      name: 'youHaveNoOrdersYet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Number #{orderNo}`
+  String orderNumber(String orderNo) {
+    return Intl.message(
+      'Order Number #$orderNo',
+      name: 'orderNumber',
+      desc: '',
+      args: [orderNo],
+    );
+  }
+
+  /// `QTY: {quantity}`
+  String qty(Object quantity) {
+    return Intl.message(
+      'QTY: $quantity',
+      name: 'qty',
+      desc: '',
+      args: [quantity],
+    );
+  }
+
+  /// `Arriving to`
+  String get arrivingTo {
+    return Intl.message(
+      'Arriving to',
+      name: 'arrivingTo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Executed Request`
+  String get executedRequest {
+    return Intl.message(
+      'Executed Request',
+      name: 'executedRequest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subtotal`
+  String get subtotal {
+    return Intl.message(
+      'Subtotal',
+      name: 'subtotal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivery fee`
+  String get deliveryFee {
+    return Intl.message(
+      'Delivery fee',
+      name: 'deliveryFee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tax`
+  String get tax {
+    return Intl.message(
+      'Tax',
+      name: 'tax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Estimated time of arrival (ETA)`
+  String get eta {
+    return Intl.message(
+      'Estimated time of arrival (ETA)',
+      name: 'eta',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Updated at {date}`
+  String updatedAt(String date) {
+    return Intl.message(
+      'Updated at $date',
+      name: 'updatedAt',
+      desc: '',
+      args: [date],
+    );
+  }
+
+  /// `Cancel Order`
+  String get cancelOrder {
+    return Intl.message(
+      'Cancel Order',
+      name: 'cancelOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes, Cancel`
+  String get yesCancel {
+    return Intl.message(
+      'Yes, Cancel',
+      name: 'yesCancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No, Close`
+  String get noClose {
+    return Intl.message(
+      'No, Close',
+      name: 'noClose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Track Order`
+  String get trackOrder {
+    return Intl.message(
+      'Track Order',
+      name: 'trackOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Amount`
+  String get amount {
+    return Intl.message(
+      'Amount',
+      name: 'amount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total`
+  String get total {
+    return Intl.message(
+      'Total',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{amount} SAR`
+  String price(String amount) {
+    return Intl.message(
+      '$amount SAR',
+      name: 'price',
+      desc: '',
+      args: [amount],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

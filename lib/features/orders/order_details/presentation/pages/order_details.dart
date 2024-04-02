@@ -2,23 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
+import 'package:intl/intl.dart';
 import 'package:loveleta/core/router/router.dart';
+import 'package:loveleta/core/shared/arguments.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 
 import '../../../../../../core/utils/app_colors.dart';
+import '../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/dimensions.dart';
+import '../../../../../generated/l10n.dart';
+import '../../../user_orders/domain/entities/order_entity.dart';
 import '../widgets/order_product_card.dart';
 
 class OrderDetailsView extends StatefulWidget {
-  // final OrderEntity orderDetails;
+  final OrderEntity orderDetails;
 
-  // final String? orderNo;
   const OrderDetailsView({
     super.key,
-    // required this.orderDetails,
+    required this.orderDetails,
   });
 
   @override
@@ -47,21 +51,17 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Arriving to",
+                          S.of(context).arrivingTo,
                           style: CustomTextStyle.kTextStyleF16,
                         ),
                         TextButton(
                           onPressed: () {
-                            // context.pushNamed(
-                            //   trackOrderPageRoute,
-                            //   arguments: OrderDetailsArgs(
-                            //     orderDetails: widget.orderDetails,
-                            //   ),
-                            // );
-                            context.pushNamed(trackOrderPageRoute);
+                            context.pushNamed(trackOrderPageRoute, arguments: OrderDetailsArgs(
+                              orderDetails: widget.orderDetails,
+                            ));
                           },
                           child: Text(
-                            "Track order",
+                            S.of(context).trackOrder,
                             style: CustomTextStyle.kTextStyleF16,
                           ),
                         ),
@@ -87,7 +87,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                                 Gap(8.w),
                                 Expanded(
                                   child: Text(
-                                    "555 Smith Street, Springfield, IL 62701, United States.",
+                                    "${widget.orderDetails.shippingAddress!.building} ${widget.orderDetails.shippingAddress!.address}, ${widget.orderDetails.shippingAddress!.city}, ${widget.orderDetails.shippingAddress!.code}, ${widget.orderDetails.shippingAddress!.country}",
                                     style: CustomTextStyle.kTextStyleF12,
                                     // overflow: TextOverflow.ellipsis,
                                   ),
@@ -104,7 +104,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                                 ),
                                 Gap(8.w),
                                 Text(
-                                  "John Doe",
+                                  "${UserData.firstName} ${UserData.lastName}",
                                   style: CustomTextStyle.kTextStyleF12,
                                 ),
                               ],
@@ -119,7 +119,7 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                                 ),
                                 Gap(8.w),
                                 Text(
-                                  "+1 (555) 123-4567",
+                                  "${UserData.phone}",
                                   style: CustomTextStyle.kTextStyleF12,
                                 ),
                               ],
@@ -130,20 +130,20 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                     ),
                     Gap(20.h),
                     Text(
-                      "Executed Request",
+                      S.of(context).executedRequest,
                       style: CustomTextStyle.kTextStyleF16,
                     ),
                     Gap(15.h),
                     ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 5,
+                      itemCount: widget.orderDetails.products!.length,
                       itemBuilder: (ctx, index) {
-                        return const OrderProductCard(
-                          imageUrl: "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80",
-                          productName: "Product Name",
-                          price: 760,
-                          quantity: 2,
+                        return OrderProductCard(
+                          imageUrl: widget.orderDetails.products![index].mainImage,
+                          productName: Intl.getCurrentLocale() == "en" ? widget.orderDetails.products![index].nameEn : widget.orderDetails.products![index].nameAr,
+                          price: widget.orderDetails.totalPrice,
+                          quantity: widget.orderDetails.products!.length,
                         );
                       },),
                     Gap(250.h),
@@ -175,10 +175,10 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Track Order",
+                          S.of(context).trackOrder,
                           style: CustomTextStyle.kTextStyleF14,
                         ),
-                        Text("#kloth-12345",
+                        Text("#${widget.orderDetails.orderNo}",
                             style: CustomTextStyle.kTextStyleF14),
                       ],
                     ),
@@ -187,11 +187,11 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Total",
+                          S.of(context).total,
                           style: CustomTextStyle.kTextStyleF14,
                         ),
                         Text(
-                            "820 SAR",
+                            S.of(context).price(widget.orderDetails.totalPrice.toString()),
                             style: CustomTextStyle.kTextStyleF14),
                       ],
                     ),
@@ -203,13 +203,13 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Subtotal",
+                          S.of(context).subtotal,
                           style: CustomTextStyle.kTextStyleF14.copyWith(
                             color: AppColors.textGrey,
                           ),
                         ),
                         Text(
-                          "760 SAR",
+                          S.of(context).price(widget.orderDetails.subTotalPrice.toString()),
                           style: CustomTextStyle.kTextStyleF14,
                         ),
                       ],
@@ -219,12 +219,13 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Delivery fee",
+                          S.of(context).deliveryFee,
                           style: CustomTextStyle.kTextStyleF14.copyWith(
                             color: AppColors.textGrey,
                           ),
                         ),
-                        Text("40 SAR",
+                        Text(
+                            S.of(context).price(widget.orderDetails.shippingCost.toString()),
                             style: CustomTextStyle.kTextStyleF14),
                       ],
                     ),
@@ -233,12 +234,14 @@ class _OrderDetailsViewState extends State<OrderDetailsView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Tax",
+                          S.of(context).tax,
                           style: CustomTextStyle.kTextStyleF14.copyWith(
                             color: AppColors.textGrey,
                           ),
                         ),
-                        Text("20 SAR",
+                        Text(
+
+                            S.of(context).price(widget.orderDetails.tax.toString()),
                             style: CustomTextStyle.kTextStyleF14),
                       ],
                     ),

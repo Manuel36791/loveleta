@@ -169,8 +169,53 @@
       }
     }
   },
-  "addToCart": "Add to cart"
+  "addToCart": "Add to cart",
 
+  "@_Orders": {},
+  "pending": "Pending",
+  "processing": "Processing",
+  "shipped": "Shipped",
+  "delivered": "Delivered",
+  "cancelled": "Cancelled",
+  "youHaveNoOrdersYet": "You Have no orders yet",
+  "orderNumber": "Order Number #{orderNo}",
+  "@orderNumber": {
+    "placeholders": {
+      "orderNo": {
+        "type": "String"
+      }
+    }
+  },
+  "qty": "QTY: {quantity}",
 
+  "@_OrderDetails": {},
+  "arrivingTo": "Arriving to",
+  "executedRequest": "Executed Request",
+  "subtotal": "Subtotal","deliveryFee": "Delivery fee",
+  "tax": "Tax",
 
+  "@_TrackOrder": {},
+  "eta": "Estimated time of arrival (ETA)",
+  "updatedAt": "Updated at {date}",
+  "@updatedAt": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "cancelOrder": "Cancel Order",
+  "yesCancel": "Yes, Cancel",
+  "noClose": "No, Close",
+  "trackOrder": "Track Order",
+  "amount": "Amount",
+  "total": "Total",
+  "price": "{amount} SAR",
+  "@price": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  }
 }

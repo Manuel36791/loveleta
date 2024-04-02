@@ -1,6 +1,7 @@
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../../features/orders/user_orders/domain/entities/order_entity.dart';
 import '../database/address_class.dart';
 import 'entities/product_entity.dart';
 
@@ -57,4 +58,10 @@ class PaymentSummaryArgs {
   final Address address;
 
   PaymentSummaryArgs({required this.address});
+}
+
+class OrderDetailsArgs {
+  final OrderEntity orderDetails;
+
+  OrderDetailsArgs({required this.orderDetails});
 }

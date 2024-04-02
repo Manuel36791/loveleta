@@ -59,6 +59,11 @@ import '../../features/main/subcategory_products/data/repository/subcategory_pro
 import '../../features/main/subcategory_products/domain/repository/subcategory_products_repo.dart';
 import '../../features/main/subcategory_products/domain/usecases/subcategory_products_usecase.dart';
 import '../../features/main/subcategory_products/presentation/manager/subcategory_products_cubit.dart';
+import '../../features/orders/track_order/data/data_sources/cancel_order_service.dart';
+import '../../features/orders/track_order/data/repositories/cancel_order_repo_impl.dart';
+import '../../features/orders/track_order/domain/repositories/cancel_order_repo.dart';
+import '../../features/orders/track_order/domain/use_cases/cancel_order_usecase.dart';
+import '../../features/orders/track_order/presentation/manager/cancel_order_cubit.dart';
 import '../../features/orders/user_orders/data/data_sources/user_orders_service.dart';
 import '../../features/orders/user_orders/data/repositories/user_orders_repo_impl.dart';
 import '../../features/orders/user_orders/domain/repositories/user_orders_repo.dart';
@@ -166,6 +171,13 @@ Future<void> init() async {
   di.registerLazySingleton<UserOrdersRepo>(
       () => UserOrdersRepoImpl(userOrdersService: di()));
   di.registerLazySingleton<UserOrdersService>(() => UserOrdersServiceImpl());
+
+  /// Cancel Order
+  di.registerFactory(() => CancelOrderCubit(cancelOrderUseCase: di()));
+  di.registerLazySingleton(() => CancelOrderUseCase(cancelOrderRepo: di()));
+  di.registerLazySingleton<CancelOrderRepo>(
+      () => CancelOrderRepoImpl(cancelOrderService: di()));
+  di.registerLazySingleton<CancelOrderService>(() => CancelOrderServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();
