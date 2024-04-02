@@ -38,4 +38,5 @@ class AppConstants {
   static const getNewProductsUri = "v1/products/new";
   static const getBestProductsUri = "v1/products/best-seller";
   static const getOrders = "v1/orders";
+  static const cancelOrder = "v1/order/cancel";
 }

@@ -160,12 +160,18 @@ class AppRouters {
           builder: (BuildContext context) => const OrdersView(),
         );
       case orderDetailsPageRoute:
+        final args = settings.arguments as OrderDetailsArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const OrderDetailsView(),
+          builder: (BuildContext context) => OrderDetailsView(
+            orderDetails: args.orderDetails,
+          ),
         );
       case trackOrderPageRoute:
+        final args = settings.arguments as OrderDetailsArgs;
         return MaterialPageRoute(
-          builder: (BuildContext context) => const TrackOrderView(),
+          builder: (BuildContext context) => TrackOrderView(
+            orderDetails: args.orderDetails,
+          ),
         );
 
       /// Address Routes

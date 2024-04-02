@@ -7,7 +7,9 @@ import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../core/utils/extensions.dart';
 import '../../../../../core/router/router.dart';
+import '../../../../../core/shared/arguments.dart';
 import '../../../../../core/utils/app_text_styles.dart';
+import '../../../../../generated/l10n.dart';
 import '../../domain/entities/order_entity.dart';
 
 class OrderContainer extends StatelessWidget {
@@ -18,25 +20,17 @@ class OrderContainer extends StatelessWidget {
     this.order,
   });
 
-
   @override
   Widget build(BuildContext context) {
-    List<String> statusList = [
-      "In Progress",
-      "Delivered",
-      "Cancelled",
-    ];
 
     return GestureDetector(
       onTap: () {
-        // context.pushNamed(
-        //   orderDetailsPageRoute,
-        //   arguments: OrderDetailsArgs(
-        //     orderDetails: orderEntity!,
-        //   ),
-        // );
-
-        context.pushNamed(orderDetailsPageRoute);
+        context.pushNamed(
+          orderDetailsPageRoute,
+          arguments: OrderDetailsArgs(
+            orderDetails: order!,
+          ),
+        );
       },
       child: Container(
         padding: const EdgeInsets.all(Dimensions.p20),
@@ -60,14 +54,22 @@ class OrderContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Order Number #${order!.orderNo}",
+                  S.of(context).orderNumber(order!.orderNo!),
                   style: CustomTextStyle.kTextStyleF14,
                 ),
-                StatusIndicator(
-                  statusText: statusList[1],
+                order!.status == 3 ?   StatusIndicator(
+                  statusText: S.of(context).delivered,
                   textColor: AppColors.statusGreen,
                   containerColor: AppColors.statusGreenContainer,
-                )
+                ) : order!.status == 4 ?  StatusIndicator(
+                  statusText: S.of(context).cancelled,
+                  textColor: AppColors.statusRed,
+                  containerColor: AppColors.statusRedContainer,
+                ) :  StatusIndicator(
+                  statusText: S.of(context).processing,
+                  textColor: AppColors.statusOrange,
+                  containerColor: AppColors.statusOrangeContainer,
+                ),
               ],
             ),
             Gap(10.h),
@@ -79,27 +81,17 @@ class OrderContainer extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "Total: ",
+                     "${ S.of(context).total}:",
                       style: CustomTextStyle.kTextStyleF12,
                     ),
                     Text(
-                      "${order!.totalPrice} SAR",
-                      style: CustomTextStyle.kTextStyleF12,
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Text(
-                      "QTY: ${order!.products!.length}",
-                      style: CustomTextStyle.kTextStyleF12
-                    ),
-                    Text(
-                      2.toString(),
+                      S.of(context).price(order!.totalPrice.toString()),
                       style: CustomTextStyle.kTextStyleF12,
                     ),
                   ],
                 ),
+                Text(S.of(context).qty(order!.products!.length),
+                    style: CustomTextStyle.kTextStyleF12),
               ],
             ),
             Gap(20.h),

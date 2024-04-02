@@ -27,7 +27,7 @@ class OrderModel extends OrderEntity {
   factory OrderModel.fromJson(Map<String, dynamic> json) {
     return OrderModel(
       id: json['id'],
-      orderNo: json['order_no'],
+      orderNo: json['order_number'],
       userId: json['user_id'],
       shippingAddressId: json['shipping_address_id'],
       status: json['status'],

@@ -29,9 +29,17 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m3(userName) =>
       "Logged In Successfully. Welcome again ${userName}";
 
-  static String m4(price) => "SAR ${price}";
+  static String m4(orderNo) => "Order Number #${orderNo}";
 
-  static String m5(SKU) => "SKU: ${SKU}";
+  static String m5(amount) => "${amount} SAR";
+
+  static String m6(quantity) => "QTY: ${quantity}";
+
+  static String m7(price) => "SAR ${price}";
+
+  static String m8(SKU) => "SKU: ${SKU}";
+
+  static String m9(date) => "Updated at ${date}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -42,6 +50,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "addToCart": MessageLookupByLibrary.simpleMessage("Add to cart"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "amount": MessageLookupByLibrary.simpleMessage("Amount"),
+        "arrivingTo": MessageLookupByLibrary.simpleMessage("Arriving to"),
         "availability": m0,
         "bad_gateway": MessageLookupByLibrary.simpleMessage(
             "Invalid data, please try again"),
@@ -51,6 +61,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "bestSellers": MessageLookupByLibrary.simpleMessage("Best Sellers"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
+        "cancelOrder": MessageLookupByLibrary.simpleMessage("Cancel Order"),
+        "cancelled": MessageLookupByLibrary.simpleMessage("Cancelled"),
         "categories": MessageLookupByLibrary.simpleMessage("Categories"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
@@ -64,6 +76,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
+        "delivered": MessageLookupByLibrary.simpleMessage("Delivered"),
+        "deliveryFee": MessageLookupByLibrary.simpleMessage("Delivery fee"),
         "dontHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Don’t Have An account"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
@@ -75,6 +89,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "The email address provided is not registered. Please ensure you have entered the correct email or proceed with creating a new account"),
         "emailRegisteredSuccessful": m1,
         "error": m2,
+        "eta": MessageLookupByLibrary.simpleMessage(
+            "Estimated time of arrival (ETA)"),
+        "executedRequest":
+            MessageLookupByLibrary.simpleMessage("Executed Request"),
         "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
@@ -111,12 +129,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "newPasswordCantBeLessThan8Characters":
             MessageLookupByLibrary.simpleMessage(
                 "New password can\'t be less than 8 characters"),
+        "noClose": MessageLookupByLibrary.simpleMessage("No, Close"),
         "no_content":
             MessageLookupByLibrary.simpleMessage("success with not content"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
             "Please check your internet connection"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url not found, try again later"),
+        "orderNumber": m4,
         "orders": MessageLookupByLibrary.simpleMessage("Orders"),
         "outOfStock": MessageLookupByLibrary.simpleMessage("Out of Stock"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
@@ -133,6 +153,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Passwords do not match. Please try again"),
         "payment_required":
             MessageLookupByLibrary.simpleMessage("Payment Required"),
+        "pending": MessageLookupByLibrary.simpleMessage("Pending"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "pleaseEnterAPassword":
             MessageLookupByLibrary.simpleMessage("Please enter a password"),
@@ -161,14 +182,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please reconfirm your password"),
         "plzEnterAValidEmail":
             MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
+        "price": m5,
         "privacyDes": MessageLookupByLibrary.simpleMessage(
             "Our privacy policy describes how we collect and process your personal information, such as the information you provide through our application. The policy also outlines your rights regarding your personal information, how it is retained, and secured. Communication: Various communication channels are provided in case of any questions or inquiries about the privacy policy. You can speak to the team through the application, call the specified number, or contact them via email.Updates: In the event of any changes in the way personal information is processed or in the policy itself, you will be promptly notified via email and the application will be updated."),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+        "processing": MessageLookupByLibrary.simpleMessage("Processing"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "qty": m6,
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
         "resetPasswordBtn": MessageLookupByLibrary.simpleMessage("Reset Pass"),
-        "sar": m4,
+        "sar": m7,
         "savedAddresses":
             MessageLookupByLibrary.simpleMessage("Saved addresses"),
         "search": MessageLookupByLibrary.simpleMessage(
@@ -177,12 +201,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendAgain": MessageLookupByLibrary.simpleMessage("Send Again"),
         "service_unavailable":
             MessageLookupByLibrary.simpleMessage("Server is under maintenance"),
+        "shipped": MessageLookupByLibrary.simpleMessage("Shipped"),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
-        "sku": m5,
+        "sku": m8,
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
+        "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
         "success": MessageLookupByLibrary.simpleMessage("success"),
+        "tax": MessageLookupByLibrary.simpleMessage("Tax"),
         "timeout_error":
             MessageLookupByLibrary.simpleMessage("time out, try again late"),
+        "total": MessageLookupByLibrary.simpleMessage("Total"),
+        "trackOrder": MessageLookupByLibrary.simpleMessage("Track Order"),
         "unauthorized_error": MessageLookupByLibrary.simpleMessage(
             "user unauthorized, try again later"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(
@@ -191,11 +220,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "unprocessable data, check it and try again"),
         "updatePassword":
             MessageLookupByLibrary.simpleMessage("Update Password"),
+        "updatedAt": m9,
         "verify": MessageLookupByLibrary.simpleMessage("Verify"),
         "verifyAccount": MessageLookupByLibrary.simpleMessage("Verify Account"),
         "wrongOtpEntered": MessageLookupByLibrary.simpleMessage(
             "The OTP entered is incorrect. Please check your email again and enter the correct OTP to reset your password"),
         "wrongVerifyOtp": MessageLookupByLibrary.simpleMessage(
-            "The OTP entered is incorrect. Please check your email again and enter the correct OTP to verify your account.")
+            "The OTP entered is incorrect. Please check your email again and enter the correct OTP to verify your account."),
+        "yesCancel": MessageLookupByLibrary.simpleMessage("Yes, Cancel"),
+        "youHaveNoOrdersYet":
+            MessageLookupByLibrary.simpleMessage("You Have no orders yet")
       };
 }
