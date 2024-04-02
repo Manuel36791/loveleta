@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:loveleta/core/router/router.dart';
 
 import '../../../../../../core/shared/widgets/status_indicator.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../core/utils/extensions.dart';
+import '../../../../../core/router/router.dart';
 import '../../../../../core/utils/app_text_styles.dart';
+import '../../domain/entities/order_entity.dart';
 
 class OrderContainer extends StatelessWidget {
-  // final OrderEntity? orderEntity;
+  final OrderEntity? order;
 
   const OrderContainer({
     super.key,
-    // this.orderEntity,
+    this.order,
   });
 
 
@@ -59,7 +60,7 @@ class OrderContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Order Number #2563589",
+                  "Order Number #${order!.orderNo}",
                   style: CustomTextStyle.kTextStyleF14,
                 ),
                 StatusIndicator(
@@ -82,7 +83,7 @@ class OrderContainer extends StatelessWidget {
                       style: CustomTextStyle.kTextStyleF12,
                     ),
                     Text(
-                      "820 SAR",
+                      "${order!.totalPrice} SAR",
                       style: CustomTextStyle.kTextStyleF12,
                     ),
                   ],
@@ -90,7 +91,7 @@ class OrderContainer extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "QTY: ",
+                      "QTY: ${order!.products!.length}",
                       style: CustomTextStyle.kTextStyleF12
                     ),
                     Text(
@@ -104,7 +105,7 @@ class OrderContainer extends StatelessWidget {
             Gap(20.h),
             Text(
               DateTime.parse(
-                "2022-10-10 10:10:10",
+                order!.updatedAt!,
               ).stringFormat(
                 DateFormatType.hyphenatedDate,
               ),

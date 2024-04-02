@@ -59,6 +59,11 @@ import '../../features/main/subcategory_products/data/repository/subcategory_pro
 import '../../features/main/subcategory_products/domain/repository/subcategory_products_repo.dart';
 import '../../features/main/subcategory_products/domain/usecases/subcategory_products_usecase.dart';
 import '../../features/main/subcategory_products/presentation/manager/subcategory_products_cubit.dart';
+import '../../features/orders/user_orders/data/data_sources/user_orders_service.dart';
+import '../../features/orders/user_orders/data/repositories/user_orders_repo_impl.dart';
+import '../../features/orders/user_orders/domain/repositories/user_orders_repo.dart';
+import '../../features/orders/user_orders/domain/use_cases/user_orders_usecase.dart';
+import '../../features/orders/user_orders/presentation/manager/user_orders_cubit.dart';
 
 final di = GetIt.instance;
 
@@ -154,6 +159,13 @@ Future<void> init() async {
   di.registerLazySingleton<BestSellerRepo>(
       () => BestSellerRepoImpl(productsService: di()));
   di.registerLazySingleton<BestSellerService>(() => BestSellerServiceImpl());
+
+  /// Orders
+  di.registerFactory(() => UserOrdersCubit(userOrdersUseCase: di()));
+  di.registerLazySingleton(() => UserOrdersUseCase(userOrdersRepo: di()));
+  di.registerLazySingleton<UserOrdersRepo>(
+      () => UserOrdersRepoImpl(userOrdersService: di()));
+  di.registerLazySingleton<UserOrdersService>(() => UserOrdersServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();
