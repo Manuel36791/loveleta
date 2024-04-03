@@ -57,7 +57,7 @@ class _CartViewState extends State<CartView> {
                                   .watch<CartCubit>()
                                   .cartProducts[index];
                               return CartItem(
-                                  product: productItems, quantity: 5);
+                                  product: productItems);
                             },
                           ),
                           Gap(300.h),

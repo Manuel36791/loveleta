@@ -16,8 +16,8 @@ class PlaceOrderServiceImpl implements PlaceOrderService {
     PlaceOrderModel placeOrderModel = const PlaceOrderModel();
 
     final order = await dio.post(
-      AppConstants.apiBaseUrl,
-      data: placeOrderEntity.coupon == "" ? PlaceOrderModel.toJson(placeOrderEntity) : PlaceOrderModel.toJsonIncludingCoupon(placeOrderEntity),
+      AppConstants.placeOrderUri,
+      data: PlaceOrderModel.toJson(placeOrderEntity),
     );
 
     if (order.statusCode == 200) {

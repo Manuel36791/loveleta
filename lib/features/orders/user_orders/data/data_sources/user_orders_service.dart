@@ -17,7 +17,7 @@ class UserOrdersServiceImpl implements UserOrdersService {
     List<OrderModel> ordersList = [];
 
     final orders = await dio.post(
-      AppConstants.getOrders,
+      AppConstants.getOrdersUri,
       data: OrderModel.toJson(ordersEntity),
     );
 

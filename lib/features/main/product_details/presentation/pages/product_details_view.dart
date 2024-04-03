@@ -273,7 +273,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      S.of(context).sar(widget.product.price!),
+                      S.of(context).sar(widget.product.price.toString()),
                       style: CustomTextStyle.kTextStyleF16.copyWith(
                         fontWeight: FontWeight.w700,
                       ),
@@ -324,7 +324,19 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                     return CustomBtn(
                       label: S.of(context).addToCart,
                       onPressed: () {
-                        context.read<CartCubit>().addToCart(widget.product);
+                        context.read<CartCubit>().addToCart(
+                              ProductEntity(
+                                id: widget.product.id,
+                                nameEn: widget.product.nameEn,
+                                nameAr: widget.product.nameAr,
+                                price: widget.product.price,
+                                qty: widget.product.qty,
+                                userQty: qty,
+                                mainImage: widget.product.mainImage,
+                                userColor: widget.product.color![selectedIndex]
+                                ,
+                              ),
+                            );
                         context.pushNamed(cartViewPageRoute);
                       },
                     );

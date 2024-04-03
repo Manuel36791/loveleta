@@ -2,40 +2,28 @@ import 'package:equatable/equatable.dart';
 
 class PlaceOrderEntity extends Equatable {
   final num? userId;
-  final String? name;
-  final String? phone;
   final String? address;
   final String? buildingNo;
   final String? flatNo;
   final String? city;
-  final String? state;
+  final String? country;
   final String? postCode;
-  final Map? productIds;
-  final Map? colorIds;
-  final Map? sizeIds;
+  final dynamic products;
   final String? coupon;
-  final num? gift;
-  final num? askAboutAddress;
   final String? paymentUrl;
   final num? status;
   final String? msg;
 
   const PlaceOrderEntity({
     this.userId,
-    this.name,
-    this.phone,
     this.address,
     this.buildingNo,
     this.flatNo,
     this.city,
-    this.state,
+    this.country,
     this.postCode,
-    this.productIds,
-    this.colorIds,
-    this.sizeIds,
+    this.products,
     this.coupon,
-    this.gift,
-    this.askAboutAddress,
     this.paymentUrl,
     this.status,
     this.msg,
@@ -44,17 +32,13 @@ class PlaceOrderEntity extends Equatable {
   @override
   List<Object?> get props => [
         userId,
-        name,
-        phone,
         address,
         buildingNo,
         flatNo,
         city,
-        state,
+        country,
         postCode,
-        productIds,
-        colorIds,
-        sizeIds,
+    products,
         coupon,
         paymentUrl,
         status,

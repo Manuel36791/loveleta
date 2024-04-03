@@ -7,6 +7,7 @@ class ProductModel extends ProductEntity {
     super.nameAr,
     super.price,
     super.qty,
+    super.userQty,
     super.sku,
     super.mainImage,
     super.giftDetailsEn,
@@ -57,25 +58,6 @@ class ProductModel extends ProductEntity {
   static Map<String, dynamic> toJson(ProductEntity productEntity) {
     return {
       'id': productEntity.id,
-      'category': productEntity.categoryId,
-      'mainImage': productEntity.mainImage,
-      'images': productEntity.images,
-      'nameEn': productEntity.nameEn,
-      'nameAr': productEntity.nameAr,
-      'descriptionEn': productEntity.descriptionEn,
-      'descriptionAr': productEntity.descriptionAr,
-      'giftDetailsEn': productEntity.giftDetailsEn,
-      'giftDetailsAr': productEntity.giftDetailsAr,
-      'sku': productEntity.sku,
-      'color': productEntity.color,
-      'price': productEntity.price,
-      'discount': productEntity.discount,
-      'discountedPrice': productEntity.discountedPrice,
-      'isFavorite': productEntity.isFavorite,
-      'isExpress': productEntity.isExpress,
-      'isFreeDelivery': productEntity.isFreeDelivery,
-      'isNew': productEntity.isNew,
-      'bestSeller': productEntity.bestSeller,
     };
   }
 }

@@ -15,12 +15,10 @@ import '../../../../core/utils/dimensions.dart';
 
 class CartItem extends StatefulWidget {
   final ProductEntity product;
-  final num? quantity;
 
   const CartItem({
     super.key,
     required this.product,
-    this.quantity = 1,
   });
 
   @override
@@ -88,16 +86,11 @@ class _CartItemState extends State<CartItem> {
             const Spacer(),
             GestureDetector(
               onTap: () {
-                // setState(() {
-                //   if (productItems
-                //       .userQuantity! <=
-                //       productItems.quantity!) {
-                //     productItems.userQuantity =
-                //         productItems
-                //             .userQuantity! +
-                //             1;
-                //   }
-                // });
+                setState(() {
+                  if (widget.product.userQty! <= widget.product.qty!) {
+                    widget.product.userQty! + 1;
+                  }
+                });
               },
               child: Icon(
                 MdiIcons.plusBoxOutline,
@@ -105,23 +98,18 @@ class _CartItemState extends State<CartItem> {
               ),
             ),
             Gap(10.w),
-            Text(widget.quantity.toString(),
+            Text(widget.product.userQty.toString(),
                 style: CustomTextStyle.kTextStyleF14.copyWith(
                   fontWeight: FontWeight.w700,
                 )),
             Gap(10.w),
             GestureDetector(
               onTap: () {
-                // setState(() {
-                //   if (productItems
-                //       .userQuantity! >=
-                //       1) {
-                //     productItems.userQuantity =
-                //         productItems
-                //             .userQuantity! -
-                //             1;
-                //   }
-                // });
+                setState(() {
+                  if (widget.product.userQty! >= 1) {
+                    widget.product.userQty! - 1;
+                  }
+                });
               },
               child: Icon(
                 MdiIcons.minusBoxOutline,

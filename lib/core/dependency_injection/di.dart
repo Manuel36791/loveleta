@@ -69,6 +69,11 @@ import '../../features/orders/user_orders/data/repositories/user_orders_repo_imp
 import '../../features/orders/user_orders/domain/repositories/user_orders_repo.dart';
 import '../../features/orders/user_orders/domain/use_cases/user_orders_usecase.dart';
 import '../../features/orders/user_orders/presentation/manager/user_orders_cubit.dart';
+import '../../features/payment_summary/data/data_sources/place_order_service.dart';
+import '../../features/payment_summary/data/repositories/place_order_repo_impl.dart';
+import '../../features/payment_summary/domain/repositories/place_order_repo.dart';
+import '../../features/payment_summary/domain/use_cases/place_order_use_case.dart';
+import '../../features/payment_summary/presentation/manager/place_order_cubit.dart';
 
 final di = GetIt.instance;
 
@@ -178,6 +183,13 @@ Future<void> init() async {
   di.registerLazySingleton<CancelOrderRepo>(
       () => CancelOrderRepoImpl(cancelOrderService: di()));
   di.registerLazySingleton<CancelOrderService>(() => CancelOrderServiceImpl());
+
+  /// Place Order
+  di.registerFactory(() => PlaceOrderCubit(placeOrderUseCase: di()));
+  di.registerLazySingleton(() => PlaceOrderUseCase(placeOrderRepo: di()));
+  di.registerLazySingleton<PlaceOrderRepo>(
+      () => PlaceOrderRepoImpl(placeOrderService: di()));
+  di.registerLazySingleton<PlaceOrderService>(() => PlaceOrderServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();

@@ -165,7 +165,7 @@
   "@sar": {
     "placeholders": {
       "price": {
-        "type": "num"
+        "type": "String"
       }
     }
   },
