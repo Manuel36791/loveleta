@@ -59,6 +59,13 @@ import '../../features/main/subcategory_products/data/repository/subcategory_pro
 import '../../features/main/subcategory_products/domain/repository/subcategory_products_repo.dart';
 import '../../features/main/subcategory_products/domain/usecases/subcategory_products_usecase.dart';
 import '../../features/main/subcategory_products/presentation/manager/subcategory_products_cubit.dart';
+import '../../features/main/update_profile/data/data_sources/delete_account_service.dart';
+import '../../features/main/update_profile/data/data_sources/update_profile_service.dart';
+import '../../features/main/update_profile/data/repositories/update_profile_repo_impl.dart';
+import '../../features/main/update_profile/domain/repositories/update_profile_repo.dart';
+import '../../features/main/update_profile/domain/use_cases/delete_account_use_case.dart';
+import '../../features/main/update_profile/domain/use_cases/update_profile_use_case.dart';
+import '../../features/main/update_profile/presentation/manager/edit_profile_cubit.dart';
 import '../../features/orders/track_order/data/data_sources/cancel_order_service.dart';
 import '../../features/orders/track_order/data/repositories/cancel_order_repo_impl.dart';
 import '../../features/orders/track_order/domain/repositories/cancel_order_repo.dart';
@@ -190,6 +197,17 @@ Future<void> init() async {
   di.registerLazySingleton<PlaceOrderRepo>(
       () => PlaceOrderRepoImpl(placeOrderService: di()));
   di.registerLazySingleton<PlaceOrderService>(() => PlaceOrderServiceImpl());
+
+  /// Update & Delete Profile
+  di.registerFactory(() =>
+      EditProfileCubit(editProfileUseCase: di(), deleteAccountUseCase: di()));
+  di.registerLazySingleton(() => UpdateProfileUseCase(editProfileRepo: di()));
+  di.registerLazySingleton(() => DeleteAccountUseCase(editProfileRepo: di()));
+  di.registerLazySingleton<UpdateProfileRepo>(() => UpdateProfileRepoImpl(
+      updateProfileService: di(), deleteAccountService: di()));
+  di.registerLazySingleton<UpdateProfileService>(() => UpdateProfileServiceImpl());
+  di.registerLazySingleton<DeleteAccountService>(
+      () => DeleteAccountServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();

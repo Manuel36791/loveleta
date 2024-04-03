@@ -37,6 +37,28 @@ class _SettingsViewState extends State<SettingsView> {
               padding: EdgeInsets.all(16.0.sp),
               child: ListTile(
                 onTap: () {
+                  context.pushNamed(updateProfilePageRoute);
+                },
+                title: Opacity(
+                  opacity: 0.90,
+                  child: Text(
+                    "Update Profile",
+                    style: CustomTextStyle.kTextStyleF16,
+                  ),
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios_sharp,
+                  // color: AppColors.lightBlue,
+                  size: 16.sp,
+                ),
+              ),
+            ),
+            Gap(10.h),
+            Container(
+              color: Colors.white,
+              padding: EdgeInsets.all(16.0.sp),
+              child: ListTile(
+                onTap: () {
                   showModalBottomSheet(
                       context: context,
                       shape: const RoundedRectangleBorder(

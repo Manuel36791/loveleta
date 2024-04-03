@@ -40,4 +40,6 @@ class AppConstants {
   static const getOrdersUri = "v1/orders";
   static const placeOrderUri = "v1/order/store";
   static const cancelOrderUri = "v1/order/cancel";
+  static const updateProfileUri = "v1/profile/update";
+  static const deleteProfileUri = "v1/profile/delete";
 }

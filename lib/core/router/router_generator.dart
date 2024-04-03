@@ -26,6 +26,7 @@ import '../../features/main/see_more/presentation/pages/see_more_view.dart';
 import '../../features/main/subcategory_products/presentation/pages/category_details.dart';
 import '../../features/main/home/presentation/pages/home_view.dart';
 import '../../features/main/settings/presentation/pages/settings.dart';
+import '../../features/main/update_profile/presentation/pages/edit_profile_view.dart';
 import '../../features/orders/order_details/presentation/pages/order_details.dart';
 import '../../features/orders/track_order/presentation/pages/track_order_view.dart';
 import '../../features/orders/user_orders/presentation/pages/user_orders_view.dart';
@@ -140,6 +141,10 @@ class AppRouters {
           builder: (BuildContext context) => ProductDetailsView(
             product: args.product,
           ),
+        );
+      case updateProfilePageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const UpdateProfileView(),
         );
 
       /// Cart Routes
