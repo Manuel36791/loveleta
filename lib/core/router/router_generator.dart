@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loveleta/features/main/categories/domain/entities/category_entity.dart';
 import 'package:loveleta/features/main/home/presentation/manager/products_by_category/products_by_category_cubit.dart';
 import 'package:loveleta/features/main/product_details/presentation/pages/product_details_view.dart';
-import 'package:loveleta/features/payment_summary/presentation/pages/payment_summary_view.dart';
+import 'package:loveleta/features/payment_summary/presentation/pages/order_summary_view.dart';
 
 import '../../features/address/add_new_address/presentation/pages/add_new_address_view.dart';
 import '../../features/address/map/presentation/pages/map_view.dart';
@@ -151,7 +151,7 @@ class AppRouters {
         final args = settings.arguments as PaymentSummaryArgs;
         return MaterialPageRoute(
           builder: (BuildContext context) =>
-              PaymentSummaryView(address: args.address),
+              OrderSummaryView(address: args.address),
         );
 
       /// Orders Routes

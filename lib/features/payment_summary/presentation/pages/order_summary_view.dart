@@ -4,7 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:loveleta/core/shared/entities/product_entity.dart';
 import 'package:loveleta/core/utils/extensions.dart';
+import 'package:loveleta/features/payment_summary/domain/entities/place_order_entity.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../../../../../core/dependency_injection/di.dart' as di;
@@ -16,29 +18,32 @@ import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../../generated/l10n.dart';
 import '../../../../core/database/address_class.dart';
+import '../../../../core/shared/cubits/cart_cubit/cart_cubit.dart';
 import '../../../../core/utils/app_text_styles.dart';
 import '../manager/place_order_cubit.dart';
 
-class PaymentSummaryView extends StatefulWidget {
+class OrderSummaryView extends StatefulWidget {
   final Address address;
 
-  const PaymentSummaryView({
+  const OrderSummaryView({
     super.key,
     required this.address,
   });
 
   @override
-  State<PaymentSummaryView> createState() => _PaymentSummaryViewState();
+  State<OrderSummaryView> createState() => _OrderSummaryViewState();
 }
 
-class _PaymentSummaryViewState extends State<PaymentSummaryView> {
+class _OrderSummaryViewState extends State<OrderSummaryView> {
+  List<ProductEntity> products = [];
+
   bool isCoupon = false;
   num totalWithCoupon = 0;
   TextEditingController pinCtrl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    // final cartItems = context.watch<CartCubit>().products!;
+    final cartItems = context.watch<CartCubit>().cartProducts;
     return Scaffold(
       appBar: CustomAppBar(
         context: context,
@@ -287,7 +292,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               ),
                               const Spacer(),
                               Text(
-                                "${S.current.sar}",
+                                S.current.price(200.toString()),
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
                             ],
@@ -314,7 +319,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               ),
                               const Spacer(),
                               Text(
-                                "${S.current.sar}",
+                                S.current.price(200.toString()),
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
                             ],
@@ -329,7 +334,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               ),
                               const Spacer(),
                               Text(
-                                '${S.current.sar}',
+                                S.current.price(200.toString()),
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
                             ],
@@ -344,7 +349,7 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                               ),
                               const Spacer(),
                               Text(
-                                ' ${S.current.sar}',
+                                S.current.price(200.toString()),
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
                             ],
@@ -361,13 +366,17 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
               create: (context) => di.di<PlaceOrderCubit>(),
               child: BlocConsumer<PlaceOrderCubit, PlaceOrderStates>(
                 listener: (context, state) {
-                  PlaceOrderCubit placeOrderCubit =
-                      PlaceOrderCubit.get(context);
+                  // PlaceOrderCubit placeOrderCubit = PlaceOrderCubit.get(context);
                   state.maybeWhen(
                     success: (state) {
                       // placeOrderCubit.paymentLauncher(state.paymentUrl!);
-                      context.defaultSnackBar(
-                          "Order placed successfully, now redirecting to payment");
+                      if (state.status == 1) {
+                        context.defaultSnackBar(
+                            "Order placed successfully, now redirecting to payment");
+                      } else {
+                        context.defaultSnackBar(
+                            "Order failed, please try again");
+                      }
                       // context.pushNamed(orderConfirmationPageRoute);
                       // cartItems.clear();
                     },
@@ -386,7 +395,28 @@ class _PaymentSummaryViewState extends State<PaymentSummaryView> {
                       child: CustomBtn(
                         label: "Place Order",
                         onPressed: () async {
+                          Map productMap = {};
 
+                          for (int i = 0; i < cartItems.length; i++) {
+                            productMap =
+                              {
+                                "${cartItems[i].id}": {
+                                  "color": cartItems[i].userColor,
+                                  "quantity": "${cartItems[i].userQty}",
+                                },
+                              };
+                          }
+
+                          placeOrderCubit.placeOrder(PlaceOrderEntity(
+                            userId: UserData.id,
+                            address: widget.address.address,
+                            buildingNo: widget.address.building,
+                            flatNo: widget.address.flat,
+                            city: widget.address.city,
+                            country: widget.address.country,
+                            postCode: widget.address.code,
+                            products: productMap,
+                          ));
                         },
                       ),
                     ),

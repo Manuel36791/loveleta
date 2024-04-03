@@ -1011,7 +1011,7 @@ class S {
   }
 
   /// `SAR {price}`
-  String sar(num price) {
+  String sar(String price) {
     return Intl.message(
       'SAR $price',
       name: 'sar',

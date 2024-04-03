@@ -6,11 +6,13 @@ class ProductEntity extends Equatable {
   final String? nameAr;
   final num? price;
   final num? qty;
+  final num? userQty;
   final String? sku;
   final String? mainImage;
   final String? giftDetailsEn;
   final String? giftDetailsAr;
   final List<dynamic>? color;
+  final String? userColor;
   final num? status;
   final num? discount;
   final num? discountedPrice;
@@ -30,11 +32,13 @@ class ProductEntity extends Equatable {
     this.nameAr,
     this.price,
     this.qty,
+    this.userQty,
     this.sku,
     this.mainImage,
     this.giftDetailsEn,
     this.giftDetailsAr,
     this.color,
+    this.userColor,
     this.status,
     this.discount,
     this.discountedPrice,
@@ -56,11 +60,13 @@ class ProductEntity extends Equatable {
         nameAr,
         price,
         qty,
+        userQty,
         sku,
         mainImage,
         giftDetailsEn,
         giftDetailsAr,
         color,
+    userColor,
         status,
         discount,
         discountedPrice,
