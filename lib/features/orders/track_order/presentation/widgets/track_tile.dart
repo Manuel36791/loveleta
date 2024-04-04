@@ -10,7 +10,8 @@ import '../../../../../core/utils/dimensions.dart';
 class TrackTile extends StatelessWidget {
   final String? message;
   final String? date;
-  const TrackTile({super.key, this.message, this.date,});
+  final Color? color;
+  const TrackTile({super.key, this.message, this.date, this.color,});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,7 @@ class TrackTile extends StatelessWidget {
           ),
           CircleAvatar(
             radius: Dimensions.r15,
-            backgroundColor: AppColors.pinkPrimary,
+            backgroundColor: color ?? AppColors.pinkPrimary,
             child: Icon(MdiIcons.check),
           ),
         ],

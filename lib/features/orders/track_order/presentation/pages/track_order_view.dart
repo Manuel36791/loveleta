@@ -258,21 +258,25 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                           TrackTile(
                             message: S.of(context).orderAccepted,
                             date: widget.orderDetails.updatedAt!,
+                            color: widget.orderDetails.status == 0 ? AppColors.pinkPrimary : Colors.grey,
                           ),
                           Gap(55.h),
                           TrackTile(
                             message: S.of(context).orderPreparedForDelivery,
                             date: widget.orderDetails.updatedAt!,
+                            color: widget.orderDetails.status == 1 ? AppColors.pinkPrimary : Colors.grey,
                           ),
                           Gap(55.h),
                           TrackTile(
                             message: S.of(context).yourOrderIsReadyForDelivery,
                             date: widget.orderDetails.updatedAt!,
+                            color: widget.orderDetails.status == 2 ? AppColors.pinkPrimary : Colors.grey,
                           ),
                           Gap(55.h),
                           TrackTile(
                             message: S.of(context).orderSuccessfullyDelivered,
                             date: widget.orderDetails.updatedAt!,
+                            color: widget.orderDetails.status == 4 ? AppColors.pinkPrimary : Colors.grey,
                           ),
                           Gap(55.h),
                         ],
