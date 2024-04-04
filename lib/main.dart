@@ -54,14 +54,14 @@ void main() async {
     FireBaseResources().ios();
   }
 
-  var currentLocale = await CacheHelper.getAppLang();
+  var currentLocale = await CacheHelper.getLocal();
   var email = await CacheHelper.getData("email");
   var pass = await CacheHelper.getData("pass");
   debugPrint("Email: $email\n Pass: $pass");
 
   runApp(
     MyApp(
-      currentLang: Locale(currentLocale),
+      currentLang: currentLocale,
     ),
   );
 }
