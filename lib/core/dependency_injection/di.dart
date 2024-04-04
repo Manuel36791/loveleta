@@ -37,6 +37,11 @@ import '../../features/auth/verify_account/presentation/manager/verify_account_c
 import '../../features/main/categories/data/data_sources/category_service.dart';
 import '../../features/main/categories/data/repository/category_repo_impl.dart';
 import '../../features/main/categories/domain/repository/category_repo.dart';
+import '../../features/main/favorite/data/data_sources/favorite_service.dart';
+import '../../features/main/favorite/data/repositories/favorite_repo_impl.dart';
+import '../../features/main/favorite/domain/repositories/favorite_repo.dart';
+import '../../features/main/favorite/domain/use_cases/favorite_use_case.dart';
+import '../../features/main/favorite/presentation/manager/favorite_cubit.dart';
 import '../../features/main/home/data/data_sources/best_seller_service.dart';
 import '../../features/main/home/data/data_sources/new_products_service.dart';
 import '../../features/main/home/data/data_sources/products_by_category_service.dart';
@@ -54,6 +59,14 @@ import '../../features/main/categories/presentation/manager/category_cubit.dart'
 import '../../features/main/home/presentation/manager/best_seller_cubit/best_seller_cubit.dart';
 import '../../features/main/home/presentation/manager/new_products_cubit/new_products_cubit.dart';
 import '../../features/main/home/presentation/manager/products_by_category/products_by_category_cubit.dart';
+import '../../features/main/product_details/data/data_sources/add_product_to_favorites_service.dart';
+import '../../features/main/product_details/data/data_sources/check_if_product_is_favorite_service.dart';
+import '../../features/main/product_details/data/repositories/add_favorite_repo_impl.dart';
+import '../../features/main/product_details/domain/repository/favorite_product_repo.dart';
+import '../../features/main/product_details/domain/use_cases/add_product_to_favorites_use_case.dart';
+import '../../features/main/product_details/domain/use_cases/check_if_product_is_favorite_use_case.dart';
+import '../../features/main/product_details/presentation/add_to_favortes_cubit/add_to_favorites_cubit.dart';
+import '../../features/main/product_details/presentation/check_if_favorite_cubit/check_if_favorite_cubit.dart';
 import '../../features/main/subcategory_products/data/data_sources/subcategory_products_service.dart';
 import '../../features/main/subcategory_products/data/repository/subcategory_products_repo_impl.dart';
 import '../../features/main/subcategory_products/domain/repository/subcategory_products_repo.dart';
@@ -208,6 +221,22 @@ Future<void> init() async {
   di.registerLazySingleton<UpdateProfileService>(() => UpdateProfileServiceImpl());
   di.registerLazySingleton<DeleteAccountService>(
       () => DeleteAccountServiceImpl());
+
+  /// Favorites
+  di.registerFactory(() => FavoriteCubit(favoriteUseCase: di()));
+  di.registerLazySingleton(() => FavoriteUseCase(favoriteRepo: di()));
+  di.registerLazySingleton<FavoriteRepo>(
+          () => FavoriteRepoImpl(favoriteService: di()));
+  di.registerLazySingleton<FavoriteService>(() => FavoriteServiceImpl());
+
+  /// Add To Favorites & Check if it's Favorite
+  di.registerFactory(() => AddToFavoritesCubit(addToFavoriteUseCase: di()));
+  di.registerFactory(() => CheckIfFavoriteCubit(checkIfFavoriteUseCase: di()));
+  di.registerLazySingleton(() => AddProductToFavoritesUseCase(addFavoriteRepo: di()));
+  di.registerLazySingleton(() => CheckIfProductIsFavoriteUseCase(checkIfProductIsFavoriteRepo: di()));
+  di.registerLazySingleton<FavoriteProductRepo>(() => FavoriteProductRepoImpl(addProductToFavoriteService: di(), checkIfProductIsFavoriteService: di()));
+  di.registerLazySingleton<AddProductToFavoriteService>(() => AddProductToFavoriteServiceImpl());
+  di.registerLazySingleton<CheckIfProductIsFavoriteService>(() => CheckIfProductIsFavoriteServiceImpl());
 
   /// external
   final sharedPrefs = await SharedPreferences.getInstance();

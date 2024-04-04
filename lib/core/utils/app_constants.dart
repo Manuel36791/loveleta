@@ -42,4 +42,7 @@ class AppConstants {
   static const cancelOrderUri = "v1/order/cancel";
   static const updateProfileUri = "v1/profile/update";
   static const deleteProfileUri = "v1/profile/delete";
+  static const getFavoriteProductsUri = "v1/products/get-my-favourite";
+  static const addToFavoritesUri = "v1/products/add-to-favourite";
+  static const checkIfFavoriteUri = "v1/products/check-if-favourite";
 }
