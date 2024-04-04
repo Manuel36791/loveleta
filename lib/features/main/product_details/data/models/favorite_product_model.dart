@@ -26,8 +26,8 @@ class FavoriteProductModel extends FavoriteProductEntity {
 
   static Map<String, dynamic> toJson(FavoriteProductEntity favoriteProductEntity) {
     return {
-      'userId': favoriteProductEntity.userId,
-      'productId': favoriteProductEntity.productId,
+      'user_id': favoriteProductEntity.userId,
+      'product_id': favoriteProductEntity.productId,
     };
   }
 

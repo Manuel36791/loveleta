@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 
+import '../../router/router.dart';
 import '../../utils/app_images.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -26,7 +27,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             IconButton(
               onPressed: () {
-                Navigator.pop(context);
+                context.pushNamed(settingsPageRoute);
               },
               icon: SvgPicture.asset(
                 AppImages.settingsSvg,
@@ -41,7 +42,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             IconButton(
               onPressed: () {
-                Navigator.pop(context);
+                context.pushNamed(cartViewPageRoute);
               },
               icon: SvgPicture.asset(
                 AppImages.bagSvg,
