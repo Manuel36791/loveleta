@@ -43,14 +43,26 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "accountDeletedSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "Account deleted successfully, you will be logged out."),
         "accountNotActivated": MessageLookupByLibrary.simpleMessage(
             "Your account is not yet activated. Please check your email for the activation code or try again later."),
+        "accountUpdatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "Account updated successfully"),
         "activationSuccess": MessageLookupByLibrary.simpleMessage(
             "Your account has been successfully activated. You can now log in and access your account."),
+        "addAddress": MessageLookupByLibrary.simpleMessage("Add Address"),
+        "addNewAddress":
+            MessageLookupByLibrary.simpleMessage("Add new address"),
+        "addPromoCode": MessageLookupByLibrary.simpleMessage("Add promo code"),
         "addToCart": MessageLookupByLibrary.simpleMessage("Add to cart"),
+        "address": MessageLookupByLibrary.simpleMessage("Address"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "amount": MessageLookupByLibrary.simpleMessage("Amount"),
+        "applyCoupon": MessageLookupByLibrary.simpleMessage("Apply coupon"),
+        "areYouSureDelete": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to delete your account?"),
         "arrivingTo": MessageLookupByLibrary.simpleMessage("Arriving to"),
         "availability": m0,
         "bad_gateway": MessageLookupByLibrary.simpleMessage(
@@ -59,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "bad request. try again later"),
         "bag": MessageLookupByLibrary.simpleMessage("Bag"),
         "bestSellers": MessageLookupByLibrary.simpleMessage("Best Sellers"),
+        "buildingNo": MessageLookupByLibrary.simpleMessage("Building No."),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "cache error, try again later"),
         "cancelOrder": MessageLookupByLibrary.simpleMessage("Cancel Order"),
@@ -66,16 +79,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "categories": MessageLookupByLibrary.simpleMessage("Categories"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
+        "chooseAddress": MessageLookupByLibrary.simpleMessage("Choose Address"),
+        "city": MessageLookupByLibrary.simpleMessage("City"),
         "codeCantBeLessThan6Characters": MessageLookupByLibrary.simpleMessage(
             "Code can\'t be less than 6 characters"),
         "color": MessageLookupByLibrary.simpleMessage("Color"),
+        "completePayment":
+            MessageLookupByLibrary.simpleMessage("Complete payment"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("Confirm New Password"),
+        "confirmOrder": MessageLookupByLibrary.simpleMessage("Confirm Order"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "conflict found, try again later"),
         "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
+        "country": MessageLookupByLibrary.simpleMessage("Country"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "some thing went wrong, try again later"),
+        "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
         "delivered": MessageLookupByLibrary.simpleMessage("Delivered"),
         "deliveryFee": MessageLookupByLibrary.simpleMessage("Delivery fee"),
         "dontHaveAnAccount":
@@ -88,12 +108,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailNotRegistered": MessageLookupByLibrary.simpleMessage(
             "The email address provided is not registered. Please ensure you have entered the correct email or proceed with creating a new account"),
         "emailRegisteredSuccessful": m1,
+        "enterYourPromoCode":
+            MessageLookupByLibrary.simpleMessage("Enter your promo code"),
         "error": m2,
         "eta": MessageLookupByLibrary.simpleMessage(
             "Estimated time of arrival (ETA)"),
         "executedRequest":
             MessageLookupByLibrary.simpleMessage("Executed Request"),
+        "favorites": MessageLookupByLibrary.simpleMessage("Favorites"),
         "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
+        "flatNo": MessageLookupByLibrary.simpleMessage("Flat No."),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "forbidden request. try again later"),
         "forgetPassword":
@@ -122,6 +146,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "This URL is no longer available"),
         "multiple_choices": MessageLookupByLibrary.simpleMessage(
             "Choose an option to continue"),
+        "name": MessageLookupByLibrary.simpleMessage("Name"),
         "newArrivals": MessageLookupByLibrary.simpleMessage("New Arrivals"),
         "newOtpSent": MessageLookupByLibrary.simpleMessage(
             "An OTP has been resent to your email. Please check your inbox and enter the new OTP to continue."),
@@ -129,6 +154,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "newPasswordCantBeLessThan8Characters":
             MessageLookupByLibrary.simpleMessage(
                 "New password can\'t be less than 8 characters"),
+        "no": MessageLookupByLibrary.simpleMessage("No"),
         "noClose": MessageLookupByLibrary.simpleMessage("No, Close"),
         "no_content":
             MessageLookupByLibrary.simpleMessage("success with not content"),
@@ -136,7 +162,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please check your internet connection"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url not found, try again later"),
+        "orderAccepted": MessageLookupByLibrary.simpleMessage("Order accepted"),
+        "orderFailedPleaseTryAgain": MessageLookupByLibrary.simpleMessage(
+            "Order failed, please try again"),
         "orderNumber": m4,
+        "orderPlacedSuccessfully":
+            MessageLookupByLibrary.simpleMessage("Order placed successfully"),
+        "orderPreparedForDelivery":
+            MessageLookupByLibrary.simpleMessage("Order prepared for delivery"),
+        "orderSuccessfullyDelivered": MessageLookupByLibrary.simpleMessage(
+            "Order successfully delivered"),
+        "orderSummary": MessageLookupByLibrary.simpleMessage("Order Summary"),
         "orders": MessageLookupByLibrary.simpleMessage("Orders"),
         "outOfStock": MessageLookupByLibrary.simpleMessage("Out of Stock"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
@@ -155,6 +191,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Payment Required"),
         "pending": MessageLookupByLibrary.simpleMessage("Pending"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "placeOrder": MessageLookupByLibrary.simpleMessage("Place Order"),
+        "pleaseConfirmProceedWithYourOrder":
+            MessageLookupByLibrary.simpleMessage(
+                "Please confirm & proceed with your order"),
         "pleaseEnterAPassword":
             MessageLookupByLibrary.simpleMessage("Please enter a password"),
         "pleaseEnterAPasswordWithAtLeast8Characters":
@@ -182,6 +222,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please reconfirm your password"),
         "plzEnterAValidEmail":
             MessageLookupByLibrary.simpleMessage("Please enter a valid email"),
+        "postalCode": MessageLookupByLibrary.simpleMessage("Postal Code"),
         "price": m5,
         "privacyDes": MessageLookupByLibrary.simpleMessage(
             "Our privacy policy describes how we collect and process your personal information, such as the information you provide through our application. The policy also outlines your rights regarding your personal information, how it is retained, and secured. Communication: Various communication channels are provided in case of any questions or inquiries about the privacy policy. You can speak to the team through the application, call the specified number, or contact them via email.Updates: In the event of any changes in the way personal information is processed or in the policy itself, you will be promptly notified via email and the application will be updated."),
@@ -189,6 +230,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "processing": MessageLookupByLibrary.simpleMessage("Processing"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "qty": m6,
+        "recipientInfo": MessageLookupByLibrary.simpleMessage("Recipient info"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
         "resetPasswordBtn": MessageLookupByLibrary.simpleMessage("Reset Pass"),
@@ -218,8 +260,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "some thing went wrong, try again later"),
         "unprocessable_content_error": MessageLookupByLibrary.simpleMessage(
             "unprocessable data, check it and try again"),
+        "update": MessageLookupByLibrary.simpleMessage("Update"),
         "updatePassword":
             MessageLookupByLibrary.simpleMessage("Update Password"),
+        "updateProfile": MessageLookupByLibrary.simpleMessage("Update Profile"),
         "updatedAt": m9,
         "verify": MessageLookupByLibrary.simpleMessage("Verify"),
         "verifyAccount": MessageLookupByLibrary.simpleMessage("Verify Account"),
@@ -227,8 +271,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "The OTP entered is incorrect. Please check your email again and enter the correct OTP to reset your password"),
         "wrongVerifyOtp": MessageLookupByLibrary.simpleMessage(
             "The OTP entered is incorrect. Please check your email again and enter the correct OTP to verify your account."),
+        "yes": MessageLookupByLibrary.simpleMessage("Yes"),
         "yesCancel": MessageLookupByLibrary.simpleMessage("Yes, Cancel"),
+        "youDontHaveAnyFavoriteProducts": MessageLookupByLibrary.simpleMessage(
+            "You don\'t have any favorite products"),
         "youHaveNoOrdersYet":
-            MessageLookupByLibrary.simpleMessage("You Have no orders yet")
+            MessageLookupByLibrary.simpleMessage("You Have no orders yet"),
+        "yourBagIsEmpty":
+            MessageLookupByLibrary.simpleMessage("Your bag is empty"),
+        "yourOrderIsReadyForDelivery": MessageLookupByLibrary.simpleMessage(
+            "Your order is ready for delivery")
       };
 }

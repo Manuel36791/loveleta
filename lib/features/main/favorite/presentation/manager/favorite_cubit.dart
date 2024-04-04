@@ -45,12 +45,6 @@ class FavoriteCubit extends Cubit<FavoriteStates> {
               ),
             ),
           }
-        // emit(
-        //   FavoriteState.error(
-        //     l.code.toString(),
-        //     l.message,
-        //   ),
-        // ),
       },
       (r) => {
         emit(

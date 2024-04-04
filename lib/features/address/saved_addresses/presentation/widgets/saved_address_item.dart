@@ -6,6 +6,7 @@ import '../../../../../core/database/address_class.dart';
 import '../../../../../core/router/router.dart';
 import '../../../../../core/shared/arguments.dart';
 import '../../../../../core/utils/app_text_styles.dart';
+import '../../../../../generated/l10n.dart';
 
 class SavedAddressItem extends StatelessWidget {
   final Address address;
@@ -34,7 +35,7 @@ class SavedAddressItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Address: ",
+                  "${S.of(context).address}:",
                   style: CustomTextStyle.kTextStyleF16.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -51,8 +52,7 @@ class SavedAddressItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Building No.:   ",
-                  style: CustomTextStyle.kTextStyleF16.copyWith(
+                  "${S.of(context).buildingNo}:",                  style: CustomTextStyle.kTextStyleF16.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -68,7 +68,7 @@ class SavedAddressItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Flat No.:   ",
+                  "${S.of(context).flatNo}:",
                   style: CustomTextStyle.kTextStyleF16.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -85,7 +85,7 @@ class SavedAddressItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "State:   ",
+                  "${S.of(context).country}:",
                   style: CustomTextStyle.kTextStyleF16.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -102,7 +102,7 @@ class SavedAddressItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "State:   ",
+                  "${S.of(context).city}:",
                   style: CustomTextStyle.kTextStyleF16.copyWith(
                     fontWeight: FontWeight.bold,
                   ),

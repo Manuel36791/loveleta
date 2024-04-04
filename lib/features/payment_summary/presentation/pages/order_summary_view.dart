@@ -58,12 +58,12 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Confirm Order",
+                      S.of(context).confirmOrder,
                       style: CustomTextStyle.kTextStyleF20,
                     ),
                     Gap(10.h),
                     Text(
-                      "Please confirm & proceed with your order",
+                      S.of(context).pleaseConfirmProceedWithYourOrder,
                       style: CustomTextStyle.kTextStyleF14,
                     ),
                     Gap(15.h),
@@ -80,14 +80,14 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Recipient info",
+                                S.of(context).recipientInfo,
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
                             ],
                           ),
                           Gap(10.h),
                           Text(
-                            "Name:",
+                            "${S.of(context).name}:",
                             style: CustomTextStyle.kTextStyleF12.copyWith(
                               color: AppColors.textGrey,
                             ),
@@ -99,7 +99,7 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                           ),
                           Gap(10.h),
                           Text(
-                            "Phone:",
+                            "${S.of(context).phoneNumber}:",
                             style: CustomTextStyle.kTextStyleF12.copyWith(
                               color: AppColors.textGrey,
                             ),
@@ -111,7 +111,7 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                           ),
                           Gap(10.h),
                           Text(
-                            "Address: ",
+                            "${S.of(context).address}:",
                             style: CustomTextStyle.kTextStyleF12.copyWith(
                               color: AppColors.textGrey,
                             ),
@@ -138,11 +138,11 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                                 children: [
                                   Gap(35.h),
                                   Text(
-                                    "Add promo code",
+                                    S.of(context).addPromoCode,
                                     style: CustomTextStyle.kTextStyleF20,
                                   ),
                                   Text(
-                                    "Enter your promo code",
+                                    S.of(context).enterYourPromoCode,
                                     style:
                                         CustomTextStyle.kTextStyleF12.copyWith(
                                       color: AppColors.textPink,
@@ -198,7 +198,7 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                                       condition: true,
                                       builder: (BuildContext ctx) {
                                         return CustomBtn(
-                                          label: "Apply coupon",
+                                          label: S.of(context).applyCoupon,
                                           onPressed: () {
                                             context.pop();
                                           },
@@ -214,58 +214,12 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                         );
                       },
                       child: Text(
-                        "Add promo code",
+                        S.of(context).addPromoCode,
                         style: CustomTextStyle.kTextStyleF14.copyWith(
                           color: AppColors.pinkSecondary,
                         ),
                       ),
                     ),
-                    // Container(
-                    //   padding: const EdgeInsets.all(Dimensions.p16),
-                    //   decoration: BoxDecoration(
-                    //     color: Colors.white,
-                    //     borderRadius: BorderRadius.circular(Dimensions.r10),
-                    //   ),
-                    //   child: Column(
-                    //     crossAxisAlignment: CrossAxisAlignment.start,
-                    //     children: [
-                    //       Row(
-                    //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //         children: [
-                    //           Text(
-                    //             S.current.payment,
-                    //             style: CustomTextStyle.kTextStyleF14,
-                    //           ),
-                    //
-                    //         ],
-                    //       ),
-                    //       Gap(20.h),
-                    //       Row(
-                    //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //         children: [
-                    //           Row(
-                    //             children: [
-                    //               const Text("***** 6714"),
-                    //               Gap(10.w),
-                    //               Image.asset(
-                    //                 AppImages.visaImg,
-                    //                 height: 32.h,
-                    //                 width: 32.w,
-                    //                 fit: BoxFit.contain,
-                    //               ),
-                    //             ],
-                    //           ),
-                    //           Text(
-                    //             "01/24",
-                    //             style: CustomTextStyle.kTextStyleF12.copyWith(
-                    //               color: AppColors.textColorSecondary,
-                    //             ),
-                    //           ),
-                    //         ],
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
                     Gap(10.h),
                     Container(
                       padding: const EdgeInsets.all(Dimensions.p16),
@@ -277,7 +231,7 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Order Summary",
+                            S.of(context).orderSummary,
                             style: CustomTextStyle.kTextStyleF14,
                           ),
                           Gap(15.h),
@@ -287,7 +241,7 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
-                                "Total",
+                                S.of(context).total,
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
                               const Spacer(),
@@ -314,7 +268,7 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Subtotal",
+                                S.of(context).subtotal,
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
                               const Spacer(),
@@ -329,7 +283,7 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Delivery Fee",
+                                S.of(context).deliveryFee,
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
                               const Spacer(),
@@ -344,7 +298,7 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Tax",
+                                S.of(context).tax,
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
                               const Spacer(),
@@ -372,10 +326,10 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                       // placeOrderCubit.paymentLauncher(state.paymentUrl!);
                       if (state.status == 1) {
                         context.defaultSnackBar(
-                            "Order placed successfully, now redirecting to payment");
+                            S.of(context).orderPlacedSuccessfully);
                       } else {
                         context.defaultSnackBar(
-                            "Order failed, please try again");
+                            S.of(context).orderFailedPleaseTryAgain);
                       }
                       // context.pushNamed(orderConfirmationPageRoute);
                       // cartItems.clear();
@@ -393,7 +347,7 @@ class _OrderSummaryViewState extends State<OrderSummaryView> {
                     child: Container(
                       color: Colors.white,
                       child: CustomBtn(
-                        label: "Place Order",
+                        label: S.of(context).placeOrder,
                         onPressed: () async {
                           Map productMap = {};
 

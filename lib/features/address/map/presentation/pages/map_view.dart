@@ -8,6 +8,7 @@ import '../../../../../../core/shared/widgets/custom_button.dart';
 
 import '../../../../../core/router/router.dart';
 import '../../../../../core/shared/arguments.dart';
+import '../../../../../generated/l10n.dart';
 import '../../data/models/maps_model.dart';
 import '../manager/maps_cubit.dart';
 import '../widgets/google_map_builder.dart';
@@ -39,7 +40,7 @@ class _MapViewState extends State<MapView> {
         builder: (context, state) {
           MapsCubit mapsCubit = MapsCubit.get(context);
           return Scaffold(
-            appBar: AppBar(title: const Text("Choose Address")),
+            appBar: AppBar(title:  Text(S.of(context).chooseAddress)),
             body: SafeArea(
               child: Stack(
                 children: [
@@ -75,7 +76,7 @@ class _MapViewState extends State<MapView> {
                     child: Container(
                       color: Colors.white,
                       child: CustomBtn(
-                        label: "Add new address",
+                        label: S.of(context).addNewAddress,
                         onPressed: () async {
                           context.pushNamed(
                             addNewAddressPageRoute,

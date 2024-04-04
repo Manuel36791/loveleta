@@ -125,6 +125,8 @@
   "seeAll": "See All",
 
   "@_Settings": {},
+  "updateProfile": "Update Profile",
+  "favorites": "Favorites",
   "language": "Language",
   "privacyPolicy": "Privacy Policy",
   "privacyDes": "Our privacy policy describes how we collect and process your personal information, such as the information you provide through our application. The policy also outlines your rights regarding your personal information, how it is retained, and secured. Communication: Various communication channels are provided in case of any questions or inquiries about the privacy policy. You can speak to the team through the application, call the specified number, or contact them via email.Updates: In the event of any changes in the way personal information is processed or in the policy itself, you will be promptly notified via email and the application will be updated.",
@@ -217,5 +219,48 @@
         "type": "String"
       }
     }
-  }
+  },
+  "orderAccepted": "Order accepted",
+  "orderPreparedForDelivery": "Order prepared for delivery",
+  "yourOrderIsReadyForDelivery": "Your order is ready for delivery",
+  "orderSuccessfullyDelivered": "Order successfully delivered",
+
+  "@_Address": {},
+  "addNewAddress": "Add new address",
+  "address": "Address",
+  "buildingNo": "Building No.",
+  "flatNo": "Flat No.",
+  "country": "Country",
+  "city": "City",
+  "postalCode": "Postal Code",
+  "addAddress": "Add Address",
+  "chooseAddress": "Choose Address",
+
+  "@_Cart": {},
+  "completePayment": "Complete payment",
+  "yourBagIsEmpty": "Your bag is empty",
+
+  "@_Favorites": {},
+  "youDontHaveAnyFavoriteProducts": "You don't have any favorite products",
+
+  "@_UpdateProfile": {},
+  "accountUpdatedSuccessfully": "Account updated successfully",
+  "accountDeletedSuccessfully": "Account deleted successfully, you will be logged out.",
+  "areYouSureDelete": "Are you sure you want to delete your account?",
+  "no": "No",
+  "yes": "Yes",
+  "deleteAccount": "Delete Account",
+  "update": "Update",
+
+  "@_OrderSummary": {},"confirmOrder": "Confirm Order",
+  "pleaseConfirmProceedWithYourOrder": "Please confirm & proceed with your order",
+  "recipientInfo": "Recipient info",
+  "name": "Name",
+  "addPromoCode": "Add promo code",
+  "enterYourPromoCode": "Enter your promo code",
+  "applyCoupon": "Apply coupon",
+  "orderSummary": "Order Summary",
+  "orderPlacedSuccessfully": "Order placed successfully",
+  "orderFailedPleaseTryAgain": "Order failed, please try again",
+  "placeOrder": "Place Order"
 }

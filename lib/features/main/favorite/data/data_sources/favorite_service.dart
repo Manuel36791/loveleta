@@ -21,7 +21,7 @@ class FavoriteServiceImpl implements FavoriteService {
     );
 
     if (favorites.statusCode == 200) {
-      favoriteModel = FavoriteModel.fromJson(favorites.data['data']['data']);
+      favoriteModel = FavoriteModel.fromJson(favorites.data['data']);
     }
 
     return favoriteModel;

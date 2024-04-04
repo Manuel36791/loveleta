@@ -12,6 +12,7 @@ import '../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../core/shared/widgets/state_loading_widget.dart';
 import '../../../../../core/utils/app_text_styles.dart';
+import '../../../../../generated/l10n.dart';
 import '../../domain/entities/favorite_entity.dart';
 import '../manager/favorite_cubit.dart';
 
@@ -93,7 +94,7 @@ class _FavoriteViewState extends State<FavoriteView> {
                           children: [
                             Center(
                               child: Text(
-                                "You don't have any favorite products",
+                                S.of(context).youDontHaveAnyFavoriteProducts,
                                 style: CustomTextStyle.kTextStyleF20,
                               ),
                             ),
@@ -129,7 +130,7 @@ class _FavoriteViewState extends State<FavoriteView> {
                           children: [
                             Center(
                               child: Text(
-                                "You don't have any favorite products",
+                                S.of(context).youDontHaveAnyFavoriteProducts,
                                 style: CustomTextStyle.kTextStyleF20,
                               ),
                             ),
@@ -165,7 +166,7 @@ class _FavoriteViewState extends State<FavoriteView> {
                           children: [
                             Center(
                               child: Text(
-                                "You don't have any favorite products",
+                                S.of(context).youDontHaveAnyFavoriteProducts,
                                 style: CustomTextStyle.kTextStyleF20,
                               ),
                             ),

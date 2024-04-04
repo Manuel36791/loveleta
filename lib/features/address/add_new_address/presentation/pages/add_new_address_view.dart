@@ -16,6 +16,7 @@ import '../../../../../../core/shared/widgets/state_loading_widget.dart';
 import '../../../../../../core/utils/app_constants.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../core/router/router.dart';
+import '../../../../../generated/l10n.dart';
 import '../manager/add_address_cubit.dart';
 
 class AddNewAddressView extends StatefulWidget {
@@ -31,25 +32,7 @@ class AddNewAddressView extends StatefulWidget {
 class _AddNewAddressViewState extends State<AddNewAddressView> {
   final Address address = Address();
   final HiveDatabase hiveDatabase = HiveDatabase();
-
-  // TextEditingController addressCtrl = TextEditingController();
-  // TextEditingController buildingCtrl = TextEditingController();
-  // TextEditingController flatCtrl = TextEditingController();
-  // TextEditingController phoneCtrl = TextEditingController();
-  // TextEditingController stateCtrl = TextEditingController();
-  // TextEditingController cityCtrl = TextEditingController();
-  // TextEditingController zipCodeCtrl = TextEditingController();
-  //
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   addressCtrl = TextEditingController(text: widget.address.street);
-  //   stateCtrl = TextEditingController(text: widget.address.administrativeArea);
-  //   cityCtrl =
-  //       TextEditingController(text: widget.address.subAdministrativeArea);
-  //   zipCodeCtrl = TextEditingController(text: widget.address.postalCode);
-  // }
-
+  
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -60,8 +43,8 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
           AddAddressCubit addAddressCubit = AddAddressCubit.get(context);
           return Scaffold(
             appBar: AppBar(
-              title: const Text(
-               "Add new address",
+              title: Text(
+               S.of(context).addNewAddress,
               ),
             ),
             body: SafeArea(
@@ -76,7 +59,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                             children: [
                               Gap(20.h),
                               CustomFormField(
-                                label: "Address",
+                                label: S.of(context).address,
                                 readOnly: true,
                                 stream: addAddressCubit.addressStream,
                                 initValue: addAddressCubit.addressCtrl.value,
@@ -84,39 +67,24 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                               ),
                               Gap(10.h),
                               CustomFormField(
-                                label: "Building No.",
+                                label: S.of(context).buildingNo,
                                 stream: addAddressCubit.buildingNoStream,
                                 onChanged: (buildingNo) {
                                   addAddressCubit.updateBuildingNo(buildingNo);
                                 },
-                                // validator: (value) {
-                                //   if (buildingCtrl.text.isEmpty) {
-                                //     log(value.toString());
-                                //     return S.of(context).buildingNoCantBeEmpty;
-                                //   } else {
-                                //     return null;
-                                //   }
-                                // },
                               ),
                               Gap(10.h),
                               CustomFormField(
-                                label: "Flat No.",
+                                label: S.of(context).flatNo,
                                 stream: const Stream.empty(),
                                 onChanged: (flatNo) {
                                   addAddressCubit.updateFlatNo(flatNo);
                                 },
-                                // validator: (value) {
-                                //   if (flatCtrl.text.isEmpty) {
-                                //     log(value.toString());
-                                //     return S.of(context).flatNoCantBeEmpty;
-                                //   } else {
-                                //     return null;
-                                //   }
-                                // },
+                                
                               ),
                               Gap(10.h),
                               CustomFormField(
-                                label: "State",
+                                label: S.of(context).country,
                                 readOnly: true,
                                 stream: addAddressCubit.stateStream,
                                 initValue: addAddressCubit.stateCtrl.value,
@@ -124,7 +92,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                               ),
                               Gap(10.h),
                               CustomFormField(
-                                label: "City",
+                                label: S.of(context).city,
                                 readOnly: true,
                                 stream: addAddressCubit.cityStream,
                                 initValue: addAddressCubit.cityCtrl.value,
@@ -133,7 +101,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                               ),
                               Gap(10.h),
                               CustomFormField(
-                                label: "Zip Code",
+                                label: S.of(context).postalCode,
                                 readOnly: true,
                                 stream: addAddressCubit.zipCodeStream,
                                 initValue: addAddressCubit.zipCodeCtrl.value,
@@ -147,7 +115,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                           child: Container(
                             color: Colors.white,
                             child: CustomBtn(
-                              label: "Add Address",
+                              label: S.of(context).addAddress,
                               onPressed: () async {
                                 addAddressCubit.addAddress(
                                   Address(
@@ -182,7 +150,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                             children: [
                               Gap(20.h),
                               CustomFormField(
-                                label: "Address",
+                                label: S.of(context).address,
                                 readOnly: true,
                                 stream: addAddressCubit.addressStream,
                                 initValue: addAddressCubit.addressCtrl.value,
@@ -190,39 +158,24 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                               ),
                               Gap(10.h),
                               CustomFormField(
-                                label: "Building No.",
+                                label: S.of(context).buildingNo,
                                 stream: addAddressCubit.buildingNoStream,
                                 onChanged: (buildingNo) {
                                   addAddressCubit.updateBuildingNo(buildingNo);
                                 },
-                                // validator: (value) {
-                                //   if (buildingCtrl.text.isEmpty) {
-                                //     log(value.toString());
-                                //     return S.of(context).buildingNoCantBeEmpty;
-                                //   } else {
-                                //     return null;
-                                //   }
-                                // },
+                                
                               ),
                               Gap(10.h),
                               CustomFormField(
-                                label: "Flat No.",
+                                label: S.of(context).flatNo,
                                 stream: const Stream.empty(),
                                 onChanged: (flatNo) {
                                   addAddressCubit.updateFlatNo(flatNo);
                                 },
-                                // validator: (value) {
-                                //   if (flatCtrl.text.isEmpty) {
-                                //     log(value.toString());
-                                //     return S.of(context).flatNoCantBeEmpty;
-                                //   } else {
-                                //     return null;
-                                //   }
-                                // },
                               ),
                               Gap(10.h),
                               CustomFormField(
-                                label: "State",
+                                label: S.of(context).country,
                                 readOnly: true,
                                 stream: addAddressCubit.stateStream,
                                 initValue: addAddressCubit.stateCtrl.value,
@@ -230,7 +183,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                               ),
                               Gap(10.h),
                               CustomFormField(
-                                label: "City",
+                                label: S.of(context).city,
                                 readOnly: true,
                                 stream: addAddressCubit.cityStream,
                                 initValue: addAddressCubit.cityCtrl.value,
@@ -239,7 +192,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                               ),
                               Gap(10.h),
                               CustomFormField(
-                                label: "Zip Code",
+                                label: S.of(context).postalCode,
                                 readOnly: true,
                                 stream: addAddressCubit.zipCodeStream,
                                 initValue: addAddressCubit.zipCodeCtrl.value,
@@ -253,7 +206,7 @@ class _AddNewAddressViewState extends State<AddNewAddressView> {
                           child: Container(
                             color: Colors.white,
                             child: CustomBtn(
-                              label: "Add Address",
+                              label: S.of(context).addAddress,
                               onPressed: () async {
                                 addAddressCubit.addAddress(
                                   Address(

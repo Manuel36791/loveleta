@@ -3,6 +3,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../utils/app_constants.dart';
+import '../../utils/logger.dart';
 
 class FireBaseResources {
 
@@ -15,7 +16,7 @@ class FireBaseResources {
     FirebaseMessaging messaging = FirebaseMessaging.instance;
     AppConstants.fcmToken = await messaging.getToken();
     if (kDebugMode) {
-      print("Device Token: ${AppConstants.fcmToken}");
+      logger.i("Device Token: ${AppConstants.fcmToken}");
     }
 
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
