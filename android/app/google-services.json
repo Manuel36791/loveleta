@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "820612020861",
+    "project_id": "white-flame-416518",
+    "storage_bucket": "white-flame-416518.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820612020861:android:ef5142fcb4a6d724fd8f14",
+        "android_client_info": {
+          "package_name": "com.coddiv.loveleta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6QC_Myr1IqhTkYLfpvSgIIhsb6lIGZB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,10 +1,10 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'core/database/address_class.dart';
 import 'core/dependency_injection/di.dart' as di;
 import 'core/helpers/cache_helper.dart';
@@ -38,6 +38,9 @@ void main() async {
     );
   };
 
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   // await Firebase.initializeApp();
   // if (Platform.isAndroid) {
   //   FireBaseResources().android();
