@@ -1,4 +1,5 @@
 import '../../../../../../core/shared/models/product_model.dart';
+import '../../../../../core/shared/entities/product_entity.dart';
 import '../../domain/entities/favorite_entity.dart';
 
 class FavoriteModel extends FavoriteEntity {
@@ -12,17 +13,17 @@ class FavoriteModel extends FavoriteEntity {
 
   factory FavoriteModel.fromJson(Map<String, dynamic> json) {
     return FavoriteModel(
-      products: List<ProductModel>.from(
-          json['products'].map((x) => ProductModel.fromJson(x))),
+      products: json['data'] == null ? [] : List<ProductEntity>.from(
+          json['data'].map((x) => ProductModel.fromJson(x))),
       status: json['status'],
       message: json['message'],
     );
   }
 
-  static FavoriteModel toJson(FavoriteEntity favoriteEntity) {
-    return FavoriteModel(
-      userId: favoriteEntity.userId,
-      page: favoriteEntity.page,
-    );
+  static Map<String, dynamic> toJson(FavoriteEntity favoriteEntity) {
+    return {
+      "user_id":favoriteEntity.userId,
+      "page": favoriteEntity.page,
+    };
   }
 }

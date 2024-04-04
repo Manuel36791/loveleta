@@ -71,7 +71,6 @@ class _FavoriteViewState extends State<FavoriteView> {
                           padding: EdgeInsets.zero,
                           controller: scrollController,
                           scrollDirection: Axis.vertical,
-                          shrinkWrap: true,
                           physics: const BouncingScrollPhysics(),
                           itemCount: productsList.length,
                           gridDelegate:
@@ -92,11 +91,10 @@ class _FavoriteViewState extends State<FavoriteView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Center(
-                              child: Text(
-                                S.of(context).youDontHaveAnyFavoriteProducts,
-                                style: CustomTextStyle.kTextStyleF20,
-                              ),
+                            Text(
+                              S.of(context).youDontHaveAnyFavoriteProducts,
+                              style: CustomTextStyle.kTextStyleF20,
+                              textAlign: TextAlign.center,
                             ),
                           ],
                         );
@@ -128,11 +126,10 @@ class _FavoriteViewState extends State<FavoriteView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Center(
-                              child: Text(
-                                S.of(context).youDontHaveAnyFavoriteProducts,
-                                style: CustomTextStyle.kTextStyleF20,
-                              ),
+                            Text(
+                              S.of(context).youDontHaveAnyFavoriteProducts,
+                              style: CustomTextStyle.kTextStyleF20,
+                              textAlign: TextAlign.center,
                             ),
                           ],
                         );
@@ -164,11 +161,10 @@ class _FavoriteViewState extends State<FavoriteView> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Center(
-                              child: Text(
-                                S.of(context).youDontHaveAnyFavoriteProducts,
-                                style: CustomTextStyle.kTextStyleF20,
-                              ),
+                            Text(
+                              S.of(context).youDontHaveAnyFavoriteProducts,
+                              style: CustomTextStyle.kTextStyleF20,
+                              textAlign: TextAlign.center,
                             ),
                           ],
                         );

@@ -50,8 +50,10 @@ class ProductModel extends ProductEntity {
       isExpress: json['is_express'],
       isNew: json['is_new'],
       bestSeller: json["best_seller"],
-      images: List<ProductImagesModel>.from(json["product_images"]!
-          .map((x) => ProductImagesModel.fromJson(x))),
+      images: json["product_images"] == null
+          ? []
+          : List<ProductImagesModel>.from(json["product_images"]!
+              .map((x) => ProductImagesModel.fromJson(x))),
     );
   }
 

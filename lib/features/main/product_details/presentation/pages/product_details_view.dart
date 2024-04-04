@@ -85,12 +85,11 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
       ],
       child: BlocConsumer<CheckIfFavoriteCubit, CheckIfFavoriteStates>(
         listener: (context, state) {
-          CheckIfFavoriteCubit cubit = CheckIfFavoriteCubit.get(context);
           state.maybeWhen(
             orElse: () {},
             success: (state) {
               if (state.status == 1) {
-                cubit.saveToFavorites(true);
+                favorite = true;
               }
             },
           );
@@ -140,8 +139,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                 color: AppColors.errorColor,
                               ),
                             ),
-                            BlocConsumer<AddToFavoritesCubit,
-                                AddToFavoritesStates>(
+                            BlocConsumer<AddToFavoritesCubit, AddToFavoritesStates>(
                               listener: (context, state) {},
                               builder: (context, state) {
                                 AddToFavoritesCubit addToFavoritesCubit =
@@ -152,9 +150,9 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                   right: 10.w,
                                   child: GestureDetector(
                                     onTap: () {
-                                      // setState(() {
-                                      //   favorite = !favorite;
-                                      // });
+                                      setState(() {
+                                        favorite = !favorite;
+                                      });
                                       addToFavoritesCubit.addFavorite(
                                         FavoriteProductEntity(
                                           userId: UserData.id,
