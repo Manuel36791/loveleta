@@ -69,16 +69,6 @@ class _CartItemState extends State<CartItem> {
               : widget.product.nameAr!,
           style: CustomTextStyle.kTextStyleF12,
         ),
-        // subTitle: Column(
-        //   crossAxisAlignment: CrossAxisAlignment.start,
-        //   children: [
-        //     Text(
-        //       widget.product.categoryId!.nameEn!,
-        //       style: CustomTextStyle.kTextStyleF12
-        //           .copyWith(color: AppColors.textGrey),
-        //     ),
-        //   ],
-        // ),
         description: Row(
           children: [
             Text(widget.product.price.toString(),

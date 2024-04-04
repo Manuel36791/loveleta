@@ -10,6 +10,7 @@ import '../../../../../../core/shared/widgets/custom_button.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../core/shared/cubits/cart_cubit/cart_cubit.dart';
 import '../../../../core/utils/app_text_styles.dart';
+import '../../../../generated/l10n.dart';
 import '../widgets/cart_item.dart';
 
 class CartView extends StatefulWidget {
@@ -79,7 +80,7 @@ class _CartViewState extends State<CartView> {
                             MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text("Total",
+                              Text(S.of(context).total,
                                   style: CustomTextStyle.kTextStyleF14),
                               const Spacer(),
                               Text(
@@ -128,7 +129,7 @@ class _CartViewState extends State<CartView> {
                             MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Deliver Fee",
+                                S.of(context).deliveryFee,
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
                               const Spacer(),
@@ -147,7 +148,7 @@ class _CartViewState extends State<CartView> {
                             MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Tax",
+                                S.of(context).tax,
                                 style: CustomTextStyle.kTextStyleF14,
                               ),
                               const Spacer(),
@@ -169,7 +170,7 @@ class _CartViewState extends State<CartView> {
                     child: Align(
                       alignment: Alignment.bottomCenter,
                       child: CustomBtn(
-                        label: "Complete payment",
+                        label: S.of(context).completePayment,
                         onPressed: () {
                           context.pushNamed(savedAddressesPageRoute);
                         },
@@ -184,7 +185,7 @@ class _CartViewState extends State<CartView> {
                 children: [
                   Center(
                     child: Text(
-                      "Your bag is empty",
+                      S.of(context).yourBagIsEmpty,
                       style: CustomTextStyle.kTextStyleF20,
                     ),
                   ),

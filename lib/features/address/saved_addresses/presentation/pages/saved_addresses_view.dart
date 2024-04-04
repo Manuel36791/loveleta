@@ -11,6 +11,7 @@ import '../../../../../../core/shared/widgets/state_loading_widget.dart';
 import '../../../../../../core/utils/app_constants.dart';
 import '../../../../../../core/utils/dimensions.dart';
 import '../../../../../core/router/router.dart';
+import '../../../../../generated/l10n.dart';
 import '../manager/saved_addresses_cubit.dart';
 import '../widgets/saved_address_item.dart';
 
@@ -38,7 +39,7 @@ class _SavedAddressesViewState extends State<SavedAddressesView> {
               context.pushNamed(bottomNavBar);
             },
             child: Scaffold(
-              appBar: AppBar(title: const Text("Saved Addresses")),
+              appBar: AppBar(title:  Text(S.of(context).savedAddresses)),
               body: SafeArea(
                 child: state.maybeWhen(
                   loading: () {
@@ -77,7 +78,7 @@ class _SavedAddressesViewState extends State<SavedAddressesView> {
                             child: Container(
                               color: Colors.white,
                               child: CustomBtn(
-                                label: "Add new address",
+                                label: S.of(context).addNewAddress,
                                 onPressed: () async {
                                   context.pushNamed(mapPageRoute);
                                 },

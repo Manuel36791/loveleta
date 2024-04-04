@@ -35,11 +35,11 @@ class _UpdateProfileViewState extends State<UpdateProfileView> {
         listener: (context, state) {
           state.maybeWhen(
             success: (state) {
-              context.defaultSnackBar("Account updated successfully");
+              context.defaultSnackBar(S.of(context).accountUpdatedSuccessfully);
             },
             deleteSuccess: (state) {
               context.defaultSnackBar(
-                  "Account deleted successfully, you will be logged out.");
+                  S.of(context).accountDeletedSuccessfully);
               context.pushNamed(loginPageRoute);
             },
             orElse: () {
@@ -118,15 +118,15 @@ class _UpdateProfileViewState extends State<UpdateProfileView> {
                             showDialog(
                                 context: context,
                                 builder: (context) => AlertDialog(
-                                      title: const Text(
-                                          "Are you sure you want to delete your account?"),
+                                      title: Text(
+                                          S.of(context).areYouSureDelete),
                                       actions: [
                                         Row(
                                           children: [
                                             Expanded(
                                               child: CustomBtn(
                                                 onPressed: () => context.pop(),
-                                                label: "No",
+                                                label: S.of(context).no,
                                               ),
                                             ),
                                             Gap(10.w),
@@ -141,7 +141,7 @@ class _UpdateProfileViewState extends State<UpdateProfileView> {
                                                   );
                                                   Navigator.pop(context);
                                                 },
-                                                label: "Yes",
+                                                label: S.of(context).yes,
                                               ),
                                             ),
                                           ],
@@ -150,7 +150,7 @@ class _UpdateProfileViewState extends State<UpdateProfileView> {
                                     ));
                           },
                           child: Text(
-                            "Delete Account",
+                            S.of(context).deleteAccount,
                             style: CustomTextStyle.kTextStyleF14.copyWith(
                               color: AppColors.errorColor,
                             ),
@@ -160,7 +160,7 @@ class _UpdateProfileViewState extends State<UpdateProfileView> {
                     ),
                     // const Spacer(),
                     CustomBtn(
-                      label: "Update",
+                      label: S.of(context).update,
                       onPressed: () {
                         editProfileCubit.editProfile(
                           UpdateProfileEntity(

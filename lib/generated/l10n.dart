@@ -830,6 +830,26 @@ class S {
     );
   }
 
+  /// `Update Profile`
+  String get updateProfile {
+    return Intl.message(
+      'Update Profile',
+      name: 'updateProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Favorites`
+  String get favorites {
+    return Intl.message(
+      'Favorites',
+      name: 'favorites',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Language`
   String get language {
     return Intl.message(
@@ -1247,6 +1267,346 @@ class S {
       name: 'price',
       desc: '',
       args: [amount],
+    );
+  }
+
+  /// `Order accepted`
+  String get orderAccepted {
+    return Intl.message(
+      'Order accepted',
+      name: 'orderAccepted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order prepared for delivery`
+  String get orderPreparedForDelivery {
+    return Intl.message(
+      'Order prepared for delivery',
+      name: 'orderPreparedForDelivery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your order is ready for delivery`
+  String get yourOrderIsReadyForDelivery {
+    return Intl.message(
+      'Your order is ready for delivery',
+      name: 'yourOrderIsReadyForDelivery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order successfully delivered`
+  String get orderSuccessfullyDelivered {
+    return Intl.message(
+      'Order successfully delivered',
+      name: 'orderSuccessfullyDelivered',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add new address`
+  String get addNewAddress {
+    return Intl.message(
+      'Add new address',
+      name: 'addNewAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Address`
+  String get address {
+    return Intl.message(
+      'Address',
+      name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Building No.`
+  String get buildingNo {
+    return Intl.message(
+      'Building No.',
+      name: 'buildingNo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Flat No.`
+  String get flatNo {
+    return Intl.message(
+      'Flat No.',
+      name: 'flatNo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Country`
+  String get country {
+    return Intl.message(
+      'Country',
+      name: 'country',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `City`
+  String get city {
+    return Intl.message(
+      'City',
+      name: 'city',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Postal Code`
+  String get postalCode {
+    return Intl.message(
+      'Postal Code',
+      name: 'postalCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Address`
+  String get addAddress {
+    return Intl.message(
+      'Add Address',
+      name: 'addAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose Address`
+  String get chooseAddress {
+    return Intl.message(
+      'Choose Address',
+      name: 'chooseAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Complete payment`
+  String get completePayment {
+    return Intl.message(
+      'Complete payment',
+      name: 'completePayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your bag is empty`
+  String get yourBagIsEmpty {
+    return Intl.message(
+      'Your bag is empty',
+      name: 'yourBagIsEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You don't have any favorite products`
+  String get youDontHaveAnyFavoriteProducts {
+    return Intl.message(
+      'You don\'t have any favorite products',
+      name: 'youDontHaveAnyFavoriteProducts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account updated successfully`
+  String get accountUpdatedSuccessfully {
+    return Intl.message(
+      'Account updated successfully',
+      name: 'accountUpdatedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account deleted successfully, you will be logged out.`
+  String get accountDeletedSuccessfully {
+    return Intl.message(
+      'Account deleted successfully, you will be logged out.',
+      name: 'accountDeletedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete your account?`
+  String get areYouSureDelete {
+    return Intl.message(
+      'Are you sure you want to delete your account?',
+      name: 'areYouSureDelete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No`
+  String get no {
+    return Intl.message(
+      'No',
+      name: 'no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes`
+  String get yes {
+    return Intl.message(
+      'Yes',
+      name: 'yes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Account`
+  String get deleteAccount {
+    return Intl.message(
+      'Delete Account',
+      name: 'deleteAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update`
+  String get update {
+    return Intl.message(
+      'Update',
+      name: 'update',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Order`
+  String get confirmOrder {
+    return Intl.message(
+      'Confirm Order',
+      name: 'confirmOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please confirm & proceed with your order`
+  String get pleaseConfirmProceedWithYourOrder {
+    return Intl.message(
+      'Please confirm & proceed with your order',
+      name: 'pleaseConfirmProceedWithYourOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Recipient info`
+  String get recipientInfo {
+    return Intl.message(
+      'Recipient info',
+      name: 'recipientInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add promo code`
+  String get addPromoCode {
+    return Intl.message(
+      'Add promo code',
+      name: 'addPromoCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your promo code`
+  String get enterYourPromoCode {
+    return Intl.message(
+      'Enter your promo code',
+      name: 'enterYourPromoCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apply coupon`
+  String get applyCoupon {
+    return Intl.message(
+      'Apply coupon',
+      name: 'applyCoupon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Summary`
+  String get orderSummary {
+    return Intl.message(
+      'Order Summary',
+      name: 'orderSummary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order placed successfully`
+  String get orderPlacedSuccessfully {
+    return Intl.message(
+      'Order placed successfully',
+      name: 'orderPlacedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order failed, please try again`
+  String get orderFailedPleaseTryAgain {
+    return Intl.message(
+      'Order failed, please try again',
+      name: 'orderFailedPleaseTryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Place Order`
+  String get placeOrder {
+    return Intl.message(
+      'Place Order',
+      name: 'placeOrder',
+      desc: '',
+      args: [],
     );
   }
 }

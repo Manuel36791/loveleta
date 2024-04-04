@@ -42,7 +42,29 @@ class _SettingsViewState extends State<SettingsView> {
                 title: Opacity(
                   opacity: 0.90,
                   child: Text(
-                    "Update Profile",
+                    S.of(context).updateProfile,
+                    style: CustomTextStyle.kTextStyleF16,
+                  ),
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios_sharp,
+                  // color: AppColors.lightBlue,
+                  size: 16.sp,
+                ),
+              ),
+            ),
+            Gap(10.h),
+            Container(
+              color: Colors.white,
+              padding: EdgeInsets.all(16.0.sp),
+              child: ListTile(
+                onTap: () {
+                  context.pushNamed(favoritesPageRoute);
+                },
+                title: Opacity(
+                  opacity: 0.90,
+                  child: Text(
+                    S.of(context).favorites,
                     style: CustomTextStyle.kTextStyleF16,
                   ),
                 ),
@@ -172,6 +194,56 @@ class _SettingsViewState extends State<SettingsView> {
               padding: EdgeInsets.all(16.0.sp),
               child: ListTile(
                 onTap: () {
+                  context.pushNamed(ordersPageRoute);
+                },
+                title: Opacity(
+                  opacity: 0.90,
+                  child: Text(
+                    S.of(context).orders,
+                    style: CustomTextStyle.kTextStyleF16,
+                  ),
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios_sharp,
+                  // color: AppColors.lightBlue,
+                  size: 16.sp,
+                ),
+              ),
+            ),
+            Gap(10.h),
+            Container(
+              color: Colors.white,
+              padding: EdgeInsets.all(16.0.sp),
+              child: ListTile(
+                onTap: () {
+                  context.pushNamed(
+                    savedAddressesPageRoute,
+                    arguments: AddressArgs(
+                      latLng: const LatLng(0, 0),
+                      address: const Placemark(),
+                    ),
+                  );
+                },
+                title: Opacity(
+                  opacity: 0.90,
+                  child: Text(
+                    S.of(context).savedAddresses,
+                    style: CustomTextStyle.kTextStyleF16,
+                  ),
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios_sharp,
+                  // color: AppColors.lightBlue,
+                  size: 16.sp,
+                ),
+              ),
+            ),
+            Gap(10.h),
+            Container(
+              color: Colors.white,
+              padding: EdgeInsets.all(16.0.sp),
+              child: ListTile(
+                onTap: () {
                   showDialog(
                     context: context,
                     builder: (ctx) {
@@ -219,7 +291,6 @@ class _SettingsViewState extends State<SettingsView> {
                 ),
               ),
             ),
-            Gap(10.h),
             // Container(
             //   color: Colors.white,
             //   padding: EdgeInsets.all(16.0.sp),
@@ -242,55 +313,7 @@ class _SettingsViewState extends State<SettingsView> {
             //   ),
             // ),
             // Gap(10.h),
-            Container(
-              color: Colors.white,
-              padding: EdgeInsets.all(16.0.sp),
-              child: ListTile(
-                onTap: () {
-                  context.pushNamed(ordersPageRoute);
-                },
-                title: Opacity(
-                  opacity: 0.90,
-                  child: Text(
-                    S.of(context).orders,
-                    style: CustomTextStyle.kTextStyleF16,
-                  ),
-                ),
-                trailing: Icon(
-                  Icons.arrow_forward_ios_sharp,
-                  // color: AppColors.lightBlue,
-                  size: 16.sp,
-                ),
-              ),
-            ),
-            Gap(10.h),
-            Container(
-              color: Colors.white,
-              padding: EdgeInsets.all(16.0.sp),
-              child: ListTile(
-                onTap: () {
-                  context.pushNamed(
-                    savedAddressesPageRoute,
-                    arguments: AddressArgs(
-                      latLng: const LatLng(0, 0),
-                      address: const Placemark(),
-                    ),
-                  );
-                },
-                title: Opacity(
-                  opacity: 0.90,
-                  child: Text(
-                    S.of(context).savedAddresses,
-                    style: CustomTextStyle.kTextStyleF16,
-                  ),
-                ),
-                trailing: Icon(
-                  Icons.arrow_forward_ios_sharp,
-                  // color: AppColors.lightBlue,
-                  size: 16.sp,
-                ),
-              ),
-            ),
+
           ],
         ),
       ),

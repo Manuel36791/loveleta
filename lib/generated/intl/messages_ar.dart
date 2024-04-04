@@ -43,14 +43,27 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "accountDeletedSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "تم حذف الحساب بنجاح، ستتم تسجيل الخروج."),
         "accountNotActivated": MessageLookupByLibrary.simpleMessage(
             "لم يتم تنشيط حسابك بعد. الرجاء التحقق من بريدك الإلكتروني للحصول على رمز التفعيل أو حاول مرة أخرى لاحقًا."),
+        "accountUpdatedSuccessfully":
+            MessageLookupByLibrary.simpleMessage("تم تحديث الحساب بنجاح"),
         "activationSuccess": MessageLookupByLibrary.simpleMessage(
             "تم تفعيل حسابك بنجاح. يمكنك الآن تسجيل الدخول والوصول إلى حسابك."),
+        "addAddress": MessageLookupByLibrary.simpleMessage("إضافة العنوان"),
+        "addNewAddress":
+            MessageLookupByLibrary.simpleMessage("إضافة عنوان جديد"),
+        "addPromoCode":
+            MessageLookupByLibrary.simpleMessage("إضافة رمز ترويجي"),
         "addToCart": MessageLookupByLibrary.simpleMessage("أضف إلى السلة"),
+        "address": MessageLookupByLibrary.simpleMessage("العنوان"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("هل لديك حساب بالفعل؟"),
         "amount": MessageLookupByLibrary.simpleMessage("المبلغ"),
+        "applyCoupon": MessageLookupByLibrary.simpleMessage("تطبيق الكوبون"),
+        "areYouSureDelete": MessageLookupByLibrary.simpleMessage(
+            "هل أنت متأكد أنك تريد حذف حسابك؟"),
         "arrivingTo": MessageLookupByLibrary.simpleMessage("الوصول إلى"),
         "availability": m0,
         "bad_gateway": MessageLookupByLibrary.simpleMessage(
@@ -59,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "طلب غير صالح. حاول مرة أخرى لاحقًا"),
         "bag": MessageLookupByLibrary.simpleMessage("الحقيبة"),
         "bestSellers": MessageLookupByLibrary.simpleMessage("الأكثر مبيعًا"),
+        "buildingNo": MessageLookupByLibrary.simpleMessage("رقم المبنى"),
         "cache_error": MessageLookupByLibrary.simpleMessage(
             "خطأ في ذاكرة التخزين المؤقت , حاول مرة أخرى لاحقًا"),
         "cancelOrder": MessageLookupByLibrary.simpleMessage("إلغاء الطلب"),
@@ -66,16 +80,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "categories": MessageLookupByLibrary.simpleMessage("الفئات"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
+        "chooseAddress": MessageLookupByLibrary.simpleMessage("اختر العنوان"),
+        "city": MessageLookupByLibrary.simpleMessage("المدينة"),
         "codeCantBeLessThan6Characters": MessageLookupByLibrary.simpleMessage(
             "لا يمكن أن يكون طول الرمز أقل من 6 أحرف"),
         "color": MessageLookupByLibrary.simpleMessage("اللون"),
+        "completePayment": MessageLookupByLibrary.simpleMessage("إكمال الدفع"),
         "confirmNewPassword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور الجديدة"),
+        "confirmOrder": MessageLookupByLibrary.simpleMessage("تأكيد الطلب"),
         "conflict_error": MessageLookupByLibrary.simpleMessage(
             "تم العثور على تعارض , حاول مرة أخرى لاحقًا"),
         "contactUs": MessageLookupByLibrary.simpleMessage("اتصل بنا"),
+        "country": MessageLookupByLibrary.simpleMessage("البلد"),
         "default_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
         "delivered": MessageLookupByLibrary.simpleMessage("تم التوصيل"),
         "deliveryFee": MessageLookupByLibrary.simpleMessage("رسوم التوصيل"),
         "dontHaveAnAccount":
@@ -88,11 +108,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailNotRegistered": MessageLookupByLibrary.simpleMessage(
             "عنوان البريد الإلكتروني المُقدم غير مسجل. يرجى التأكد من أنك قد أدخلت البريد الإلكتروني الصحيح أو تابع بإنشاء حساب جديد"),
         "emailRegisteredSuccessful": m1,
+        "enterYourPromoCode":
+            MessageLookupByLibrary.simpleMessage("ادخل رمز الترويج الخاص بك"),
         "error": m2,
         "eta":
             MessageLookupByLibrary.simpleMessage("الوقت المقدر للوصول (ETA)"),
         "executedRequest": MessageLookupByLibrary.simpleMessage("الطلب المنفذ"),
+        "favorites": MessageLookupByLibrary.simpleMessage("المفضلة"),
         "firstName": MessageLookupByLibrary.simpleMessage("الاسم الأول"),
+        "flatNo": MessageLookupByLibrary.simpleMessage("رقم الشقة"),
         "forbidden_error": MessageLookupByLibrary.simpleMessage(
             "طلب محظور. حاول مرة أخرى لاحقًا"),
         "forgetPassword":
@@ -121,6 +145,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("هذا الرابط لم يعد متاحًا"),
         "multiple_choices":
             MessageLookupByLibrary.simpleMessage("اختر خيارًا للمتابعة"),
+        "name": MessageLookupByLibrary.simpleMessage("الاسم"),
         "newArrivals": MessageLookupByLibrary.simpleMessage("الوصولات الجديدة"),
         "newOtpSent": MessageLookupByLibrary.simpleMessage(
             "تم إعادة إرسال رمز التحقق إلى بريدك الإلكتروني. الرجاء التحقق من صندوق الوارد الخاص بك وإدخال الرمز الجديد للمتابعة."),
@@ -129,13 +154,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "newPasswordCantBeLessThan8Characters":
             MessageLookupByLibrary.simpleMessage(
                 "لا يمكن أن تكون كلمة المرور الجديدة أقل من 8 أحرف"),
+        "no": MessageLookupByLibrary.simpleMessage("لا"),
         "noClose": MessageLookupByLibrary.simpleMessage("لا، إغلاق"),
         "no_content": MessageLookupByLibrary.simpleMessage("نجاح بدون محتوى"),
         "no_internet_error": MessageLookupByLibrary.simpleMessage(
             "يُرجى التحقق من اتصالك بالإنترنت"),
         "not_found_error": MessageLookupByLibrary.simpleMessage(
             "url غير موجود , حاول مرة أخرى لاحقًا"),
+        "orderAccepted": MessageLookupByLibrary.simpleMessage("تم قبول الطلب"),
+        "orderFailedPleaseTryAgain": MessageLookupByLibrary.simpleMessage(
+            "فشل الطلب، يرجى المحاولة مرة أخرى"),
         "orderNumber": m4,
+        "orderPlacedSuccessfully":
+            MessageLookupByLibrary.simpleMessage("تم تقديم الطلب بنجاح"),
+        "orderPreparedForDelivery":
+            MessageLookupByLibrary.simpleMessage("تم تجهيز الطلب للتسليم"),
+        "orderSuccessfullyDelivered":
+            MessageLookupByLibrary.simpleMessage("تم تسليم الطلب بنجاح"),
+        "orderSummary": MessageLookupByLibrary.simpleMessage("ملخص الطلب"),
         "orders": MessageLookupByLibrary.simpleMessage("الطلبات"),
         "outOfStock": MessageLookupByLibrary.simpleMessage("غير متوفر"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
@@ -153,6 +189,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "payment_required": MessageLookupByLibrary.simpleMessage("الدفع مطلوب"),
         "pending": MessageLookupByLibrary.simpleMessage("قيد الانتظار"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+        "placeOrder": MessageLookupByLibrary.simpleMessage("تقديم الطلب"),
+        "pleaseConfirmProceedWithYourOrder":
+            MessageLookupByLibrary.simpleMessage("يرجى تأكيد ومتابعة طلبك"),
         "pleaseEnterAPassword":
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال كلمة المرور"),
         "pleaseEnterAPasswordWithAtLeast8Characters":
@@ -180,6 +219,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "الرجاء إعادة تأكيد كلمة المرور"),
         "plzEnterAValidEmail": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال بريد إلكتروني صالح"),
+        "postalCode": MessageLookupByLibrary.simpleMessage("الرمز البريدي"),
         "price": m5,
         "privacyDes": MessageLookupByLibrary.simpleMessage(
             "تصف سياسة الخصوصية لدينا كيفية جمعنا ومعالجة معلوماتك الشخصية، مثل المعلومات التي تقدمها من خلال تطبيقنا. توضح السياسة أيضًا حقوقك فيما يتعلق بمعلوماتك الشخصية، وكيفية الاحتفاظ بها، وتأمينها. التواصل: يتم توفير قنوات تواصل مختلفة في حالة وجود أي أسئلة أو استفسارات حول سياسة الخصوصية. يمكنك التحدث مع الفريق من خلال التطبيق، أو الاتصال بالرقم المحدد، أو الاتصال بهم عبر البريد الإلكتروني. التحديثات: في حالة وجود أي تغييرات في طريقة معالجة المعلومات الشخصية أو في السياسة نفسها، ستتلقى إشعارًا عاجلاً عبر البريد الإلكتروني وسيتم تحديث التطبيق."),
@@ -187,6 +227,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "processing": MessageLookupByLibrary.simpleMessage("قيد المعالجة"),
         "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "qty": m6,
+        "recipientInfo":
+            MessageLookupByLibrary.simpleMessage("معلومات المستلم"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
         "resetPassword":
             MessageLookupByLibrary.simpleMessage("إعادة تعيين كلمة المرور"),
@@ -215,8 +257,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "المستخدم غير مصرح له، جرب مرة أخرى في وقت لاحق"),
         "unknown_error": MessageLookupByLibrary.simpleMessage(
             "حدث خطأ ما , حاول مرة أخرى لاحقًا"),
+        "update": MessageLookupByLibrary.simpleMessage("تحديث"),
         "updatePassword":
             MessageLookupByLibrary.simpleMessage("تحديث كلمة المرور"),
+        "updateProfile":
+            MessageLookupByLibrary.simpleMessage("تحديث الملف الشخصي"),
         "updatedAt": m9,
         "verify": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "verifyAccount": MessageLookupByLibrary.simpleMessage("تأكيد الحساب"),
@@ -224,8 +269,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "الرمز الذي تم إدخاله غير صحيح. الرجاء التحقق من بريدك الإلكتروني مرة أخرى وإدخال الرمز الصحيح لإعادة تعيين كلمة المرور."),
         "wrongVerifyOtp": MessageLookupByLibrary.simpleMessage(
             "الرمز الذي تم إدخاله غير صحيح. الرجاء التحقق من بريدك الإلكتروني مرة أخرى وإدخال الرمز الصحيح لتأكيد حسابك."),
+        "yes": MessageLookupByLibrary.simpleMessage("نعم"),
         "yesCancel": MessageLookupByLibrary.simpleMessage("نعم، إلغاء"),
+        "youDontHaveAnyFavoriteProducts":
+            MessageLookupByLibrary.simpleMessage("ليس لديك أي منتجات مفضلة"),
         "youHaveNoOrdersYet":
-            MessageLookupByLibrary.simpleMessage("ليس لديك أي طلبات حاليًا")
+            MessageLookupByLibrary.simpleMessage("ليس لديك أي طلبات حاليًا"),
+        "yourBagIsEmpty":
+            MessageLookupByLibrary.simpleMessage("سلة التسوق الخاصة بك فارغة"),
+        "yourOrderIsReadyForDelivery":
+            MessageLookupByLibrary.simpleMessage("طلبك جاهز للتسليم")
       };
 }

@@ -37,18 +37,6 @@ class _CategoriesViewState extends State<CategoriesView> {
                       Gap(20.h),
                       state.maybeWhen(
                         loading: () {
-                          // return ListView.builder(
-                          //   scrollDirection: Axis.vertical,
-                          //   shrinkWrap: true,
-                          //   physics: const NeverScrollableScrollPhysics(),
-                          //   itemCount: 10,
-                          //   itemBuilder: (ctx, index) {
-                          //     return const CategoryLoadingWidget().redacted(
-                          //       context: ctx,
-                          //       redact: true,
-                          //     );
-                          //   },
-                          // );
                           return const StateLoadingWidget();
                         },
                         success: (state) {

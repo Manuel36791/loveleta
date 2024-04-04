@@ -122,6 +122,8 @@
   "seeAll": "عرض الكل",
 
   "@_Settings": {},
+  "updateProfile": "تحديث الملف الشخصي",
+  "favorites": "المفضلة",
   "language": "اللغة",
   "privacyPolicy": "سياسة الخصوصية",
   "privacyDes": "تصف سياسة الخصوصية لدينا كيفية جمعنا ومعالجة معلوماتك الشخصية، مثل المعلومات التي تقدمها من خلال تطبيقنا. توضح السياسة أيضًا حقوقك فيما يتعلق بمعلوماتك الشخصية، وكيفية الاحتفاظ بها، وتأمينها. التواصل: يتم توفير قنوات تواصل مختلفة في حالة وجود أي أسئلة أو استفسارات حول سياسة الخصوصية. يمكنك التحدث مع الفريق من خلال التطبيق، أو الاتصال بالرقم المحدد، أو الاتصال بهم عبر البريد الإلكتروني. التحديثات: في حالة وجود أي تغييرات في طريقة معالجة المعلومات الشخصية أو في السياسة نفسها، ستتلقى إشعارًا عاجلاً عبر البريد الإلكتروني وسيتم تحديث التطبيق.",
@@ -215,5 +217,49 @@
         "type": "String"
       }
     }
-  }
+  },
+  "orderAccepted": "تم قبول الطلب",
+  "orderPreparedForDelivery": "تم تجهيز الطلب للتسليم",
+  "yourOrderIsReadyForDelivery": "طلبك جاهز للتسليم",
+  "orderSuccessfullyDelivered": "تم تسليم الطلب بنجاح",
+
+  "@_Address": {},
+  "addNewAddress": "إضافة عنوان جديد",
+  "address": "العنوان",
+  "buildingNo": "رقم المبنى",
+  "flatNo": "رقم الشقة",
+  "country": "البلد",
+  "city": "المدينة",
+  "postalCode": "الرمز البريدي",
+  "addAddress": "إضافة العنوان",
+  "chooseAddress": "اختر العنوان",
+
+  "@_Cart": {},
+  "completePayment": "إكمال الدفع",
+  "yourBagIsEmpty": "سلة التسوق الخاصة بك فارغة",
+
+  "@_Favorites": {},
+  "youDontHaveAnyFavoriteProducts": "ليس لديك أي منتجات مفضلة",
+
+  "@_UpdateProfile": {},
+  "accountUpdatedSuccessfully": "تم تحديث الحساب بنجاح",
+  "accountDeletedSuccessfully": "تم حذف الحساب بنجاح، ستتم تسجيل الخروج.",
+  "areYouSureDelete": "هل أنت متأكد أنك تريد حذف حسابك؟",
+  "no": "لا",
+  "yes": "نعم",
+  "deleteAccount": "حذف الحساب",
+  "update": "تحديث",
+
+  "@_OrderSummary": {},
+  "confirmOrder": "تأكيد الطلب",
+  "pleaseConfirmProceedWithYourOrder": "يرجى تأكيد ومتابعة طلبك",
+  "recipientInfo": "معلومات المستلم",
+  "name": "الاسم",
+  "addPromoCode": "إضافة رمز ترويجي",
+  "enterYourPromoCode": "ادخل رمز الترويج الخاص بك",
+  "applyCoupon": "تطبيق الكوبون",
+  "orderSummary": "ملخص الطلب",
+  "orderPlacedSuccessfully": "تم تقديم الطلب بنجاح",
+  "orderFailedPleaseTryAgain": "فشل الطلب، يرجى المحاولة مرة أخرى",
+  "placeOrder": "تقديم الطلب"
 }

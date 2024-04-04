@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/dimensions.dart';
+import '../../../../../generated/l10n.dart';
 
 class OrderProductCard extends StatelessWidget {
   final String? imageUrl;
@@ -66,8 +67,8 @@ class OrderProductCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(productName!),
-                Text("$price SAR",),
-                Text("QTY: $quantity")
+                Text(S.of(context).sar(price.toString()),),
+                Text(S.of(context).qty(quantity.toString()),),
               ],
             ),
           ),

@@ -256,22 +256,22 @@ class _TrackOrderViewState extends State<TrackOrderView> {
                           ),
                           Gap(16.h),
                           TrackTile(
-                            message: "Order accepted",
+                            message: S.of(context).orderAccepted,
                             date: widget.orderDetails.updatedAt!,
                           ),
                           Gap(55.h),
                           TrackTile(
-                            message: "Order preparation",
+                            message: S.of(context).orderPreparedForDelivery,
                             date: widget.orderDetails.updatedAt!,
                           ),
                           Gap(55.h),
                           TrackTile(
-                            message: "Your order is ready for delivery",
+                            message: S.of(context).yourOrderIsReadyForDelivery,
                             date: widget.orderDetails.updatedAt!,
                           ),
                           Gap(55.h),
                           TrackTile(
-                            message: "Order successfully delivered",
+                            message: S.of(context).orderSuccessfullyDelivered,
                             date: widget.orderDetails.updatedAt!,
                           ),
                           Gap(55.h),
