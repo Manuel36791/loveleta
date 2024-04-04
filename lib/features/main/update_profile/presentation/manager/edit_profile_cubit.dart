@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:loveleta/core/helpers/cache_helper.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../../../../core/shared/models/user_data_model.dart';
@@ -77,12 +76,9 @@ class EditProfileCubit extends Cubit<EditProfileStates> {
 
 
   userData() async {
-    var pass = await CacheHelper.getData("pass");
     firstNameCtrl.sink.add(UserData.firstName!);
     lastNameCtrl.sink.add(UserData.lastName!);
     phoneCtrl.sink.add(UserData.phone!);
-    passCtrl.sink.add(pass);
-    passConfCtrl.sink.add(pass);
   }
 
 }

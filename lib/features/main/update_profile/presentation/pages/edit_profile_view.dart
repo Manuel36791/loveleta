@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:loveleta/core/utils/extensions.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../../core/dependency_injection/di.dart' as di;
 import '../../../../../../core/shared/models/user_data_model.dart';
@@ -96,42 +95,14 @@ class _UpdateProfileViewState extends State<UpdateProfileView> {
                     ),
                     Gap(10.h),
                     CustomFormField(
+                      stream: const Stream.empty(),
                       label: S.of(context).password,
-                      stream: editProfileCubit.passStream,
-                      initValue: editProfileCubit.passCtrl.value,
+                      initValue: "123456789",
                       onChanged: (newPass) {
                         editProfileCubit.passCtrl.sink.add(newPass);
                       },
-                      isPassword: isPass,
-                      postIcon: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isPass = !isPass;
-                          });
-                        },
-                        child:
-                            isPass ? Icon(MdiIcons.eye) : Icon(MdiIcons.eyeOff),
-                      ),
-                    ),
-                    Gap(10.h),
-                    CustomFormField(
-                      label: S.of(context).passwordConfirmation,
-                      stream: editProfileCubit.passConfStream,
-                      initValue: editProfileCubit.passConfCtrl.value,
-                      onChanged: (newPassConf) {
-                        editProfileCubit.passConfCtrl.sink.add(newPassConf);
-                      },
-                      isPassword: isPassConf,
-                      postIcon: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isPassConf = !isPassConf;
-                          });
-                        },
-                        child: isPassConf
-                            ? Icon(MdiIcons.eye)
-                            : Icon(MdiIcons.eyeOff),
-                      ),
+                      readOnly: true,
+                      isPassword: true,
                     ),
                     Gap(10.h),
                     Row(
