@@ -101,7 +101,7 @@ class ProductCard extends StatelessWidget {
                 Gap(20.h),
                 Align(
                   alignment: Alignment.center,
-                  child: product.isExpress == true
+                  child: product.isExpress == 1
                       ? Container(
                           padding: EdgeInsets.symmetric(
                             horizontal: Dimensions.p8.w,

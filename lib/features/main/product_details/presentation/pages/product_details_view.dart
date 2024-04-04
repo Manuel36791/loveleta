@@ -194,7 +194,6 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                                     onTap: () {
                                       setState(() {
                                         imageIndex = index;
-                                        print(imageIndex);
                                       });
                                     },
                                     child: CachedNetworkImage(

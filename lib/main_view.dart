@@ -27,14 +27,20 @@ class _MainViewState extends State<MainView> {
           create: (context) => InternetCubit(),
         ),
         BlocProvider(
-          create: (context) => di.di<LoginCubit>()..rememberMe(),
+          create: (context) => di.di<LoginCubit>(),
         ),
       ],
       child: BlocConsumer<InternetCubit, InternetStates>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          LoginCubit loginCubit = LoginCubit.get(context);
+          if (state == InternetStates.gained) {
+            loginCubit.rememberMe(context);
+          }
+        },
         builder: (context, state) {
           return BlocConsumer<LoginCubit, LoginStates>(
             listener: (context, loginState) {
+
               loginState.maybeWhen(
                 success: (state) async {
                   if (state.status == 1) {

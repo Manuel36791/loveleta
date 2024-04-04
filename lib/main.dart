@@ -85,6 +85,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
+
     super.initState();
     locale = widget.currentLang;
 
@@ -131,7 +132,7 @@ class _MyAppState extends State<MyApp> {
           ),
         );
       },
-      child: const MainView(),
+      child:const MainView(),
     );
   }
 }

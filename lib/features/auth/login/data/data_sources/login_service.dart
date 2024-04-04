@@ -16,12 +16,6 @@ class LoginServiceImpl implements LoginService {
     Dio dio = await DioFactory.getDio();
     LoginModel loginModel = const LoginModel();
 
-    // (dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () {
-    //   HttpClient dioClient = HttpClient();
-    //   dioClient.badCertificateCallback =
-    //   ((X509Certificate cert, String host, int port) => true);
-    //   return dioClient;
-    // };
     final loginUser = await dio.post(
       AppConstants.loginUri,
       data: LoginModel.toJson(loginEntity),

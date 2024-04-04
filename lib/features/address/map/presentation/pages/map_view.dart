@@ -39,7 +39,7 @@ class _MapViewState extends State<MapView> {
         builder: (context, state) {
           MapsCubit mapsCubit = MapsCubit.get(context);
           return Scaffold(
-            appBar: AppBar(title: Text("Choose Address")),
+            appBar: AppBar(title: const Text("Choose Address")),
             body: SafeArea(
               child: Stack(
                 children: [
@@ -56,7 +56,7 @@ class _MapViewState extends State<MapView> {
                           latLng.latitude,
                           latLng.longitude,
                         ),
-                        infoWindow: InfoWindow(
+                        infoWindow: const InfoWindow(
                           title: "New Address",
                         ),
                         icon: BitmapDescriptor.defaultMarker,

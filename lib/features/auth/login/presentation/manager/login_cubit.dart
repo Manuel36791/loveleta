@@ -1,6 +1,8 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:loveleta/core/router/router.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -74,7 +76,7 @@ class LoginCubit extends Cubit<LoginStates> {
     );
   }
 
-  rememberMe() async {
+  rememberMe(BuildContext context) async {
     var email = await CacheHelper.getData("email");
     var pass = await CacheHelper.getData("pass");
 
@@ -101,7 +103,9 @@ class LoginCubit extends Cubit<LoginStates> {
         },
       );
     } else {
-
+      if(context.mounted){
+        context.pushNamed(loginPageRoute);
+      }
     }
   }
 }
