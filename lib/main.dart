@@ -1,9 +1,15 @@
+import 'dart:io';
+
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:loveleta/core/utils/extensions.dart';
+import 'core/resources/firebase/firebase_resources.dart';
+import 'core/utils/app_constants.dart';
 import 'firebase_options.dart';
 import 'core/database/address_class.dart';
 import 'core/dependency_injection/di.dart' as di;
@@ -41,12 +47,12 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  // await Firebase.initializeApp();
-  // if (Platform.isAndroid) {
-  //   FireBaseResources().android();
-  // } else if (Platform.isIOS) {
-  //   FireBaseResources().ios();
-  // }
+  await Firebase.initializeApp();
+  if (Platform.isAndroid) {
+    FireBaseResources().android();
+  } else if (Platform.isIOS) {
+    FireBaseResources().ios();
+  }
 
   var currentLocale = await CacheHelper.getAppLang();
   var email = await CacheHelper.getData("email");
@@ -89,19 +95,12 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     locale = widget.currentLang;
 
-    // FirebaseMessaging.onMessage.listen(
-    //       (RemoteMessage message) {
-    //     context.defaultSnackBar(
-    //         message.notification?.title ?? AppConstants.unknownStringValue);
-    //   },
-    // );
-    // var email = CacheHelper.getData("email");
-    // var pass = CacheHelper.getData("pass");
-    // if (email == null && pass == null || email == "" && pass == "") {
-    //   context.pushNamed(mainView);
-    // } else {
-    //    LoginService
-    // }
+    FirebaseMessaging.onMessage.listen(
+          (RemoteMessage message) {
+        context.defaultSnackBar(
+            message.notification?.title ?? AppConstants.unknownStringValue);
+      },
+    );
   }
 
   @override
