@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:loveleta/core/utils/extensions.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../../../core/helpers/cache_helper.dart';
 import '../../../../../core/router/router.dart';
 import '../../../../../core/shared/arguments.dart';
 import '../../../../../core/shared/widgets/custom_app_bar.dart';
@@ -112,6 +113,7 @@ class _SettingsViewState extends State<SettingsView> {
                                     MyApp.setLocale(
                                         context, const Locale("en"));
                                   });
+                                  CacheHelper.changeAppLanguage("en");
                                   context.pop();
                                 },
                                 child: Row(
@@ -144,6 +146,7 @@ class _SettingsViewState extends State<SettingsView> {
                                     MyApp.setLocale(
                                         context, const Locale("ar"));
                                   });
+                                  CacheHelper.changeAppLanguage("ar");
                                   context.pop();
                                 },
                                 child: Row(

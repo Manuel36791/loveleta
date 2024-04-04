@@ -66,12 +66,29 @@ class CacheHelper {
     }
   }
 
-  // MARK: - Change Language Of The Application
-  static Future<void> changeAppLanguage() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String currentLang = await getAppLang();
+  // //  Change Language Of The Application
+  // static Future<void> changeAppLanguage() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   String currentLang = await getAppLang();
+  //
+  //   if (currentLang == LanguageType.ARABIC.getValue()) {
+  //     // set english
+  //     prefs.setString(
+  //         AppConstants.prefsLangKey, LanguageType.ENGLISH.getValue());
+  //   } else {
+  //     // set arabic
+  //     prefs.setString(
+  //         AppConstants.prefsLangKey, LanguageType.ARABIC.getValue());
+  //   }
+  // }
 
-    if (currentLang == LanguageType.ARABIC.getValue()) {
+  // MARK: - Change Language Of The Application
+
+  static Future<void> changeAppLanguage(String currentLang) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    // String currentLang = await getAppLang();
+
+    if (currentLang != LanguageType.ARABIC.getValue()) {
       // set english
       prefs.setString(
           AppConstants.prefsLangKey, LanguageType.ENGLISH.getValue());
