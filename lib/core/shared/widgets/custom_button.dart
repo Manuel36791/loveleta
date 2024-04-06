@@ -22,7 +22,7 @@ class CustomBtn extends StatelessWidget {
     this.label,
     this.onPressed,
     this.isUpperCase = false,
-    this.borderRadius = Dimensions.r10,
+    this.borderRadius = Dimensions.r12,
     this.fgColor = AppColors.textWhite,
     this.bgColor = AppColors.pinkPrimary,
     this.textStyle,
@@ -45,7 +45,7 @@ class CustomBtn extends StatelessWidget {
           ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              Dimensions.r12,
+              borderRadius,
             ),
           ),
           backgroundColor: bgColor,
