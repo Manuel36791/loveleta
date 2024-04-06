@@ -14,14 +14,18 @@ import 'package:loveleta/features/main/home/presentation/manager/best_seller_cub
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../core/dependency_injection/di.dart' as di;
+import '../../../../../core/shared/models/user_data_model.dart';
 import '../../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../../core/shared/widgets/product_card.dart';
 import '../../../../../core/shared/widgets/state_error_widget.dart';
 import '../../../../../core/shared/widgets/state_loading_widget.dart';
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/app_constants.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/utils/dimensions.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../../auth/fcm_token/domain/entities/token_entity.dart';
+import '../../../../auth/fcm_token/presentation/manager/token_cubit.dart';
 import '../../../categories/domain/entities/category_entity.dart';
 import '../../../categories/presentation/manager/category_cubit.dart';
 import '../manager/new_products_cubit/new_products_cubit.dart';
@@ -60,6 +64,15 @@ class HomeView extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => di.di<BestSellerCubit>()..getBestSellers(1),
+          ),
+          BlocProvider(
+            create: (context) => di.di<TokenCubit>()
+              ..updateFcmToken(
+                TokenEntity(
+                  userId: UserData.id,
+                  token: AppConstants.fcmToken,
+                ),
+              ),
           ),
         ],
         child: BlocConsumer<CategoryCubit, CategoryStates>(
