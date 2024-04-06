@@ -27,3 +27,4 @@ const String cartViewPageRoute = '/cartView';
 const String paymentSummaryPageRoute = '/paymentSummary';
 const String updateProfilePageRoute = '/updateProfile';
 const String favoritesPageRoute = '/favorites';
+const String searchPageRoute = '/search';
