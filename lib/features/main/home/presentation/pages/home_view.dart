@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -88,31 +89,36 @@ class HomeView extends StatelessWidget {
                     child: Column(
                       children: [
                         Gap(20.h),
-                        Container(
-                          width: context.queryWidth.w,
-                          padding: const EdgeInsets.all(Dimensions.p8),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.black,
-                            ),
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(Dimensions.r5),
-                            ),
-                          ),
-                          child: Row(
-                            children: [
-                              Icon(
-                                MdiIcons.magnify,
-                                size: Dimensions.f22,
+                        GestureDetector(
+                          onTap: () {
+                            context.pushNamed(searchPageRoute);
+                          },
+                          child: Container(
+                            width: context.queryWidth.w,
+                            padding: const EdgeInsets.all(Dimensions.p8),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.black,
                               ),
-                              Gap(10.w),
-                              Text(
-                                S.of(context).search,
-                                style: CustomTextStyle.kTextStyleF14.copyWith(
-                                  color: AppColors.textGrey,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(Dimensions.r5),
+                              ),
+                            ),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  MdiIcons.magnify,
+                                  size: Dimensions.f22,
                                 ),
-                              ),
-                            ],
+                                Gap(10.w),
+                                Text(
+                                  S.of(context).search,
+                                  style: CustomTextStyle.kTextStyleF14.copyWith(
+                                    color: AppColors.textGrey,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         Gap(20.h),

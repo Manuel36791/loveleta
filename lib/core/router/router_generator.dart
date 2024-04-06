@@ -24,6 +24,7 @@ import '../../features/main/home/presentation/manager/products_by_category/produ
 import '../../features/main/home/presentation/pages/best_seller_see_more_view.dart';
 import '../../features/main/home/presentation/pages/new_products_see_more_view.dart';
 import '../../features/main/product_details/presentation/pages/product_details_view.dart';
+import '../../features/main/search/presentation/pages/search_view.dart';
 import '../../features/main/see_more/presentation/pages/see_more_view.dart';
 import '../../features/main/subcategory_products/presentation/pages/category_details.dart';
 import '../../features/main/home/presentation/pages/home_view.dart';
@@ -212,6 +213,11 @@ class AppRouters {
       case mapPageRoute:
         return MaterialPageRoute(
           builder: (BuildContext context) => const MapView(),
+        );
+
+        case searchPageRoute:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => const SearchView(),
         );
 
       default:
